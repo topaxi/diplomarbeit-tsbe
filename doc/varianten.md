@@ -7,3 +7,6 @@
 - Postgres vs MariaDB
 - Hosting
 - Deployment (Docker/VPS)
+- User Tracking (Google Analytics?)
+- Error Reporting (Sentry?)
+- Monitoring?

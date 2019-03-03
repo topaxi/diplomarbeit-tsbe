@@ -13,3 +13,7 @@ Dont:
 - Backup Konzept
 - Hardware
 - Server installation
+
+TBD:
+
+- Monitoring
