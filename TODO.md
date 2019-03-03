@@ -3,11 +3,19 @@
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
   - Projektauftrag
+    - Soll/Ist
+    - Ziele
+    - Projektplan
   - Abgrenzungen
   - Organigram
+    - Projektorganisation / Verantwortlichkeit
   - Terminplan
   - Wirtschaftlichkeit (Break-even Analysis)
   - Studie
+    - Vorgehen Informationsbeschaffung
+    - Analyse & Evaluation
+    - Planung Wirtschaftlichkeit & Kostenrechnung
+    - Realisierungsvorschlag
   - Pflichtenheft
   - Lösungsvarianten
   - Kosten
@@ -20,7 +28,10 @@
 
 - Anhang
   x Projekteingabe
+
   - Projektplan
+    - Beschaffungsplan (domain/hosting)
+    - Reporting
   - Projektinitalisierung
   - Studie
   - Konzept

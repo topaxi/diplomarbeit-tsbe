@@ -1,4 +1,5 @@
 Do:
+
 - Screen Design
 - Entwicklung
 - Testing
@@ -6,6 +7,8 @@ Do:
 - Datenbank
 
 Dont:
+
+- Datenabfüllung
 - Datenschutz
 - Backup Konzept
 - Hardware

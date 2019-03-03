@@ -1,0 +1,3 @@
+# Bewertungskriterien
+
+- Vorkenntnisse
