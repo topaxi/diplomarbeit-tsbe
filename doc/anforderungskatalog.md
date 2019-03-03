@@ -5,6 +5,8 @@
 - Browserunterstützung
 - Erfassen von Konzertlocation
 - Erfassen von Konzert
+- Performance Webapp
+  - Page load weniger als 6sek mit 3G netz
 
 ## Kann
 
