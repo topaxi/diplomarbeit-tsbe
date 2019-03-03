@@ -1,0 +1,14 @@
+documentclass: book
+classoption:
+  - oneside
+title: Diplomarbeit
+author: Damian Senn (<damian.senn@gmail.com>)
+date: \today
+geometry: margin=1.75in
+fontsize: 12pt
+fontfamily: Source Sans Pro
+monofont: Fira Code
+toc: true
+colorlinks: true
+linkcolor: RoyalBlue
+urlcolor: RoyalBlue
