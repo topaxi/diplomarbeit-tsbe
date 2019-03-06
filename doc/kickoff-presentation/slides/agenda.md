@@ -1,4 +1,4 @@
-# Agenda
+## Agenda
 
 - Ausgangslage
 - Projekt-Bedürfnisse und -Ziele

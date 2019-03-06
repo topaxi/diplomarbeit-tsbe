@@ -1,4 +1,4 @@
-# Projektablauf
+## Projektablauf
 
 - Initialisierung
 - Konzept
@@ -7,7 +7,7 @@
 
 ---
 
-# Initialisierung
+## Initialisierung
 
 - Projektplanung
 - Pflichtenheft
@@ -16,7 +16,7 @@
 
 ---
 
-# Konzept
+## Konzept
 
 - Konzept Design
 - Konzept Software
@@ -25,7 +25,7 @@
 
 ---
 
-# Realisierung
+## Realisierung
 
 - Infrastruktur
 - Implementation
@@ -35,7 +35,7 @@
 
 ---
 
-# Einführung
+## Einführung
 
 - Go-Life
 - Abschlussbericht
