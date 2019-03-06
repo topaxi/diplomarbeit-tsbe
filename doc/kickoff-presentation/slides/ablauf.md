@@ -1,11 +1,20 @@
 # Projektablauf
 
+- Initialisierung
+- Konzept
+- Realisierung
+- Einführung
+
+---
+
 # Initialisierung
 
 - Projektplanung
 - Pflichtenheft
 - Studie
 - Projektauftrag
+
+---
 
 # Konzept
 
@@ -14,6 +23,8 @@
 - Konzept Deployment
 - Konzept Testing
 
+---
+
 # Realisierung
 
 - Infrastruktur
@@ -21,6 +32,8 @@
 - Konfiguration
 - Dokumentation
 - Tests
+
+---
 
 # Einführung
 

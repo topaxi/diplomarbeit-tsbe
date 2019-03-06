@@ -1,10 +1,10 @@
 # Agenda
 
+- Ausgangslage
 - Projekt-Bedürfnisse und -Ziele
-- Projektorganisation / Vorstellung Teilnehmer
+- Abgrenzungen
+- Projektorganisation
 - Projektablauf und Ressourcenbedarf
-- Rahmenbedingungen und Abgrenzungen
 - Wirtschaftlichkeit(?)
 - Lieferobjekte
 - Organisatorisches
-- Fragen

@@ -1,0 +1,176 @@
+@font-face {
+  font-family: 'PT Sans';
+  src: url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/BoldItalic/PTS76F-webfont.svg#pt_sansbold_italic)
+      format('svg');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Bold/PTS75F-webfont.svg#pt_sansbold)
+      format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans Caption';
+  src: url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionBold/PTC75F-webfont.svg#pt_sans_captionbold)
+      format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans Caption';
+  src: url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/CaptionRegular/PTC55F-webfont.svg#pt_sans_captionregular)
+      format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Italic/PTS56F-webfont.svg#pt_sansitalic)
+      format('svg');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PT Sans Narrow';
+  src: url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowBold/PTN77F-webfont.svg#pt_sans_narrowbold)
+      format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans Narrow';
+  src: url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/NarrowRegular/PTN57F-webfont.svg#pt_sans_narrowregular)
+      format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.eot);
+  src: url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.eot?#iefix)
+      format('embedded-opentype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.woff2)
+      format('woff2'),
+    url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.woff)
+      format('woff'),
+    url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.ttf)
+      format('truetype'),
+    url(https://topaxi.ch/fonts/PT_Sans/Regular/PTS55F-webfont.svg#pt_sansregular)
+      format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.reveal .controls,
+.reveal .progress {
+  color: #31877a;
+}
+
+.reveal .progress {
+  top: 0;
+  bottom: unset;
+  height: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.author,
+.author > a {
+  color: #273130;
+  text-shadow: 0 1px 0 #31877a !important;
+  text-transform: unset !important;
+  font-family: 'PT Sans', sans-serif !important;
+}
+
+.author {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 4vh !important;
+  z-index: 42;
+}
+
+.author > a:hover {
+  color: #36403f;
+  text-shadow: 0 1px 0 #469c8f !important;
+}
+
+.intro {
+  display: flex !important;
+  align-items: center;
+  height: 100%;
+}
+
+.left {
+  text-align: left;
+}
