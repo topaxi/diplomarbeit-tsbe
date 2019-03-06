@@ -174,3 +174,8 @@ h6,
 .left {
   text-align: left;
 }
+
+.no-img-border img {
+  border: none !important;
+  box-shadow: none !important;
+}

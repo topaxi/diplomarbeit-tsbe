@@ -1,7 +1,8 @@
 ## Agenda
 
 - Ausgangslage
-- Projekt-Bedürfnisse und -Ziele
+  - Projekt-Bedürfnisse
+- Projektziele
 - Abgrenzungen
 - Projektorganisation
 - Projektablauf und Ressourcenbedarf
