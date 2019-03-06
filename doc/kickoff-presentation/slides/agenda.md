@@ -5,7 +5,6 @@
 - Projektziele
 - Abgrenzungen
 - Projektorganisation
-- Projektablauf und Ressourcenbedarf
-- Wirtschaftlichkeit(?)
-- Lieferobjekte
+- Projektablauf und Projektplan
+- Wirtschaftlichkeit
 - Organisatorisches
