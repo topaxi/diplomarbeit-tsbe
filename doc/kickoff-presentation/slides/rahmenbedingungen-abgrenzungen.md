@@ -1,5 +1,5 @@
 <!-- .slide: class="no-img-border" -->
 
-## Rahmenbedingungen und Abgrenzungen
+### Abgrenzungen
 
 ![Abgrenzungen](pictures/abgrenzungen.svg)

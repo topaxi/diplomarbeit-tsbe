@@ -10,7 +10,7 @@
 ## Initialisierung
 
 - Projektplanung
-- Pflichtenheft
+- Anforderungskatalog
 - Studie
 - Projektauftrag
 
