@@ -18,4 +18,4 @@
 - Suchen nach Konzerten nach Ort und Zeit
 - Filterung nach Musik-Genre
 - Moderne responsive Webapplikation
-- Aufwandreduzierung für Erfassen von Events
+- Aufwandreduzierung für Erfassung von Events
