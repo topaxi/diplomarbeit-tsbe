@@ -5,6 +5,7 @@ Do:
 - Testing
 - Deployment
 - Datenbank
+- Monitoring
 
 Dont:
 
@@ -13,7 +14,3 @@ Dont:
 - Backup Konzept
 - Hardware
 - Server installation
-
-TBD:
-
-- Monitoring
