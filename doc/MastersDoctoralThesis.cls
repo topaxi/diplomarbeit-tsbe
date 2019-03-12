@@ -21,9 +21,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	CLASS DEFINITION AND PARAMETERS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% CLASS DEFINITION AND PARAMETERS
+%------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
 \newcommand{\classname}{MastersDoctoralThesis}
@@ -127,9 +127,9 @@
 	}%
 }%
 
-%----------------------------------------------------------------------------------------
-%	CLASS OPTIONS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% CLASS OPTIONS
+%------------------------------------------------------------------------------
 
 \ifbool{parskip}{\RequirePackage{parskip}} % If the parskip option is passed to the class, require the parskip package 
 
@@ -179,9 +179,9 @@
 }{}
 
 
-%----------------------------------------------------------------------------------------
-%	REQUIRED PACKAGES
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% REQUIRED PACKAGES
+%------------------------------------------------------------------------------
 
 \RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
 
@@ -197,16 +197,16 @@
 
 \RequirePackage{graphicx} % Required to include images
 \RequirePackage{pdfpages}
-\graphicspath{{Figures/}{./}} % Specifies where to look for included images
+\graphicspath{{figures/}{./}} % Specifies where to look for included images
 
 \RequirePackage{booktabs} % Required for better table rules
 
 \RequirePackage{caption} % Required for customising the captions
 \captionsetup{justification=centerlast,font=small,labelfont=sc,margin=50pt}
 
-%----------------------------------------------------------------------------------------
-%	DEFINE CUSTOM THESIS INFORMATION COMMANDS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% DEFINE CUSTOM THESIS INFORMATION COMMANDS
+%------------------------------------------------------------------------------
 
 \NewDocumentCommand{\thesistitle} { o m }{%
  \IfValueTF{#1}{\def\shorttitle{#1}}{\def\shorttitle{#2}}%
@@ -241,17 +241,17 @@
 	\addcontentsline{toc}{chapter}{#1}%
 }
 
-%----------------------------------------------------------------------------------------
-%	COLOURS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% COLOURS
+%------------------------------------------------------------------------------
 
 \usepackage{xcolor} % Required for specifying custom colours
 
 \colorlet{mdtRed}{red!50!black}
 
-%----------------------------------------------------------------------------------------
-%	MARGINS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% MARGINS
+%------------------------------------------------------------------------------
 
 \RequirePackage{geometry}
 \geometry{
@@ -262,9 +262,9 @@
 
 \raggedbottom
 
-%----------------------------------------------------------------------------------------
-%	PENALTIES
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% PENALTIES
+%------------------------------------------------------------------------------
 
 \doublehyphendemerits=10000 % No consecutive line hyphens
 \brokenpenalty=10000 % No broken words across columns/pages
@@ -272,9 +272,9 @@
 \clubpenalty=9999 % Almost no orphans at top of page
 \interfootnotelinepenalty=9999 % Almost never break footnotes
 
-%----------------------------------------------------------------------------------------
-%	HEADERS AND FOOTERS
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% HEADERS AND FOOTERS
+%------------------------------------------------------------------------------
 
 \RequirePackage[markcase=used]{scrlayer-scrpage}
 \providepairofpagestyles{thesisSimple}{%
@@ -317,9 +317,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\if@twocolumn\hbox{}\newpage\fi\fi\fi%
 }
 
-%----------------------------------------------------------------------------------------
-%	ABBREVIATIONS PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% ABBREVIATIONS PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \newcommand{\abbrevname}{List of Abbreviations}
 \providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
@@ -334,9 +334,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\ifbool{nolistspace}{\endgroup}{}
 }
 
-%----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% ABSTRACT PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \DeclareDocumentCommand{\abstractauthorfont}{}{}
 \DeclareDocumentCommand{\abstracttitlefont}{}{}
@@ -405,9 +405,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\vfill\null
 }
 
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% ACKNOWLEDGEMENTS PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \usepackage{xcolor}
 \colorlet{mdtRed}{red!50!black}
@@ -433,9 +433,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}
 }
 
-%----------------------------------------------------------------------------------------
-%	DECLARATION PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% DECLARATION PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \newcommand{\authorshipname}{Declaration of Authorship}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
@@ -455,9 +455,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}{}
 }
 
-%----------------------------------------------------------------------------------------
-%	DEDICATION PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% DEDICATION PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \ifbool{consistentlayout}{
 	\DeclareDocumentCommand{\dedicatory}{
@@ -479,9 +479,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 
-%----------------------------------------------------------------------------------------
-%	PHYSICAL CONSTANTS PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% PHYSICAL CONSTANTS PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \newcommand{\constantsname}{Physical Constants}
 \providecaptionname{english,british,american}{\constantsname}{Physical Constants}
@@ -497,9 +497,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\ifbool{nolistspace}{\endgroup}{}
 }
 
-%----------------------------------------------------------------------------------------
-%	SYMBOLS PAGE DESIGN
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% SYMBOLS PAGE DESIGN
+%------------------------------------------------------------------------------
 
 \newcommand{\symbolsname}{List of Symbols}
 \providecaptionname{english,british,american}{\symbolsname}{List of Symbols}
@@ -515,7 +515,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 	\ifbool{nolistspace}{\endgroup}{}
 }
 
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 
 \ifbool{hyperrefsupport}{% If the nohyperref class option has not been specified
 \AtEndPreamble{\RequirePackage{hyperref}
@@ -539,7 +539,7 @@ breaklinks=true,
 }{%nothing
 }
 
-%----------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
 
 \RequirePackage{blindtext}
 \RequirePackage[explicit]{titlesec}
