@@ -550,6 +550,7 @@ breaklinks=true,
   {}{}{0pt}{}
 }
 
+\renewcommand{\arraystretch}{1.2}
 
 \endinput
 % lazyLizardTracer
