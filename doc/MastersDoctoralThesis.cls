@@ -204,6 +204,8 @@
 \RequirePackage{caption} % Required for customising the captions
 \captionsetup{justification=centerlast,font=small,labelfont=sc,margin=50pt}
 
+\RequirePackage{pdflscape}
+
 %------------------------------------------------------------------------------
 % DEFINE CUSTOM THESIS INFORMATION COMMANDS
 %------------------------------------------------------------------------------
