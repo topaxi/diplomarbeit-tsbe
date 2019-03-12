@@ -235,8 +235,9 @@ The acknowledgments and the people to thank go here, don't forget to include you
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-\label{AppendixA}
-\includepdf[pages=-]{eingabe/Projektinitialisierungsauftrag.pdf}
+\includepdf[pages=1,pagecommand={\Hide\chapter{Projektinitialisierungsauftrag}}]{eingabe/Projektinitialisierungsauftrag.pdf}
+\includepdf[pages=2-,pagecommand={}]{eingabe/Projektinitialisierungsauftrag.pdf}
+
 \include{initialisierung/projektauftrag}
 \include{initialisierung/studie}
 

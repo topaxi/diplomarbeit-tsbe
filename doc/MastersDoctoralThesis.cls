@@ -541,5 +541,15 @@ breaklinks=true,
 
 %----------------------------------------------------------------------------------------
 
+\RequirePackage{blindtext}
+\RequirePackage[explicit]{titlesec}
+\newcommand*\Hide{%
+\titleformat{\chapter}[display]
+  {}{}{0pt}{\Huge}
+\titleformat{\part}
+  {}{}{0pt}{}
+}
+
+
 \endinput
 % lazyLizardTracer
