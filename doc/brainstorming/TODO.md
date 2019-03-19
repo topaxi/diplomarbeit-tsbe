@@ -1,5 +1,8 @@
 - Dokumentvorlage
 
+- RISIKEN!
+- Kill "Voranalyse" and move into Studie
+
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
   - Projektauftrag
