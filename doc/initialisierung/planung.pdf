@@ -2,7 +2,7 @@
 %%BoundingBox: (atend)
 %%Creator: (LibreOffice 5.4.6.2)
 %%For: (topaxi)
-%%CreationDate: (2019-03-27 14:55:05 )
+%%CreationDate: (2019-03-27 14:56:48 )
 %%Title: (planung.ods)
 %%LanguageLevel: 2
 %%DocumentData: Clean7Bit
@@ -3123,15 +3123,7 @@ show
 1507 459 moveto
 <2F>
 show
-2465 459 moveto
-(LiberationSansFID330HGSet2) cvn findfont 33 -33 matrix scale makefont setfont
-<1E>
-show
-2483 459 moveto
-<19>
-show
 82 503 moveto
-(LiberationSansFID330HGSet2) cvn findfont 30 -30 matrix scale makefont setfont
 <1D>
 show
 99 503 moveto
