@@ -3,6 +3,7 @@
 - Fix "gap" in Planung (KW 16)
 - RISIKEN!
 - Kill "Voranalyse" and move into Studie
+- Find "Diplomarbeit ID" für Titleblatt
 
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
