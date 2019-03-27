@@ -1,5 +1,6 @@
 - Dokumentvorlage
 
+- Fix "gap" in Planung (KW 16)
 - RISIKEN!
 - Kill "Voranalyse" and move into Studie
 
