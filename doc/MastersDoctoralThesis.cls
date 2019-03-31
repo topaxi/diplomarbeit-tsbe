@@ -442,7 +442,7 @@
 
 \newcommand{\authorshipname}{Declaration of Authorship}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Authentizität} % Declaration of Authorship text for Germanic countries
+\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Authentizit{\"a}t} % Declaration of Authorship text for Germanic countries
 
 \ifbool{consistentlayout}{
   \DeclareDocumentEnvironment{declaration}{}{
