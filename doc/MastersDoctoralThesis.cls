@@ -191,7 +191,7 @@
 
 \RequirePackage{setspace} % Required for changing line spacing
 
-\RequirePackage{longtable} % Required for tables that span multiple pages (used in the symbols, abbreviations and physical constants pages)
+\RequirePackage{longtable, multirow} % Required for tables that span multiple pages (used in the symbols, abbreviations and physical constants pages)
 
 \RequirePackage{siunitx} % Required for \SI commands
 

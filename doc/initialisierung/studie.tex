@@ -4,139 +4,60 @@
 
 \section{Informationsbeschaffung}\label{informationsbeschaffung}
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}lp{10cm}@{}}
   \toprule
   Quelle                        & Beschreibung\tabularnewline
   \toprule
-  Schulwissen / Berufserfahrung & \makecell[l]{Die Grundlage für die Umsetzung dieses Projekts   \\ wird durch mein existierendes Schulwissen sowie \\ meine langjährige Berufserfahrung in der \\ Software-Entwicklung gesetzt.} \tabularnewline
+  Schulwissen / Berufserfahrung & Die Grundlage für die Umsetzung dieses Projekts wird durch mein existierendes Schulwissen sowie meine langjährige Berufserfahrung in der Software-Entwicklung gesetzt.\tabularnewline
   \midrule
-  Internet                      & \makecell[l]{Ein Grossteil der Informationen werden heute über \\ das Internet bezogen, für die Evaluation von \\ Technologien und Lösungsansätzen wird einiges \\ über das Internet recherchiert werden müssen.} \tabularnewline
+  Internet                      & Ein Grossteil der Informationen werden heute über das Internet bezogen, für die Evaluation von Technologien und Lösungsansätzen wird einiges über das Internet recherchiert werden müssen.\tabularnewline
   \bottomrule
 \end{longtable}
 
+\clearpage
 \section{Pflichtenheft/Anforderungskatalog}\label{pflichtenheftanforderungskatalog}
 
-\subsection{Muss Kriterien}\label{muss-kriterien}
+% TODO: Fix multirows across pages
+%       https://tex.stackexchange.com/questions/79143/how-to-repeat-cell-content-on-next-page-for-longtable-using-multirow/79152
+\begin{longtable}[]{@{}p{1.9cm}p{2.5cm}cp{5.5cm}cc@{}}
+  \toprule
+  Feature                    & Titel                      & Nr. & Kriterium                                                                                                   & Ziel & Muss\tabularnewline
+  \midrule
+  \endhead
+  \multirow{10}{*}{Suche}    & Suche nach Konzertname     & 1.1 & Listet alle Konzerte die Wörter der Suche im Konzertnamen beinhalten                                        & 1.1  & \textbf{Muss}       \\ \cline{2-6}
+                             & Suche nach Konzertlocation & 1.2 & Schränkt die Such-Resultate nach gegebener Konzertlocation ein                                              & 1.2  & \textbf{Muss}       \\ \cline{2-6}
+                             & Suche nach Ort             & 1.2 & Schränkt die Such-Resultate nach gegebenem Ort ein                                                          & 1.2  & \textbf{Muss}       \\ \cline{2-6}
+                             & Suche nach Genre           & 1.2 & Schränkt die Such-Resultate nach gegebenem Musik-Genre ein                                                  & 1.2  & \textbf{Muss}       \\
+  \midrule
+  \multirow{8}{*}{Design}    & Desktop                    & 2.1 & Alle Ansichten haben eine Desktop-Optimierte Variante                                                       & 1.4  & \textbf{Muss}       \\ \cline{2-6}
+                             & Tablet                     & 2.2 & Alle Ansichten haben eine Tablet-Optimierte Variante                                                        & 1.4  & \textbf{Muss}       \\ \cline{2-6}
+                             & Mobile                     & 2.3 & Alle Ansichten haben eine Mobile-Optimierte Variante                                                        & 1.4  & \textbf{Muss}       \\ \cline{2-6}
+                             & Browser Kompatibilität     & 2.4 & Alle Ansichten müssen in aktuellem Google Chrome und Mozilla Firefox dem Grundlayout folgen                 & 1.9  & \textbf{Muss}       \\
+  \midrule
+  \multirow{4}{*}{SEO}       & Indexierbarkeit            & 3.1 & Das Produkt ist von Suchmaschinen indexierbar                                                               & 1.5  & \textbf{Muss}       \\ \cline{2-6}
+                             & Linked Data                & 3.2 & Konzert Detailseiten sind mit dem Event-Schema\footnote{https://schema.org/Event} ausgestattet              & 1.5  & \textbf{Muss}       \\
+  \midrule
+  \multirow{8}{*}{Benutzer}  & Registrierung              & 4.1 & Besucher können sich einen Benutzer registrieren, Benutzernamen und E-Mail Adressen müssen einzigartig sein & 1.6  & \textbf{Muss}       \\ \cline{2-6}
+                             & Passwort-Vergessen         & 4.2 & Benutzer können sich einen Passwort-Reset Link anfordern                                                    & 1.7  & \textbf{Muss}       \\ \cline{2-6}
+                             & Social                     & 4.3 & Benutzer können auf Konzerten vermerken ob sie Teilnehmen oder nicht                                        & 1.11 & Kann                \\
+  \midrule
+  \clearpage
+  \multirow{6}{*}{Erfassung} & Artist                     & 5.1 & Benutzer können Artisten mit einem Genre erfassen                                                           & 1.8  & \textbf{Muss}       \\ \cline{2-6}
+                             & Location                   & 5.2 & Benutzer können eine Konzertlocation mit Ort/Strasse erfassen                                               & 1.8  & \textbf{Muss}       \\ \cline{2-6}
+                             & Konzert                    & 5.3 & Benutzer können ein Konzert mit Konzertlocation und Artisten erfassen                                       & 1.8  & \textbf{Muss}       \\ \cline{2-6}
+                             & Facebook                   & 5.4 & Benutzer können ein Konzert in ein Facebook-Event exportieren                                               & 1.10 & Kann                \\
+  \midrule
+  \multirow{9}{*}{Security}  & SQL-Injection              & 6.1 & Das Produkt soll resistent gegen SQL-Injection sein                                                         & 1.12 & \textbf{Muss}       \\ \cline{2-6}
+                             & HTML-Injection             & 6.2 & Das Produkt soll resistent gegen HTML-Injection / XSS sein                                                  & 1.12 & \textbf{Muss}       \\ \cline{2-6}
+                             & Passwort encryption        & 6.3 & Passwörter von Benutzer müssen mit einem sicheren Verfahren gespeichert werden                              & 1.12 & \textbf{Muss}       \\
+                             & Session                    & 6.4 & Session-Cookies dürfen nicht durch JavaScript ausgelesen werden                                             & 1.12 & Kann                \\
+  \midrule
+  Performance                & Ladezeit                   & 7.1 & Die Seitenansichten dürfen nicht länger als 6 Sekunden auf einem 3G Netz laden                              &      & \textbf{Muss}       \\
+  \bottomrule
+\end{longtable}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Account Management
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Benutzerregistrierung
-          \item
-                Email-Verifizierung
-          \item
-                Passwort reset
-        \end{enumerate}
-\end{itemize}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Erfassung
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Erfassen von Konzertlocation
-          \item
-                Erfassen von Konzerten
-        \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-  \tightlist
-  \item
-        Suche
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Suche nach Ort
-          \item
-                Suche nach Konzertlocation
-          \item
-                Suche nach Genre
-          \item
-                Suche nach Band
-        \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-  \tightlist
-  \item
-        Performance
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Startseite soll in 6 Sekunden geladen werden
-        \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-  \tightlist
-  \item
-        SEO
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Die Webseite soll mit einer Technologie umgesetzt werden, welche von
-                Suchmaschinen indexiert werden kann.
-          \item
-                Die Konzerte sollen mit Structured Data für Events\footnote{https://schema.org/Event}
-                von Suchmaschinen indexiert werden.
-        \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-  \tightlist
-  \item
-        Testing
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Tests sollen bei jeder Änderung ausgelöst werden
-        \end{enumerate}
-\end{itemize}
-
-\subsection{Kann Kriterien}\label{kann-kriterien}
-
-\begin{itemize}
-  \tightlist
-  \item
-        Deployment
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Die Applikation ist über das Internet erreichbar
-          \item
-                Programmcode Änderungen werden nach erfolgreichen Tests automatisch
-                online geschaltet.
-        \end{enumerate}
-\end{itemize}
-
-\begin{itemize}
-  \tightlist
-  \item
-        Erfassung
-        \begin{enumerate}
-          \def\labelenumi{\arabic{enumi}.}
-          \tightlist
-          \item
-                Ein erstelltes Event kann auf Facebook eine Event-Seite erstellen.
-          \item
-                Ein erstelltes Event kann auf Sozialen Medien geteilt werden.
-        \end{enumerate}
-\end{itemize}
-
+\clearpage
 \section{Nutzwertanalysen}\label{nutzwertanalysen}
 
 \section{Kriterien}\label{kriterien}
