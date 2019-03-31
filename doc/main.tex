@@ -232,8 +232,12 @@
 
 \appendix % Cue to tell LaTeX that the following "chapters" are Appendices
 
-\includepdf[pages=1,pagecommand={\Hide\chapter{Projektinitialisierungsauftrag}}]{eingabe/Projektinitialisierungsauftrag.pdf}
-\includepdf[pages=2-,pagecommand={}]{eingabe/Projektinitialisierungsauftrag.pdf}
+\pagestyle{empty}
+
+\includepdf[pages=1,pagecommand={\pagestyle{empty}\Hide\chapter{Projektinitialisierungsauftrag}}]{eingabe/Projektinitialisierungsauftrag.pdf}
+\includepdf[pages=2-,pagecommand={\pagestyle{empty}}]{eingabe/Projektinitialisierungsauftrag.pdf}
+
+\pagestyle{thesis}
 
 \include{initialisierung/projektauftrag}
 \includepdf[pagecommand={\chapter{Terminplan}\label{terminplan}}]{initialisierung/planung.pdf}
