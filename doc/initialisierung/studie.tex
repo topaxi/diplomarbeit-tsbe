@@ -2,6 +2,27 @@
 
 \label{AppendixStudie}
 
+\section{Zweck des Dokuments}\label{StudieZweck}
+
+In der Studie werden die Anforderungen aufgenommen, sowie Variantenbeschriebe
+für die Projektrealisierung erstellt. Die Varianten werden miteinander
+verglichen und durch den Variantenentscheid wird das weitere
+Vorgehen definiert.
+Ausserdem werden in der Studie die Risiken und Wirtschaftlichkeit des Projekts
+analysiert.
+
+Folgende Arbeiten werden in dieser Studie abgehandelt:
+
+\begin{itemize}
+  \tightlist
+  \item der Anforderungskatalog wird definiert
+  \item die Evaluation der Browser Software-Technologien
+  \item die Evaluation der Server Software-Technologien
+  \item die Evaluation der Testing Software-Technologien
+  \item eine Kostenschätzung und mögliche Wirtschaftlichkeit ausgerechnet
+\end{itemize}
+
+
 \section{Informationsbeschaffung}\label{informationsbeschaffung}
 
 \begin{longtable}[]{@{}lp{10cm}@{}}
@@ -21,121 +42,107 @@
 %       https://tex.stackexchange.com/questions/79143/how-to-repeat-cell-content-on-next-page-for-longtable-using-multirow/79152
 \begin{longtable}[]{@{}p{1.9cm}p{2.5cm}cp{5.5cm}cc@{}}
   \toprule
-  Feature                    & Titel                      & Nr. & Kriterium                                                                                                   & Ziel & Muss\tabularnewline
+  \textbf{Feature}           & \textbf{Titel}             & \textbf{Nr.} & \textbf{Kriterium}                                                                                          & \textbf{Ziel} & \textbf{Muss}\tabularnewline
   \midrule
   \endhead
-  \multirow{10}{*}{Suche}    & Suche nach Konzertname     & 1.1 & Listet alle Konzerte die Wörter der Suche im Konzertnamen beinhalten                                        & 1.1  & \textbf{Muss}       \\ \cline{2-6}
-                             & Suche nach Konzertlocation & 1.2 & Schränkt die Such-Resultate nach gegebener Konzertlocation ein                                              & 1.2  & \textbf{Muss}       \\ \cline{2-6}
-                             & Suche nach Ort             & 1.2 & Schränkt die Such-Resultate nach gegebenem Ort ein                                                          & 1.2  & \textbf{Muss}       \\ \cline{2-6}
-                             & Suche nach Genre           & 1.2 & Schränkt die Such-Resultate nach gegebenem Musik-Genre ein                                                  & 1.2  & \textbf{Muss}       \\
+  \multirow{10}{*}{Suche}    & Suche nach Konzertname     & 1.1          & Listet alle Konzerte die Wörter der Suche im Konzertnamen beinhalten                                        & 1.1           & \textbf{Muss}                \\ \cline{2-6}
+                             & Suche nach Konzertlocation & 1.2          & Schränkt die Such-Resultate nach gegebener Konzertlocation ein                                              & 1.2           & \textbf{Muss}                \\ \cline{2-6}
+                             & Suche nach Ort             & 1.2          & Schränkt die Such-Resultate nach gegebenem Ort ein                                                          & 1.2           & \textbf{Muss}                \\ \cline{2-6}
+                             & Suche nach Genre           & 1.2          & Schränkt die Such-Resultate nach gegebenem Musik-Genre ein                                                  & 1.2           & \textbf{Muss}                \\
   \midrule
-  \multirow{8}{*}{Design}    & Desktop                    & 2.1 & Alle Ansichten haben eine Desktop-Optimierte Variante                                                       & 1.4  & \textbf{Muss}       \\ \cline{2-6}
-                             & Tablet                     & 2.2 & Alle Ansichten haben eine Tablet-Optimierte Variante                                                        & 1.4  & \textbf{Muss}       \\ \cline{2-6}
-                             & Mobile                     & 2.3 & Alle Ansichten haben eine Mobile-Optimierte Variante                                                        & 1.4  & \textbf{Muss}       \\ \cline{2-6}
-                             & Browser Kompatibilität     & 2.4 & Alle Ansichten müssen in aktuellem Google Chrome und Mozilla Firefox dem Grundlayout folgen                 & 1.9  & \textbf{Muss}       \\
+  \multirow{8}{*}{Design}    & Desktop                    & 2.1          & Alle Ansichten haben eine Desktop-Optimierte Variante                                                       & 1.4           & \textbf{Muss}                \\ \cline{2-6}
+                             & Tablet                     & 2.2          & Alle Ansichten haben eine Tablet-Optimierte Variante                                                        & 1.4           & \textbf{Muss}                \\ \cline{2-6}
+                             & Mobile                     & 2.3          & Alle Ansichten haben eine Mobile-Optimierte Variante                                                        & 1.4           & \textbf{Muss}                \\ \cline{2-6}
+                             & Browser Kompatibilität     & 2.4          & Alle Ansichten müssen in aktuellem Google Chrome und Mozilla Firefox dem Grundlayout folgen                 & 1.9           & \textbf{Muss}                \\
   \midrule
-  \multirow{4}{*}{SEO}       & Indexierbarkeit            & 3.1 & Das Produkt ist von Suchmaschinen indexierbar                                                               & 1.5  & \textbf{Muss}       \\ \cline{2-6}
-                             & Linked Data                & 3.2 & Konzert Detailseiten sind mit dem Event-Schema\footnote{https://schema.org/Event} ausgestattet              & 1.5  & \textbf{Muss}       \\
+  \multirow{4}{*}{SEO}       & Indexierbarkeit            & 3.1          & Das Produkt ist von Suchmaschinen indexierbar                                                               & 1.5           & \textbf{Muss}                \\ \cline{2-6}
+                             & Linked Data                & 3.2          & Konzert Detailseiten sind mit dem Event-Schema\footnote{https://schema.org/Event} ausgestattet              & 1.5           & \textbf{Muss}                \\
   \midrule
-  \multirow{8}{*}{Benutzer}  & Registrierung              & 4.1 & Besucher können sich einen Benutzer registrieren, Benutzernamen und E-Mail Adressen müssen einzigartig sein & 1.6  & \textbf{Muss}       \\ \cline{2-6}
-                             & Passwort-Vergessen         & 4.2 & Benutzer können sich einen Passwort-Reset Link anfordern                                                    & 1.7  & \textbf{Muss}       \\ \cline{2-6}
-                             & Social                     & 4.3 & Benutzer können auf Konzerten vermerken ob sie Teilnehmen oder nicht                                        & 1.11 & Kann                \\
+  \multirow{8}{*}{Benutzer}  & Registrierung              & 4.1          & Besucher können sich einen Benutzer registrieren, Benutzernamen und E-Mail Adressen müssen einzigartig sein & 1.6           & \textbf{Muss}                \\ \cline{2-6}
+                             & Passwort-Vergessen         & 4.2          & Benutzer können sich einen Passwort-Reset Link anfordern                                                    & 1.7           & \textbf{Muss}                \\ \cline{2-6}
+                             & Social                     & 4.3          & Benutzer können auf Konzerten vermerken ob sie Teilnehmen oder nicht                                        & 1.11          & Kann                         \\
   \midrule
   \clearpage
-  \multirow{6}{*}{Erfassung} & Artist                     & 5.1 & Benutzer können Artisten mit einem Genre erfassen                                                           & 1.8  & \textbf{Muss}       \\ \cline{2-6}
-                             & Location                   & 5.2 & Benutzer können eine Konzertlocation mit Ort/Strasse erfassen                                               & 1.8  & \textbf{Muss}       \\ \cline{2-6}
-                             & Konzert                    & 5.3 & Benutzer können ein Konzert mit Konzertlocation und Artisten erfassen                                       & 1.8  & \textbf{Muss}       \\ \cline{2-6}
-                             & Facebook                   & 5.4 & Benutzer können ein Konzert in ein Facebook-Event exportieren                                               & 1.10 & Kann                \\
+  \multirow{6}{*}{Erfassung} & Artist                     & 5.1          & Benutzer können Artisten mit einem Genre erfassen                                                           & 1.8           & \textbf{Muss}                \\ \cline{2-6}
+                             & Location                   & 5.2          & Benutzer können eine Konzertlocation mit Ort/Strasse erfassen                                               & 1.8           & \textbf{Muss}                \\ \cline{2-6}
+                             & Konzert                    & 5.3          & Benutzer können ein Konzert mit Konzertlocation und Artisten erfassen                                       & 1.8           & \textbf{Muss}                \\ \cline{2-6}
+                             & Facebook                   & 5.4          & Benutzer können ein Konzert in ein Facebook-Event exportieren                                               & 1.10          & Kann                         \\
   \midrule
-  \multirow{9}{*}{Security}  & SQL-Injection              & 6.1 & Das Produkt soll resistent gegen SQL-Injection sein                                                         & 1.12 & \textbf{Muss}       \\ \cline{2-6}
-                             & HTML-Injection             & 6.2 & Das Produkt soll resistent gegen HTML-Injection / XSS sein                                                  & 1.12 & \textbf{Muss}       \\ \cline{2-6}
-                             & Passwort encryption        & 6.3 & Passwörter von Benutzer müssen mit einem sicheren Verfahren gespeichert werden                              & 1.12 & \textbf{Muss}       \\
-                             & Session                    & 6.4 & Session-Cookies dürfen nicht durch JavaScript ausgelesen werden                                             & 1.12 & Kann                \\
+  \multirow{9}{*}{Security}  & SQL-Injection              & 6.1          & Das Produkt soll resistent gegen SQL-Injection sein                                                         & 1.12          & \textbf{Muss}                \\ \cline{2-6}
+                             & HTML-Injection             & 6.2          & Das Produkt soll resistent gegen HTML-Injection / XSS sein                                                  & 1.12          & \textbf{Muss}                \\ \cline{2-6}
+                             & Passwort encryption        & 6.3          & Passwörter von Benutzer müssen mit einem sicheren Verfahren gespeichert werden                              & 1.12          & \textbf{Muss}                \\
+                             & Session                    & 6.4          & Session-Cookies dürfen nicht durch JavaScript ausgelesen werden                                             & 1.12          & Kann                         \\
   \midrule
-  Performance                & Ladezeit                   & 7.1 & Die Seitenansichten dürfen nicht länger als 6 Sekunden auf einem 3G Netz laden                              &      & \textbf{Muss}       \\
+  Performance                & Ladezeit                   & 7.1          & Die Seitenansichten dürfen nicht länger als 6 Sekunden auf einem 3G Netz laden                              &               & \textbf{Muss}                \\
   \bottomrule
 \end{longtable}
 
 
 \clearpage
-\section{Nutzwertanalysen}\label{nutzwertanalysen}
+\section{Evaluation Browser-Technologie}\label{evaluation-browser-technologie}
 
-\section{Kriterien}\label{kriterien}
+\begin{longtable}[]{@{}p{2cm}cp{10cm}@{}}
+  \toprule
+  \textbf{Kriterium} & \textbf{Gewicht} & \textbf{Abnahmekriterium}\tabularnewline
+  \midrule
+  \endhead
+  Komplexität        & 4                & Die Technologie sollte im Rahmen der Diplomarbeit nicht eine zu hohe Komplexität vorweisen. Durch eine niedrigere Komplexität bestehen weniger Risiken dass technische Probleme auftreten werden.\tabularnewline
+  \midrule
+  Performance        & 4                & In den Projektzielen wurde definiert, dass die Applikation in maximal 6 Sekunden im Browser geladen sein muss. Daher ist es wichtig, dass die Technologie gute Performance Charakteristiken vorweist.\tabularnewline
+  \midrule
+  SEO                & 5                & Für eine öffentliche Applikation ist es unentbehrlich, dass sie indexierbar durch Suchmaschinen ist.\tabularnewline
+  \midrule
+  Stabilität         & 3                & \tabularnewline
+  \midrule
+  Testing            & 5                & \tabularnewline
+  \bottomrule
+\end{longtable}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Integration mit percy.io
-\end{itemize}
+\subsection{React}
+\subsection{Next.js}
+\subsection{SSR}
 
-\section{Varianten}\label{varianten}
+\section{Bewertungen Browser-Technologie}\label{bewertungen-browser-technologie}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Server:
-        \begin{itemize}
-          \tightlist
-          \item
-                Node.js / koa.js
-          \item
-                Elixir / Phoenix
-          \item
-                Next.js
-        \end{itemize}
-\end{itemize}
+\section{Entscheid Browser-Technologie}\label{entscheid-browser-technologie}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Client:
-        \begin{itemize}
-          \tightlist
-          \item
-                Phoenix SSR
-          \item
-                React
-          \item
-                Next.js
-        \end{itemize}
-\end{itemize}
+\clearpage
+\section{Evaluation Server-Technologie}\label{evaluation-server-technologie}
 
-\subsection{Bewertungskriterien}\label{bewertungskriterien}
+\subsection{Node.js / koa.js}
+\subsection{Elixir / Phoenix}
+\subsection{Next.js}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Server:
-        \begin{itemize}
-          \tightlist
-          \item
-                Featureset
-          \item
-                Performance
-          \item
-                Stabilität
-          \item
-                Testing
-        \end{itemize}
-\end{itemize}
+\section{Bewertungen Server-Technologie}\label{bewertungen-server-technologie}
 
-\begin{itemize}
-  \tightlist
-  \item
-        Client:
-        \begin{itemize}
-          \tightlist
-          \item
-                Indexierbarkeit Suchmaschinen
-          \item
-                Testing
-        \end{itemize}
-\end{itemize}
+\section{Entscheid Server-Technologie}\label{entscheid-server-technologie}
 
-\subsection{Bewertungen Varianten}\label{bewertungen-varianten}
+\clearpage
+\section{Evaluation Testing-Technologie}\label{evaluation-testing-technologie}
 
-\section{Entscheid}\label{entscheid}
+\begin{longtable}[]{@{}p{2cm}cp{10cm}@{}}
+  \toprule
+  \textbf{Kriterium}  & \textbf{Gewicht} & \textbf{Abnahmekriterium}\tabularnewline
+  \midrule
+  \endhead
+  Performance         & 3                & Bei wachsender Anzahl von Tests ist es wichtig, dass die Test-Software genug skalierbar ist um Tests in parallel auszuführen.\tabularnewline
+  \midrule
+  Stabilität          & 5                & \tabularnewline
+  \midrule
+  Backend-Integration & 3                & Es ist sehr hilfreich, wenn die End-to-End Test-Software vom Server direkt ausgeführt werden. So kann gleichzeitig zum Browser-Test auch die Businesslogik getestet werden.\tabularnewline
+  \midrule
+  Visualtesting       & 5                & Die Technologie soll mit dem Service percy.io integrierbar sein.\tabularnewline
+  \bottomrule
+\end{longtable}
 
+\subsection{Jest + Puppeteer}
+\subsection{Wallaby}
+
+\section{Bewertungen Testing-Technologie}\label{bewertungen-testing-technologie}
+
+\section{Entscheid Testing-Technologie}\label{entscheid-testing-technologie}
+
+\clearpage
 \section{Wirtschaftlichkeit}\label{wirtschaftlichkeit}
 
 \subsection{Break Even Analyse}\label{break-even-analyse}
