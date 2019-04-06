@@ -1,9 +1,6 @@
-- Dokumentvorlage
-
-- Fix "gap" in Planung (KW 16)
 - RISIKEN!
-- Kill "Voranalyse" and move into Studie
 - Find "Diplomarbeit ID" für Titleblatt
+- Meilensteine nicht nur in Planung "markieren"!
 
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
@@ -34,10 +31,10 @@
 - Anhang
   x Projekteingabe
 
-  - Projektplan
+  x Projektplan
     - Beschaffungsplan (domain/hosting)
-    - Reporting
-  - Projektinitalisierung
+    x Reporting
+  x Projektinitalisierung
   - Studie
   - Konzept
   - Detailkonzept Software
@@ -45,7 +42,8 @@
   - Schlussbetrachtung
   - Testprotokoll (ausgefüllt)
 
-- Glossar
+x Glossar
+- Double-Check Glossar
 - Logbuch
 - Sitzungsprotokolle
-- Freigaben Phasen
+x Freigaben Phasen
