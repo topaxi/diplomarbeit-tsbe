@@ -33,6 +33,7 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \midrule
   Internet                      & Ein Grossteil der Informationen werden heute über das Internet bezogen, für die Evaluation von Technologien und Lösungsansätzen wird einiges über das Internet recherchiert werden müssen.\tabularnewline
   \bottomrule
+  \caption{Informationsbeschaffung}
 \end{longtable}
 
 \clearpage
@@ -75,6 +76,7 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \midrule
   Performance                & Ladezeit                   & 7.1          & Die Seitenansichten dürfen nicht länger als 6 Sekunden auf einem 3G Netz laden                              &               & \textbf{Muss}                \\
   \bottomrule
+  \caption{Anforderungskatalog}
 \end{longtable}
 
 
@@ -86,23 +88,68 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \textbf{Kriterium} & \textbf{Gewicht} & \textbf{Abnahmekriterium}\tabularnewline
   \midrule
   \endhead
-  Komplexität        & 4                & Die Technologie sollte im Rahmen der Diplomarbeit nicht eine zu hohe Komplexität vorweisen. Durch eine niedrigere Komplexität bestehen weniger Risiken dass technische Probleme auftreten werden.\tabularnewline
+  Komplexität        & 3                & Die Technologie sollte im Rahmen der Diplomarbeit nicht eine zu hohe Komplexität vorweisen. Durch eine niedrigere Komplexität bestehen weniger Risiken dass technische Probleme auftreten werden.\tabularnewline
   \midrule
   Performance        & 4                & In den Projektzielen wurde definiert, dass die Applikation in maximal 6 Sekunden im Browser geladen sein muss. Daher ist es wichtig, dass die Technologie gute Performance Charakteristiken vorweist.\tabularnewline
   \midrule
   SEO                & 5                & Für eine öffentliche Applikation ist es unentbehrlich, dass sie indexierbar durch Suchmaschinen ist.\tabularnewline
   \midrule
+  Interaktivität     & 4                & Applikationen im Browser werden immer interaktiver, daher ist es wichtig, das die Technologie anspruchsvolle Abläufe implementieren kann. \tabularnewline
+  \midrule
   Stabilität         & 3                & \tabularnewline
   \midrule
-  Testing            & 5                & \tabularnewline
+  Testing            & 3                & \tabularnewline
   \bottomrule
+  \caption{Browser-Technologie Kriterien}
 \end{longtable}
 
-\subsection{React}
-\subsection{Next.js}
-\subsection{SSR}
+\subsection{Variante: React}
 
+Die JavaScript Library \textbf{React} ist heute die wohl beliebteste
+Technologie um interaktive Applikationen im Web zu bauen.
+
+\subsection{Variante: Next.js}
+
+\textbf{Next.js} ist ein JavaScript Framework, das auf der \textbf{React}
+Library aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
+
+\subsection{Variante: SSR}
+
+\textbf{SSR} steht für \textbf{S}erver\textbf{s}ide \textbf{R}endering und
+beschreibt die klassische Methode vom Erstellen von Webseiten, indem man HTML
+auf dem Server generiert und zum Browser schickt.
+
+Dies hat nach wie vor seine Daseinsberechtigung, da dies weniger Komplexität
+mit sich bringt, einen schnelleren Seitenaufbau garantiert und ohne
+zusätzlichen Aufwand von Suchmaschinen indexiert wird.
+
+\clearpage
 \section{Bewertungen Browser-Technologie}\label{bewertungen-browser-technologie}
+
+\textbf{Bewertung:}\\
+\textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
+\textbf{Gewichtung:}\\
+\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+
+\textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
+
+\begin{longtable}[]{@{}p{2cm}ccccccc@{}}
+  \toprule
+  \textbf{Kriterium} & \textbf{Gewichtung} & \multicolumn{2}{c}{\textbf{Variante: React}} & \multicolumn{2}{c}{\textbf{Variante: Next.js}} & \multicolumn{2}{c}{\textbf{Variante: SSR}}\tabularnewline
+  & & Bewertung & Punkte & Bewertung & Punkte & Bewertung & Punkte \tabularnewline
+  \midrule
+  \endhead
+  Komplexität & 3 & 2 & 6 & 3 & 9 & 4 & 12 \tabularnewline
+  Performance & 4 & 3 & 12 & 3 & 12 & 4 & 16 \tabularnewline
+  SEO & 5 & 2 & 10 & 4 & 20 & 4 & 20 \tabularnewline
+  Interaktivität & 4 & 4 & 16 & 4 & 16 & 3 & 12 \tabularnewline
+  Stabilität & 3 & 2 & 6 & 3 & 9 & 4 & 12 \tabularnewline
+  Testing & 4 & 4 & 16 & 4 & 16 & 4 & 16 \tabularnewline
+  \midrule
+  \textbf{Total:} & & React: & 66 & Next.js: & 82 & SSR: & 88 \tabularnewline
+  \bottomrule
+  \caption{Browser-Technologie Bewertung}
+\end{longtable}
 
 \section{Entscheid Browser-Technologie}\label{entscheid-browser-technologie}
 
@@ -122,13 +169,51 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \midrule
   Testing            & 5                & \tabularnewline
   \bottomrule
+  \caption{Server-Technologie Kriterien}
 \end{longtable}
 
-\subsection{Node.js / koa.js}
-\subsection{Elixir / Phoenix}
-\subsection{Next.js}
+\subsection{Variante: Node.js / koa.js}
 
+Auch auf dem Server gewinnt JavaScript immer mehr an Beliebtheit.
+Mit Node.js und koa.js können schnell kleinere und simplere Applikationen
+erstellt werden, die dennoch sehr performant sind.
+
+\subsection{Variante: Elixir / Phoenix}
+
+\subsection{Variante: Next.js}
+
+Next.js wurde bereits als Variante für die Browser-Technologie in Betracht
+gezogen. Ein zusätzliches Feature von Next.js ist, dass die Applikation auch
+auf dem Server betrieben werden kann.
+Das Einsetzen der selben Technologie kann bedeutende Vorteile mit sich bringen,
+so muss man nur ein Framework lernen und kann Programmcode auf dem Server mit
+der Applikation im Browser geteilt werden.
+
+\clearpage
 \section{Bewertungen Server-Technologie}\label{bewertungen-server-technologie}
+
+\textbf{Bewertung:}\\
+\textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
+\textbf{Gewichtung:}\\
+\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+
+\textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
+
+\begin{longtable}[]{@{}p{2cm}ccccccc@{}}
+  \toprule
+  \textbf{Kriterium} & \textbf{Gewichtung} & \multicolumn{2}{c}{\textbf{Variante: koa.js}} & \multicolumn{2}{c}{\textbf{Variante: Phoenix}} & \multicolumn{2}{c}{\textbf{Variante: Next.js}}\tabularnewline
+  & & Bewertung & Punkte & Bewertung & Punkte & Bewertung & Punkte \tabularnewline
+  \midrule
+  \endhead
+  Komplexität & 3 & 2 & 6 & 4 & 12 & 3 & 9 \tabularnewline
+  Performance & 4 & 4 & 16 & 4 & 16 & 3 & 12 \tabularnewline
+  Stabilität & 5 & 3 & 15 & 4 & 20 & 3 & 15 \tabularnewline
+  Testing & 5 & 3 & 15 & 4 & 20 & 4 & 20 \tabularnewline
+  \midrule
+  \textbf{Total:} & & koa.js: & 55 & Phoenix: & 68 & SSR: & 56 \tabularnewline
+  \bottomrule
+  \caption{Server-Technologie Bewertung}
+\end{longtable}
 
 \section{Entscheid Server-Technologie}\label{entscheid-server-technologie}
 
@@ -144,16 +229,44 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \midrule
   Stabilität          & 5                & \tabularnewline
   \midrule
-  Backend-Integration & 3                & Es ist sehr hilfreich, wenn die End-to-End Test-Software vom Server direkt ausgeführt werden. So kann gleichzeitig zum Browser-Test auch die Businesslogik getestet werden.\tabularnewline
+  Backend-Integration & 4                & Es ist sehr hilfreich, wenn die End-to-End Test-Software vom Server direkt ausgeführt werden. So kann gleichzeitig zum Browser-Test auch die Businesslogik getestet werden.\tabularnewline
   \midrule
   Visualtesting       & 5                & Die Technologie soll mit dem Service percy.io integrierbar sein.\tabularnewline
   \bottomrule
+  \caption{Testing-Technologie Kriterien}
 \end{longtable}
 
 \subsection{Jest + Puppeteer}
+
+Jest ist ein JavaScript-Test Framework von Facebook.
+
 \subsection{Wallaby}
 
+\clearpage
 \section{Bewertungen Testing-Technologie}\label{bewertungen-testing-technologie}
+
+\textbf{Bewertung:}\\
+\textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
+\textbf{Gewichtung:}\\
+\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+
+\textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
+
+\begin{longtable}[]{@{}p{2cm}ccccc@{}}
+  \toprule
+  \textbf{Kriterium} & \textbf{Gewichtung} & \multicolumn{2}{c}{\textbf{Variante: Jest}} & \multicolumn{2}{c}{\textbf{Variante: Wallaby}}\tabularnewline
+  & & Bewertung & Punkte & Bewertung & Punkte\tabularnewline
+  \midrule
+  \endhead
+  Performance & 3 & 4 & 12 & 4 & 12\tabularnewline
+  Stabilität & 5 & 3 & 15 & 4 & 20\tabularnewline
+  Backend-Integration & 4 & 2 & 8 & 4 & 16\tabularnewline
+  Visualtesting & 4 & 4 & 16 & 1 & 4\tabularnewline
+  \midrule
+  \textbf{Total:} & & Jest: & 51 & Wallaby: & 52\tabularnewline
+  \bottomrule
+  \caption{Testing-Technologie Bewertung}
+\end{longtable}
 
 \section{Entscheid Testing-Technologie}\label{entscheid-testing-technologie}
 
