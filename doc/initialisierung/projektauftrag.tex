@@ -189,11 +189,11 @@ Folgende Technologien wurden ausgewählt:
 
 Die Risikobewertung erfolgt mit folgender Formel:
 
-\textbf{Bewertung = Schaden x Eintrittswahrscheinlichkeit}
+\textbf{Bewertung = Schaden x Eintrittswahrscheinlichkeit}\\
 
 Schadensskala:
 
-\begin{longtable}[]{@{}lp{10cm}@{}}
+\begin{longtable}[]{@{}lp{11cm}@{}}
   \toprule
   \textbf{Gewichtung} & \textbf{Beschreibung}\tabularnewline
   \midrule
@@ -207,7 +207,7 @@ Schadensskala:
 
 Eintrittswahrscheinlichkeitsskala:
 
-\begin{longtable}[]{@{}lp{10cm}@{}}
+\begin{longtable}[]{@{}lp{12cm}@{}}
   \toprule
   \textbf{Gewichtung} & \textbf{Beschreibung}\tabularnewline
   \midrule
@@ -219,8 +219,56 @@ Eintrittswahrscheinlichkeitsskala:
   \caption{Risiken - Eintrittswahrscheinlichkeit}
 \end{longtable}
 
-\subsection{Bewertung}\label{risikenbewertung}
+Handlungen um Risikobewertungen zu senken:
 
+\begin{longtable}[]{@{}lp{12cm}@{}}
+  \toprule
+  \textbf{Handlung} & \textbf{Beschreibung}\tabularnewline
+  \midrule
+  \endhead
+  Akzeptanz & Das Eintreten eines Risiko wird wissentlich angenommen.\tabularnewline
+  Transfer & Die Verantwortung von Risiken können an Dritte abgegeben werden.\tabularnewline
+  Verminderung & Der Schaden oder die Eintrittswahrscheinlichkeit kann begrenzt oder reduziert werden.\tabularnewline
+  Vermeidung & Es kann jeglichen Schaden vermieden werden.\tabularnewline
+  \bottomrule
+  \caption{Risiken - Handlungen zur Senkung der Bewertung}
+\end{longtable}
+
+
+\clearpage
 \subsection{Projektrisiken}\label{projektrisiken}
 
+\begin{longtable}[]{@{}lp{3cm}p{4cm}ccc@{}}
+  \toprule
+  \textbf{Nr.} & \textbf{Risiko} & \textbf{Auswirkung} & \textbf{Schaden} & \textbf{Wahrsch.} & \textbf{Bewertung}\tabularnewline
+  \midrule
+  \endhead
+  1 & Ausfall des Entwicklers oder Projektleiters & Verzögerungen von Arbeiten & 4 & 3 & Mittel\tabularnewline
+  2 & Unvollständige Projektdokumentation & Schlechtere Diplomarbeit Bewertung & 4 & 2 & Mittel\tabularnewline
+  3 & Schlechter Projektplan & Verzögerungen und eventuelle Qualitätsverluste & 4 & 3 & Mittel\tabularnewline
+  4 & Keine Benutzer & Das Produkt wird nicht von Benutzern eingesetzt & 3 & 4 & Mittel\tabularnewline
+  5 & Technisch nicht umsetzbare Features & Das Produkt kann nicht wie angedacht benutzt werden & 4 & 3 & Mittel\tabularnewline
+  \bottomrule
+  \caption{Projektrisiken}
+\end{longtable}
+
+\clearpage
 \subsection{Massnahmen}\label{massnahmen}
+
+\begin{longtable}[]{@{}lp{4.1cm}lccc@{}}
+  \toprule
+  & & & \multicolumn{3}{l}{\textbf{Bewertung nach Massnahme}}\tabularnewline
+  \textbf{Nr.} & \textbf{Massnahme} & \textbf{Handlung} & \textbf{Schaden} & \textbf{Wahrsch.} & \textbf{Bewertung}\tabularnewline
+  \midrule
+  \endhead
+  1 & Arzt aufsuchen, ggf. Projekt-Pause oder Abbruch & Akzeptanz & 4 & 3 & Mittel\tabularnewline
+  2 & Statusbericht alle zwei Wochen, bei Fragen sofort Hilfe suchen & Verminderung & 2 & 1 & Gering\tabularnewline
+  3 & Genügend Buffer-Zeit einplanen, ggf. Ferientage für Projekt einsetzen & Verminderung & 2 & 1 & Gering\tabularnewline
+  4 & Das Produkt löst vor allem ein persönliches Interesse & Akzeptanz & 3 & 4 & Mittel\tabularnewline
+  5 & Vereinfachte Alternativen in Konzept-Phase untersuchen & Verminderung & 2 & 2 & Gering\tabularnewline
+  \bottomrule
+  \caption{Projektrisiken}
+\end{longtable}
+
+\includepdf[pages=1, pagecommand={\subsection{Risikodiagramm ohne Massnahmen}\label{risikodiagram-ohne-massnahmen}}, trim=0mm 80mm 0mm 0mm, clip]{initialisierung/risiko.pdf}
+\includepdf[pages=2, pagecommand={\subsection{Risikodiagramm mit Massnahmen}\label{risikodiagram-mit-massnahmen}}, trim=0mm 80mm 0mm 0mm, clip]{initialisierung/risiko.pdf}
