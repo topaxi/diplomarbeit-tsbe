@@ -96,9 +96,9 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
   \midrule
   Interaktivität     & 4                & Applikationen im Browser werden immer interaktiver, daher ist es wichtig, das die Technologie anspruchsvolle Abläufe implementieren kann. \tabularnewline
   \midrule
-  Stabilität         & 3                & \tabularnewline
+  Stabilität         & 3                & Für das Projekt ist es wichtig, dass auf eine stabile Technologie gesetzt wird, welche den Projektablauf so wenig wie möglich beeinträchtigt. \tabularnewline
   \midrule
-  Testing            & 3                & \tabularnewline
+  Testing            & 3                & Durch einfaches Testing, kann sichergestellt werden, dass die Applikation wie gewünscht umgesetzt wurde und auch beim Weiterentwickeln nicht existierende Funktionalitäten beinträchtigt werden.\tabularnewline
   \bottomrule
   \caption{Browser-Technologie Kriterien}
 \end{longtable}
@@ -153,6 +153,15 @@ zusätzlichen Aufwand von Suchmaschinen indexiert wird.
 
 \section{Entscheid Browser-Technologie}\label{entscheid-browser-technologie}
 
+Durch die Evaluierung wurde klar, dass das Einsetzen eines JavaScript-Frameworks
+zuviel zusätzliche Komplexität und gewisse einbussungen in Performance und Stabilität
+unvermeidbar ist. Somit ist ein die Wahl für eine klassische Server-Side Rendered
+Webseite favorisierend.
+
+Es ist durchaus vorstellbar, dass in einem zweiten Schritt, nach diesem Projekt,
+die Server-Side Rendered Applikation durch eine Next.js Applikation ersetzt werden
+könnte.
+
 \clearpage
 \section{Evaluation Server-Technologie}\label{evaluation-server-technologie}
 
@@ -167,7 +176,7 @@ zusätzlichen Aufwand von Suchmaschinen indexiert wird.
   \midrule
   Stabilität         & 5                & Während es für die Browser-Technologie vorstellbar ist, die Technologie auszuwechseln, ist es für den Server wichtig auf eine stabile und zukunftssichere Technologie zu setzen.\tabularnewline
   \midrule
-  Testing            & 5                & \tabularnewline
+  Testing            & 5                & Durch einfaches Testing, kann sichergestellt werden, dass die Applikation wie gewünscht umgesetzt wurde und auch beim Weiterentwickeln nicht existierende Funktionalitäten beinträchtigt werden. Vorallem auf dem Server ist wichtig, dass die Businesslogik gut abdeckend gestestet werden kann.\tabularnewline
   \bottomrule
   \caption{Server-Technologie Kriterien}
 \end{longtable}
@@ -179,6 +188,10 @@ Mit Node.js und koa.js können schnell kleinere und simplere Applikationen
 erstellt werden, die dennoch sehr performant sind.
 
 \subsection{Variante: Elixir / Phoenix}
+
+Elixir ist eine Programmiersprache die eine sehr stabile und performante Grundlage
+bietet. Durch das Framework Phoenix, wird im Elixir Ökosystem ein starkes feature
+umfangreiches Web-Framework angeboten.
 
 \subsection{Variante: Next.js}
 
@@ -210,12 +223,16 @@ der Applikation im Browser geteilt werden.
   Stabilität & 5 & 3 & 15 & 4 & 20 & 3 & 15 \tabularnewline
   Testing & 5 & 3 & 15 & 4 & 20 & 4 & 20 \tabularnewline
   \midrule
-  \textbf{Total:} & & koa.js: & 55 & Phoenix: & 68 & SSR: & 56 \tabularnewline
+  \textbf{Total:} & & koa.js: & 55 & Phoenix: & 68 & Next.js: & 56 \tabularnewline
   \bottomrule
   \caption{Server-Technologie Bewertung}
 \end{longtable}
 
 \section{Entscheid Server-Technologie}\label{entscheid-server-technologie}
+
+Durch das grosse Featureste von Phoenix sowie tiefer Komplexität gegenüber den
+beiden anderen Varianten hat sich Phoenix für die Server-Technologie ganz klar
+durchgesetzt.
 
 \clearpage
 \section{Evaluation Testing-Technologie}\label{evaluation-testing-technologie}
@@ -238,9 +255,15 @@ der Applikation im Browser geteilt werden.
 
 \subsection{Jest + Puppeteer}
 
-Jest ist ein JavaScript-Test Framework von Facebook.
+Jest ist ein JavaScript-Test Framework von Facebook. Durch die Kombinierung der
+Puppeteer Library von Google ist es möglich, automatisierte Browser-Tests
+durchzuführen.
 
 \subsection{Wallaby}
+
+Wallaby ist ein Elixir Browser-Test Framework, welches sich nahtlos mit Phoenix
+integrieren lässt. Wallaby unterstützt parallelisierung von Tests und ist daher
+ein guter Kanditat eine hohe Anzahl von automatisierten Tests.
 
 \clearpage
 \section{Bewertungen Testing-Technologie}\label{bewertungen-testing-technologie}
@@ -269,6 +292,14 @@ Jest ist ein JavaScript-Test Framework von Facebook.
 \end{longtable}
 
 \section{Entscheid Testing-Technologie}\label{entscheid-testing-technologie}
+
+Dadurch dass sich Wallaby einfach mit der ausgewählten Server-Technologie
+verwenden lässt, hohe Performance und Stabilität aufweist, ist Wallaby die
+knapp bessere Variante als eine Jest + Puppeteer kombination.
+
+Leider hat Wallaby keine Visualtesting Integration mit dem Dienst percy.io,
+dies könnte aber im verlaufe der Umsetzung eventuell im Rahmen dieser Arbeit
+umgesetzt werden.
 
 \clearpage
 \section{Wirtschaftlichkeit}\label{wirtschaftlichkeit}
