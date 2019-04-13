@@ -35,6 +35,7 @@ Medien wie Facebook, Twitter oder Instagram geteilt werden können.
 %\subsection{Begründung der
 %  Projektziele}\label{begruxfcndung-der-projektziele}
 
+\clearpage
 \section{Terminplan}\label{terminplan}
 
 Nachfolgend ist der grobe Terminplan für die geplanten Phasen. Im Anhang~\ref{terminplan} ist
@@ -53,6 +54,27 @@ der detaillierte Terminplan abgelegt.
                   & Total:                  & 286\tabularnewline
   \bottomrule
   \caption{Terminplan}
+\end{longtable}
+
+
+\section{Meilensteine}\label{meilensteine}
+
+% TODO: Datum für jeden Meilenstein einfügen
+
+\begin{longtable}[]{@{}llcl@{}}
+  \toprule
+  Nr.           & Meilenstein                   & KW & Datum\tabularnewline
+  \midrule
+  \endhead
+  1 & Kickoff-Meeting & 10 & \tabularnewline
+  2 & Abschluss Phase Initialisierung & 13 & \tabularnewline
+  3 & Zwischen-Meeting & 18 & \tabularnewline
+  4 & Abschluss Phase Konzept & 16 & \tabularnewline
+  5 & Abschluss Phase Realisierung & 20 \tabularnewline
+  6 & Abschluss Phase Einführung & 21 \tabularnewline
+  7 & Abschluss-Meeting & 22 \tabularnewline
+  \bottomrule
+  \caption{Meilensteine}
 \end{longtable}
 
 \clearpage
@@ -128,3 +150,36 @@ dass Daten in die Applikation abgefüllt werden.
 
 Es wird kein Backup Konzept benötigt, da die Applikation im Rahmen
 dieses Projektes nicht produktiv geschaltet wird.
+
+\clearpage
+\section{Anforderungskatalog}\label{anforderungskatalog}
+
+Der Anforderungskatalog wurde in der Studie erarbeitet. Es wurden Kann und Muss
+Kriterien definiert, wobei ein Muss-Kriterium zwingend erfüllt werden muss und
+ein Kann-Kriterium als Erweiterung angesehen wird.
+
+\input{initialisierung/anforderungskatalog.tex}
+
+\clearpage
+\section{Lösungsbeschreibung}\label{loesungsbeschreibung}
+
+In der Studie (Anhang~\ref{AppendixStudie}) wurden Technologien gegenüber
+gestellt und für die Umsetzung mittels Nutzwertanalysen ausgewählt.
+
+Folgende Technologien wurden ausgewählt:
+
+\textbf{Browser sowie Server Technologie:}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/phoenix.png}
+  \caption{Phoenix Framework}
+\end{figure}
+
+\textbf{Testing Technologie:}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/wallaby.png}
+  \caption{Wallaby}
+\end{figure}
