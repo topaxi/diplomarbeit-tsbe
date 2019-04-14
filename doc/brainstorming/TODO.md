@@ -1,6 +1,4 @@
-- RISIKEN!
 - Find "Diplomarbeit ID" für Titleblatt
-- Meilensteine nicht nur in Planung "markieren"!
 
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
@@ -32,10 +30,9 @@
   x Projekteingabe
 
   x Projektplan
-    - Beschaffungsplan (domain/hosting)
     x Reporting
   x Projektinitalisierung
-  - Studie
+  x Studie
   - Konzept
   - Detailkonzept Software
   - Realisierung
@@ -44,6 +41,6 @@
 
 x Glossar
 - Double-Check Glossar
-- Logbuch
+/ Logbuch
 - Sitzungsprotokolle
 x Freigaben Phasen
