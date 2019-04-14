@@ -1,4 +1,5 @@
 - Find "Diplomarbeit ID" für Titleblatt
+- Add Biweekly reports to appendix!
 
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
