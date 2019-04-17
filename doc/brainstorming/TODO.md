@@ -1,6 +1,8 @@
 - Find "Diplomarbeit ID" für Titleblatt
 - Add Biweekly reports to appendix!
 
+https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
+
 - Managementsummary
 - Diplombericht (+/- Zusammenfassung von Anhängen)
   - Projektauftrag
