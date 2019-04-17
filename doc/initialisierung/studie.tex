@@ -66,15 +66,32 @@ Erweiterung zu verstehen.
   \caption{Browser-Technologie Kriterien}
 \end{longtable}
 
+\clearpage
 \subsection{Variante: React}
 
 Die JavaScript Library \textbf{React} ist heute die wohl beliebteste
 Technologie um interaktive Applikationen im Web zu bauen.
 
+React ermöglicht es den Entwicklern Screens auf eine deklarative Weise zu
+definieren, so dass sich Elemente jeweils dem Zustand der Applikation anpassen.
+
+Die Features von React sind minimal gehalten und sehen auf den ersten Blick
+einfach aus, jedoch wird für Anwendungen schnell klar, dass zusätzliche
+Software-Libraries benötigt werden um eine grössere Applikation zu entwickeln.
+
+Durch das Hinzufügen von weiteren Libraries steigt die Komplexität dieser
+Variante stark an, da es im React Ökosystem für viele Lösungen diverse
+verschiedene Lösungsansätze gibt.
+
 \subsection{Variante: Next.js}
 
 \textbf{Next.js} ist ein JavaScript Framework, das auf der \textbf{React}
 Library aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
+
+Dadurch dass Next.js ein komplettes Framework ist und nicht nur eine Library,
+leidet diese Variante weniger der Komplexität eines kompletten Eigenbaus mit
+React. Features wie die Navigation von Seite zu Seite bringt Next.js bereits
+mit.
 
 \subsection{Variante: SSR}
 
@@ -82,9 +99,9 @@ Library aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
 beschreibt die klassische Methode vom Erstellen von Webseiten, indem man HTML
 auf dem Server generiert und zum Browser schickt.
 
-Dies hat nach wie vor seine Daseinsberechtigung, da dies weniger Komplexität
+Dies hat nach wie vor seine Daseinsberechtigung, da dies wenig Komplexität
 mit sich bringt, einen schnelleren Seitenaufbau garantiert und ohne
-zusätzlichen Aufwand von Suchmaschinen indexiert wird.
+zusätzlichen Aufwand von Suchmaschinen indexiert werden kann.
 
 \clearpage
 \section{Bewertungen Browser-Technologie}\label{bewertungen-browser-technologie}
@@ -157,11 +174,17 @@ Auch auf dem Server gewinnt JavaScript immer mehr an Beliebtheit.
 Mit Node.js und koa.js können schnell kleinere und simplere Applikationen
 erstellt werden, die dennoch sehr performant sind.
 
+koa.js ist eine Library für Server-Applikationen und bietet nur eine einfache
+Basis und bringt keine Features für Datenpersistenz oder HTML Templates mit sich.
+Diese Features müssen durch zusätzliche Module installiert werden.
+
 \subsection{Variante: Elixir / Phoenix}
 
 Elixir ist eine Programmiersprache die eine sehr stabile und performante Grundlage
 bietet. Durch das Framework Phoenix, wird im Elixir Ökosystem ein starkes feature
-umfangreiches Web-Framework angeboten.
+umfangreiches Web-Framework angeboten. Phoenix beinhaltet eine grosse Menge an
+Features mit sich und gibt dem Entwickler direkt Funktionalitäten wie HTML
+Templates, Datenpersistenz und ein einfaches Test-Framework.
 
 \subsection{Variante: Next.js}
 
