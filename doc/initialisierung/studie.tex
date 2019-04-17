@@ -10,7 +10,9 @@ verglichen und durch den Variantenentscheid wird das weitere
 Vorgehen definiert.
 Ausserdem werden in der Studie die Risiken und Wirtschaftlichkeit des Projekts
 analysiert.
+\\
 
+\noindent
 Folgende Arbeiten werden in dieser Studie abgehandelt:
 
 \begin{itemize}
@@ -25,26 +27,24 @@ Folgende Arbeiten werden in dieser Studie abgehandelt:
 
 \section{Informationsbeschaffung}\label{informationsbeschaffung}
 
-\begin{longtable}[]{@{}lp{10cm}@{}}
-  \toprule
-  Quelle                        & Beschreibung\tabularnewline
-  \toprule
-  Schulwissen / Berufserfahrung & Die Grundlage für die Umsetzung dieses Projekts wird durch mein existierendes Schulwissen sowie meine langjährige Berufserfahrung in der Software-Entwicklung gesetzt.\tabularnewline
-  \midrule
-  Internet                      & Ein Grossteil der Informationen werden heute über das Internet bezogen, für die Evaluation von Technologien und Lösungsansätzen wird einiges über das Internet recherchiert werden müssen.\tabularnewline
-  \midrule
-  Externer Experte              & Bei konzeptionellen sowie technischen Fragen kann der externe Experte um Rat gefragt werden.\tabularnewline
-  \bottomrule
-  \caption{Informationsbeschaffung}
-\end{longtable}
+Folgende Quellen werden in diesem Projekt für die Informationsbeschaffung
+genutzt:
+
+\input{initialisierung/informationsbeschaffung}
 
 \clearpage
 \section{Anforderungskatalog}\label{anforderungskatalog}
+
+Im Anforderungskatalog werden die Muss- und Kann-Kriterien definiert.
+Muss-Kriterien sind zwingend zu erfüllen, Kann-Kriterien sind als optionale
+Erweiterung zu verstehen.
 
 \input{initialisierung/anforderungskatalog.tex}
 
 \clearpage
 \section{Evaluation Browser-Technologie}\label{evaluation-browser-technologie}
+
+\input{initialisierung/gewichtung}
 
 \begin{longtable}[]{@{}p{2cm}cp{10cm}@{}}
   \toprule
@@ -91,8 +91,7 @@ zusätzlichen Aufwand von Suchmaschinen indexiert wird.
 
 \textbf{Bewertung:}\\
 \textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
-\textbf{Gewichtung:}\\
-\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+\input{initialisierung/gewichtung}
 
 \textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
 
@@ -133,6 +132,8 @@ Kosten an.
 
 \clearpage
 \section{Evaluation Server-Technologie}\label{evaluation-server-technologie}
+
+\input{initialisierung/gewichtung}
 
 \begin{longtable}[]{@{}p{2cm}cp{10cm}@{}}
   \toprule
@@ -176,8 +177,7 @@ der Applikation im Browser geteilt werden.
 
 \textbf{Bewertung:}\\
 \textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
-\textbf{Gewichtung:}\\
-\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+\input{initialisierung/gewichtung}
 
 \textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
 
@@ -212,6 +212,8 @@ Kosten an.
 \clearpage
 \section{Evaluation Testing-Technologie}\label{evaluation-testing-technologie}
 
+\input{initialisierung/gewichtung}
+
 \begin{longtable}[]{@{}p{2cm}cp{10cm}@{}}
   \toprule
   \textbf{Kriterium}  & \textbf{Gewicht} & \textbf{Abnahmekriterium}\tabularnewline
@@ -245,8 +247,7 @@ ein guter Kanditat eine hohe Anzahl von automatisierten Tests.
 
 \textbf{Bewertung:}\\
 \textit{4 = Sehr gut, 3 = Gut, 2 = Ungenügend, 1 = Schlecht}\\
-\textbf{Gewichtung:}\\
-\textit{5 = Unverzichtbar, 4 = Sehr wichtig, 3 = Erleichtert die Arbeit, 2 = Weniger wichtig, 1 = unwichtig}\\
+\input{initialisierung/gewichtung}
 
 \textbf{\textit{Bewertung x Gewichtung = Punktzahl}}
 
@@ -291,37 +292,12 @@ unbemerkte Fehler die sich bei Änderungen eingeschlichen haben.
 
 Für die Berechnung der Projektkosten wird ein Stundensatz von 150.- CHF angenommen.
 
-\begin{longtable}[]{@{}lll@{}}
-  \toprule
-  \textbf{Phase}  & \textbf{Geplante Stunden} & \textbf{Kosten}\tabularnewline
-  \midrule
-  \endhead
-  Initialisierung & 64                        & 9'600.- CHF\tabularnewline
-  Konzept         & 66                        & 9'900.- CHF\tabularnewline
-  Realisierung    & 136                       & 20'400.- CHF\tabularnewline
-  Initialisierung & 64                        & 5'400.- CHF\tabularnewline
-  \midrule
-  \textbf{Total:} & 286                       & 42'900.- CHF\tabularnewline
-  \bottomrule
-  \caption{Projektkosten}
-\end{longtable}
+\input{initialisierung/projektkosten}
 
 \noindent
 Die geplanten Projektkosten betragen somit \textbf{42'900.- CHF}.
 
-\begin{longtable}[]{@{}lll@{}}
-  \toprule
-  \textbf{Kostenstelle} & \textbf{Jährliche Kosten}\tabularnewline
-  \midrule
-  \endhead
-  Software              & Keine\tabularnewline
-  .com Domain           & 20.- CHF\tabularnewline
-  Hosting               & 1'800.- CHF\tabularnewline
-  \midrule
-  \textbf{Total:}       & 1'820.- CHF\tabularnewline
-  \bottomrule
-  \caption{Betriebskosten}
-\end{longtable}
+\input{initialisierung/betriebskosten}
 
 Für die Betriebskosten eines Hostings wird einen durchschnittlichen monatlichen
 Preis von 150.- CHF angenommen, da das Deployment für dieses nicht vorgesehen
