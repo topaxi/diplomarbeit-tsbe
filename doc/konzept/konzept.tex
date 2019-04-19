@@ -268,7 +268,7 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
 %UserEmailClient
 %
 %Response = GigPillarWeb./passwordReset {
-%  GigPillar.sendPasswordResetEmail(currentUser) {
+%  GigPillar.sendPasswordResetEmail(email) {
 %    GigPillar->UserEmailClient:SMTP
 %  }
 %}
