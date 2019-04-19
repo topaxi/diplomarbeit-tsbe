@@ -168,7 +168,126 @@ Der Genre Filter soll folgende Werte zur Verfügung stellen.
 
 \clearpage
 \section{Softwarekonzept}\label{softwarekonzept}
+\subsection{Datenfluss}\label{datenfluss}
 
+\subsubsection{Homepage}\label{datenfluss-homepage}
+
+Die Homepage zeigt den Besuchern Gigs in ihrer Nähe an, dazu muss über eine
+GeoIP API die IP-Adresse des Besuchers auf ein Land zurückverfolgt werden.
+Dazu wird beim ersten Besuch die GeoIP API abgefragt und das Land des Benutzers
+in eine Session geschrieben. Bei weiteren Aufrufen wird das Land direkt aus der
+Session bezogen.
+
+%GigPillarWeb
+%GigPillarWeb_Session
+%GigPillar
+%GeoIp
+%
+%Response = GigPillarWeb./ {
+%  if (hasSession) {
+%    location = GigPillarWeb_Session.getLocation()
+%  } else {
+%    location = GigPillarWeb_Session.createSession() {
+%      location = GeoIp.getLocation(ip)
+%    }
+%  }
+%
+%  Events = GigPillar.getUpcomingEvents(location)
+%}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{konzept/datenfluss-homepage.png}
+  \caption{Datenfluss: Homepage}
+\end{figure}
+
+\clearpage
+\subsubsection{Suchfeld}\label{datenfluss-suchfeld}
+
+Das globale Suchfeld hat eine Autocompletion, welche Daten direkt von
+der GigPillar Applikation bezieht. Die Daten für Städtenamen wird jedoch von
+einer externen Datenquelle, z.B. Google Maps, bezogen.
+
+%GigPillarWeb
+%GigPillar
+%GoogleMaps
+%
+%Response = GigPillarWeb./searchCompletion {
+%  Cities = GoogleMaps.searchCities(searchParameters)
+%  Locations = GigPillar.searchLocations(searchParameters)
+%  Genres = GigPillar.searchGenres(searchParameters)
+%  Artists = GigPillar.searchArtists(searchParameters)
+%  Events = GigPillar.searchEvents(searchParameters)
+%}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{konzept/datenfluss-suchfeld.png}
+  \caption{Datenfluss: Suchfeld}
+\end{figure}
+
+\clearpage
+\subsubsection{Gig erstellen - Locationfeld}\label{datenfluss-gig-erstellen-locationfeld}
+
+Beim Erstellen eines neuen Gigs, muss eine Location zugewiesen werden. Die
+Locations werden über die bereits in GigPillar erfassten Locations sowie über
+eine externe Datenquelle, wie z.B. Google Maps, bezogen.
+
+%GigPillarWeb
+%GigPillar
+%GoogleMaps
+%
+%Response = GigPillarWeb./locationCompletion {
+%  Locations = GigPillar.searchLocations(searchParameters) {
+%    Locations = searchLocations(searchParameters)
+%    Locations = GoogleMaps.searchLocations(searchParameters)
+%  }
+%}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{konzept/datenfluss-locationfeld.png}
+  \caption{Datenfluss: Gig erstellen - Locationfeld}
+\end{figure}
+
+%TODO:
+%\clearpage
+%\subsubsection{Gig erstellen}\label{datenfluss-gigerstellen}
+
+\clearpage
+\subsubsection{Passwort-Reset}\label{datenfluss-passwort-reset}
+
+Falls ein Benutzer sein Passwort vergessen hat, kann dieser ein neues Passwort
+über die Passwort-Reset Funktion setzen. Beim Auslösen eines Passwort-Resets,
+wird dem Benutzer ein E-Mail mit einem Link zugeschickt.
+Der Passwort-Reset-Link führt den Benutzer auf ein Formular auf welchem er/sie
+die Möglichkeit hat, ein neues Passwort zu setzen.
+
+%GigPillarWeb
+%GigPillar
+%UserEmailClient
+%
+%Response = GigPillarWeb./passwordReset {
+%  GigPillar.sendPasswordResetEmail(currentUser) {
+%    GigPillar->UserEmailClient:SMTP
+%  }
+%}
+%
+%Redirect = UserEmailClient.clickPasswordResetLink {
+%  Response = GigPillarWeb./passwordRestToken
+%}
+%
+%Response = GigPillarWeb./setPassword {
+%  GigPillar.setUserPassword(currentUser, password)
+%}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{konzept/datenfluss-passwort-reset.png}
+  \caption{Datenfluss: Passwort-Reset}
+\end{figure}
+
+\clearpage
 \subsection{Datenbankstruktur}\label{datenbankstruktur}
 
 \begin{figure}[!htb]
@@ -177,4 +296,5 @@ Der Genre Filter soll folgende Werte zur Verfügung stellen.
   \caption{Entity Relationship Diagram}
 \end{figure}
 
+\clearpage
 \section{Testkonzept}\label{testkonzept}
