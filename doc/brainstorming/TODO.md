@@ -1,5 +1,5 @@
 - Find "Diplomarbeit ID" für Titleblatt
-- Add Biweekly reports to appendix!
+- Genre per Gig or Artist?
 
 https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
 

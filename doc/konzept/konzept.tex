@@ -5,7 +5,7 @@
 \section{Portalname}\label{portalname}
 
 Der Portalname wurde in einer Brainstorming-Session von Damian Senn auf
-den Namen «Gigpillar» festgelegt. Der Name ist angelehnt an die Werbepfeiler in
+den Namen \textbf{«Gigpillar»} festgelegt. Der Name ist angelehnt an die Werbepfeiler in
 Städten, wo oft Werbeplakate für Konzerte hängen.
 
 Die folgenden Ideen wurden in Betracht gezogen, jedoch war keine Domain mehr
@@ -31,6 +31,16 @@ verfügbar oder der Name überzeugte nicht:
 
 \subsubsection{Homepage}
 
+Die Homepage ist die erste Seite, die der Besucher sieht, wenn er/sie die
+Applikation direkt über \href{https://gigpillar.com/}{gigpillar.com} aufruft.
+Auf den ersten Blick ist die Suche sowie ein grosses Bild (Banner) eines Gigs
+zu erblicken. Weiter sind Links zu gängigen Funktionalitäten wie Gig hinzufügen
+sowie das Login in einer Navigation erreichbar.
+
+Unter dem Banner werden Gigs in nächster nähe des Besuchers aufgelistet, der
+Link «change location» führt weiter zur Suchresultate Seite um den
+entsprechenden Filter anzupassen.
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.95\textwidth]{mockups/homepage.png}
@@ -39,6 +49,26 @@ verfügbar oder der Name überzeugte nicht:
 
 \clearpage
 \subsubsection{Suchresultate}
+
+Auf der Suchresultate Seite sieht der Benutzer seine Suchresultate der von der
+globalen Suchbox ausgelösten Suche. Die Seite bietet weitere Filter an um die
+Resultate weiter einzugrenzen.\\
+
+\noindent
+Folgende Filter stehen den Benutzern zur Verfügung:
+
+\begin{itemize}
+  \tightlist{}
+  \item{} Konzertname
+  \item{} Ort
+  \item{} Datum von
+  \item{} Datum bis
+  \item{} Musik Genre
+\end{itemize}
+
+\noindent
+Das Anwählen eines Suchresultates führt den Benutzer weiter zur detaillierten
+Gig Ansicht.
 
 \begin{figure}[!htb]
   \centering
@@ -49,6 +79,21 @@ verfügbar oder der Name überzeugte nicht:
 \clearpage
 \subsubsection{Gig Ansicht}
 
+In der Gig Ansicht werden alle Details zu einem Event aufgelistet.
+
+\begin{itemize}
+  \tightlist{}
+  \item{} Datum des Events
+  \item{} Zeit wann das Event beginnt, bzw die Location die Türen öffnet
+  \item{} Liste aller Künstler mit optionaler Startzeit
+  \item{} Eine Beschreibung des Events
+  \item{} Die Adresse der Location mit Link auf Google Maps
+\end{itemize}
+
+\noindent
+Ausserdem soll es den Benutzern möglich sein, über einen «Add to my calendar»
+Link das Event zu seiner Kalender-Applikation zu importieren.
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.95\textwidth]{mockups/event.png}
@@ -57,6 +102,23 @@ verfügbar oder der Name überzeugte nicht:
 
 \clearpage
 \subsubsection{Gig erfassen}
+
+Benutzer können Gigs erfassen.\\
+
+\noindent
+Folgende Daten sind für einen Gig zu erfassen:
+
+\begin{itemize}
+  \tightlist{}
+  \item{} Name
+  \item{} Bild \textit{(optional)}
+  \item{} Location
+  \item{} Datum
+  \item{} Zeit
+  \item{} Eine Liste von Artists mit optionaler Startzeit
+  \item{} Beschreibung
+  \item{} Link zum Ticketvertreiber
+\end{itemize}
 
 \begin{figure}[!htb]
   \centering
@@ -67,11 +129,41 @@ verfügbar oder der Name überzeugte nicht:
 \clearpage
 \subsubsection{Benutzerprofil}
 
+Benutzer können ihr eigenes Profil verwalten und folgende Tätigkeiten
+verrichten:
+
+\begin{itemize}
+  \tightlist{}
+  \item{} Anzeigename ändern
+  \item{} E-Mail Adresse ändern \textit{(mit E-Mail Bestätigung)}
+  \item{} Passwort ändern \textit{(muss vorher altes Passwort bestätigen)}
+  \item{} Account löschen \textit{(muss doppelt bestätigt werden!)}
+\end{itemize}
+
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.95\textwidth]{mockups/profile.png}
   \caption{Mockup: Benutzerprofil}
 \end{figure}
+
+\clearpage
+\section{Genre Filter}\label{genrefilter}
+
+Der Genre Filter soll folgende Werte zur Verfügung stellen.
+
+\begin{itemize}
+  \item{} Alternative
+  \item{} Blues
+  \item{} Classical
+  \item{} EDM
+  \item{} Hip-Hop
+  \item{} Jazz
+  \item{} Metal
+  \item{} Pop
+  \item{} Punk
+  \item{} Reggae
+  \item{} Rock
+\end{itemize}
 
 \clearpage
 \section{Softwarekonzept}\label{softwarekonzept}
