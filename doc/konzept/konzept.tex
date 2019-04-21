@@ -310,6 +310,174 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
 \clearpage
 \section{Testkonzept}\label{testkonzept}
 
+\subsection{Unit-Tests}\label{unittests}
+
+% Do ~80% code coverage
+
+\subsection{Visual-Tests}\label{visualtests}
+
+% Do simple screenshot diffing for every screen
+
+\clearpage
+\subsection{Akzeptanztests}\label{akzeptanztests}
+
+% TODO: Akzeptanztest basieren auf Anforderungen
+
+\newcounter{acceptancetest}
+
+\NewDocumentCommand{\acceptancetest}{
+  O{}
+  O{}
+  O{\tabularnewline\tabularnewline}
+  O{\tabularnewline\tabularnewline\tabularnewline\tabularnewline}
+  m
+  m
+}{
+  \begin{longtable}[]{@{}l|p{6cm}p{4cm}@{}}
+    \toprule
+    \stepcounter{acceptancetest}
+    \textbf{Test \arabic{acceptancetest}} & \textbf{Tester:} #1 & \textbf{Datum:} #2 \tabularnewline
+    \midrule
+    \textbf{Kriterium}                    & \multicolumn{2}{p{10cm}}{#5}\tabularnewline
+    \textbf{Erwartetes Ergebnis}          & \multicolumn{2}{p{10cm}}{#6}\tabularnewline
+    \midrule
+    \textbf{Testergebnis}                 & #3\tabularnewline
+    \midrule
+    \textbf{Fehlerbeschreibung}           & #4\tabularnewline
+    \bottomrule
+    \caption{Akzeptanztest \arabic{acceptancetest}}
+  \end{longtable}
+}
+
+\acceptancetest
+  {Es ist möglich nach Konzerten in einem bestimmten Ort zu suchen.}
+  {Nach auswählen von «Berlin» in der Suche, werden nur noch Konzerte in Berlin aufgelistet.}
+
+\acceptancetest
+  {Es ist möglich eine Suche weiter nach Genre einzuschränken.}
+  {Nach auswählen von «Rock» in einem Suchresultat, werden nur noch Rock-Konzerte aufgelistet.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Homepage}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Homepage}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Suche}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Suche}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Gig Ansicht}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Gig Ansicht}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Login}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Login}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Registrierung}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Registrierung}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Gig erfassen}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Gig erfassen}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Gig erfassen}
+  {Folgende Daten können erfasst werden:
+  \begin{itemize}
+    \tightlist{}
+    \item{} Name
+    \item{} Bild
+    \item{} Location
+    \item{} Datum
+    \item{} Zeit
+    \item{} Künstler mit optinaler Start-Zeit
+    \item{} Beschreibung
+    \item{} Link zum Ticketvertreiber
+  \end{itemize}}
+
+\acceptancetest
+  {Neue Gigs tauchen in der Suche auf.}
+  {Der neu erstellte Gig taucht in der Suche auf.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Benutzerprofil}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Benutzerprofil}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Responsive - Passwort-Reset}
+  {Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest
+  {Browserkompatibilität - Passwort-Reset}
+  {Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest
+  {Security - Suche}
+  {Das Suchfeld ist resistent gegen XSS und SQL-Injection}
+
+\acceptancetest
+  {Security - Login}
+  {Das Login ist resistent gegen XSS und SQL-Injection}
+
+\clearpage
+
+\acceptancetest
+  {Security - Benutzerprofil}
+  {Das Benutzerprofil ist resistent gegen XSS und SQL-Injection}
+
+\acceptancetest
+  {Security - Gig erfassen}
+  {Das Gig erfassen Formular ist resistent gegen XSS und SQL-Injection}
+
 \clearpage
 \section{Fazit}\label{konzept-fazit}
 
