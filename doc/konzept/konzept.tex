@@ -265,6 +265,8 @@ eine externe Datenquelle, wie z.B. Google Maps, bezogen.
 %\clearpage
 %\subsubsection{Gig erstellen}\label{datenfluss-gigerstellen}
 
+% Optional FB-Event erstellen
+
 \clearpage
 \subsubsection{Passwort-Reset}\label{datenfluss-passwort-reset}
 
@@ -312,16 +314,39 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
 
 \subsection{Unit-Tests}\label{unittests}
 
-% Do ~80% code coverage
+Der Applikationscode soll mit Unit-Tests getestet werden und mindestens eine
+Abdeckung von 80\% des Codes erfüllen.
+
+Unit-Tests testen einzelne Funktionen, d.h. hier sind Aufrufe über HTTP, wie
+sie durch den Browser ausgelöst würden, oder Datenbankabfragen ausgeschlossen.
+
+\subsection{Integration-Tests}\label{integrationtests}
+
+HTTP Requests sowie Datenabfragen sollen über Integration-Tests abgedeckt
+werden. In den Integration-Tests wird vor allem Business-Logik wie z.B.
+Validierungen von Daten getestet.
+
+\subsection{Browser-Tests}\label{browsertests}
+
+Mit der in der Studie evaluierten Testing Library «Wallaby» sollen die
+gängigsten Benutzer Use-Cases getestet werden.
 
 \subsection{Visual-Tests}\label{visualtests}
 
-% Do simple screenshot diffing for every screen
+Es soll für jede Ansicht während den Tests mindestens ein Screenshot für
+\href{https://percy.io/}{percy.io} erstellt werden.
 
 \clearpage
 \subsection{Akzeptanztests}\label{akzeptanztests}
 
 % TODO: Akzeptanztest basieren auf Anforderungen
+Die Akzeptanztest sind vom Projektleiter vor Abschluss der Realisierung
+durchzuführen. Der Umfang der Akzeptanztests basiert auf den Kriterien die im
+Anforderungskatalog definiert wurden.
+
+Technische Kritierien wie die Indexierbarkeit wurden in den Akzeptanztests
+bewusst ausgelassen, die Tests sollen möglichst unabhängig vom System
+durchführbar sein.
 
 \newcounter{acceptancetest}
 
@@ -333,10 +358,10 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
   m
   m
 }{
+  \stepcounter{acceptancetest}
   \begin{longtable}[]{@{}l|p{6cm}p{4cm}@{}}
     \toprule
-    \stepcounter{acceptancetest}
-    \textbf{Test \arabic{acceptancetest}} & \textbf{Tester:} #1 & \textbf{Datum:} #2 \tabularnewline
+    \textbf{Test \ifnum\value{acceptancetest}<10 0\fi\arabic{acceptancetest}} & \textbf{Tester:} #1 & \textbf{Datum:} #2 \tabularnewline
     \midrule
     \textbf{Kriterium}                    & \multicolumn{2}{p{10cm}}{#5}\tabularnewline
     \textbf{Erwartetes Ergebnis}          & \multicolumn{2}{p{10cm}}{#6}\tabularnewline
@@ -345,7 +370,7 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
     \midrule
     \textbf{Fehlerbeschreibung}           & #4\tabularnewline
     \bottomrule
-    \caption{Akzeptanztest \arabic{acceptancetest}}
+    \caption{Akzeptanztest \ifnum\value{acceptancetest}<10 0\fi\arabic{acceptancetest}}
   \end{longtable}
 }
 
@@ -425,13 +450,13 @@ die Möglichkeit hat, ein neues Passwort zu setzen.
   \begin{itemize}
     \tightlist{}
     \item{} Name
-    \item{} Bild
+    \item{} Bild \textit{(optional)}
     \item{} Location
     \item{} Datum
-    \item{} Zeit
-    \item{} Künstler mit optinaler Start-Zeit
+    \item{} Zeit \textit{(optional)}
+    \item{} Künstler mit optionaler Start-Zeit
     \item{} Beschreibung
-    \item{} Link zum Ticketvertreiber
+    \item{} Link zum Ticketvertreiber \textit{(optional)}
   \end{itemize}}
 
 \acceptancetest
