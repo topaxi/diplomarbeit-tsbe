@@ -9,7 +9,7 @@
 <!-- .slide: class="no-img-border" -->
 ## Browser-Technologie
 
-<img alt="HTML Logo" src="pictures/HTML5_Logo.svg" height="200">
+<img style="display: block; margin: 0 auto" alt="HTML Logo" src="pictures/HTML5_Logo.svg" height="200">
 <small style="font-size: 5vh">Quelle: https://www.w3.org/html/logo/</small>
 
 - Kein JavaScript Framework
