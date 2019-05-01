@@ -9,6 +9,8 @@
   font-size: 16px;
   font-family: var(--font-family);
   overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-foreground) var(--color-background);
 }
 
 body {
