@@ -31,9 +31,9 @@ $font-family: sans-serif;
     --color-foreground: #{$color-white};
     --color-background: #{$color-black};
   }
+}
 
-  &.dark {
-    --color-foreground: #{$color-white};
-    --color-background: #{$color-black};
-  }
+.dark {
+  --color-foreground: #{$color-white};
+  --color-background: #{$color-black};
 }

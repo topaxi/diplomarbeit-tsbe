@@ -1,1 +1,49 @@
-{{outlet}}
+<form class="add-gig-page">
+  <div class="form-control">
+    <label for="name">Name</label>
+    <input id="name">
+  </div>
+
+  <div class="form-control">
+    <label for="where">Where</label>
+    <span class="search-icon"></span>
+    <input id="where" placeholder="Search location">
+  </div>
+
+  <div class="form-control form-control-when">
+    <div class="form-control">
+      <label for="when">When</label>
+      <input id="when" type="date">
+    </div>
+
+    <label>
+      Doors <input type="time" value="19:00">
+    </label>
+  </div>
+
+  <div class="form-control">
+    <label for="who">Who</label>
+
+    <ul class="form-artist-list">
+      <li>Pennywise <label>at <input type="time"></label></li>
+      <li>NOFX <label>at <input type="time"></label></li>
+    </ul>
+
+    <span class="search-icon"></span>
+    <input id="who" placeholder="Search artists">
+  </div>
+
+  <div class="form-control">
+    <label for="description">Describe Gig</label>
+    <textarea id="description" rows="10"></textarea>
+  </div>
+
+  <div class="form-control">
+    <label for="tickets">Tickets</label>
+    <input id="tickets" size="30" type="url" placeholder="https://">
+  </div>
+
+  <div class="form-action-bar">
+    <button class="btn btn-success">Create your Gig</button>
+  </div>
+</form>

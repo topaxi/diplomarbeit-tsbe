@@ -13,7 +13,7 @@
   </header>
 
   {{#each this.model as |gig|}}
-    <a href="#">
+    <LinkTo @route="gig-detail">
       <article class="gig-box">
         <img src={{gig.image}} alt="">
         <div class="gig-box-caption">
@@ -22,6 +22,6 @@
           <p>{{gig.where}}<small> - {{gig.city}}</small></p>
         </div>
       </article>
-    </a>
+    </LinkTo>
   {{/each}}
 </section>

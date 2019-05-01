@@ -29,3 +29,10 @@ a {
     text-decoration: none;
   }
 }
+
+input,
+textarea,
+button {
+  font-size: inherit;
+  max-width: calc(100vw - 2rem);
+}

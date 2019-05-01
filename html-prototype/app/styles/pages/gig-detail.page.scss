@@ -1,0 +1,56 @@
+.gig-detail-page {
+  margin: 0 1rem;
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template: 'header' 'left' 'right';
+}
+
+.gig-detail-header {
+  display: grid;
+  grid-area: header;
+  grid-template: 'title doors date' 'title doors calendar';
+
+  .date {
+    grid-area: date;
+    margin-bottom: 0.5rem;
+    justify-self: end;
+  }
+  .doors {
+    grid-area: doors;
+  }
+  .title {
+    grid-area: title;
+  }
+  a {
+    grid-area: calendar;
+    justify-self: end;
+  }
+  h2 {
+    display: inline-block;
+    margin: 0;
+    margin-right: 1rem;
+  }
+}
+
+.gig-detail-lineup {
+  margin-top: 0;
+}
+
+.gig-detail-left {
+  grid-area: left;
+}
+
+.gig-detail-right {
+  grid-area: right;
+}
+
+@media (min-width: 800px) {
+  .gig-detail-page {
+    grid-template: 'header header' 'left right';
+  }
+
+  .gig-detail-address {
+    text-align: right;
+    margin-top: 2rem;
+  }
+}
