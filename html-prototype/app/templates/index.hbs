@@ -1,0 +1,20 @@
+<div class="cover">
+  <img src="pictures/backgrounds/background-1.jpg" alt="" sizes="100vw">
+
+  <div class="cover-action">
+    <LinkTo @route="add-gig" class="btn btn-primary">Add Gig</LinkTo>
+  </div>
+</div>
+
+<section class="gig-list">
+  <h2>Gigs in Bern</h2>
+
+  {{#each this.model as |gig|}}
+    <article class="gig-box">
+      <img src={{gig.image}} alt="">
+      <header>{{gig.title}}</header>
+      <time>{{gig.date}}</time>
+      <p>{{gig.where}}</p>
+    </article>
+  {{/each}}
+</section>

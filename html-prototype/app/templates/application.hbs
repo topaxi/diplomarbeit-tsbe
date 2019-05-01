@@ -1,0 +1,14 @@
+<header class="page-header">
+  <LinkTo @route="index" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</LinkTo>
+  <input>
+  <nav class="page-navigation">
+    <ul>
+      <li><LinkTo @route="index">Home</LinkTo></li>
+      <li><LinkTo @route="add-gig">Add Gig</LinkTo></li>
+      <li><LinkTo @route="login">Login</LinkTo></li>
+    </ul>
+  </nav>
+</header>
+<main role="main">{{outlet}}</main>
+<footer>
+</footer>
