@@ -1,12 +1,19 @@
 .page-header {
   display: grid;
   grid-template: 'brand navigation' 'search-box search-box';
+  align-items: center;
   position: absolute;
   width: 100%;
+  border-bottom: 1px solid transparent;
   padding: 0 1rem;
 
   @media (min-width: 890px) {
     grid-template: 'brand search-box navigation';
+  }
+
+  &:not(.page-header--index) {
+    border-color: #bcbcbc;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -17,7 +24,23 @@
   > ul {
     display: flex;
     list-style: none;
-    gap: 1em;
+    gap: 1.5em;
+  }
+
+  a {
+    color: var(--color-foreground);
+    text-decoration: none;
+    padding: 0.8rem 0;
+    display: block;
+  }
+
+  li {
+    border-bottom: 2px solid transparent;
+
+    &:hover,
+    &:focus-within {
+      border-color: currentColor;
+    }
   }
 }
 
@@ -31,7 +54,6 @@
   grid-area: search-box;
   position: relative;
   justify-self: center;
-  align-self: center;
 
   > label > svg {
     position: absolute;

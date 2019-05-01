@@ -1,5 +1,7 @@
 - Find "Diplomarbeit ID" für Titleblatt
-- Genre per Gig or Artist?
+- Genre per Gig or Artist? -> per Gig
+- Searchbox more prominent on homepage? instead of call to action?
+- Logo?
 
 https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
 

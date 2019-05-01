@@ -4,6 +4,13 @@ export default class IndexRoute extends Route {
   model() {
     let gigs = [
       {
+        title: 'Darkside - Gridlok',
+        where: 'Dachstock',
+        city: 'Bern, Switzerland',
+        date: '24.12.2019',
+        image: 'pictures/gigs/darkside2.jpg'
+      },
+      {
         title: 'Darkside',
         where: 'Dachstock',
         city: 'Bern, Switzerland',
@@ -26,7 +33,7 @@ export default class IndexRoute extends Route {
       }
     ]
 
-    return shuffle(Array.from({ length: 5 }, () => gigs).flat())
+    return shuffle(Array.from({ length: 3 }, () => gigs).flat())
   }
 }
 

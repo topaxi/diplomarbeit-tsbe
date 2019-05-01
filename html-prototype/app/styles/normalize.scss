@@ -17,6 +17,10 @@ body {
   flex-direction: column;
 }
 
+small {
+  font-size: 0.8em;
+}
+
 a {
   color: var(--color-primary);
 

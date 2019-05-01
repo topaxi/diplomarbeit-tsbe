@@ -11,6 +11,8 @@
     'bottom bottom bottom bottom bottom' minmax(5rem, 20vh);
 
   > img {
+    -webkit-user-select: none;
+    pointer-events: none;
     grid-row: 1 / -1;
     grid-column: 1 / -1;
     object-fit: cover;
@@ -34,19 +36,23 @@
 
   gap: 1rem;
 
-  > h2 {
-    margin-top: 0;
-    grid-column: 1 / -1;
-
-    > small {
-      font-size: 1rem;
-    }
-  }
-
   > a {
     align-self: center;
     justify-self: center;
     text-decoration: none;
+  }
+}
+
+.gig-list-title {
+  margin-top: 0;
+  grid-column: 1 / -1;
+
+  > h2 {
+    display: inline;
+  }
+
+  > small {
+    font-size: 1rem;
   }
 }
 
@@ -75,23 +81,20 @@
   background: var(--color-background);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  padding: 0.1em 0.2em;
+  padding: 0.3rem 0.5em 0;
 
   > header {
-    grid-area: title;
     order: 1;
   }
 
   > time {
-    grid-area: date;
     justify-self: end;
     order: 0;
-    font-size: smaller;
+    font-size: 0.8rem;
   }
 
   > p {
-    grid-area: where;
-    margin: 0;
+    margin: 0.5rem 0;
     order: 2;
   }
 }
