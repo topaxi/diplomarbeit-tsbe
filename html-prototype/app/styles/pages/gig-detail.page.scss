@@ -9,6 +9,7 @@
   display: grid;
   grid-area: header;
   grid-template: 'title doors date' 'title doors calendar';
+  margin-bottom: 1rem;
 
   .date {
     grid-area: date;
@@ -47,6 +48,10 @@
 @media (min-width: 800px) {
   .gig-detail-page {
     grid-template: 'header header' 'left right';
+  }
+
+  .gig-detail-header {
+    margin-bottom: 0;
   }
 
   .gig-detail-address {
