@@ -9,7 +9,7 @@
   </head>
   <body>
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
-    <header class="page-header {{if this.isIndex 'page-header--index'}}" role="banner">
+    <header class="page-header<%= if assigns[:page_class] do %> page-header--<%= assigns[:page_class] %><% end %>" role="banner">
       <a href="/" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</a>
       <form class="page-search-box" action="/search">
         <label for="search">
