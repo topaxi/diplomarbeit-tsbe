@@ -1,13 +1,13 @@
 <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
 <header class="page-header {{if this.isIndex 'page-header--index'}}" role="banner">
   <LinkTo @route="index" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</LinkTo>
-  <div class="page-search-box">
+  <form class="page-search-box" action="/search">
     <label for="search">
       <span class="sr-only">Search for city, artist and concert</span>
       <span class="search-icon"></span>
     </label>
     <input id="search" placeholder="Search for city, artist and concert">
-  </div>
+  </form>
   <nav class="page-navigation">
     <ul>
       <li><LinkTo @route="index">Home</LinkTo></li>

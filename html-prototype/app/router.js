@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('register')
   this.route('add-gig')
   this.route('gig-detail');
+  this.route('search');
 })
 
 export default Router

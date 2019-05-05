@@ -1,0 +1,42 @@
+<section class="search-page">
+  <header class="search-title">
+    <h2>Bern</h2>
+    <small><a href="#">change location</a></small>
+  </header>
+
+  <form class="search-filters">
+    <div class="form-control">
+      <label for="date-from">From</label>
+      <input id="date-from"type="date">
+    </div>
+
+    <div class="form-control">
+      <label for="date-to">To</label>
+      <input id="date-to"type="date">
+    </div>
+
+    <div class="form-control">
+      <!--label for="date-genre">Genre</label-->
+      <select id="date-genre">
+        <option class="placeholder">Genre</option>
+        <option>Rock</option>
+        <option>EDM</option>
+      </select>
+    </div>
+  </form>
+
+  <div class="gig-list">
+    {{#each this.model as |gig|}}
+      <LinkTo @route="gig-detail">
+        <article class="gig-box">
+          <img src={{gig.image}} alt="">
+          <div class="gig-box-caption">
+            <header>{{gig.title}}</header>
+            <time>{{gig.date}}</time>
+            <p>{{gig.where}}<small> - {{gig.city}}</small></p>
+          </div>
+        </article>
+      </LinkTo>
+    {{/each}}
+  </div>
+</section>

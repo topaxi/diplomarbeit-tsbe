@@ -12,14 +12,16 @@
   }
 
   input,
+  select,
   textarea {
     border: 1px solid #bcbcbc;
     border-radius: var(--border-radius);
+    background-color: var(--color-background);
     min-height: 1.5em;
     padding: 0.5em;
   }
 
-  + .form-control {
+  .form-vertical & + .form-control {
     margin-top: 1rem;
   }
 
@@ -39,7 +41,7 @@
 
 .form-control-when {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 
   > .form-control {
     margin-right: 1rem;
