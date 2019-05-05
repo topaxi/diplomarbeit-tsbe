@@ -3,9 +3,9 @@ defmodule Gigpillar.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :email, :string
-    field :password, :string
-    field :username, :string
+    field(:email, :string)
+    field(:password, :string)
+    field(:username, :string)
 
     timestamps()
   end
@@ -15,5 +15,7 @@ defmodule Gigpillar.Accounts.User do
     user
     |> cast(attrs, [:username, :email, :password])
     |> validate_required([:username, :email, :password])
+    |> validate_format(:email, ~r/@/)
+    |> unique_constraint(:email)
   end
 end

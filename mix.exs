@@ -22,6 +22,6 @@ defmodule Gigpillar.Umbrella.MixProject do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    []
+    [{:mix_test_watch, "~> 0.8", only: :dev, runtime: false}]
   end
 end

@@ -2,12 +2,21 @@ defmodule Gigpillar.AccountsTest do
   use Gigpillar.DataCase
 
   alias Gigpillar.Accounts
+  alias Gigpillar.Tokens
 
   describe "users" do
     alias Gigpillar.Accounts.User
 
-    @valid_attrs %{email: "some email", password: "some password", username: "some username"}
-    @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username"}
+    @valid_attrs %{
+      email: "test@example.com",
+      password: "some password",
+      username: "some username"
+    }
+    @update_attrs %{
+      email: "updated@example.com",
+      password: "some updated password",
+      username: "some updated username"
+    }
     @invalid_attrs %{email: nil, password: nil, username: nil}
 
     def user_fixture(attrs \\ %{}) do
@@ -31,7 +40,7 @@ defmodule Gigpillar.AccountsTest do
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == "some email"
+      assert user.email == "test@example.com"
       assert user.password == "some password"
       assert user.username == "some username"
     end
@@ -43,7 +52,7 @@ defmodule Gigpillar.AccountsTest do
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
-      assert user.email == "some updated email"
+      assert user.email == "updated@example.com"
       assert user.password == "some updated password"
       assert user.username == "some updated username"
     end
@@ -69,11 +78,25 @@ defmodule Gigpillar.AccountsTest do
   describe "accounts_tokens" do
     alias Gigpillar.Accounts.AccountToken
 
-    @valid_attrs %{}
+    @valid_attrs %{user_id: 1, token_id: 1}
     @update_attrs %{}
     @invalid_attrs %{}
 
     def account_token_fixture(attrs \\ %{}) do
+      {:ok} =
+        Accounts.create_user(%{
+          username: 'testuser',
+          email: 'testuser@example.com',
+          password: '123456'
+        })
+
+      {:ok} =
+        Tokens.create_token(%{
+          type: 'password-reset',
+          value: '123456',
+          expires_at: DateTime.add(DateTime.utc_now(), 60 * 60 * 24, :second)
+        })
+
       {:ok, account_token} =
         attrs
         |> Enum.into(@valid_attrs)
@@ -102,12 +125,17 @@ defmodule Gigpillar.AccountsTest do
 
     test "update_account_token/2 with valid data updates the account_token" do
       account_token = account_token_fixture()
-      assert {:ok, %AccountToken{} = account_token} = Accounts.update_account_token(account_token, @update_attrs)
+
+      assert {:ok, %AccountToken{} = account_token} =
+               Accounts.update_account_token(account_token, @update_attrs)
     end
 
     test "update_account_token/2 with invalid data returns error changeset" do
       account_token = account_token_fixture()
-      assert {:error, %Ecto.Changeset{}} = Accounts.update_account_token(account_token, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Accounts.update_account_token(account_token, @invalid_attrs)
+
       assert account_token == Accounts.get_account_token!(account_token.id)
     end
 
