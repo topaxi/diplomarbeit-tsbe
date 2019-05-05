@@ -3,11 +3,12 @@ defmodule Gigpillar.Gigs.Gig do
   import Ecto.Changeset
 
   schema "gigs" do
-    field :date, :utc_datetime
-    field :description, :string
-    field :name, :string
-    field :location_id, :id
-    field :creator_id, :id
+    field(:date, :utc_datetime)
+    field(:description, :string)
+    field(:name, :string)
+    field(:picture, :string)
+    field(:location_id, :id)
+    field(:creator_id, :id)
 
     timestamps()
   end
@@ -15,7 +16,7 @@ defmodule Gigpillar.Gigs.Gig do
   @doc false
   def changeset(gig, attrs) do
     gig
-    |> cast(attrs, [:name, :description, :date])
+    |> cast(attrs, [:name, :description, :picture, :date])
     |> validate_required([:name, :description, :date])
   end
 end
