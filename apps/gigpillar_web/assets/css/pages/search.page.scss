@@ -1,0 +1,23 @@
+.search-page {
+  width: 100vw;
+  max-width: 1024px;
+  padding: 0 1rem;
+}
+
+.search-title {
+  h2 {
+    display: inline;
+  }
+
+  margin-bottom: 2rem;
+}
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
+  > *:not(:first-child) {
+    margin-left: 1rem;
+  }
+}

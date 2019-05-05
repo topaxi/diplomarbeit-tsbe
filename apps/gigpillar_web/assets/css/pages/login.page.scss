@@ -1,0 +1,16 @@
+.login-page {
+  input {
+    width: 100%;
+  }
+
+  form {
+    padding: 0 1.5rem;
+  }
+}
+
+.no-account {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: baseline;
+}

@@ -1,0 +1,83 @@
+.form-control {
+  position: relative;
+
+  > input,
+  > textarea {
+    display: block;
+  }
+
+  > textarea {
+    width: 100%;
+    max-width: 30em;
+  }
+
+  input,
+  select,
+  textarea {
+    border: 1px solid #bcbcbc;
+    border-radius: var(--border-radius);
+    background-color: var(--color-background);
+    min-height: 1.5em;
+    padding: 0.5em;
+  }
+
+  .form-vertical & + .form-control {
+    margin-top: 1rem;
+  }
+
+  > .search-icon {
+    position: absolute;
+    pointer-events: none;
+    width: 1em;
+    height: 1em;
+    bottom: 0.65rem;
+    left: 0.5rem;
+  }
+
+  > .search-icon + input {
+    padding-left: 1.5rem;
+  }
+}
+
+.form-control-when {
+  display: flex;
+  align-items: flex-end;
+
+  > .form-control {
+    margin-right: 1rem;
+  }
+}
+
+.form-artist-list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form-artist-list li {
+  position: relative;
+  padding-left: 1.25em;
+  margin: 0.33rem 0 0.33rem 0.5rem;
+
+  input {
+    font-size: 0.8em;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    box-sizing: content-box;
+    cursor: move;
+    top: 0.4em;
+    left: 0;
+    width: 1em;
+    height: 0.125em;
+    border-top: 0.375em double;
+    border-bottom: 0.125em solid;
+  }
+}
+
+.form-action-bar {
+  margin: 1rem 0;
+}
