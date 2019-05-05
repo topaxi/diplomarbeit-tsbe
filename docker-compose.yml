@@ -11,3 +11,8 @@ services:
       POSTGRES_DB: gigpillar_dev
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - '1025:1025'
+      - '1080:1080'
