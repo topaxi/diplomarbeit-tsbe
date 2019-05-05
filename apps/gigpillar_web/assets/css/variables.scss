@@ -1,8 +1,22 @@
 $color-primary: #0c7ac9;
+$color-primary-brighter: lighten($color-primary, 25%);
+$color-primary-darker: darken($color-primary, 25%);
+
 $color-secondary: #031d44;
+$color-secondary-brighter: lighten($color-secondary, 25%);
+$color-secondary-darker: darken($color-secondary, 25%);
+
 $color-success: #70a288;
+$color-success-brighter: lighten($color-success, 25%);
+$color-success-darker: darken($color-success, 25%);
+
 $color-warning: #dab785;
+$color-warning-brighter: lighten($color-warning, 25%);
+$color-warning-darker: darken($color-warning, 25%);
+
 $color-danger: #d5896f;
+$color-danger-brighter: lighten($color-danger, 25%);
+$color-danger-darker: darken($color-danger, 25%);
 
 $color-white: #fff;
 $color-black: #222;
@@ -13,10 +27,24 @@ $font-family: sans-serif;
 
 :root {
   --color-primary: #{$color-primary};
+  --color-primary-brighter: #{$color-primary-brighter};
+  --color-primary-darker: #{$color-primary-darker};
+
   --color-secondary: #{$color-secondary};
+  --color-secondary-brighter: #{$color-secondary-brighter};
+  --color-secondary-darker: #{$color-secondary-darker};
+
   --color-success: #{$color-success};
+  --color-success-brighter: #{$color-success-brighter};
+  --color-success-darker: #{$color-success-darker};
+
   --color-warning: #{$color-warning};
+  --color-warning-brighter: #{$color-warning-brighter};
+  --color-warning-darker: #{$color-warning-darker};
+
   --color-danger: #{$color-danger};
+  --color-danger-brighter: #{$color-danger-brighter};
+  --color-danger-darker: #{$color-danger-darker};
 
   --color-white: #{$color-white};
   --color-black: #{$color-black};

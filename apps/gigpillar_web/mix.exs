@@ -24,7 +24,7 @@ defmodule GigpillarWeb.MixProject do
   def application do
     [
       mod: {GigpillarWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_identity]
     ]
   end
 
@@ -45,7 +45,9 @@ defmodule GigpillarWeb.MixProject do
       {:gettext, "~> 0.11"},
       {:gigpillar, in_umbrella: true},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:ueberauth, "~> 0.6"},
+      {:ueberauth_identity, "~> 0.2"}
     ]
   end
 

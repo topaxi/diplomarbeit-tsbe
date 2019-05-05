@@ -16,6 +16,17 @@ config :gigpillar_web, GigpillarWeb.Endpoint,
   render_errors: [view: GigpillarWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: GigpillarWeb.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :ueberauth, Ueberauth,
+  providers: [
+    identity:
+      {Ueberauth.Strategy.Identity,
+       [
+         callback_methods: ["POST"],
+         uid_field: :email,
+         nickname_field: :username,
+       ]}
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

@@ -1,0 +1,24 @@
+<div class="login-page">
+  <%= form_tag @callback_url, method: "post", class: "form-vertical" do %>
+    <h2>Login</h2>
+
+    <div class="form-control">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" value="<%= @conn.params["email"] %>">
+    </div>
+
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password">
+    </div>
+
+    <div class="form-action-bar">
+      <button class="btn btn-success">Login</button>
+    </div>
+  <% end %>
+
+  <div class="no-account dark">
+    <p>Not registered yet?</p>
+    <a href="/auth/register" class="btn">Sign up now</a>
+  </div>
+</div>

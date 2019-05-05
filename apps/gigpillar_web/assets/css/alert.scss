@@ -1,0 +1,16 @@
+.alert {
+  display: none;
+  border: 1px solid var(--border-color, currentColor);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+}
+
+.alert:not(:empty) {
+  display: block;
+}
+
+.alert-danger {
+  color: var(--color-danger-darker);
+  background-color: var(--color-danger-brighter);
+  --border-color: var(--color-danger);
+}
