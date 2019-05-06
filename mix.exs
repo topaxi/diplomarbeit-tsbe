@@ -25,7 +25,7 @@ defmodule Gigpillar.Umbrella.MixProject do
   defp deps do
     [
       {:mix_test_watch, "~> 0.8", only: :dev, runtime: false},
-      {:coverex, "~> 1.4.10", only: :test}
+      {:coverex, "~> 1.5.0", only: :test}
     ]
   end
 end
