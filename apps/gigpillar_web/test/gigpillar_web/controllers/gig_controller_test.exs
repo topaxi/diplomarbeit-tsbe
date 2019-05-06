@@ -3,8 +3,20 @@ defmodule GigpillarWeb.GigControllerTest do
 
   alias Gigpillar.Gigs
 
-  @create_attrs %{}
-  @update_attrs %{}
+  @create_attrs %{
+    name: "Darkside",
+    description: "Gig description",
+    picture: "https://example.com/picture.png",
+    date: DateTime.utc_now()
+  }
+
+  @update_attrs %{
+    name: "Darkside 2",
+    description: "Gig description 2",
+    picture: "https://example.com/picture2.png",
+    date: DateTime.utc_now()
+  }
+
   @invalid_attrs %{}
 
   def fixture(:gig) do
@@ -75,9 +87,10 @@ defmodule GigpillarWeb.GigControllerTest do
     test "deletes chosen gig", %{conn: conn, gig: gig} do
       conn = delete(conn, Routes.gig_path(conn, :delete, gig))
       assert redirected_to(conn) == Routes.gig_path(conn, :index)
-      assert_error_sent 404, fn ->
+
+      assert_error_sent(404, fn ->
         get(conn, Routes.gig_path(conn, :show, gig))
-      end
+      end)
     end
   end
 

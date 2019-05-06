@@ -3,12 +3,10 @@ defmodule Gigpillar.Gigs.GigArtist do
   import Ecto.Changeset
 
   schema "gigs_artists" do
-    field :order, :integer
-    field :plays_at, :time
-    field :gig_id, :id
-    field :artist_id, :id
-
-    timestamps()
+    field(:order, :integer)
+    field(:plays_at, :time)
+    field(:gig_id, :id)
+    field(:artist_id, :id)
   end
 
   @doc false

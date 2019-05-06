@@ -16,9 +16,10 @@ defmodule Gigpillar.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :email])
+    |> cast(attrs, [:username, :email, :password])
     |> validate_required([:username])
     |> validate_email
+    |> hash_password
   end
 
   def register_changeset(user, attrs) do

@@ -5,8 +5,6 @@ defmodule Gigpillar.Accounts.AccountToken do
   schema "accounts_tokens" do
     field(:user_id, :id)
     field(:token_id, :id)
-
-    timestamps()
   end
 
   @doc false

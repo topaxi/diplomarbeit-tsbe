@@ -41,7 +41,7 @@ defmodule Gigpillar.AccountsTest do
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
       assert user.email == "test@example.com"
-      assert user.password == "some password"
+      assert Argon2.check_pass(user, "some password") == {:ok, user}
       assert user.username == "some username"
     end
 
@@ -53,7 +53,7 @@ defmodule Gigpillar.AccountsTest do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
       assert user.email == "updated@example.com"
-      assert user.password == "some updated password"
+      assert Argon2.check_pass(user, "some updated password") == {:ok, user}
       assert user.username == "some updated username"
     end
 

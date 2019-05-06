@@ -3,10 +3,8 @@ defmodule Gigpillar.Gigs.GigGenre do
   import Ecto.Changeset
 
   schema "gigs_genres" do
-    field :gig_id, :id
-    field :genre_id, :id
-
-    timestamps()
+    field(:gig_id, :id)
+    field(:genre_id, :id)
   end
 
   @doc false
