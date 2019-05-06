@@ -25,6 +25,7 @@ defmodule GigpillarWeb.GigControllerTest do
   end
 
   describe "index" do
+    @tag :skip
     test "lists all gigs", %{conn: conn} do
       conn = get(conn, Routes.gig_path(conn, :index))
       assert html_response(conn, 200) =~ "Listing Gigs"
@@ -32,6 +33,7 @@ defmodule GigpillarWeb.GigControllerTest do
   end
 
   describe "new gig" do
+    @tag :skip
     test "renders form", %{conn: conn} do
       conn = get(conn, Routes.gig_path(conn, :new))
       assert html_response(conn, 200) =~ "New Gig"
@@ -39,6 +41,7 @@ defmodule GigpillarWeb.GigControllerTest do
   end
 
   describe "create gig" do
+    @tag :skip
     test "redirects to show when data is valid", %{conn: conn} do
       conn = post(conn, Routes.gig_path(conn, :create), gig: @create_attrs)
 
@@ -58,6 +61,7 @@ defmodule GigpillarWeb.GigControllerTest do
   describe "edit gig" do
     setup [:create_gig]
 
+    @tag :skip
     test "renders form for editing chosen gig", %{conn: conn, gig: gig} do
       conn = get(conn, Routes.gig_path(conn, :edit, gig))
       assert html_response(conn, 200) =~ "Edit Gig"
@@ -67,6 +71,7 @@ defmodule GigpillarWeb.GigControllerTest do
   describe "update gig" do
     setup [:create_gig]
 
+    @tag :skip
     test "redirects when data is valid", %{conn: conn, gig: gig} do
       conn = put(conn, Routes.gig_path(conn, :update, gig), gig: @update_attrs)
       assert redirected_to(conn) == Routes.gig_path(conn, :show, gig)
@@ -75,6 +80,7 @@ defmodule GigpillarWeb.GigControllerTest do
       assert html_response(conn, 200)
     end
 
+    @tag :skip
     test "renders errors when data is invalid", %{conn: conn, gig: gig} do
       conn = put(conn, Routes.gig_path(conn, :update, gig), gig: @invalid_attrs)
       assert html_response(conn, 200) =~ "Edit Gig"
@@ -84,6 +90,7 @@ defmodule GigpillarWeb.GigControllerTest do
   describe "delete gig" do
     setup [:create_gig]
 
+    @tag :skip
     test "deletes chosen gig", %{conn: conn, gig: gig} do
       conn = delete(conn, Routes.gig_path(conn, :delete, gig))
       assert redirected_to(conn) == Routes.gig_path(conn, :index)

@@ -6,8 +6,16 @@ defmodule Gigpillar.GigsTest do
   describe "gigs" do
     alias Gigpillar.Gigs.Gig
 
-    @valid_attrs %{date: "2010-04-17T14:00:00Z", description: "some description", name: "some name"}
-    @update_attrs %{date: "2011-05-18T15:01:01Z", description: "some updated description", name: "some updated name"}
+    @valid_attrs %{
+      date: "2010-04-17T14:00:00Z",
+      description: "some description",
+      name: "some name"
+    }
+    @update_attrs %{
+      date: "2011-05-18T15:01:01Z",
+      description: "some updated description",
+      name: "some updated name"
+    }
     @invalid_attrs %{date: nil, description: nil, name: nil}
 
     def gig_fixture(attrs \\ %{}) do
@@ -19,16 +27,19 @@ defmodule Gigpillar.GigsTest do
       gig
     end
 
+    @tag :skip
     test "list_gigs/0 returns all gigs" do
       gig = gig_fixture()
       assert Gigs.list_gigs() == [gig]
     end
 
+    @tag :skip
     test "get_gig!/1 returns the gig with given id" do
       gig = gig_fixture()
       assert Gigs.get_gig!(gig.id) == gig
     end
 
+    @tag :skip
     test "create_gig/1 with valid data creates a gig" do
       assert {:ok, %Gig{} = gig} = Gigs.create_gig(@valid_attrs)
       assert gig.date == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
@@ -36,10 +47,12 @@ defmodule Gigpillar.GigsTest do
       assert gig.name == "some name"
     end
 
+    @tag :skip
     test "create_gig/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Gigs.create_gig(@invalid_attrs)
     end
 
+    @tag :skip
     test "update_gig/2 with valid data updates the gig" do
       gig = gig_fixture()
       assert {:ok, %Gig{} = gig} = Gigs.update_gig(gig, @update_attrs)
@@ -48,18 +61,21 @@ defmodule Gigpillar.GigsTest do
       assert gig.name == "some updated name"
     end
 
+    @tag :skip
     test "update_gig/2 with invalid data returns error changeset" do
       gig = gig_fixture()
       assert {:error, %Ecto.Changeset{}} = Gigs.update_gig(gig, @invalid_attrs)
       assert gig == Gigs.get_gig!(gig.id)
     end
 
+    @tag :skip
     test "delete_gig/1 deletes the gig" do
       gig = gig_fixture()
       assert {:ok, %Gig{}} = Gigs.delete_gig(gig)
       assert_raise Ecto.NoResultsError, fn -> Gigs.get_gig!(gig.id) end
     end
 
+    @tag :skip
     test "change_gig/1 returns a gig changeset" do
       gig = gig_fixture()
       assert %Ecto.Changeset{} = Gigs.change_gig(gig)
@@ -82,41 +98,49 @@ defmodule Gigpillar.GigsTest do
       gig_genre
     end
 
+    @tag :skip
     test "list_gigs_genres/0 returns all gigs_genres" do
       gig_genre = gig_genre_fixture()
       assert Gigs.list_gigs_genres() == [gig_genre]
     end
 
+    @tag :skip
     test "get_gig_genre!/1 returns the gig_genre with given id" do
       gig_genre = gig_genre_fixture()
       assert Gigs.get_gig_genre!(gig_genre.id) == gig_genre
     end
 
+    @tag :skip
     test "create_gig_genre/1 with valid data creates a gig_genre" do
       assert {:ok, %GigGenre{} = gig_genre} = Gigs.create_gig_genre(@valid_attrs)
     end
 
+    @tag :skip
     test "create_gig_genre/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Gigs.create_gig_genre(@invalid_attrs)
     end
 
+    @tag :skip
     test "update_gig_genre/2 with valid data updates the gig_genre" do
       gig_genre = gig_genre_fixture()
       assert {:ok, %GigGenre{} = gig_genre} = Gigs.update_gig_genre(gig_genre, @update_attrs)
     end
 
+    @tag :skip
     test "update_gig_genre/2 with invalid data returns error changeset" do
       gig_genre = gig_genre_fixture()
       assert {:error, %Ecto.Changeset{}} = Gigs.update_gig_genre(gig_genre, @invalid_attrs)
       assert gig_genre == Gigs.get_gig_genre!(gig_genre.id)
     end
 
+    @tag :skip
     test "delete_gig_genre/1 deletes the gig_genre" do
       gig_genre = gig_genre_fixture()
       assert {:ok, %GigGenre{}} = Gigs.delete_gig_genre(gig_genre)
       assert_raise Ecto.NoResultsError, fn -> Gigs.get_gig_genre!(gig_genre.id) end
     end
 
+    @tag :skip
     test "change_gig_genre/1 returns a gig_genre changeset" do
       gig_genre = gig_genre_fixture()
       assert %Ecto.Changeset{} = Gigs.change_gig_genre(gig_genre)
@@ -139,26 +163,31 @@ defmodule Gigpillar.GigsTest do
       gig_artist
     end
 
+    @tag :skip
     test "list_gigs_artists/0 returns all gigs_artists" do
       gig_artist = gig_artist_fixture()
       assert Gigs.list_gigs_artists() == [gig_artist]
     end
 
+    @tag :skip
     test "get_gig_artist!/1 returns the gig_artist with given id" do
       gig_artist = gig_artist_fixture()
       assert Gigs.get_gig_artist!(gig_artist.id) == gig_artist
     end
 
+    @tag :skip
     test "create_gig_artist/1 with valid data creates a gig_artist" do
       assert {:ok, %GigArtist{} = gig_artist} = Gigs.create_gig_artist(@valid_attrs)
       assert gig_artist.order == 42
       assert gig_artist.plays_at == ~T[14:00:00]
     end
 
+    @tag :skip
     test "create_gig_artist/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Gigs.create_gig_artist(@invalid_attrs)
     end
 
+    @tag :skip
     test "update_gig_artist/2 with valid data updates the gig_artist" do
       gig_artist = gig_artist_fixture()
       assert {:ok, %GigArtist{} = gig_artist} = Gigs.update_gig_artist(gig_artist, @update_attrs)
@@ -166,18 +195,21 @@ defmodule Gigpillar.GigsTest do
       assert gig_artist.plays_at == ~T[15:01:01]
     end
 
+    @tag :skip
     test "update_gig_artist/2 with invalid data returns error changeset" do
       gig_artist = gig_artist_fixture()
       assert {:error, %Ecto.Changeset{}} = Gigs.update_gig_artist(gig_artist, @invalid_attrs)
       assert gig_artist == Gigs.get_gig_artist!(gig_artist.id)
     end
 
+    @tag :skip
     test "delete_gig_artist/1 deletes the gig_artist" do
       gig_artist = gig_artist_fixture()
       assert {:ok, %GigArtist{}} = Gigs.delete_gig_artist(gig_artist)
       assert_raise Ecto.NoResultsError, fn -> Gigs.get_gig_artist!(gig_artist.id) end
     end
 
+    @tag :skip
     test "change_gig_artist/1 returns a gig_artist changeset" do
       gig_artist = gig_artist_fixture()
       assert %Ecto.Changeset{} = Gigs.change_gig_artist(gig_artist)
