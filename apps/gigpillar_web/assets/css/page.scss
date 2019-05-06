@@ -38,11 +38,15 @@
     margin-left: 1.5em;
   }
 
+  li > a,
+  li > span {
+    display: block;
+    padding: 0.4rem 0;
+  }
+
   a {
     color: var(--color-foreground);
     text-decoration: none;
-    display: block;
-    padding: 0.4rem 0;
   }
 
   @media (min-width: 480px) {
