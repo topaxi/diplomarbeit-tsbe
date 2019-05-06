@@ -23,9 +23,14 @@ config :ueberauth, Ueberauth,
        [
          callback_methods: ["POST"],
          uid_field: :email,
-         nickname_field: :username,
+         nickname_field: :username
        ]}
   ]
+
+config :plug_session_redis, :config,
+  name: :gigpillar_sessions,
+  pool: [size: 2, max_overflow: 5],
+  redis: [host: '127.0.0.1', port: 6379]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

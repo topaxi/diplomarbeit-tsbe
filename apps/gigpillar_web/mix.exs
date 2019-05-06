@@ -24,7 +24,13 @@ defmodule GigpillarWeb.MixProject do
   def application do
     [
       mod: {GigpillarWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_identity]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :plug_session_redis,
+        :ueberauth,
+        :ueberauth_identity
+      ]
     ]
   end
 
@@ -47,7 +53,8 @@ defmodule GigpillarWeb.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ueberauth, "~> 0.6"},
-      {:ueberauth_identity, "~> 0.2"}
+      {:ueberauth_identity, "~> 0.2"},
+      {:plug_session_redis, "~> 0.1"}
     ]
   end
 
