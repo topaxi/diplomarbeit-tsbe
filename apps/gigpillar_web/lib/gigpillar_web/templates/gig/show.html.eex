@@ -1,0 +1,8 @@
+<h1>Show Gig</h1>
+
+<ul>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.gig_path(@conn, :edit, @gig) %></span>
+<span><%= link "Back", to: Routes.gig_path(@conn, :index) %></span>

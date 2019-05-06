@@ -21,8 +21,11 @@ defmodule GigpillarWeb do
     quote do
       use Phoenix.Controller, namespace: GigpillarWeb
       import Plug.Conn
+      import Canary.Plugs
       import GigpillarWeb.Gettext
       alias GigpillarWeb.Router.Helpers, as: Routes
+
+      plug(GigpillarWeb.Plug.AssignCurrentUser)
     end
   end
 

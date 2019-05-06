@@ -17,6 +17,8 @@ defmodule GigpillarWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
+
+    resources("/gigs", GigController)
   end
 
   scope "/auth", GigpillarWeb do

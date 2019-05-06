@@ -1,0 +1,24 @@
+<h1>Listing Gigs</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for gig <- @gigs do %>
+    <tr>
+
+      <td>
+        <%= link "Show", to: Routes.gig_path(@conn, :show, gig) %>
+        <%= link "Edit", to: Routes.gig_path(@conn, :edit, gig) %>
+        <%= link "Delete", to: Routes.gig_path(@conn, :delete, gig), method: :delete, data: [confirm: "Are you sure?"] %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Gig", to: Routes.gig_path(@conn, :new) %></span>

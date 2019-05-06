@@ -1,0 +1,5 @@
+<h1>Edit Gig</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.gig_path(@conn, :update, @gig)) %>
+
+<span><%= link "Back", to: Routes.gig_path(@conn, :index) %></span>
