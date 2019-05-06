@@ -54,7 +54,8 @@ defmodule GigpillarWeb.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:ueberauth, "~> 0.6"},
       {:ueberauth_identity, "~> 0.2"},
-      {:plug_session_redis, "~> 0.1"}
+      {:plug_session_redis, "~> 0.1"},
+      {:canary, "~> 1.1.1"}
     ]
   end
 
