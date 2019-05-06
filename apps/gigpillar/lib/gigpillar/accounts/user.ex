@@ -25,6 +25,7 @@ defmodule Gigpillar.Accounts.User do
     user
     |> cast(attrs, [:username, :email, :password, :password_confirmation])
     |> validate_required([:username])
+    |> validate_email
     |> validate_password
     |> hash_password
   end

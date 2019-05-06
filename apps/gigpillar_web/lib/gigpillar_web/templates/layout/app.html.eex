@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Gigpillar · Phoenix Framework</title>
+    <title>Gigpillar</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
@@ -22,7 +22,11 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/add-gig">Add Gig</a></li>
-          <li><a href="/auth/identity">Login</a></li>
+          <%= if assigns[:current_user] do %>
+            <li><span><%= @current_user.username %></span></li>
+          <% else %>
+            <li><a href="/auth/identity">Login</a></li>
+          <% end %>
         </ul>
       </nav>
     </header>

@@ -19,6 +19,6 @@
 
   <div class="no-account dark">
     <p>Not registered yet?</p>
-    <a href="/auth/register" class="btn">Sign up now</a>
+    <a href="/auth/identity/register" class="btn">Sign up now</a>
   </div>
 </div>

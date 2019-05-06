@@ -26,6 +26,7 @@ defmodule GigpillarWeb.Router do
     get("/:provider/callback", AuthController, :callback)
     get("/identity/register", AuthController, :register)
     post("/identity/callback", AuthController, :callback)
+    post("/identity/register_callback", AuthController, :register_callback)
     post("/logout", AuthController, :delete)
   end
 
