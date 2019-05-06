@@ -5,8 +5,9 @@ defmodule Gigpillar.Accounts.User do
   schema "users" do
     field(:email, :string)
     field(:username, :string)
+    field(:password_hash, :string)
 
-    field(:password, :string)
+    field(:password, :string, virtual: true)
     field(:password_confirmation, :string, virtual: true)
 
     timestamps()
@@ -15,21 +16,22 @@ defmodule Gigpillar.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:username, :email, :password])
-    |> validate_required([:username, :password])
+    |> cast(attrs, [:username, :email])
+    |> validate_required([:username])
     |> validate_email
   end
 
   def register_changeset(user, attrs) do
     user
     |> cast(attrs, [:username, :email, :password, :password_confirmation])
-    |> validate_required([:username, :password])
+    |> validate_required([:username])
     |> validate_password
     |> hash_password
   end
 
   defp validate_password(changeset) do
     changeset
+    |> validate_required([:password])
     |> validate_length(:password, min: 8)
     |> validate_confirmation(:password)
   end
@@ -45,9 +47,6 @@ defmodule Gigpillar.Accounts.User do
 
   defp hash_password(%{valid?: true} = changeset) do
     changeset
-    |> Ecto.Changeset.put_change(
-      :password,
-      Argon2.add_hash(Ecto.Changeset.get_field(changeset, :password))
-    )
+    |> change(get_field(changeset, :password) |> Argon2.add_hash())
   end
 end
