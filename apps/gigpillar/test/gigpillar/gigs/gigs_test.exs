@@ -9,7 +9,12 @@ defmodule Gigpillar.GigsTest do
     @valid_attrs %{
       date: "2010-04-17T14:00:00Z",
       description: "some description",
-      name: "some name"
+      name: "some name",
+      location: %{
+        name: "Dachstock",
+        lat: 46.9527882,
+        lng: 7.4384452
+      }
     }
     @update_attrs %{
       date: "2011-05-18T15:01:01Z",
@@ -27,19 +32,17 @@ defmodule Gigpillar.GigsTest do
       gig
     end
 
-    @tag :skip
     test "list_gigs/0 returns all gigs" do
       gig = gig_fixture()
+
       assert Gigs.list_gigs() == [gig]
     end
 
-    @tag :skip
     test "get_gig!/1 returns the gig with given id" do
       gig = gig_fixture()
       assert Gigs.get_gig!(gig.id) == gig
     end
 
-    @tag :skip
     test "create_gig/1 with valid data creates a gig" do
       assert {:ok, %Gig{} = gig} = Gigs.create_gig(@valid_attrs)
       assert gig.date == DateTime.from_naive!(~N[2010-04-17T14:00:00Z], "Etc/UTC")
@@ -47,12 +50,10 @@ defmodule Gigpillar.GigsTest do
       assert gig.name == "some name"
     end
 
-    @tag :skip
     test "create_gig/1 with invalid data returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Gigs.create_gig(@invalid_attrs)
     end
 
-    @tag :skip
     test "update_gig/2 with valid data updates the gig" do
       gig = gig_fixture()
       assert {:ok, %Gig{} = gig} = Gigs.update_gig(gig, @update_attrs)
@@ -61,21 +62,18 @@ defmodule Gigpillar.GigsTest do
       assert gig.name == "some updated name"
     end
 
-    @tag :skip
     test "update_gig/2 with invalid data returns error changeset" do
       gig = gig_fixture()
       assert {:error, %Ecto.Changeset{}} = Gigs.update_gig(gig, @invalid_attrs)
       assert gig == Gigs.get_gig!(gig.id)
     end
 
-    @tag :skip
     test "delete_gig/1 deletes the gig" do
       gig = gig_fixture()
       assert {:ok, %Gig{}} = Gigs.delete_gig(gig)
       assert_raise Ecto.NoResultsError, fn -> Gigs.get_gig!(gig.id) end
     end
 
-    @tag :skip
     test "change_gig/1 returns a gig changeset" do
       gig = gig_fixture()
       assert %Ecto.Changeset{} = Gigs.change_gig(gig)

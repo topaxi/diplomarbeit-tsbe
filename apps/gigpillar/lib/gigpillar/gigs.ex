@@ -18,7 +18,7 @@ defmodule Gigpillar.Gigs do
 
   """
   def list_gigs do
-    Repo.all(Gig)
+    Repo.all(from(g in Gig, preload: [:location]))
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule Gigpillar.Gigs do
       ** (Ecto.NoResultsError)
 
   """
-  def get_gig!(id), do: Repo.get!(Gig, id)
+  def get_gig!(id), do: Gig |> preload(:location) |> Repo.get!(id)
 
   @doc """
   Creates a gig.

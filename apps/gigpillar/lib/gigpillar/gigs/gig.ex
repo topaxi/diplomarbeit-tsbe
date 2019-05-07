@@ -7,8 +7,9 @@ defmodule Gigpillar.Gigs.Gig do
     field(:description, :string)
     field(:name, :string)
     field(:picture, :string)
-    field(:location_id, :id)
-    field(:creator_id, :id)
+
+    belongs_to(:location, Gigpillar.Locations.Location)
+    belongs_to(:creator, Gigpillar.Accounts.User)
 
     timestamps()
   end
@@ -17,6 +18,8 @@ defmodule Gigpillar.Gigs.Gig do
   def changeset(gig, attrs) do
     gig
     |> cast(attrs, [:name, :description, :picture, :date])
+    |> cast_assoc(:location, required: true)
+    |> cast_assoc(:creator)
     |> validate_required([:name, :description, :date])
   end
 end
