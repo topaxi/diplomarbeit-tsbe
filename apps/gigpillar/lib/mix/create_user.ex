@@ -17,10 +17,10 @@ defmodule Mix.Tasks.Gigpillar.CreateUser do
     ensure_repo(repo, args)
     ensure_started(repo, [])
 
-    username = "Username:" |> Mix.shell().prompt |> String.strip()
-    email = "Email:" |> Mix.shell().prompt |> String.strip()
-    password = "Password:" |> password_get |> String.strip()
-    confirm = "Password (confirm):" |> password_get |> String.strip()
+    username = "Username:" |> Mix.shell().prompt |> String.trim()
+    email = "Email:" |> Mix.shell().prompt |> String.trim()
+    password = "Password:" |> password_get |> String.trim()
+    confirm = "Password (confirm):" |> password_get |> String.trim()
 
     if password != confirm do
       Mix.raise("Entered passwords do not match")
