@@ -4,7 +4,11 @@ defmodule GigpillarWeb.GigController do
   alias Gigpillar.Gigs
   alias Gigpillar.Gigs.Gig
 
-  plug(:load_and_authorize_resource, model: Gig)
+  plug(:load_and_authorize_resource,
+    model: Gig,
+    unauthorized_handler: {GigpillarWeb.Helpers, :handle_unauthorized},
+    not_found_handler: {GigpillarWeb.Helpers, :handle_not_found}
+  )
 
   def index(conn, _params) do
     gigs = Gigs.list_gigs()
@@ -12,7 +16,7 @@ defmodule GigpillarWeb.GigController do
   end
 
   def new(conn, _params) do
-    changeset = Gigs.change_gig(%Gig{})
+    changeset = Gigs.change_gig(%Gig{location: nil})
     render(conn, "new.html", changeset: changeset)
   end
 

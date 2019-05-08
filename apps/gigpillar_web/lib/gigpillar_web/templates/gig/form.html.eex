@@ -1,11 +1,60 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [multipart: true, class: "form-vertical"], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
 
-  <div>
-    <%= submit "Save" %>
+  <div class="form-control">
+    <%= label f, :name %>
+    <%= text_input f, :name %>
+  </div>
+
+  <div class="form-control">
+    <%= label f, :picture %>
+    <%= file_input f, :picture %>
+  </div>
+
+  <div class="form-control">
+    <%= label f, :location %>
+    <span class="search-icon"></span>
+    <%= text_input f, :location, placeholder: "Search location" %>
+  </div>
+
+  <div class="form-control form-control-when">
+    <div class="form-control">
+      <%= label f, :date %>
+      <%= date_input f, :date %>
+    </div>
+
+    <%= label f, :time do %>
+      Doors <%= time_input f, :time %>
+    <% end %>
+  </div>
+
+  <div class="form-control">
+    <%= label f, :artists %>
+
+    <ul class="form-artist-list">
+      <li>Pennywise <label>at <input type="time"></label></li>
+      <li>NOFX <label>at <input type="time"></label></li>
+    </ul>
+
+    <span class="search-icon"></span>
+    <%= text_input f, :artists, placeholder: "Search artists" %>
+  </div>
+
+  <div class="form-control">
+    <%= label f, :description %>
+    <%= textarea f, :description %>
+  </div>
+
+  <div class="form-control">
+    <%= label f, :tickets %>
+    <%= url_input f, :tickets, size: 30, placeholder: "https://" %>
+  </div>
+
+  <div class="form-action-bar">
+    <%= submit "Save", class: "btn btn-success" %>
   </div>
 <% end %>

@@ -14,3 +14,11 @@
   background-color: var(--color-danger-brighter);
   --border-color: var(--color-danger);
 }
+
+.alert > p:first-child {
+  margin-top: 0;
+}
+
+.alert > p:last-child {
+  margin-bottom: 0;
+}

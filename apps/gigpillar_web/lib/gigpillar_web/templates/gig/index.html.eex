@@ -1,16 +1,16 @@
-<h1>Listing Gigs</h1>
+<h1>Your Gigs</h1>
 
 <table>
   <thead>
     <tr>
-
+      <th>Name</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for gig <- @gigs do %>
     <tr>
-
+      <td><%= gig.name %></td>
       <td>
         <%= link "Show", to: Routes.gig_path(@conn, :show, gig) %>
         <%= link "Edit", to: Routes.gig_path(@conn, :edit, gig) %>
