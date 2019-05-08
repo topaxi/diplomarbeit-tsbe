@@ -28,7 +28,10 @@ defmodule GigpillarWeb.GigControllerTest do
     }
   }
 
-  @invalid_attrs %{}
+  @invalid_attrs %{
+    name: nil,
+    location: nil
+  }
 
   def fixture(:gig) do
     {:ok, gig} = Gigs.create_gig(@create_attrs)
@@ -48,24 +51,33 @@ defmodule GigpillarWeb.GigControllerTest do
   end
 
   describe "index" do
-    test "lists all gigs", %{conn: conn} do
-      conn = get(conn, Routes.gig_path(conn, :index))
-      assert html_response(conn, 200) =~ "Listing Gigs"
+    test "lists all gigs", %{conn: conn, user: user} do
+      conn =
+        conn
+        |> assign(:current_user, user)
+        |> get(Routes.gig_path(conn, :index))
+
+      assert html_response(conn, 200) =~ "Your Gigs"
     end
   end
 
   describe "new gig" do
     test "renders form", %{conn: conn, user: user} do
-      conn = conn |> assign(:current_user, user)
-      conn = get(conn, Routes.gig_path(conn, :new))
+      conn =
+        conn
+        |> assign(:current_user, user)
+        |> get(Routes.gig_path(conn, :new))
+
       assert html_response(conn, 200) =~ "New Gig"
     end
   end
 
   describe "create gig" do
     test "redirects to show when data is valid", %{conn: conn, user: user} do
-      conn = conn |> assign(:current_user, user)
-      conn = post(conn, Routes.gig_path(conn, :create), gig: @create_attrs)
+      conn =
+        conn
+        |> assign(:current_user, user)
+        |> post(Routes.gig_path(conn, :create), gig: @create_attrs)
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == Routes.gig_path(conn, :show, id)
@@ -75,8 +87,10 @@ defmodule GigpillarWeb.GigControllerTest do
     end
 
     test "assigns current user to created gig", %{conn: conn, user: user} do
-      conn = conn |> assign(:current_user, user)
-      conn = post(conn, Routes.gig_path(conn, :create), gig: @create_attrs)
+      conn =
+        conn
+        |> assign(:current_user, user)
+        |> post(Routes.gig_path(conn, :create), gig: @create_attrs)
 
       %{id: id} = redirected_params(conn)
 
@@ -84,8 +98,11 @@ defmodule GigpillarWeb.GigControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, user: user} do
-      conn = conn |> assign(:current_user, user)
-      conn = post(conn, Routes.gig_path(conn, :create), gig: @invalid_attrs)
+      conn =
+        conn
+        |> assign(:current_user, user)
+        |> post(Routes.gig_path(conn, :create), gig: @invalid_attrs)
+
       assert html_response(conn, 200) =~ "New Gig"
     end
   end
