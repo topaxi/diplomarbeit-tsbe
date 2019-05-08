@@ -1,19 +1,19 @@
 <div class="login-page">
-  <%= form_tag @callback_url, method: "post", class: "form-vertical" do %>
+  <%= form_for @conn, @callback_url, [method: "post", class: "form-vertical"], fn f -> %>
     <h2>Login</h2>
 
     <div class="form-control">
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" value="<%= @conn.params["email"] %>">
+      <%= label f, :email %>
+      <%= email_input f, :email %>
     </div>
 
     <div class="form-control">
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password">
+      <%= label f, :password %>
+      <%= password_input f, :password %>
     </div>
 
     <div class="form-action-bar">
-      <button class="btn btn-success">Login</button>
+      <%= submit "Save", class: "btn btn-success" %>
     </div>
   <% end %>
 
