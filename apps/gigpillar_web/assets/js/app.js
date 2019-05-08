@@ -15,3 +15,5 @@ import 'phoenix_html'
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+// import '@webcomponents/webcomponentsjs/webcomponents-loader.js'
+import './components/search-box.js'
