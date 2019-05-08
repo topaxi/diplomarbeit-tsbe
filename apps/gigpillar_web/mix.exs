@@ -55,7 +55,9 @@ defmodule GigpillarWeb.MixProject do
       {:ueberauth, "~> 0.6"},
       {:ueberauth_identity, "~> 0.2"},
       {:plug_session_redis, "~> 0.1"},
-      {:canary, "~> 1.1.1"}
+      {:canary, "~> 1.1.1"},
+      {:google_api_client,
+       git: "https://github.com/topaxi/google-api-elixir-client", branch: "gigpillar"}
     ]
   end
 

@@ -34,6 +34,9 @@ config :plug_session_redis, :config,
 
 config :canary, repo: Gigpillar.Repo
 
+config :google_api_client,
+  api_key: ""
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
