@@ -17,6 +17,8 @@ defmodule GigpillarWeb.GigController do
   end
 
   def create(conn, %{"gig" => gig_params}) do
+    gig_params = Map.put(gig_params, "creator_id", conn.assigns.current_user.id)
+
     case Gigs.create_gig(gig_params) do
       {:ok, gig} ->
         conn

@@ -17,7 +17,7 @@ defmodule Gigpillar.Gigs.Gig do
   @doc false
   def changeset(gig, attrs) do
     gig
-    |> cast(attrs, [:name, :description, :picture, :date])
+    |> cast(attrs, [:name, :description, :picture, :date, :location_id, :creator_id])
     |> cast_assoc(:location, required: true)
     |> cast_assoc(:creator)
     |> validate_required([:name, :description, :date])
