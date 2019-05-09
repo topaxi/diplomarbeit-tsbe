@@ -35,6 +35,24 @@ module.exports = (env, options) => ({
               [
                 '@babel/plugin-proposal-decorators',
                 { decoratorsBeforeExport: false }
+              ],
+              [
+                'template-html-minifier',
+                {
+                  modules: {
+                    'lit-html': ['html'],
+                    'lit-element': [
+                      'html',
+                      { name: 'css', encapsulation: 'style' }
+                    ]
+                  },
+                  htmlMinifier: {
+                    collapseWhitespace: true,
+                    caseSensitive: true,
+                    collapseBooleanAttributes: false,
+                    removeComments: false
+                  }
+                }
               ]
             ]
           }
