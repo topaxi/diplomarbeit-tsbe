@@ -42,6 +42,10 @@ class LocationInput extends LitElement {
   @property()
   placeId = ''
 
+  get value() {
+    return this.placeId || this.locationId
+  }
+
   /**
    * @param {Event} event
    */
@@ -106,7 +110,7 @@ class LocationInput extends LitElement {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <input name="${this.name}" type="hidden" value="${this.placeId}" />
+        <input name="${this.name}" type="hidden" value="${this.value}" />
       `
     }
 

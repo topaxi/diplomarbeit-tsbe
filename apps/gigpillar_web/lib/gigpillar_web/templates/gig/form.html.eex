@@ -13,7 +13,10 @@
 
   <div class="form-control">
     <%= label f, :picture %>
-    <picture-input inputId="<%= input_id f, :location %>" value="<%= input_value(f, :picture) %>"></picture-input>
+    <picture-input
+      inputId="<%= input_id f, :picture %>"
+      name="<%= input_name f, :picture %>"
+      value="<%= input_value f, :picture %>"></picture-input>
     <%= error_tag f, :picture %>
   </div>
 
@@ -21,7 +24,7 @@
     <%= label f, :location %>
     <location-input
       inputId="<%= input_id f, :location %>"
-      name="location"
+      name="<%= input_name f, :location %>"
       value="<%= json Map.take(input_value(f, :location), [:id, :name]) %>"></location-input>
     <%= error_tag f, :location %>
   </div>
