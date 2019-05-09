@@ -31,11 +31,18 @@ module.exports = (env, options) => ({
           options: {
             presets: ['@babel/preset-env'],
             plugins: [
-              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-external-helpers',
+              [
+                '@babel/plugin-transform-runtime',
+                {
+                  useESModules: true
+                }
+              ],
               [
                 '@babel/plugin-proposal-decorators',
-                { decoratorsBeforeExport: false }
+                { legacy: true /*, decoratorsBeforeExport: false*/ }
               ],
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
               [
                 'template-html-minifier',
                 {

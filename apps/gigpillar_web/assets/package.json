@@ -6,6 +6,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
+    "@babel/runtime": "^7.4.4",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "lit-element": "^2.1.0",
     "phoenix": "file:../../../deps/phoenix",
@@ -14,8 +15,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.0.0",
     "@types/glob": "^7.1.1",
     "@types/sass": "^1.16.0",
