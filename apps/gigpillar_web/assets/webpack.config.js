@@ -10,7 +10,15 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 module.exports = (env, options) => ({
   optimization: {
     minimizer: [
-      new TerserPlugin({ cache: true, parallel: true, sourceMap: true }),
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        extractComments: true,
+        terserOptions: {
+          module: true
+        }
+      }),
       new OptimizeCSSAssetsPlugin({})
     ]
   },
