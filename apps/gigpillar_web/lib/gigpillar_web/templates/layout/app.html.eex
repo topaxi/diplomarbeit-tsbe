@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Gigpillar</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script async type="module" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
@@ -36,6 +37,5 @@
       <%= render @view_module, @view_template, assigns %>
     </main>
     <footer></footer>
-    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
