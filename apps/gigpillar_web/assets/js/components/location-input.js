@@ -27,7 +27,7 @@ class LocationInput extends LitElement {
   /**
    * @param {Gigpillar.Location} value
    */
-  @property({ attribute: 'value', converter: value => JSON.parse(value) })
+  @property({ attribute: 'value', type: Object })
   set location(value) {
     this.locationName = value.name
     this.locationId = String(value.id)
