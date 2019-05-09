@@ -16,7 +16,10 @@
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>
         </label>
-        <search-box inputId="search" placeholder="Search for city, artist and concert"></search-box>
+        <search-box inputId="search" placeholder="Search for city, artist and concert">
+          <span class="search-icon"></span>
+          <input readonly placeholder="Search for city, artist and concert">
+        </search-box>
       </form>
       <nav role="navigation" class="page-navigation">
         <ul>
