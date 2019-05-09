@@ -1,5 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element'
 import { repeat } from 'lit-html/directives/repeat'
+import { prop } from '../utils'
 
 @customElement('location-input')
 class LocationInput extends LitElement {
@@ -77,7 +78,7 @@ class LocationInput extends LitElement {
       <ul class="autocomplete-result">
         ${repeat(
           this.searchResult,
-          place => place.place_id,
+          prop('place_id'),
           place =>
             html`
               <li>

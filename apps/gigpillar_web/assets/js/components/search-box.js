@@ -8,6 +8,7 @@ import {
   catchError
 } from 'rxjs/operators'
 import { LitElement, html, customElement, property } from 'lit-element'
+import { prop } from '../utils'
 
 @customElement('search-box')
 class SearchBox extends LitElement {
@@ -37,7 +38,8 @@ class SearchBox extends LitElement {
         debounceTime(this.debounceTime),
         switchMap(query =>
           ajax(`${this.src}?query=${query}`).pipe(
-            map(req => this.createResultEvent(req.response)),
+            map(prop('response')),
+            map(response => this.createResultEvent(response)),
             catchError(err => {
               console.error(err)
 
