@@ -48,7 +48,7 @@ module.exports = (env, options) => ({
               ],
               [
                 '@babel/plugin-proposal-decorators',
-                { legacy: true /*, decoratorsBeforeExport: false*/ }
+                { decoratorsBeforeExport: false }
               ],
               ['@babel/plugin-proposal-class-properties', { loose: true }],
               [
