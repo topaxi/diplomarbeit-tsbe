@@ -13,7 +13,7 @@
 
   <div class="form-control">
     <%= label f, :picture %>
-    <%= file_input f, :picture %>
+    <picture-input inputId="<%= input_id f, :location %>" value="<%= input_value(f, :picture) %>"></picture-input>
     <%= error_tag f, :picture %>
   </div>
 
