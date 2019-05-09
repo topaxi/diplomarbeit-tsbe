@@ -8,6 +8,12 @@ import { prop } from '../utils'
  * @property {string} description
  */
 
+/**
+ * @typedef {Object} Gigpillar.Location
+ * @property {number} id
+ * @property {string} name
+ */
+
 @customElement('location-input')
 class LocationInput extends LitElement {
   @property() inputId = ''
@@ -18,13 +24,22 @@ class LocationInput extends LitElement {
    */
   @property() searchResult = []
 
-  @property({ attribute: 'location-name' })
+  /**
+   * @param {Gigpillar.Location} value
+   */
+  @property({ attribute: 'value', converter: value => JSON.parse(value) })
+  set location(value) {
+    this.locationName = value.name
+    this.locationId = String(value.id)
+  }
+
+  @property()
   locationName = ''
 
-  @property({ attribute: 'location-id' })
+  @property()
   locationId = ''
 
-  @property({ attribute: 'place-id' })
+  @property()
   placeId = ''
 
   /**

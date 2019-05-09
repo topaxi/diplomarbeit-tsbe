@@ -19,7 +19,10 @@
 
   <div class="form-control">
     <%= label f, :location %>
-    <location-input inputId="location" name="location"></location-input>
+    <location-input
+      inputId="<%= input_id f, :location %>"
+      name="location"
+      value="<%= json Map.take(input_value(f, :location), [:id, :name]) %>"></location-input>
     <%= error_tag f, :location %>
   </div>
 
