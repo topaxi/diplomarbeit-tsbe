@@ -8,16 +8,19 @@
   <div class="form-control">
     <%= label f, :name %>
     <%= text_input f, :name %>
+    <%= error_tag f, :name %>
   </div>
 
   <div class="form-control">
     <%= label f, :picture %>
     <%= file_input f, :picture %>
+    <%= error_tag f, :picture %>
   </div>
 
   <div class="form-control">
     <%= label f, :location %>
     <location-input inputId="location" name="location"></location-input>
+    <%= error_tag f, :location %>
   </div>
 
   <div class="form-control form-control-when">
@@ -29,21 +32,27 @@
     <%= label f, :time do %>
       Doors <%= time_input f, :time %>
     <% end %>
+
+    <%= error_tag f, :date %>
+    <%= error_tag f, :time %>
   </div>
 
   <div class="form-control">
     <%= label f, :artists %>
     <artists-input inputId="artists" name="artists"></artists-input>
+    <%= error_tag f, :artists %>
   </div>
 
   <div class="form-control">
     <%= label f, :description %>
     <%= textarea f, :description %>
+    <%= error_tag f, :description %>
   </div>
 
   <div class="form-control">
     <%= label f, :tickets %>
     <%= url_input f, :tickets, size: 30, placeholder: "https://" %>
+    <%= error_tag f, :tickets %>
   </div>
 
   <div class="form-action-bar">
