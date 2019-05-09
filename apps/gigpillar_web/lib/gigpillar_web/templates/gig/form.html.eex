@@ -33,13 +33,7 @@
 
   <div class="form-control">
     <%= label f, :artists %>
-
-    <ul class="form-artist-list">
-      <li>Pennywise <label>at <input type="time"></label></li>
-      <li>NOFX <label>at <input type="time"></label></li>
-    </ul>
-
-    <search-box inputId="artists" src="/api/autocomplete/artist"></search-box>
+    <artists-input inputId="artists" name="artists"></artists-input>
   </div>
 
   <div class="form-control">

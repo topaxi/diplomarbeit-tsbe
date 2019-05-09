@@ -101,4 +101,17 @@ defmodule Gigpillar.Artists do
   def change_artist(%Artist{} = artist) do
     Artist.changeset(artist, %{})
   end
+
+  @doc """
+  Searches artists by name.
+
+  ## Examples
+
+      iex> search_artists(name: "The%")
+      [%Artist{}, ...]
+
+  """
+  def search_artists(name: name) do
+    Repo.all(from(a in Artist, where: ilike(a.name, ^"%#{name}%")))
+  end
 end

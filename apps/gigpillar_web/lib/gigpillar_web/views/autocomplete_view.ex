@@ -6,7 +6,8 @@ defmodule GigpillarWeb.AutocompleteView do
     |> Enum.map(fn p -> Map.take(p, ["description", "place_id"]) end)
   end
 
-  def render("location.json", _params) do
-    IO.inspect(_params)
+  def render("artist.json", %{artists: artists}) do
+    artists
+    |> Enum.map(fn a -> Map.take(a, [:id, :name]) end)
   end
 end

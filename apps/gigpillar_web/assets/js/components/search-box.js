@@ -1,4 +1,4 @@
-import { Subject, EMPTY } from 'rxjs'
+import { Subject, of } from 'rxjs'
 import { ajax } from 'rxjs/ajax'
 import {
   takeUntil,
@@ -37,16 +37,18 @@ class SearchBox extends LitElement {
         takeUntil(this.destroy),
         debounceTime(this.debounceTime),
         switchMap(query =>
-          ajax(`${this.src}?query=${query}`).pipe(
-            map(prop('response')),
-            map(response => this.createResultEvent(response)),
-            catchError(err => {
-              console.error(err)
+          !query.trim()
+            ? of([])
+            : ajax(`${this.src}?query=${query}`).pipe(
+                map(prop('response')),
+                catchError(err => {
+                  console.error(err)
 
-              return EMPTY
-            })
-          )
-        )
+                  return of([])
+                })
+              )
+        ),
+        map(response => this.createResultEvent(response))
       )
       .subscribe(event => this.dispatchEvent(event), err => console.error(err))
   }
