@@ -99,3 +99,9 @@
     border-bottom-left-radius: 0;
   }
 }
+
+location-input,
+artists-input {
+  display: block;
+  min-height: 2.25rem;
+}
