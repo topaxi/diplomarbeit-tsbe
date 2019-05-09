@@ -2,14 +2,25 @@ import { LitElement, html, customElement, property } from 'lit-element'
 import { repeat } from 'lit-html/directives/repeat'
 import { prop, includedIn, not } from '../utils'
 
+/**
+ * @typedef {Object} Artist
+ * @property {number=} id
+ * @property {string} name
+ * @property {string=} plays_at
+ */
+
 @customElement('artists-input')
 class ArtistsInput extends LitElement {
   @property() inputId = ''
   @property() name = ''
+
+  /**
+   * @type {Artist[]} searchResult
+   */
   @property() searchResult = []
 
   /**
-   * @type {object[]} artists
+   * @type {Artist[]} artists
    */
   @property({ attribute: 'artists', converter: value => JSON.parse(value) })
   artists = []
@@ -53,38 +64,61 @@ class ArtistsInput extends LitElement {
     return this
   }
 
+  /**
+   * @param {Artist} artist
+   */
+  renderArtistAutocomplete(artist) {
+    return html`
+      <li>
+        <button
+          type="button"
+          data-name="${artist.name}"
+          data-id="${artist.id}"
+          @click="${this.addArtist}"
+        >
+          ${artist.name}
+        </button>
+      </li>
+    `
+  }
+
+  /**
+   * @param {Artist} artist
+   * @param {number} i
+   */
+  renderArtistListItem(artist, i) {
+    return html`
+      <li>
+        ${artist.name}
+        <label
+          >at
+          <input
+            type="time"
+            name="${this.name}[${i}][plays_at]"
+            value="${artist.plays_at}"
+        /></label>
+        <button
+          type="button"
+          data-id="${artist.id}"
+          @click="${this.removeArtist}"
+        >
+          <span class="sr-only">Remove ${artist.name} from this event.</span
+          ><span aria-hidden="true">&times;</span>
+        </button>
+        <input
+          type="hidden"
+          name="${this.name}[${i}][id]"
+          value="${artist.id}"
+        />
+      </li>
+    `
+  }
+
   render() {
     return html`
       <ul class="form-artist-list">
-        ${repeat(
-          this.artists,
-          prop('id'),
-          (artist, i) => html`
-            <li>
-              ${artist.name}
-              <label
-                >at
-                <input
-                  type="time"
-                  name="${this.name}[${i}][plays_at]"
-                  value="${artist.plays_at}"
-              /></label>
-              <button
-                type="button"
-                data-id="${artist.id}"
-                @click="${this.removeArtist}"
-              >
-                <span class="sr-only"
-                  >Remove ${artist.name} from this event.</span
-                ><span aria-hidden="true">&times;</span>
-              </button>
-              <input
-                type="hidden"
-                name="${this.name}[${i}][id]"
-                value="${artist.id}"
-              />
-            </li>
-          `
+        ${repeat(this.artists, prop('id'), (artist, i) =>
+          this.renderArtistListItem(artist, i)
         )}
       </ul>
 
@@ -98,21 +132,11 @@ class ArtistsInput extends LitElement {
         ${repeat(
           this.searchResult.filter(not(includedIn(this.artists, prop('id')))),
           prop('id'),
-          artist =>
-            html`
-              <li>
-                <button
-                  type="button"
-                  data-name="${artist.name}"
-                  data-id="${artist.id}"
-                  @click="${this.addArtist}"
-                >
-                  ${artist.name}
-                </button>
-              </li>
-            `
+          artist => this.renderArtistAutocomplete(artist)
         )}
       </ul>
     `
   }
 }
+
+export default ArtistsInput

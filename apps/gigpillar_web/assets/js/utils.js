@@ -11,7 +11,7 @@ export function prop(key) {
 /**
  * @template T extends (...args: any[]) => boolean
  * @param {T} fn
- * @return {T}
+ * @return {(...args: any[]) => boolean}
  */
 export function not(fn) {
   return (...args) => !fn(...args)

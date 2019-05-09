@@ -2,11 +2,20 @@ import { LitElement, html, customElement, property } from 'lit-element'
 import { repeat } from 'lit-html/directives/repeat'
 import { prop } from '../utils'
 
+/**
+ * @typedef {Object} Place
+ * @property {string} place_id
+ * @property {string} description
+ */
+
 @customElement('location-input')
 class LocationInput extends LitElement {
   @property() inputId = ''
   @property() name = ''
 
+  /**
+   * @type {Place[]} searchResult
+   */
   @property() searchResult = []
 
   @property({ attribute: 'location-name' })
@@ -50,6 +59,24 @@ class LocationInput extends LitElement {
     return this
   }
 
+  /**
+   * @param {Place} place
+   */
+  renderPlaceAutocomplete(place) {
+    return html`
+      <li>
+        <button
+          type="button"
+          data-description="${place.description}"
+          data-place-id="${place.place_id}"
+          @click="${this.selectLocation}"
+        >
+          ${place.description}
+        </button>
+      </li>
+    `
+  }
+
   render() {
     if (this.locationName) {
       return html`
@@ -76,22 +103,8 @@ class LocationInput extends LitElement {
       ></search-box>
 
       <ul class="autocomplete-result">
-        ${repeat(
-          this.searchResult,
-          prop('place_id'),
-          place =>
-            html`
-              <li>
-                <button
-                  type="button"
-                  data-description="${place.description}"
-                  data-place-id="${place.place_id}"
-                  @click="${this.selectLocation}"
-                >
-                  ${place.description}
-                </button>
-              </li>
-            `
+        ${repeat(this.searchResult, prop('place_id'), place =>
+          this.renderPlaceAutocomplete(place)
         )}
       </ul>
     `
