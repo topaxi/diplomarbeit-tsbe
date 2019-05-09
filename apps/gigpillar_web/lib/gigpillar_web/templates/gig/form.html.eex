@@ -17,8 +17,7 @@
 
   <div class="form-control">
     <%= label f, :location %>
-    <span class="search-icon"></span>
-    <%= text_input f, :location, placeholder: "Search location" %>
+    <location-input inputId="location" name="location"></location-input>
   </div>
 
   <div class="form-control form-control-when">
@@ -40,8 +39,7 @@
       <li>NOFX <label>at <input type="time"></label></li>
     </ul>
 
-    <span class="search-icon"></span>
-    <%= text_input f, :artists, placeholder: "Search artists" %>
+    <search-box inputId="artists" src="/api/autocomplete/artist"></search-box>
   </div>
 
   <div class="form-control">

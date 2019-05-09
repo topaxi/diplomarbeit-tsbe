@@ -11,6 +11,8 @@ defmodule GigpillarWeb.Router do
 
   pipeline :api do
     plug(:accepts, ["json"])
+    plug(:fetch_session)
+    plug(:put_secure_browser_headers)
   end
 
   scope "/", GigpillarWeb do
@@ -32,8 +34,10 @@ defmodule GigpillarWeb.Router do
     post("/logout", AuthController, :delete)
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", GigpillarWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", GigpillarWeb do
+    pipe_through(:api)
+
+    get("/autocomplete/location", AutocompleteController, :location)
+    get("/autocomplete/artist", AutocompleteController, :artist)
+  end
 end

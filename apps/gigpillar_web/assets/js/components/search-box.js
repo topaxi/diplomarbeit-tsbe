@@ -1,12 +1,17 @@
-import { fromEvent, Subject } from 'rxjs'
-import { fromFetch } from 'rxjs/fetch'
-import { takeUntil, debounceTime, map, switchMap } from 'rxjs/operators'
+import { Subject, EMPTY } from 'rxjs'
+import { ajax } from 'rxjs/ajax'
+import {
+  takeUntil,
+  debounceTime,
+  map,
+  switchMap,
+  catchError
+} from 'rxjs/operators'
 import { LitElement, html, customElement, property } from 'lit-element'
 
 @customElement('search-box')
 class SearchBox extends LitElement {
   @property() inputId = ''
-  @property() query = ''
   @property() src = ''
   @property() name = ''
   @property() placeholder = ''
@@ -14,6 +19,7 @@ class SearchBox extends LitElement {
   @property({ attribute: 'debounce-time', converter: Number })
   debounceTime = 200
 
+  query = new Subject()
   destroy = new Subject()
 
   createRenderRoot() {
@@ -21,25 +27,50 @@ class SearchBox extends LitElement {
   }
 
   connectedCallback() {
+    this.style.display = 'block'
+
     super.connectedCallback()
 
-    fromEvent(this, 'input')
+    this.query
       .pipe(
         takeUntil(this.destroy),
         debounceTime(this.debounceTime),
-        map(event => event.target.value),
-        switchMap(query => fromFetch(`${this.src}?query=${query}`)),
-        switchMap(response => response.json())
+        switchMap(query =>
+          ajax(`${this.src}?query=${query}`).pipe(
+            map(req => this.createResultEvent(req.response)),
+            catchError(err => {
+              console.error(err)
+
+              return EMPTY
+            })
+          )
+        )
       )
-      .subscribe(result => {
-        console.log(result)
-      })
+      .subscribe(event => this.dispatchEvent(event), err => console.error(err))
+  }
+
+  /**
+   * @param {object} result
+   */
+  createResultEvent(result) {
+    return new CustomEvent('search-result', {
+      detail: { result },
+      bubbles: true,
+      composed: true
+    })
   }
 
   disconnectedCallback() {
     super.disconnectedCallback()
 
     this.destroy.next()
+  }
+
+  /**
+   * @param {Event & { target: HTMLInputElement }} event
+   */
+  handleInput(event) {
+    this.query.next(event.target.value)
   }
 
   render() {
@@ -49,10 +80,9 @@ class SearchBox extends LitElement {
         id="${this.inputId}"
         type="search"
         name="${this.name}"
-        value="${this.query}"
         placeholder="${this.placeholder}"
+        @input="${this.handleInput}"
       />
-      <slot></slot>
     `
   }
 }
