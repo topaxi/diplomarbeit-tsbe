@@ -15,7 +15,6 @@
       <form class="page-search-box" action="/search">
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>
-          <span class="search-icon"></span>
         </label>
         <search-box inputId="search" placeholder="Search for city, artist and concert"></search-box>
       </form>
