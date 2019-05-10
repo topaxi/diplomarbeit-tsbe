@@ -55,9 +55,10 @@ class WithDropdown extends LitElement {
   connectedCallback() {
     super.connectedCallback()
 
-    this.addEventListener('click', this)
-    this.addEventListener('focus', this)
+    this.addEventListener('click', this, true)
+    this.addEventListener('focus', this, true)
     document.addEventListener('click', this, true)
+    document.addEventListener('focus', this, true)
     document.addEventListener('keydown', this, true)
   }
 
@@ -65,6 +66,7 @@ class WithDropdown extends LitElement {
     super.disconnectedCallback()
 
     document.removeEventListener('click', this, true)
+    document.removeEventListener('focus', this, true)
     document.removeEventListener('keydown', this, true)
 
     if (this.popper !== null) {
@@ -80,27 +82,16 @@ class WithDropdown extends LitElement {
    * @param {Event} e
    */
   handleEvent(e) {
-    if (e.target === document.body) {
-      switch (e.type) {
-        case 'click':
-          if (!e.target.contains(this.dropdownElement)) {
-            this.open = false
-          }
-          break
-        case 'keydown':
-          if (e.key === 'Escape') {
-            this.open = false
-          }
-          break
-      }
-
-      return
-    }
-
     switch (e.type) {
       case 'click':
       case 'focus':
-        this.open = true
+        this.open = this.contains(e.target)
+        break
+      case 'keydown':
+        if (e.key === 'Escape' && this.open) {
+          e.preventDefault()
+          this.open = false
+        }
         break
     }
   }
