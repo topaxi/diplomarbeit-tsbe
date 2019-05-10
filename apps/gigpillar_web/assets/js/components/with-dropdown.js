@@ -46,7 +46,6 @@ class WithDropdown extends LitElement {
       this.popper.scheduleUpdate()
     )
     this.mutationObserver.observe(this.dropdownElement, {
-      attributes: true,
       childList: true,
       subtree: true
     })
