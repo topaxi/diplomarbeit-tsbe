@@ -28,6 +28,11 @@ class WithDropdown extends LitElement {
    */
   popper = null
 
+  /**
+   * @type {MutationObserver | null}
+   */
+  mutationObserver = null
+
   get dropdownElement() {
     return this.shadowRoot.querySelector('.dropdown')
   }
@@ -35,6 +40,15 @@ class WithDropdown extends LitElement {
   firstUpdated() {
     this.popper = new Popper(this, this.dropdownElement, {
       placement: 'bottom-start'
+    })
+
+    this.mutationObserver = new MutationObserver(() =>
+      this.popper.scheduleUpdate()
+    )
+    this.mutationObserver.observe(this.dropdownElement, {
+      attributes: true,
+      childList: true,
+      subtree: true
     })
   }
 
@@ -55,6 +69,10 @@ class WithDropdown extends LitElement {
 
     if (this.popper !== null) {
       this.popper.destroy()
+    }
+
+    if (this.mutationObserver !== null) {
+      this.mutationObserver.disconnect()
     }
   }
 
