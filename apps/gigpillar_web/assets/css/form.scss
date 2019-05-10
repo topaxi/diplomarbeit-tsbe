@@ -110,3 +110,11 @@ artists-input {
   display: block;
   min-height: 2.25rem;
 }
+
+.autocomplete-result {
+  margin: 0;
+}
+
+.autocomplete-result:empty {
+  display: none;
+}

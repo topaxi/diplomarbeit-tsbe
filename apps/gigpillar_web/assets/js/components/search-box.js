@@ -85,6 +85,7 @@ class SearchBox extends LitElement {
         type="search"
         name="${this.name}"
         placeholder="${this.placeholder}"
+        autocomplete="off"
         @input="${this.handleInput}"
       />
     `

@@ -17,6 +17,7 @@ import 'phoenix_html'
 // import socket from "./socket"
 // import '@webcomponents/webcomponentsjs/webcomponents-loader.js'
 import './components/search-box.js'
+import './components/with-dropdown.js'
 import './components/location-input.js'
 import './components/artists-input.js'
 import './components/picture-input.js'

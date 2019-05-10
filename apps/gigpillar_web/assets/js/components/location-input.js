@@ -115,17 +115,19 @@ class LocationInput extends LitElement {
     }
 
     return html`
-      <search-box
-        inputId="${this.inputId}"
-        src="/api/autocomplete/location"
-        @search-result="${this.handleSearchResult}"
-      ></search-box>
+      <with-dropdown>
+        <search-box
+          inputId="${this.inputId}"
+          src="/api/autocomplete/location"
+          @search-result="${this.handleSearchResult}"
+        ></search-box>
 
-      <ul class="autocomplete-result">
-        ${repeat(this.searchResult, prop('place_id'), place =>
-          this.renderPlaceAutocomplete(place)
-        )}
-      </ul>
+        <ul class="autocomplete-result" slot="dropdown">
+          ${repeat(this.searchResult, prop('place_id'), place =>
+            this.renderPlaceAutocomplete(place)
+          )}
+        </ul>
+      </with-dropdown>
     `
   }
 }

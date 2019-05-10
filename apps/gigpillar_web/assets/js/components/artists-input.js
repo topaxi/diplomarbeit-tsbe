@@ -122,19 +122,23 @@ class ArtistsInput extends LitElement {
         )}
       </ul>
 
-      <search-box
-        inputId="${this.inputId}"
-        src="/api/autocomplete/artist"
-        @search-result="${this.handleSearchResult}"
-      ></search-box>
+      <with-dropdown>
+        <search-box
+          inputId="${this.inputId}"
+          src="/api/autocomplete/artist"
+          @search-result="${this.handleSearchResult}"
+        ></search-box>
 
-      <ul class="autocomplete-result">
-        ${repeat(
-          this.searchResult.filter(not(includedIn(this.artists, prop('id')))),
-          prop('id'),
-          artist => this.renderArtistAutocomplete(artist)
-        )}
-      </ul>
+        <ul class="autocomplete-result" slot="dropdown">
+          ${repeat(
+            this.searchResult.filter(
+              not(includedIn(this.artists, prop('id')))
+            ),
+            prop('id'),
+            artist => this.renderArtistAutocomplete(artist)
+          )}
+        </ul>
+      </with-dropdown>
     `
   }
 }
