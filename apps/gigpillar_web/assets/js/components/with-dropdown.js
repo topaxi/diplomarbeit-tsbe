@@ -101,6 +101,7 @@ class WithDropdown extends LitElement {
       case 'click':
       case 'focus':
         this.open = true
+        break
     }
   }
 
