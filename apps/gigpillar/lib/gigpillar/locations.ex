@@ -38,6 +38,22 @@ defmodule Gigpillar.Locations do
   def get_location!(id), do: Repo.get!(Location, id)
 
   @doc """
+  Gets a single location by google place id.
+
+  ## Examples
+
+      iex> get_location_by_google_place_id("abc")
+      {:ok, %Location{}}
+
+      iex> get_location_by_google_place_id("def")
+      {:error}
+
+  """
+  def get_location_by_google_place_id(id) do
+    Repo.get_by(Location, google_place_id: id)
+  end
+
+  @doc """
   Creates a location.
 
   ## Examples

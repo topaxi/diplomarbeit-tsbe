@@ -52,3 +52,14 @@ export const includedIn = (
 
   return value => set.has(projectValue(value))
 }
+
+/**
+ * @param {string | Date | null} dateStr
+ * @return {Date | null}
+ */
+export function dateConverter(dateStr) {
+  if (dateStr instanceof Date) return dateStr
+  if (!dateStr) return null
+
+  return new Date(Date.parse(dateStr))
+}

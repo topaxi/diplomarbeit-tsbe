@@ -48,6 +48,8 @@ defmodule GigpillarWeb.GigController do
   def update(conn, %{"id" => id, "gig" => gig_params}) do
     gig = Gigs.get_gig!(id)
 
+    gig_params = cast_location(gig_params)
+
     case Gigs.update_gig(gig, gig_params) do
       {:ok, gig} ->
         conn
@@ -66,5 +68,39 @@ defmodule GigpillarWeb.GigController do
     conn
     |> put_flash(:info, "Gig deleted successfully.")
     |> redirect(to: Routes.gig_path(conn, :index))
+  end
+
+  defp should_fetch_place_details(%{"location" => %{"google_place_id" => place_id}}) do
+    {success} = Gigpillar.Locations.get_location_by_google_place_id(place_id)
+    success == :error
+  end
+
+  defp cast_location(%{"location" => %{"id" => id}} = gig_params) when is_number(id),
+    do: gig_params
+
+  defp cast_location(%{"location" => %{"google_place_id" => place_id}} = gig_params) do
+    case Gigpillar.Locations.get_location_by_google_place_id(place_id) do
+      {:ok, location} ->
+        Kernel.put_in(gig_params, ["location", "id"], location.id)
+
+      _ ->
+        Map.put(
+          gig_params,
+          "location",
+          Map.merge(gig_params["location"], get_place_details(place_id))
+        )
+    end
+  end
+
+  defp get_place_details(place_id) do
+    with {:ok, %{"result" => details}} <-
+           Google.Apis.Places.Details.get(place_id, fields: "name,formatted_address,geometry") do
+      %{
+        "name" => details["name"],
+        "address" => details["formatted_address"],
+        "lat" => details["geometry"]["location"]["lat"],
+        "lng" => details["geometry"]["location"]["lng"]
+      }
+    end
   end
 end

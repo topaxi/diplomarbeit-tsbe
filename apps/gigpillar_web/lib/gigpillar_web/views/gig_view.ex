@@ -7,7 +7,7 @@ defmodule GigpillarWeb.GigView do
 
   def value(f, :location) do
     input_value(f, :location)
-    |> Map.take([:id, :name])
+    |> Map.take([:id, :name, :google_place_id])
     |> json()
   end
 

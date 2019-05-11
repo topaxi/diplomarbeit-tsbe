@@ -10,8 +10,9 @@ import { prop } from '../utils'
 
 /**
  * @typedef {Object} Gigpillar.Location
- * @property {number} id
+ * @property {number | null} id
  * @property {string} name
+ * @property {string | null} google_place_id
  */
 
 @customElement('location-input')
@@ -25,26 +26,10 @@ class LocationInput extends LitElement {
   @property() searchResult = []
 
   /**
-   * @param {Gigpillar.Location} value
+   * @type {Gigpillar.Location | null} location
    */
   @property({ attribute: 'value', type: Object })
-  set location(value) {
-    this.locationName = value.name
-    this.locationId = String(value.id)
-  }
-
-  @property()
-  locationName = ''
-
-  @property()
-  locationId = ''
-
-  @property()
-  placeId = ''
-
-  get value() {
-    return this.placeId || this.locationId
-  }
+  location = null
 
   /**
    * @param {Event} event
@@ -52,13 +37,11 @@ class LocationInput extends LitElement {
   selectLocation(event) {
     let [
       {
-        dataset: { placeId, description }
+        dataset: { name, googlePlaceId }
       }
     ] = event.composedPath()
 
-    this.placeId = placeId
-    this.locationName = description
-    this.locationId = ''
+    this.location = { id: null, name, google_place_id: googlePlaceId }
   }
 
   /**
@@ -69,9 +52,7 @@ class LocationInput extends LitElement {
   }
 
   handleClear() {
-    this.placeId = ''
-    this.locationName = ''
-    this.locationId = ''
+    this.location = null
   }
 
   createRenderRoot() {
@@ -86,8 +67,8 @@ class LocationInput extends LitElement {
       <li>
         <button
           type="button"
-          data-description="${place.description}"
-          data-place-id="${place.place_id}"
+          data-name="${place.description}"
+          data-google-place-id="${place.place_id}"
           @click="${this.selectLocation}"
         >
           ${place.description}
@@ -97,10 +78,15 @@ class LocationInput extends LitElement {
   }
 
   render() {
-    if (this.locationName) {
+    if (this.location !== null) {
       return html`
         <div class="input-group">
-          <input readonly id="${this.inputId}" value="${this.locationName}" />
+          <input
+            readonly
+            id="${this.inputId}"
+            name="${this.name}[name]"
+            value="${this.location.name}"
+          />
           <button
             type="button"
             class="input-group-addon input-group-addon-clear"
@@ -110,7 +96,20 @@ class LocationInput extends LitElement {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <input name="${this.name}" type="hidden" value="${this.value}" />
+        ${this.location.id
+          ? html`
+              <input
+                name="${this.name}[id]"
+                type="hidden"
+                value="${this.location.id}"
+              />
+            `
+          : ''}
+        <input
+          name="${this.name}[google_place_id]"
+          type="hidden"
+          value="${this.location.google_place_id}"
+        />
       `
     }
 

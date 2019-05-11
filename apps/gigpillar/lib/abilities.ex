@@ -4,7 +4,9 @@ alias Gigpillar.Gigs.Gig
 defimpl Canada.Can, for: User do
   def can?(%User{}, action, Gig) when action in [:index, :new, :create], do: true
 
-  def can?(%User{id: user_id}, :edit, %Gig{creator_id: user_id}), do: true
+  def can?(%User{id: user_id}, action, %Gig{creator_id: user_id})
+      when action in [:edit, :update, :delete],
+      do: true
 
   def can?(%User{}, :show, %Gig{}), do: true
   def can?(%User{}, _, _), do: false

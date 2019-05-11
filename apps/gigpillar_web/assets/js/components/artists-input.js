@@ -108,9 +108,10 @@ class ArtistsInput extends LitElement {
           <span class="sr-only">Remove ${artist.name} from this event.</span
           ><span aria-hidden="true">&times;</span>
         </button>
+        <input type="hidden" name="${this.name}[${i}][order]" value="${i}" />
         <input
           type="hidden"
-          name="${this.name}[${i}][id]"
+          name="${this.name}[${i}][artist_id]"
           value="${artist.id}"
         />
       </li>

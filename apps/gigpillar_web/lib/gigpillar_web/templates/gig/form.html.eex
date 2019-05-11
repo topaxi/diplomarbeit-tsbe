@@ -29,25 +29,24 @@
     <%= error_tag f, :location %>
   </div>
 
-  <div class="form-control form-control-when">
-    <div class="form-control">
-      <%= label f, :date %>
-      <%= date_input f, :date %>
-    </div>
-
-    <%= label f, :time do %>
-      Doors <%= time_input f, :time %>
-    <% end %>
-
+  <div class="form-control">
+    <datetime-input
+      inputId="date"
+      dateLabel="When"
+      timeLabel="Doors"
+      name="<%= input_name f, :date %>"
+      value="<%= DateTime.to_iso8601(input_value(f, :date)) %>">
+      <%= label f, :date, slot: "date-label" %>
+      <span slot="time-label">Doors </span>
+    </datetime-input>
     <%= error_tag f, :date %>
-    <%= error_tag f, :time %>
   </div>
 
   <div class="form-control">
     <%= label f, :gig_artists %>
     <artists-input
       inputId="artists"
-      name="artists"
+      name="<%= input_name f, :gig_artists %>"
       placeholder="Search artist"
       value="<%= value(f, :gig_artists) %>"></artists-input>
     <%= error_tag f, :gig_artists %>

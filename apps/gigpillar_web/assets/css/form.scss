@@ -43,15 +43,6 @@
   }
 }
 
-.form-control-when {
-  display: flex;
-  align-items: flex-end;
-
-  > .form-control {
-    margin-right: 1rem;
-  }
-}
-
 .form-artist-list {
   display: block;
   list-style: none;
@@ -109,6 +100,19 @@ location-input,
 artists-input {
   display: block;
   min-height: 2.25rem;
+}
+
+datetime-input {
+  display: flex;
+  align-items: flex-end;
+
+  [type='date'] {
+    margin-right: 1rem;
+  }
+
+  [type='time'] {
+    display: inline-block;
+  }
 }
 
 .autocomplete-result {
