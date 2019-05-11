@@ -9,6 +9,16 @@ export function prop(key) {
 }
 
 /**
+ * @template T
+ * @param {(o: T) => T[keyof T]} project
+ * @param {T[keyof T]} value
+ * @return {(o: T) => boolean}
+ */
+export function by(project, value) {
+  return o => project(o) === value
+}
+
+/**
  * @template T extends (...args: any[]) => boolean
  * @param {T} fn
  * @return {(...args: any[]) => boolean}

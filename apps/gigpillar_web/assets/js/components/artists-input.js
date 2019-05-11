@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element'
 import { repeat } from 'lit-html/directives/repeat'
-import { prop, includedIn, not } from '../utils'
+import { prop, includedIn, not, by } from '../utils'
 
 /**
  * @typedef {Object} Artist
@@ -40,7 +40,7 @@ class ArtistsInput extends LitElement {
 
     id = Number(id)
 
-    if (this.artists.every(a => a.id !== id)) {
+    if (this.artists.every(not(by(prop('id'), id)))) {
       this.artists = [...this.artists, { id, name }]
     }
   }
@@ -53,7 +53,7 @@ class ArtistsInput extends LitElement {
 
     id = Number(id)
 
-    this.artists = this.artists.filter(a => a.id !== id)
+    this.artists = this.artists.filter(not(by(prop('id'), id)))
   }
 
   /**
