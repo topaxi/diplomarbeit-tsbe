@@ -48,6 +48,7 @@
     <artists-input
       inputId="artists"
       name="artists"
+      placeholder="Search artist"
       value="<%= value(f, :gig_artists) %>"></artists-input>
     <%= error_tag f, :gig_artists %>
   </div>

@@ -19,6 +19,9 @@ class ArtistsInput extends LitElement {
    */
   @property() searchResult = []
 
+  @property()
+  placeholder = ''
+
   /**
    * @type {Artist[]} artists
    */
@@ -126,6 +129,7 @@ class ArtistsInput extends LitElement {
         <search-box
           inputId="${this.inputId}"
           src="/api/autocomplete/artist"
+          placeholder="${this.placeholder}"
           @search-result="${this.handleSearchResult}"
         ></search-box>
 
