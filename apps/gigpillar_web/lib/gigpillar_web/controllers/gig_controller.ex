@@ -16,12 +16,16 @@ defmodule GigpillarWeb.GigController do
   end
 
   def new(conn, _params) do
-    changeset = Gigs.change_gig(%Gig{location: nil})
+    changeset = Gigs.change_gig(%Gig{location: nil, gig_artists: []})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"gig" => gig_params}) do
-    gig_params = Map.put(gig_params, "creator_id", conn.assigns.current_user.id)
+    gig_params =
+      gig_params
+      |> Map.put("creator_id", conn.assigns.current_user.id)
+      |> Map.put_new("gig_artists", [])
+      |> cast_location
 
     case Gigs.create_gig(gig_params) do
       {:ok, gig} ->
@@ -46,9 +50,9 @@ defmodule GigpillarWeb.GigController do
   end
 
   def update(conn, %{"id" => id, "gig" => gig_params}) do
-    gig = Gigs.get_gig!(id)
-
     gig_params = cast_location(gig_params)
+
+    gig = Gigs.get_gig!(id)
 
     case Gigs.update_gig(gig, gig_params) do
       {:ok, gig} ->
@@ -70,20 +74,15 @@ defmodule GigpillarWeb.GigController do
     |> redirect(to: Routes.gig_path(conn, :index))
   end
 
-  defp should_fetch_place_details(%{"location" => %{"google_place_id" => place_id}}) do
-    {success} = Gigpillar.Locations.get_location_by_google_place_id(place_id)
-    success == :error
-  end
-
   defp cast_location(%{"location" => %{"id" => id}} = gig_params) when is_number(id),
     do: gig_params
 
   defp cast_location(%{"location" => %{"google_place_id" => place_id}} = gig_params) do
     case Gigpillar.Locations.get_location_by_google_place_id(place_id) do
-      {:ok, location} ->
-        Kernel.put_in(gig_params, ["location", "id"], location.id)
+      %Gigpillar.Locations.Location{} = location ->
+        gig_params |> Map.put("location_id", location.id) |> Map.delete("location")
 
-      _ ->
+      nil ->
         Map.put(
           gig_params,
           "location",
@@ -91,6 +90,8 @@ defmodule GigpillarWeb.GigController do
         )
     end
   end
+
+  defp cast_location(gig_params), do: gig_params
 
   defp get_place_details(place_id) do
     with {:ok, %{"result" => details}} <-

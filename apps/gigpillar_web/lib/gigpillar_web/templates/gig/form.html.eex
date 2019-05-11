@@ -35,7 +35,7 @@
       dateLabel="When"
       timeLabel="Doors"
       name="<%= input_name f, :date %>"
-      value="<%= DateTime.to_iso8601(input_value(f, :date)) %>">
+      value="<%= value(f, :date) %>">
       <%= label f, :date, slot: "date-label" %>
       <span slot="time-label">Doors </span>
     </datetime-input>

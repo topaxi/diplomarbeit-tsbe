@@ -29,7 +29,6 @@ defmodule Gigpillar.Gigs.Gig do
     gig
     |> cast(attrs, [:name, :description, :picture, :date, :location_id, :creator_id])
     |> cast_assoc(:location, required: true)
-    |> cast_assoc(:creator)
     |> cast_assoc(:gig_artists, with: &Gigpillar.Gigs.GigArtist.changeset/2)
     |> validate_required([:name, :description, :date])
   end

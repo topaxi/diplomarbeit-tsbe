@@ -78,7 +78,7 @@ class LocationInput extends LitElement {
   }
 
   render() {
-    if (this.location !== null) {
+    if (this.location !== null && this.location.name) {
       return html`
         <div class="input-group">
           <input

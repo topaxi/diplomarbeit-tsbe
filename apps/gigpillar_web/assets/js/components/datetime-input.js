@@ -1,4 +1,4 @@
-import { LitElement, html, customElement, property, css } from 'lit-element'
+import { LitElement, html, customElement, property } from 'lit-element'
 import { dateConverter } from '../utils'
 
 @customElement('datetime-input')
@@ -103,7 +103,6 @@ class DatetimeInput extends LitElement {
       <label class="form-control">
         ${this.timeLabel}
         <input
-          name="${this.inputId}Time"
           type="time"
           value="${this.formatTime(this.value)}"
           @input="${this.handleTimeInput}"
