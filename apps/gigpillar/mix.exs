@@ -40,7 +40,8 @@ defmodule Gigpillar.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
       {:argon2_elixir, "~> 2.0"},
-      {:canada, "~> 1.0.2"}
+      {:canada, "~> 1.0.2"},
+      {:tzdata, "~> 1.0.0"}
     ]
   end
 

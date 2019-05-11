@@ -25,7 +25,7 @@
     <location-input
       inputId="<%= input_id f, :location %>"
       name="<%= input_name f, :location %>"
-      value="<%= json Map.take(input_value(f, :location), [:id, :name]) %>"></location-input>
+      value="<%= value(f, :location) %>"></location-input>
     <%= error_tag f, :location %>
   </div>
 
@@ -44,9 +44,12 @@
   </div>
 
   <div class="form-control">
-    <%= label f, :artists %>
-    <artists-input inputId="artists" name="artists"></artists-input>
-    <%= error_tag f, :artists %>
+    <%= label f, :gig_artists %>
+    <artists-input
+      inputId="artists"
+      name="artists"
+      value="<%= value(f, :gig_artists) %>"></artists-input>
+    <%= error_tag f, :gig_artists %>
   </div>
 
   <div class="form-control">

@@ -7,4 +7,6 @@ use Mix.Config
 config :gigpillar,
   ecto_repos: [Gigpillar.Repo]
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
 import_config "#{Mix.env()}.exs"

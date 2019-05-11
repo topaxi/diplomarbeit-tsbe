@@ -5,8 +5,9 @@ defmodule Gigpillar.Gigs.GigArtist do
   schema "gigs_artists" do
     field(:order, :integer)
     field(:plays_at, :time)
-    field(:gig_id, :id)
-    field(:artist_id, :id)
+
+    belongs_to(:gig, Gigpillar.Gigs.Gig)
+    belongs_to(:artist, Gigpillar.Artists.Artist)
   end
 
   @doc false

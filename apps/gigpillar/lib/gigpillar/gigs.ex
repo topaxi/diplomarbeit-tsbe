@@ -35,7 +35,11 @@ defmodule Gigpillar.Gigs do
       ** (Ecto.NoResultsError)
 
   """
-  def get_gig!(id), do: Gig |> preload([:location, :creator]) |> Repo.get!(id)
+  def get_gig!(id) do
+    Gig
+    |> preload([:location, :creator, [gig_artists: :artist]])
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a gig.

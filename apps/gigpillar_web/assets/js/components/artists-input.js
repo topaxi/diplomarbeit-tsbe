@@ -22,7 +22,7 @@ class ArtistsInput extends LitElement {
   /**
    * @type {Artist[]} artists
    */
-  @property({ attribute: 'artists', converter: value => JSON.parse(value) })
+  @property({ attribute: 'value', type: Array })
   artists = []
 
   /**

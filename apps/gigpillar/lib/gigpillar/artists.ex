@@ -38,6 +38,22 @@ defmodule Gigpillar.Artists do
   def get_artist!(id), do: Repo.get!(Artist, id)
 
   @doc """
+  Gets a single artist by name.
+
+  Raises `Ecto.NoResultsError` if the Artist does not exist.
+
+  ## Examples
+
+      iex> get_artist!("Parkway Drive")
+      %Artist{}
+
+      iex> get_artist!("Unknown Artist")
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_artist_by_name!(name), do: Repo.get_by!(Artist, name: name)
+
+  @doc """
   Creates a artist.
 
   ## Examples

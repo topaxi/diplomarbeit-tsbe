@@ -89,8 +89,33 @@ Gigpillar.Repo.insert_all(
   end)
 )
 
-Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
-  name: "Dachstock, Neubrückstrasse, Bern, Switzerland",
-  lat: 46.9527882,
-  lng: 7.4384452
-})
+dachstock =
+  Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
+    name: "Dachstock, Neubrückstrasse, Bern, Switzerland",
+    lat: 46.9527882,
+    lng: 7.4384452
+  })
+
+{:ok, darksideDate} =
+  DateTime.from_naive!(~N[2019-12-17 23:00:00], "Europe/Zurich")
+  |> DateTime.shift_zone("Etc/UTC")
+
+gig =
+  Gigpillar.Repo.insert!(%Gigpillar.Gigs.Gig{
+    name: "Darkside - Pendulum, Camo & Crooked",
+    location_id: dachstock.id,
+    date: darksideDate
+  })
+
+Gigpillar.Repo.insert_all(Gigpillar.Gigs.GigArtist, [
+  %{
+    gig_id: gig.id,
+    artist_id: Gigpillar.Artists.get_artist_by_name!("Pendulum").id,
+    plays_at: ~T[03:00:00]
+  },
+  %{
+    gig_id: gig.id,
+    artist_id: Gigpillar.Artists.get_artist_by_name!("Camo & Krooked").id,
+    plays_at: ~T[01:00:00]
+  }
+])

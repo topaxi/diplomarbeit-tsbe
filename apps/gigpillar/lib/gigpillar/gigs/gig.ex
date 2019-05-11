@@ -11,6 +11,13 @@ defmodule Gigpillar.Gigs.Gig do
     belongs_to(:location, Gigpillar.Locations.Location)
     belongs_to(:creator, Gigpillar.Accounts.User)
 
+    has_many(:gig_artists, Gigpillar.Gigs.GigArtist)
+
+    many_to_many(:artists, Gigpillar.Artists.Artist,
+      join_through: Gigpillar.Gigs.GigArtist,
+      unique: true
+    )
+
     timestamps()
   end
 
