@@ -29,7 +29,8 @@ defmodule GigpillarWeb.MixProject do
         :runtime_tools,
         :plug_session_redis,
         :ueberauth,
-        :ueberauth_identity
+        :ueberauth_identity,
+        :timex
       ]
     ]
   end
@@ -57,7 +58,8 @@ defmodule GigpillarWeb.MixProject do
       {:plug_session_redis, "~> 0.1"},
       {:canary, "~> 1.1.1"},
       {:google_api_client,
-       git: "https://github.com/topaxi/google-api-elixir-client", branch: "gigpillar"}
+       git: "https://github.com/topaxi/google-api-elixir-client", branch: "gigpillar"},
+      {:timex, "~> 3.1"}
     ]
   end
 

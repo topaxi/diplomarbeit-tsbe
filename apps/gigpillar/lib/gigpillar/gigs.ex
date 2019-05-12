@@ -106,6 +106,23 @@ defmodule Gigpillar.Gigs do
     Gig.changeset(gig, %{})
   end
 
+  @doc """
+  Searches Gigs based on a string.
+  """
+  def search_gigs(query) do
+    from(g in Gig,
+      distinct: g.id,
+      left_join: l in assoc(g, :location),
+      left_join: a in assoc(g, :artists),
+      preload: [:location, :artists],
+      where:
+        ilike(g.name, ^"%#{query}%") or
+          ilike(l.name, ^"%#{query}%") or
+          ilike(l.address, ^"%#{query}%") or
+          ilike(a.name, ^"%#{query}%")
+    )
+  end
+
   alias Gigpillar.Gigs.GigGenre
 
   @doc """

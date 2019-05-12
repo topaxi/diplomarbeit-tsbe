@@ -16,16 +16,22 @@
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>
         </label>
-        <search-box inputId="search" placeholder="Search for city, artist and concert">
+        <search-box
+          inputId="search"
+          placeholder="Search for city, artist and concert"
+          src="/api/autocomplete/search"
+          name="query"
+          value="<%= @conn.params["query"] %>">
           <span class="search-icon"></span>
-          <input readonly placeholder="Search for city, artist and concert">
+          <input readonly placeholder="Search for city, artist and concert" value="<%= @conn.params["query"] %>">
         </search-box>
       </form>
       <nav role="navigation" class="page-navigation">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/add-gig">Add Gig</a></li>
+          <li><a href="/gigs/new">Add Gig</a></li>
           <%= if assigns[:current_user] do %>
+            <li><a href="/gigs">My Gigs</a></li>
             <li><span><%= @current_user.username %></span></li>
           <% else %>
             <li><a href="/auth/identity">Login</a></li>

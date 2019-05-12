@@ -1,6 +1,7 @@
-import { Subject, of } from 'rxjs'
+import { Subject, BehaviorSubject, of } from 'rxjs'
 import { ajax } from 'rxjs/ajax'
 import {
+  skip,
   takeUntil,
   debounceTime,
   map,
@@ -17,10 +18,22 @@ class SearchBox extends LitElement {
   @property() name = ''
   @property() placeholder = ''
 
+  /**
+   * @param {string} value
+   */
+  @property()
+  set value(value) {
+    this.query.next(value)
+  }
+
+  get value() {
+    return this.query.getValue()
+  }
+
   @property({ attribute: 'debounce-time', converter: Number })
   debounceTime = 200
 
-  query = new Subject()
+  query = new BehaviorSubject('')
   destroy = new Subject()
 
   createRenderRoot() {
@@ -34,10 +47,11 @@ class SearchBox extends LitElement {
 
     this.query
       .pipe(
+        skip(1),
         takeUntil(this.destroy),
         debounceTime(this.debounceTime),
         switchMap(query =>
-          !query.trim()
+          query.trim() === ''
             ? of([])
             : ajax(`${this.src}?query=${query}`).pipe(
                 map(prop('response')),
@@ -85,6 +99,7 @@ class SearchBox extends LitElement {
         type="search"
         name="${this.name}"
         placeholder="${this.placeholder}"
+        value="${this.value}"
         autocomplete="off"
         @input="${this.handleInput}"
       />

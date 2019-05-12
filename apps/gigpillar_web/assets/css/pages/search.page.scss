@@ -21,3 +21,36 @@
     margin-left: 1rem;
   }
 }
+
+.page-search-result {
+  list-style: none;
+  padding: 0;
+}
+
+.page-search-result > li {
+  border-bottom: 1px solid #bcbcbc;
+
+  &:first-child {
+    border-top: 1px solid #bcbcbc;
+  }
+}
+
+.page-search-result a {
+  display: block;
+  text-decoration: none;
+  color: var(--color-foreground);
+
+  &:hover {
+    background-color: #eeeeec;
+  }
+}
+
+.page-search-result-artists {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  > li:not(:first-child)::before {
+    content: ', ';
+  }
+}

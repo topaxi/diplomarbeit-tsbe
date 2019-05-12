@@ -1,0 +1,31 @@
+<div class="page-search">
+  <ul class="page-search-result">
+    <%= for gig <- @results do %>
+      <li>
+        <%= link to: "/gigs/#{gig.id}" do %>
+          <time datetime="<%= DateTime.to_iso8601 gig.date %>">
+            <span class="day"><%= Timex.format! gig.date, "{0D}" %></span>
+            <span class="month"><%= Timex.format! gig.date, "{Mshort}" %></span>
+          </time>
+          <%= if gig.picture do %>
+            <img src="<%= gig.picture %>" alt="" >
+          <% else %>
+            <img src="<%= Routes.static_path(@conn, "/pictures/placeholder.jpg") %>" alt="" >
+          <% end %>
+
+          <h3><%= gig.name %></h3>
+          <ol class="page-search-result-artists">
+            <%= for artist <- gig.artists do %>
+              <li><%= artist.name %></li>
+            <% end %>
+          </ol>
+
+          <div>
+            <span><%= gig.location.name %></span>
+            <address><%= gig.location.address %></address>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

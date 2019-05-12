@@ -19,6 +19,7 @@ defmodule GigpillarWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
+    get("/search", SearchController, :search)
 
     resources("/gigs", GigController)
   end
@@ -39,5 +40,6 @@ defmodule GigpillarWeb.Router do
 
     get("/autocomplete/location", AutocompleteController, :location)
     get("/autocomplete/artist", AutocompleteController, :artist)
+    get("/autocomplete/search", AutocompleteController, :search)
   end
 end
