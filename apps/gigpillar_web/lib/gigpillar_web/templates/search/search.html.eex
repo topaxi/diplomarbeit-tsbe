@@ -1,4 +1,27 @@
-<div class="page-search">
+<section class="page-search">
+  <header class="search-title">
+    <h2>Bern</h2>
+    <small><a href="#">change location</a></small>
+  </header>
+
+  <%= form_for @conn, :search, [method: "get", class: "search-filters", oninput: "this.submit()"], fn f -> %>
+    <input type="hidden" name="<%= input_name f, :query %>" value="<%= @conn.params["query"] %>">
+    <div class="form-control">
+      <%= label f, :from %>
+      <%= date_input f, :from %>
+    </div>
+
+    <div class="form-control">
+      <%= label f, :to %>
+      <%= date_input f, :to %>
+    </div>
+
+    <div class="form-control">
+      <%= label f, :genre %>
+      <%= select f, :genre, Enum.map(@genres, fn g -> {g.name, g.id} end), prompt: "" %>
+    </div>
+  <% end %>
+
   <ul class="page-search-result">
     <%= for gig <- @results do %>
       <li>
@@ -7,11 +30,10 @@
             <span class="day"><%= Timex.format! gig.date, "{0D}" %></span>
             <span class="month"><%= Timex.format! gig.date, "{Mshort}" %></span>
           </time>
-          <%= if gig.picture do %>
-            <img src="<%= gig.picture %>" alt="" >
-          <% else %>
-            <img src="<%= Routes.static_path(@conn, "/pictures/placeholder.jpg") %>" alt="" >
-          <% end %>
+
+          <div class="page-search-result-picture">
+            <img width="160" src="<%= gig.picture || Routes.static_path(@conn, "/images/placeholder.svg") %>" alt="" >
+          </div>
 
           <h3><%= gig.name %></h3>
           <ol class="page-search-result-artists">
@@ -28,4 +50,4 @@
       </li>
     <% end %>
   </ul>
-</div>
+</section>

@@ -106,12 +106,34 @@ defmodule Gigpillar.Gigs do
     Gig.changeset(gig, %{})
   end
 
+  def search_gigs(query, params) do
+    query = search_gigs(query)
+
+    query =
+      if params[:from] do
+        query |> where([g], g.date >= ^params[:from])
+      else
+        query
+      end
+
+    query =
+      if params[:to] do
+        query |> where([g], g.date <= ^params[:to])
+      else
+        query
+      end
+
+    # TODO genre
+
+    query
+  end
+
   @doc """
   Searches Gigs based on a string.
   """
   def search_gigs(query) do
     from(g in Gig,
-      distinct: g.id,
+      distinct: [asc: g.date, desc: g.id],
       left_join: l in assoc(g, :location),
       left_join: a in assoc(g, :artists),
       preload: [:location, :artists],

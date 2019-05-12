@@ -12,7 +12,7 @@
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
     <header class="page-header<%= if assigns[:page_class] do %> page-header--<%= assigns[:page_class] %><% end %>" role="banner">
       <a href="/" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</a>
-      <form class="page-search-box" action="/search">
+      <%= form_for @conn, :search, [method: "get", class: "page-search-box"], fn f -> %>
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>
         </label>
@@ -20,12 +20,12 @@
           inputId="search"
           placeholder="Search for city, artist and concert"
           src="/api/autocomplete/search"
-          name="query"
-          value="<%= @conn.params["query"] %>">
+          name="<%= input_name f, :query %>"
+          value="<%= input_value f, :query %>">
           <span class="search-icon"></span>
           <input readonly placeholder="Search for city, artist and concert" value="<%= @conn.params["query"] %>">
         </search-box>
-      </form>
+      <% end %>
       <nav role="navigation" class="page-navigation">
         <ul>
           <li><a href="/">Home</a></li>
