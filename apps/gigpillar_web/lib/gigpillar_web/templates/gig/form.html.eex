@@ -16,7 +16,7 @@
     <picture-input
       inputId="<%= input_id f, :picture %>"
       name="<%= input_name f, :picture %>"
-      value="<%= input_value f, :picture %>"></picture-input>
+      value="<%= value f, :picture %>"></picture-input>
     <%= error_tag f, :picture %>
   </div>
 

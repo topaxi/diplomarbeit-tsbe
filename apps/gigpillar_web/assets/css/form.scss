@@ -94,6 +94,27 @@
 picture-input {
   display: block;
   min-height: 160px;
+
+  img,
+  svg {
+    max-width: 100%;
+    max-height: 160px;
+  }
+
+  .placeholder {
+    width: 160px;
+  }
+
+  label {
+    display: block;
+    cursor: pointer;
+  }
+
+  input {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
 }
 
 location-input,

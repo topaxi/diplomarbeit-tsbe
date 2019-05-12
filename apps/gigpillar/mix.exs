@@ -23,7 +23,7 @@ defmodule Gigpillar.MixProject do
   def application do
     [
       mod: {Gigpillar.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :arc_ecto]
     ]
   end
 
@@ -41,7 +41,13 @@ defmodule Gigpillar.MixProject do
       {:jason, "~> 1.0"},
       {:argon2_elixir, "~> 2.0"},
       {:canada, "~> 1.0.2"},
-      {:tzdata, "~> 1.0.0"}
+      {:tzdata, "~> 1.0.0"},
+      {:arc, "~> 0.11.0"},
+      {:arc_ecto, "~> 0.11.1"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:sweet_xml, "~> 0.6"}
     ]
   end
 

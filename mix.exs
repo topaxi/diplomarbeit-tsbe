@@ -26,7 +26,8 @@ defmodule Gigpillar.Umbrella.MixProject do
     [
       {:mix_test_watch, "~> 0.8", only: :dev, runtime: false},
       {:coverex, "~> 1.5.0", only: :test},
-      {:tzdata, "~> 1.0.0", runtime: false, override: true}
+      {:tzdata, "~> 1.0.0", runtime: false, override: true},
+      {:poison, "~> 4.0", runtime: false, override: true}
     ]
   end
 end

@@ -20,7 +20,7 @@ services:
       - 6379:6379
   minio:
     image: minio/minio
-    command: server /data
+    command: 'mkdir /data/gigpillar && server /data'
     volumes:
       - ./tmp/minio:/data
     ports:

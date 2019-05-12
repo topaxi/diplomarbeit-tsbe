@@ -1,32 +1,7 @@
-import { LitElement, html, customElement, property, css } from 'lit-element'
+import { LitElement, html, customElement, property } from 'lit-element'
 
 @customElement('picture-input')
 class PictureInput extends LitElement {
-  static get styles() {
-    return css`
-      img,
-      svg {
-        max-width: 100%;
-        max-height: 160px;
-      }
-
-      .placeholder {
-        width: 160px;
-      }
-
-      label {
-        display: inline-block;
-        cursor: pointer;
-      }
-
-      input {
-        width: 1px;
-        height: 1px;
-        opacity: 0;
-      }
-    `
-  }
-
   @property() inputId = ''
   @property() value = ''
   @property() name = ''
@@ -47,8 +22,11 @@ class PictureInput extends LitElement {
 
     if (file != null) {
       this.file = file
-      e.target.value = ''
     }
+  }
+
+  createRenderRoot() {
+    return this
   }
 
   render() {

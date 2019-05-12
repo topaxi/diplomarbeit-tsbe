@@ -1,12 +1,14 @@
 defmodule Gigpillar.Gigs.Gig do
   use Ecto.Schema
+  use Arc.Ecto.Schema
+
   import Ecto.Changeset
 
   schema "gigs" do
     field(:date, :utc_datetime)
     field(:description, :string)
     field(:name, :string)
-    field(:picture, :string)
+    field(:picture, Gigpillar.Storage.Uploader.Picture.Type)
 
     belongs_to(:location, Gigpillar.Locations.Location, on_replace: :nilify)
     belongs_to(:creator, Gigpillar.Accounts.User)
@@ -27,7 +29,8 @@ defmodule Gigpillar.Gigs.Gig do
   @doc false
   def changeset(gig, attrs) do
     gig
-    |> cast(attrs, [:name, :description, :picture, :date, :location_id, :creator_id])
+    |> cast(attrs, [:name, :description, :date, :location_id, :creator_id])
+    |> cast_attachments(attrs, [:picture])
     |> cast_assoc(:location, required: true)
     |> cast_assoc(:gig_artists, with: &Gigpillar.Gigs.GigArtist.changeset/2)
     |> validate_required([:name, :description, :date])
