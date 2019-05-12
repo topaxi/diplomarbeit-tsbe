@@ -20,7 +20,7 @@ services:
       - 6379:6379
   minio:
     image: minio/minio
-    command: 'mkdir /data/gigpillar && server /data'
+    command: server /data
     volumes:
       - ./tmp/minio:/data
     ports:
@@ -28,6 +28,12 @@ services:
     environment:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
+  nginx:
+    image: nginx
+    volumes:
+      - ./tmp/minio/gigpillar:/usr/share/nginx/html
+    ports:
+      - 4040:80
   mailcatcher:
     image: schickling/mailcatcher
     ports:

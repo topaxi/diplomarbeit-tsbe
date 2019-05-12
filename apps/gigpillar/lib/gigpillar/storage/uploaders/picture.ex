@@ -13,8 +13,6 @@ defmodule Gigpillar.Storage.Uploader.Picture do
   end
 
   def asset_host do
-    config = Application.get_env(:ex_aws, :s3)
-    bucket = Application.get_env(:arc, :bucket)
-    "#{config[:scheme]}#{config[:host]}:#{config[:port]}/#{bucket}"
+    Application.get_env(:assets, :host)
   end
 end
