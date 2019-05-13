@@ -72,12 +72,21 @@ defmodule GigpillarWeb.GigView do
 
   def value(f, :gig_artists) do
     input_value(f, :gig_artists)
-    |> Enum.map(fn gig_artist ->
-      gig_artist
-      |> Map.take([:order, :plays_at])
-      |> Map.put(:id, gig_artist.artist.id)
-      |> Map.put(:name, gig_artist.artist.name)
-    end)
+    |> IO.inspect()
+    |> Enum.filter_map(
+      fn ch ->
+        case ch do
+          %{artist: _} -> true
+          _ -> false
+        end
+      end,
+      fn gig_artist ->
+        gig_artist
+        |> Map.take([:order, :plays_at])
+        |> Map.put(:id, gig_artist.artist.id)
+        |> Map.put(:name, gig_artist.artist.name)
+      end
+    )
     |> json()
   end
 
