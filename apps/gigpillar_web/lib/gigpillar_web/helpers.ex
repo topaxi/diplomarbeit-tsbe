@@ -5,7 +5,7 @@ defmodule GigpillarWeb.Helpers do
   def handle_unauthorized(conn) do
     conn
     |> put_flash(:error, "You are not allowed to view this page!")
-    |> redirect(to: "/")
+    |> redirect(to: "/auth/identity")
     |> halt
   end
 
