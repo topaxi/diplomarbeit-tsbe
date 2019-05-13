@@ -5,7 +5,7 @@
       <h2><%= @gig.name %></h2>
       <time class="doors">Doors: <%= Timex.format!(@gig.date, "{h24}:{m}") %> Uhr</time>
     </div>
-    <a href="#">📅 Add to my calendar</a>
+    <a href="<%= link_to_calendar(@gig) %>">📅 Add to my calendar</a>
   </header>
 
   <div class="gig-detail-left">

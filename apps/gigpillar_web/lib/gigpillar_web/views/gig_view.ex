@@ -40,6 +40,14 @@ defmodule GigpillarWeb.GigView do
     json(jsonld(thing) |> Map.put("@context", "http://schema.org"))
   end
 
+  def link_to_calendar(gig) do
+    start_date = Timex.format!(gig.date, "{YYYY}{0M}{0D}T{h24}{m}{s}")
+    end_date = Timex.format!(Timex.shift(gig.date, hours: 3), "{YYYY}{0M}{0D}T{h24}{m}{s}")
+    dates = "#{start_date}/#{end_date}"
+    query = URI.encode_query(text: gig.name, dates: dates, location: gig.location.address)
+    "https://calendar.google.com/calendar/r/eventedit?#{query}"
+  end
+
   def value(f, :location) do
     case input_value(f, :location) do
       nil ->
