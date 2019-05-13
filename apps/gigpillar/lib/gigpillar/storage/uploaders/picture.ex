@@ -13,6 +13,6 @@ defmodule Gigpillar.Storage.Uploader.Picture do
   end
 
   def asset_host do
-    Application.get_env(:assets, :host)
+    Application.get_env(:gigpillar, :asset_host)
   end
 end

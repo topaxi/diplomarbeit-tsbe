@@ -25,7 +25,7 @@ config :ex_aws, :s3,
   host: "localhost",
   port: 9000
 
-config :assets,
-  host: "http://localhost:4040"
+config :gigpillar,
+  asset_host: "http://localhost:4040"
 
 import_config "#{Mix.env()}.exs"
