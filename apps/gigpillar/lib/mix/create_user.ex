@@ -15,26 +15,29 @@ defmodule Mix.Tasks.Gigpillar.CreateUser do
     [repo] = parse_repo(args)
 
     ensure_repo(repo, args)
-    ensure_started(repo, [])
 
-    username = "Username:" |> Mix.shell().prompt |> String.trim()
-    email = "Email:" |> Mix.shell().prompt |> String.trim()
-    password = "Password:" |> password_get |> String.trim()
-    confirm = "Password (confirm):" |> password_get |> String.trim()
+    create_user = fn repo ->
+      username = "Username:" |> Mix.shell().prompt |> String.trim()
+      email = "Email:" |> Mix.shell().prompt |> String.trim()
+      password = "Password:" |> password_get |> String.trim()
+      confirm = "Password (confirm):" |> password_get |> String.trim()
 
-    if password != confirm do
-      Mix.raise("Entered passwords do not match")
+      if password != confirm do
+        Mix.raise("Entered passwords do not match")
+      end
+
+      changeset =
+        User.register_changeset(%User{}, %{
+          username: username,
+          email: email,
+          password: password,
+          password_confirmation: confirm
+        })
+
+      repo.insert!(changeset)
     end
 
-    changeset =
-      User.register_changeset(%User{}, %{
-        username: username,
-        email: email,
-        password: password,
-        password_confirmation: confirm
-      })
-
-    repo.insert!(changeset)
+    Ecto.Migrator.with_repo(repo, create_user)
   end
 
   # Password prompt that hides input by every 1ms
