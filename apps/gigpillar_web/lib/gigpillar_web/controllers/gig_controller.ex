@@ -11,7 +11,8 @@ defmodule GigpillarWeb.GigController do
   )
 
   def index(conn, _params) do
-    gigs = Gigs.list_gigs()
+    gigs = Gigs.list_user_gigs(conn.assigns.current_user.id)
+
     render(conn, "index.html", gigs: gigs)
   end
 

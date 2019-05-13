@@ -21,6 +21,10 @@ defmodule Gigpillar.Gigs do
     Repo.all(from(g in Gig, preload: [:location]))
   end
 
+  def list_user_gigs(user_id) do
+    Repo.all(from(g in Gig, where: g.creator_id == ^user_id))
+  end
+
   @doc """
   Gets a single gig.
 
