@@ -7,7 +7,6 @@ defmodule GigpillarWeb.Plug.UserLocation do
   def call(conn, _opts) do
     conn
     |> assign(:current_user_location, get_user_location(conn))
-    |> IO.inspect()
   end
 
   def get_user_location(conn) do
