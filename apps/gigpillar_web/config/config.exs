@@ -7,7 +7,8 @@ use Mix.Config
 # General application configuration
 config :gigpillar_web,
   ecto_repos: [Gigpillar.Repo],
-  generators: [context_app: :gigpillar]
+  generators: [context_app: :gigpillar],
+  default_city: "Zurich"
 
 # Configures the endpoint
 config :gigpillar_web, GigpillarWeb.Endpoint,
@@ -36,6 +37,15 @@ config :canary, repo: Gigpillar.Repo
 
 config :google_api_client,
   api_key: ""
+
+config :geolix,
+  databases: [
+    %{
+      id: :mmdb2,
+      adapter: Geolix.Adapter.MMDB2,
+      source: "/home/topaxi/diplomarbeit/tmp/geoip/GeoLite2-City.tar.gz"
+    }
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

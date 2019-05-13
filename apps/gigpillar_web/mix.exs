@@ -59,7 +59,8 @@ defmodule GigpillarWeb.MixProject do
       {:canary, "~> 1.1.1"},
       {:google_api_client,
        git: "https://github.com/topaxi/google-api-elixir-client", branch: "gigpillar"},
-      {:timex, "~> 3.1"}
+      {:timex, "~> 3.1"},
+      {:geolix, "~> 0.18"}
     ]
   end
 

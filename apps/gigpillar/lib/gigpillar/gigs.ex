@@ -21,6 +21,16 @@ defmodule Gigpillar.Gigs do
     Repo.all(from(g in Gig, preload: [:location]))
   end
 
+  def list_latest_gigs do
+    Repo.all(
+      from(g in Gig,
+        distinct: [asc: g.date, desc: g.id],
+        preload: [:location, :artists],
+        limit: 12
+      )
+    )
+  end
+
   def list_user_gigs(user_id) do
     Repo.all(from(g in Gig, where: g.creator_id == ^user_id))
   end

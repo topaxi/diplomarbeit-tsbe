@@ -32,7 +32,7 @@
           </time>
 
           <div class="page-search-result-picture">
-            <img width="160" src="<%= gig.picture || Routes.static_path(@conn, "/images/placeholder.svg") %>" alt="" >
+            <img width="160" src="<%= picture(gig) || Routes.static_path(@conn, "/images/placeholder.svg") %>" alt="" >
           </div>
 
           <h3><%= gig.name %></h3>

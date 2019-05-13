@@ -4,6 +4,8 @@ defmodule GigpillarWeb.Router do
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
+    plug(GigpillarWeb.Plug.AssignCurrentUser)
+    plug(GigpillarWeb.Plug.UserLocation)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
@@ -12,6 +14,7 @@ defmodule GigpillarWeb.Router do
   pipeline :api do
     plug(:accepts, ["json"])
     plug(:fetch_session)
+    plug(GigpillarWeb.Plug.AssignCurrentUser)
     plug(:put_secure_browser_headers)
   end
 

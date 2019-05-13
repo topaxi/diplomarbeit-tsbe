@@ -24,8 +24,6 @@ defmodule GigpillarWeb do
       import Canary.Plugs
       import GigpillarWeb.Gettext
       alias GigpillarWeb.Router.Helpers, as: Routes
-
-      plug(GigpillarWeb.Plug.AssignCurrentUser)
     end
   end
 

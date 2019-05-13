@@ -3,12 +3,17 @@ defmodule GigpillarWeb.AutocompleteController do
   import Ecto.Query, only: [limit: 2, offset: 2]
 
   def location(conn, %{"query" => query}) do
-    {:ok, response} = Google.Apis.Places.autocomplete(query)
+    {:ok, response} = Google.Apis.Places.autocomplete(query, types: "establishment")
     render(conn, "location.json", locations: response)
   end
 
   def artist(conn, %{"query" => query}) do
     render(conn, "artist.json", artists: Gigpillar.Artists.search_artists(name: query))
+  end
+
+  def city(conn, %{"query" => query}) do
+    {:ok, response} = Google.Apis.Places.autocomplete(query, types: "(cities)")
+    render(conn, "city.json", cities: response)
   end
 
   def search(conn, %{"query" => query}) do
