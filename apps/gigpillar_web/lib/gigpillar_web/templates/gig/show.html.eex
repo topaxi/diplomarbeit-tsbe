@@ -1,8 +1,34 @@
-<h1>Show Gig</h1>
+<div class="gig-detail-page">
+  <header class="gig-detail-header">
+    <time datetime="<%= DateTime.to_iso8601 @gig.date %>"><%= Timex.format!(@gig.date, "{0D}.{0M}.{YYYY}") %></time>
+    <div class="title">
+      <h2><%= @gig.name %></h2>
+      <time class="doors">Doors: <%= Timex.format!(@gig.date, "{h24}:{m}") %> Uhr</time>
+    </div>
+    <a href="#">📅 Add to my calendar</a>
+  </header>
 
-<ul>
+  <div class="gig-detail-left">
+    <ul class="gig-detail-lineup">
+      <%= for gig_artist <- @gig.gig_artists do %>
+        <li>
+          <%= gig_artist.artist.name %>
+          <%= if gig_artist.plays_at do %>
+            <small><%= Timex.format!(gig_artist.plays_at, "{h24}:{m}") %></small>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
 
-</ul>
+    <div class="gig-detail-description">
+      <%= @gig.description %>
+    </div>
+  </div>
 
-<span><%= link "Edit", to: Routes.gig_path(@conn, :edit, @gig) %></span>
-<span><%= link "Back", to: Routes.gig_path(@conn, :index) %></span>
+  <address class="gig-detail-address gig-detail-right">
+    <div><%= @gig.location.address %></div>
+
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= osm_url(@gig.location) %>" style="border: 1px solid black"></iframe>
+  </address>
+</div>
+<script type="application/ld+json"><%= raw to_jsonld(@gig) %></script>

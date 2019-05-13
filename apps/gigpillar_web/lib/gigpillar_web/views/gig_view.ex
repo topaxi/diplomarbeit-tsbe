@@ -5,6 +5,41 @@ defmodule GigpillarWeb.GigView do
     Poison.encode!(value)
   end
 
+  def jsonld(%Gigpillar.Gigs.Gig{} = gig) do
+    %{
+      "@type" => "MusicEvent",
+      "name" => gig.name,
+      "location" => jsonld(gig.location),
+      "startDate" => gig.date,
+      "description" => gig.description,
+      "image" => Gigpillar.Gigs.Gig.picture({gig.picture, gig}, :original),
+      "performer" => Enum.map(gig.gig_artists, &jsonld/1)
+    }
+  end
+
+  def jsonld(%Gigpillar.Locations.Location{} = location) do
+    %{
+      "@type" => "MusicVenue",
+      "name" => location.name,
+      "address" => location.address
+    }
+  end
+
+  def jsonld(%Gigpillar.Gigs.GigArtist{} = gig_artist) do
+    jsonld(gig_artist.artist)
+  end
+
+  def jsonld(%Gigpillar.Artists.Artist{} = artist) do
+    %{
+      "@type" => "MusicGroup",
+      "name" => artist.name
+    }
+  end
+
+  def to_jsonld(thing) do
+    json(jsonld(thing) |> Map.put("@context", "http://schema.org"))
+  end
+
   def value(f, :location) do
     case input_value(f, :location) do
       nil ->
@@ -40,5 +75,9 @@ defmodule GigpillarWeb.GigView do
       %{} = file -> Gigpillar.Gigs.Gig.picture({file, f.data}, :thumbnail)
       _ -> nil
     end
+  end
+
+  def osm_url(%{lat: lat, lng: lng} = coords, opts \\ []) do
+    "https://www.openstreetmap.org/export/embed.html?..."
   end
 end
