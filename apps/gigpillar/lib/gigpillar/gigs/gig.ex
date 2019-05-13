@@ -35,4 +35,8 @@ defmodule Gigpillar.Gigs.Gig do
     |> cast_assoc(:gig_artists, with: &Gigpillar.Gigs.GigArtist.changeset/2)
     |> validate_required([:name, :description, :date])
   end
+
+  def picture({file, gig}, version) do
+    Gigpillar.Storage.Uploader.Picture.url({file, gig}, version)
+  end
 end

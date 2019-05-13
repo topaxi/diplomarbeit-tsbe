@@ -37,7 +37,7 @@ defmodule GigpillarWeb.GigView do
 
   def value(f, :picture) do
     case input_value(f, :picture) do
-      %{} = file -> Gigpillar.Storage.Uploader.Picture.url(file)
+      %{} = file -> Gigpillar.Gigs.Gig.picture({file, f.data}, :thumbnail)
       _ -> nil
     end
   end
