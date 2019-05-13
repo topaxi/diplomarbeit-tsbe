@@ -31,7 +31,7 @@
       <%= @gig.location.address %>
     </div>
 
-    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= osm_url(@gig.location) %>" style="border: 1px solid black"></iframe>
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= osm_url(@gig.location, width: 425, height: 350, zoom: 16) %>" style="border: 1px solid black"></iframe>
   </address>
 </div>
 <script type="application/ld+json"><%= raw to_jsonld(@gig) %></script>

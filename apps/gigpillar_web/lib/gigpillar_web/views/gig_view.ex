@@ -85,7 +85,66 @@ defmodule GigpillarWeb.GigView do
     end
   end
 
+  defp dec2float(d) do
+    d.coef * :math.pow(10, d.exp) * d.sign
+  end
+
+  defp rad2deg(rad) do
+    rad * 180 / :math.pi()
+  end
+
+  defp deg2rad(deg) do
+    deg * :math.pi() / 180
+  end
+
+  defp lng2tile(lng, zoom) do
+    :math.floor((lng + 180) / 360 * :math.pow(2, zoom))
+  end
+
+  defp lat2tile(lat, zoom) do
+    :math.floor(
+      (1 - :math.log(:math.tan(deg2rad(lat)) + 1 / :math.cos(deg2rad(lat))) / :math.pi()) / 2 *
+        :math.pow(2, zoom)
+    )
+  end
+
+  defp get_tile(lat, lng, zoom) do
+    {lat2tile(lat, zoom), lng2tile(lng, zoom)}
+  end
+
+  defp get_lat_lng(xtile, ytile, zoom) do
+    n = :math.pow(2, zoom)
+    lat_deg = rad2deg(:math.atan(:math.sinh(:math.pi() * (1 - 2 * ytile / n))))
+    lng_deg = xtile / n * 360 - 180
+    {lat_deg, lng_deg}
+  end
+
+  # https://gis.stackexchange.com/questions/42998/how-to-get-bounding-box-from-coordinates-latitude-longitude-zoom-level-and-s
+  def osm_bbox(%{lat: lat, lng: lng}, opts \\ []) do
+    zoom = opts[:zoom] || 10
+    width = opts[:width] || 425
+    height = opts[:height] || 350
+    tile_size = 256
+
+    lat = dec2float(lat)
+    lng = dec2float(lng)
+
+    {ytile, xtile} = get_tile(lat, lng, zoom)
+
+    xtile_s = (xtile * tile_size - width / 2) / tile_size
+    ytile_s = (ytile * tile_size - height / 2) / tile_size
+    xtile_e = (xtile * tile_size + width / 2) / tile_size
+    ytile_e = (ytile * tile_size + height / 2) / tile_size
+
+    {lat_s, lng_s} = get_lat_lng(xtile_s, ytile_s, zoom)
+    {lat_e, lng_e} = get_lat_lng(xtile_e, ytile_e, zoom)
+
+    "#{lng_s},#{lat_s},#{lng_e},#{lat_e}"
+  end
+
   def osm_url(%{lat: lat, lng: lng} = coords, opts \\ []) do
-    "https://www.openstreetmap.org/export/embed.html?..."
+    "https://www.openstreetmap.org/export/embed.html?bbox=#{osm_bbox(coords, opts)}&marker=#{lat},#{
+      lng
+    }&layer=mapnik"
   end
 end
