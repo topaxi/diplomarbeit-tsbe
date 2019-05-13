@@ -1,6 +1,6 @@
 <div class="gig-detail-page">
   <header class="gig-detail-header">
-    <time datetime="<%= DateTime.to_iso8601 @gig.date %>"><%= Timex.format!(@gig.date, "{0D}.{0M}.{YYYY}") %></time>
+    <time class="date" datetime="<%= DateTime.to_iso8601 @gig.date %>"><%= Timex.format!(@gig.date, "{0D}.{0M}.{YYYY}") %></time>
     <div class="title">
       <h2><%= @gig.name %></h2>
       <time class="doors">Doors: <%= Timex.format!(@gig.date, "{h24}:{m}") %> Uhr</time>
@@ -26,7 +26,10 @@
   </div>
 
   <address class="gig-detail-address gig-detail-right">
-    <div><%= @gig.location.address %></div>
+    <div>
+      <%= @gig.location.name %><br>
+      <%= @gig.location.address %>
+    </div>
 
     <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= osm_url(@gig.location) %>" style="border: 1px solid black"></iframe>
   </address>
