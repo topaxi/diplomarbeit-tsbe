@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script async type="module" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body>
+  <body class="<%= if assigns[:page_class] do %> page-<%= assigns[:page_class] %><% end %>">
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
-    <header class="page-header<%= if assigns[:page_class] do %> page-header--<%= assigns[:page_class] %><% end %>" role="banner">
+    <header class="page-header" role="banner">
       <a href="/" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</a>
       <%= form_for @conn, :search, [method: "get", class: "page-search-box"], fn f -> %>
         <label for="search">
