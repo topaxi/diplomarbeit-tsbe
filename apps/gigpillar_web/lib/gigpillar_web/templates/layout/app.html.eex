@@ -12,7 +12,7 @@
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
     <header class="page-header" role="banner">
       <a href="/" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</a>
-      <%= form_for @conn, :search, [method: "get", class: "page-search-box"], fn f -> %>
+      <%= form_for @conn, Routes.search_path(@conn, :search), [method: "get", class: "page-search-box"], fn f -> %>
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>
         </label>

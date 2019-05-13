@@ -13,7 +13,8 @@ defmodule GigpillarWeb.GigView do
       "startDate" => gig.date,
       "description" => gig.description,
       "image" => Gigpillar.Gigs.Gig.picture({gig.picture, gig}, :original),
-      "performer" => Enum.map(gig.gig_artists, &jsonld/1)
+      "performer" => Enum.map(gig.gig_artists, &jsonld/1),
+      "offers" => jsonld(:offer, gig.tickets)
     }
   end
 
@@ -33,6 +34,15 @@ defmodule GigpillarWeb.GigView do
     %{
       "@type" => "MusicGroup",
       "name" => artist.name
+    }
+  end
+
+  def jsonld(:offer, nil), do: nil
+
+  def jsonld(:offer, tickets) do
+    %{
+      "@type" => "Offer",
+      "url" => tickets
     }
   end
 

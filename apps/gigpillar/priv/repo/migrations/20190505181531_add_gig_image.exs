@@ -3,6 +3,7 @@ defmodule Gigpillar.Repo.Migrations.AddGigImage do
 
   def change do
     alter table(:gigs) do
+      add(:uuid, :uuid)
       add(:picture, :string)
     end
   end

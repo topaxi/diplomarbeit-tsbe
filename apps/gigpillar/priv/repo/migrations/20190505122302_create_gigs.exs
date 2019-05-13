@@ -8,6 +8,7 @@ defmodule Gigpillar.Repo.Migrations.CreateGigs do
       add(:date, :utc_datetime)
       add(:location_id, references(:locations, on_delete: :restrict), null: false)
       add(:creator_id, references(:users, on_delete: :nilify_all))
+      add(:tickets, :string)
 
       timestamps()
     end

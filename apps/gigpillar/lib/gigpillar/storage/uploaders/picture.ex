@@ -17,7 +17,7 @@ defmodule Gigpillar.Storage.Uploader.Picture do
   end
 
   def filename(version, {file, scope}) do
-    "gigs/#{scope.id}/#{version}"
+    "gigs/#{scope.uuid}/#{version}"
   end
 
   def filename(version, _), do: version
