@@ -72,7 +72,6 @@ defmodule GigpillarWeb.GigView do
 
   def value(f, :gig_artists) do
     input_value(f, :gig_artists)
-    |> IO.inspect()
     |> Enum.filter_map(
       fn ch ->
         case ch do
