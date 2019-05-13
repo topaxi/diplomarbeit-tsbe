@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.0.0",
     "@types/glob": "^7.1.1",
     "@types/sass": "^1.16.0",
-    "babel-loader": "^8.0.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-template-html-minifier": "^3.0.0",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
