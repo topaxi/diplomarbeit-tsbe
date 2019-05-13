@@ -14,7 +14,7 @@ defmodule GigpillarWeb.Plug.UserLocation do
          %{mmdb2: %{city: %{name: name}}} <- Geolix.lookup(conn.remote_ip) do
       name
     else
-      %{mmdb2: nil} -> Application.get_env(:gigpillar_web, :default_city)
+      %{} -> Application.get_env(:gigpillar_web, :default_city)
       location -> location
     end
   end
