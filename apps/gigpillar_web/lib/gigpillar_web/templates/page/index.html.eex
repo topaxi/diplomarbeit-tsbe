@@ -2,7 +2,7 @@
   <img src="<%= Routes.static_path(@conn, "/images/background-1.jpg") %>" alt="" sizes="100vw">
 
   <div class="cover-action">
-    <a href="/add-gig" class="btn btn-primary">Add Gig</a>
+    <a href="/gigs/new" class="btn btn-primary">Add Gig</a>
   </div>
 </div>
 
