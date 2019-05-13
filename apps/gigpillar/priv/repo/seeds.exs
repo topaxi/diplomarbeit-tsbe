@@ -92,7 +92,7 @@ Gigpillar.Repo.insert_all(
 dachstock =
   Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
     name: "Dachstock",
-    address: "Neubrückstrasse 8, Bern, Switzerland"
+    address: "Neubrückstrasse 8, Bern, Switzerland",
     google_place_id: "ChIJ-SskKr45jkcRPqmGB-ZGsRE",
     lat: 46.9527882,
     lng: 7.4384452
