@@ -1,2 +1,5 @@
+Code.require_file("support/pages/account.exs", __DIR__)
 ExUnit.start(exclude: [:skip])
 Ecto.Adapters.SQL.Sandbox.mode(Gigpillar.Repo, :manual)
+Application.put_env(:wallaby, :base_url, GigpillarWeb.Endpoint.url())
+{:ok, _} = Application.ensure_all_started(:wallaby)

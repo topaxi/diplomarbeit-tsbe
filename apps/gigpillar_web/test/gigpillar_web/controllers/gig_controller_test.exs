@@ -83,7 +83,7 @@ defmodule GigpillarWeb.GigControllerTest do
       assert redirected_to(conn) == Routes.gig_path(conn, :show, id)
 
       conn = get(conn, Routes.gig_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Gig"
+      assert html_response(conn, 200) =~ "Gig created successfully."
     end
 
     test "assigns current user to created gig", %{conn: conn, user: user} do

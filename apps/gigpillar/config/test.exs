@@ -11,3 +11,5 @@ config :gigpillar, Gigpillar.Repo,
   database: "gigpillar_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :gigpillar, :sql_sandbox, true

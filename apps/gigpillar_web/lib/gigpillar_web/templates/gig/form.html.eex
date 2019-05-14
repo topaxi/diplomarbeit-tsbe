@@ -45,7 +45,7 @@
   <div class="form-control">
     <%= label f, :gig_artists %>
     <artists-input
-      inputId="artists"
+      inputId="gig_gig_artists"
       name="<%= input_name f, :gig_artists %>"
       placeholder="Search artist"
       value="<%= value(f, :gig_artists) %>"></artists-input>

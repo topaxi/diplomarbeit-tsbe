@@ -39,7 +39,7 @@ defmodule Gigpillar.GigsTest do
     end
 
     test "get_gig!/1 returns the gig with given id" do
-      gig = gig_fixture() |> Repo.preload([:creator])
+      gig = gig_fixture() |> Repo.preload([:creator, :gig_artists])
       assert Gigs.get_gig!(gig.id) |> Repo.preload([:creator]) == gig
     end
 
@@ -55,7 +55,7 @@ defmodule Gigpillar.GigsTest do
     end
 
     test "update_gig/2 with valid data updates the gig" do
-      gig = gig_fixture() |> Repo.preload([:creator])
+      gig = gig_fixture() |> Repo.preload([:creator, :gig_artists])
       assert {:ok, %Gig{} = gig} = Gigs.update_gig(gig, @update_attrs)
       assert gig.date == DateTime.from_naive!(~N[2011-05-18T15:01:01Z], "Etc/UTC")
       assert gig.description == "some updated description"
@@ -63,7 +63,7 @@ defmodule Gigpillar.GigsTest do
     end
 
     test "update_gig/2 with invalid data returns error changeset" do
-      gig = gig_fixture() |> Repo.preload([:creator])
+      gig = gig_fixture() |> Repo.preload([:creator, :gig_artists])
       assert {:error, %Ecto.Changeset{}} = Gigs.update_gig(gig, @invalid_attrs)
       assert gig == Gigs.get_gig!(gig.id)
     end

@@ -8,4 +8,12 @@ use Mix.Config
 # you can enable the server option below.
 config :gigpillar_web, GigpillarWeb.Endpoint,
   http: [port: 4002],
-  server: false
+  server: true
+
+config :gigpillar, :sql_sandbox, true
+
+config :wallaby,
+  driver: Wallaby.Experimental.Chrome,
+  chrome: [
+    headless: false
+  ]

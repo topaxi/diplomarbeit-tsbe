@@ -16,8 +16,8 @@
   </div>
 
   <div class="form-control">
-    <label for="password">Repeat password</label>
-    <input id="password" type="password" name="password_confirmation">
+    <label for="repeat_password">Repeat password</label>
+    <input id="repeat_password" type="password" name="password_confirmation">
   </div>
 
   <div class="form-action-bar">

@@ -78,7 +78,8 @@ Gigpillar.Repo.insert_all(
     "Less Than Jake",
     "Nero",
     "Camo & Krooked",
-    "Pendulum"
+    "Pendulum",
+    "Mobina Galore"
   ]
   |> Enum.map(fn artist ->
     %{
@@ -106,7 +107,8 @@ gig =
   Gigpillar.Repo.insert!(%Gigpillar.Gigs.Gig{
     name: "Darkside - Pendulum, Camo & Crooked",
     location_id: dachstock.id,
-    date: darksideDate
+    date: darksideDate,
+    tickets: "https://www.petzitickets.ch/"
   })
 
 Gigpillar.Repo.insert_all(Gigpillar.Gigs.GigArtist, [

@@ -1,6 +1,10 @@
 defmodule GigpillarWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :gigpillar_web
 
+  if Application.get_env(:gigpillar, :sql_sandbox) do
+    plug(Phoenix.Ecto.SQL.Sandbox)
+  end
+
   socket("/socket", GigpillarWeb.UserSocket,
     websocket: true,
     longpoll: false
