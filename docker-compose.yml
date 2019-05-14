@@ -4,9 +4,9 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - './tmp/db:/var/lib/postgresql/data'
     ports:
-      - 5432:5432
+      - '5432:5432'
     environment:
       POSTGRES_DB: gigpillar_dev
       POSTGRES_USER: postgres
@@ -15,23 +15,23 @@ services:
     image: redis
     command: redis-server --appendonly yes
     volumes:
-      - ./tmp/redis:/data
+      - './tmp/redis:/data'
     ports:
-      - 6379:6379
+      - '6379:6379'
   minio:
     image: minio/minio
     command: server /data
     volumes:
-      - ./tmp/minio:/data
+      - './tmp/minio:/data'
     ports:
-      - 9000:9000
+      - '9000:9000'
     environment:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
   nginx:
     image: nginx
     volumes:
-      - ./tmp/minio/gigpillar:/usr/share/nginx/html
+      - './tmp/minio/gigpillar:/usr/share/nginx/html'
     ports:
       - 4040:80
   mailcatcher:

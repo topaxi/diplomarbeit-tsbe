@@ -50,6 +50,71 @@
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
 \usepackage{makecell}
+\usepackage{listings}
+
+% YML
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
+\makeatletter
+\newcommand\language@yaml{yaml}
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+keywords={true,false,null,y,n},
+keywordstyle=\color{darkgray}\bfseries,
+basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+sensitive=false,
+comment=[l]{\#},
+morecomment=[s]{/*}{*/},
+commentstyle=\color{purple}\ttfamily,
+stringstyle=\YAMLvaluestyle\ttfamily,
+moredelim=[l][\color{orange}]{\&},
+moredelim=[l][\color{magenta}]{*},
+moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+morestring=[b]',
+morestring=[b]",
+literate =    {---}{{\ProcessThreeDashes}}3
+{>}{{\textcolor{red}\textgreater}}1
+{|}{{\textcolor{red}\textbar}}1
+{\ -\ }{{\mdseries\ -\ }}3,
+}
+
+% switch to key style at EOL
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
+
+\newcommand\ProcessThreeDashes{\llap{\color{cyan}\mdseries-{-}-}}
+
+\definecolor{commentgreen}{RGB}{2,112,10}
+\definecolor{eminence}{RGB}{108,48,130}
+\definecolor{weborange}{RGB}{255,165,0}
+\definecolor{frenchplum}{RGB}{129,20,83}
+
+\lstdefinelanguage{elixir}{
+  morekeywords={case,catch,def,do,else,false,%
+      use,alias,receive,timeout,defmacro,defp,%
+      for,if,import,defmodule,defprotocol,%
+      nil,defmacrop,defoverridable,defimpl,%
+      super,fn,raise,true,try,end,with,%
+      unless},
+  otherkeywords={<-,->, |>, \%\{, \}, \{, \, (, )},
+  sensitive=true,
+  morecomment=[l]{\#},
+  morecomment=[n]{/*}{*/},
+  morecomment=[s][\color{purple}]{:}{\ },
+  morestring=[s][\color{orange}]"",
+  morestring=[s][\color{orange}]'',
+  commentstyle=\color{commentgreen},
+  keywordstyle=\color{eminence},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily,
+  breaklines,
+  showstringspaces=false,
+  frame=tb
+}
+
+\lstset{numbers=left,xleftmargin=1em,frame=single,framexleftmargin=0em,numberstyle=\footnotesize\ttfamily}
 
 %------------------------------------------------------------------------------
 % MARGIN SETTINGS
@@ -251,6 +316,7 @@
 \includepdf[pages=1,pagecommand={\chapter{Wirtschaftlichkeit - Gigboost}\label{appendix-wirtschaftlichkeit-gigboost}}, trim=0mm 20mm 50mm 0mm, clip]{initialisierung/wirtschaftlichkeit.pdf}
 \includepdf[pages=2,pagecommand={\chapter{Wirtschaftlichkeit - Werbung}\label{appendix-wirtschaftlichkeit-ads}}, trim=0mm 20mm 50mm 0mm, clip]{initialisierung/wirtschaftlichkeit.pdf}
 \include{konzept/konzept}
+\include{realisierung/realisierung}
 \include{log/log}
 \include{appendix/report-kw11-12}
 \include{appendix/report-kw13-14}
