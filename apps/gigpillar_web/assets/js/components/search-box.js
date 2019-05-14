@@ -50,10 +50,15 @@ class SearchBox extends LitElement {
         skip(1),
         takeUntil(this.destroy),
         debounceTime(this.debounceTime),
+        map(query => encodeURIComponent(query.trim())),
         switchMap(query =>
-          query.trim() === ''
+          query === ''
             ? of([])
-            : ajax(`${this.src}?query=${query}`).pipe(
+            : ajax(
+                `${this.src}${
+                  this.src.includes('?') ? '&' : '?'
+                }query=${query}`
+              ).pipe(
                 map(prop('response')),
                 catchError(err => {
                   console.error(err)

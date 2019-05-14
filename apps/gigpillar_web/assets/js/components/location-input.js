@@ -1,6 +1,6 @@
 import { LitElement, html, customElement, property } from 'lit-element'
 import { repeat } from 'lit-html/directives/repeat'
-import { prop } from '../utils'
+import { prop, uuid4 } from '../utils'
 
 /**
  * @typedef {Object} Place
@@ -17,6 +17,8 @@ import { prop } from '../utils'
 
 @customElement('location-input')
 class LocationInput extends LitElement {
+  uuid = uuid4()
+
   @property() inputId = ''
   @property() name = ''
 
@@ -117,7 +119,7 @@ class LocationInput extends LitElement {
       <with-dropdown>
         <search-box
           inputId="${this.inputId}"
-          src="/api/autocomplete/location"
+          src="/api/autocomplete/location?id=${this.uuid}"
           @search-result="${this.handleSearchResult}"
         ></search-box>
 
