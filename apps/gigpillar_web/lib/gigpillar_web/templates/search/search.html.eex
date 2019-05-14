@@ -4,7 +4,7 @@
     <small><a href="#">change location</a></small>
   </header>
 
-  <%= form_for @conn, :search, [method: "get", class: "search-filters", oninput: "this.submit()"], fn f -> %>
+  <%= form_for @conn, :search, [method: "get", class: "search-filters", onchange: "this.submit()"], fn f -> %>
     <input type="hidden" name="<%= input_name f, :query %>" value="<%= @conn.params["query"] %>">
     <div class="form-control">
       <%= label f, :from %>

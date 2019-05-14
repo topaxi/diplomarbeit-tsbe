@@ -1,6 +1,6 @@
 # Script for populating the database. You can run it as:
 #
-#     mix run priv/repo/seeds.exs
+#     mix run priv/repo/test_seeds.exs
 #
 # Inside the script, you can read and write to any of your
 # repositories directly:
@@ -89,3 +89,66 @@ Gigpillar.Repo.insert_all(
     }
   end)
 )
+
+dachstock =
+  Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
+    name: "Dachstock",
+    address: "Neubrückstrasse 8, Bern, Switzerland",
+    google_place_id: "ChIJ-SskKr45jkcRPqmGB-ZGsRE",
+    lat: 46.9527882,
+    lng: 7.4384452
+  })
+
+dynamo =
+  Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
+    name: "Jugendkulturhaus Dynamo",
+    address: "Wasserwerkstrasse 21, 8006 Zürich, Switzerland",
+    google_place_id: "ChIJP_cBiAsKkEcRQBFT6SDSjk4",
+    lat: 47.383401,
+    lng: 8.5393821
+  })
+
+{:ok, darksideDate} =
+  DateTime.from_naive!(~N[2019-12-17 23:00:00], "Europe/Zurich")
+  |> DateTime.shift_zone("Etc/UTC")
+
+gig =
+  Gigpillar.Repo.insert!(%Gigpillar.Gigs.Gig{
+    name: "Darkside - Pendulum, Camo & Crooked",
+    location_id: dachstock.id,
+    date: darksideDate,
+    tickets: "https://www.petzitickets.ch/"
+  })
+
+Gigpillar.Repo.insert_all(Gigpillar.Gigs.GigArtist, [
+  %{
+    gig_id: gig.id,
+    artist_id: Gigpillar.Artists.get_artist_by_name!("Pendulum").id,
+    plays_at: ~T[03:00:00]
+  },
+  %{
+    gig_id: gig.id,
+    artist_id: Gigpillar.Artists.get_artist_by_name!("Camo & Krooked").id,
+    plays_at: ~T[01:00:00]
+  }
+])
+
+{:ok, mobinaGaloreDate} =
+  DateTime.from_naive!(~N[2019-05-30 19:30:00], "Europe/Zurich")
+  |> DateTime.shift_zone("Etc/UTC")
+
+gig =
+  Gigpillar.Repo.insert!(%Gigpillar.Gigs.Gig{
+    name: "Mobina Galore",
+    location_id: dynamo.id,
+    date: mobinaGaloreDate,
+    tickets: "https://www.ticketino.com/de/Event/Mobina-Galore/82201"
+  })
+
+Gigpillar.Repo.insert_all(Gigpillar.Gigs.GigArtist, [
+  %{
+    gig_id: gig.id,
+    artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
+    plays_at: ~T[20:00:00]
+  }
+])
