@@ -145,17 +145,167 @@ Die beiden Beiträge für die Library sind auf Github zu finden:
 \clearpage
 \subsection{HTML Erweiterungen}
 
+Während der Entwicklung des Projektes, wurden einige spezielle HTML-Elemente
+definiert. Diese Elemente wurden mit \textbf{LitElement}\footnote{\url{https://lit-element.polymer-project.org/}}
+umgesetzt, und bieten gegenüber den Standard HTML-Elementen eigens definierte
+Verhaltensweisen.
+
 \subsubsection{<search-box>}
+
+Das \textbf{<search-box>} Element wird für die Suche sowie diverse
+Autocomplete-Elemente verwendet. Stylistisch sieht die Suchbox aus wie
+ein normales Texteingabefeld, mit einer kleiner Lupe als Symbol.\\
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<search-box
+  inputId="suche"
+  src="/api/autocomplete"
+  name="suche"
+  placeholder="Suche..."
+  value="Suchbegriff"
+  debounce-time="300"></search-box>
+\end{lstlisting}
+
+\noindent{}Attribute:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb der Suchbox, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
+  \item{} \textbf{src:} URL für die Datenabfrage, bei Eingaben in das Textfeld wird jeweils eine \textbf{HTTP} Abfrage ausgelöst und ein \textbf{search-result} Ereignis ausgelöst.
+  \item{} \textbf{name:} Der Name des Form-Elements.
+  \item{} \textbf{placeholder:} Platzhaltertext welcher dargestellt wird wenn das Textfeld leer ist.
+  \item{} \textbf{value:} Der Wert, welcher mit dem HTML-Formular mitgeschickt wird.
+  \item{} \textbf{debounce-time:} Zeit in Millisekunden die mindestens vergehen muss, bevor eine neue Abfrage an den Server geschickt wird.
+\end{itemize}
 
 \subsubsection{<with-dropdown>}
 
+Mit dem \textbf{<with-dropdown>} Element können Dropdowns realisiert werden.
+Elemente mit dem Attribut \textbf{slot="dropdown"} werden initial nicht dargestellt.
+Wird ein Element innerhalb des \textbf{<with-dropdown>} Element fokussiert, so werden die mit \textbf{slot="dropdown"} gekennzeichneten Elemente innerhalb eines Dropdown-Elements dargestellt.\\
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<with-dropdown>
+  <input type="text">
+  <ul slot="dropdown">
+    <li>Lorem</li>
+    <li>Ipsum</li>
+  </ul>
+</with-dropdown>
+\end{lstlisting}
+
 \subsubsection{<location-input>}
+
+Das \textbf{<location-input>} Element wird verwendet um für einen Gig eine
+Location auszuwählen. Es repräsentiert ein Suchfeld, das eine Abfrage über die
+Google Place API macht. Wird eine Location ausgewählt, wird das Suchfeld durch
+einen Text sowie Button ersetzt. Der Text beinhaltet den Namen der Location und
+der Button ermöglicht es, die ausgewählte Location mit einer Neuen zu ersetzen.\\
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<location-input
+  inputId="gig_location"
+  name="gig[location]"
+  location="{
+    "name": "Dachstock",
+    "google_place_id": "ChIJ-SskKr45jkcRPqmGB-ZGsRE"
+  }"></location-input>
+\end{lstlisting}
+
+\noindent{}Attribute:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Location-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
+  \item{} \textbf{name:} Der Name des Form-Elements.
+  \item{} \textbf{location:} Ein \textbf{JSON}-Objekt einer Location, bestehend aus \textbf{name} und einer \textbf{id} oder \textbf{google\_place\_id}.
+\end{itemize}
 
 \subsubsection{<picture-input>}
 
+Als verbessertes File-Input, wurde ein Ersatz für ein
+\textbf{<input type=file>} Element geschrieben. Das \textbf{<picture-input>}
+Element funktioniert als kompatibler Ersatz und bietet die selbe Funktionalität an.
+Der Hauptunterschied liegt in der Darstellung, so wird beim \textbf{<picture-input>}
+jederzeit eine Vorschau für das ausgewählte Bild dargestellt.\\
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<picture-input
+  inputId="gig-picture"
+  name="gig[picture]"
+  value="http://example.com/my-picture.png"></picture-input>
+\end{lstlisting}
+
+\noindent{}Attribute:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Picture-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
+  \item{} \textbf{name:} Der Name des Form-Elements.
+  \item{} \textbf{value:} URL oder Datei des ausgewählten Bildes.
+\end{itemize}
+
+\clearpage
 \subsubsection{<datetime-input>}
 
+Das \textbf{<datetime-input>} Element kombiniert ein \textbf{<input type=date>}
+mit einem \textbf{<input type=time>} zu einem Feld zusammen.
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<datetime-input
+  inputId="datetime"
+  dateLabel="Datum"
+  timeLabel="Uhrzeit"
+  name="datetime"
+  value="2019-05-14T17:50:14.608Z"></datetime-input>
+\end{lstlisting}
+
+\noindent{}Attribute:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Datetime-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
+  \item{} \textbf{dateLabel:} Beschriftung für das Datumsfeld.
+  \item{} \textbf{timeLabel:} Beschriftung für das Zeitfeld.
+  \item{} \textbf{name:} Der Name des Form-Elements.
+  \item{} \textbf{value:} Datum mit Zeit im \textbf{ISO 8601}\footnote{\url{https://de.wikipedia.org/wiki/ISO_8601}} Format.
+\end{itemize}
+
 \subsubsection{<artists-input>}
+
+Das \textbf{<artists-input>} ist ein spezifisches Feld für das Erfassen von
+Künstlern für ein Konzert. Es Sucht über den Server bereits existierende
+Künstler, und bietet diese zur Auswahl an. Zusätzlich kann für jeden
+ausgewählten Künstler eine Zeit angegeben werden, an welcher deren Auftritt
+stattfindet.\\
+\\
+\noindent{}Beispiel:
+
+\begin{lstlisting}[language=html,frame=single]
+<artists-input
+  inputId="artists"
+  name="gig[artists]"
+  placeholder="K&uuml;nstler suchen..."
+  value="[
+    {"id":42,"name":"Parkway Drive","plays_at":"23:00"},
+    {"id":23,"name":"The Ghost Inside","plays_at":"21:00"}
+  ]"></artists-input>
+\end{lstlisting}
+
+\noindent{}Attribute:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Artists-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
+  \item{} \textbf{name:} Der Name des Form-Elements.
+  \item{} \textbf{placeholder:} Platzhalter für das Suchfeld.
+  \item{} \textbf{value:} Eine Liste von \textbf{JSON}-Objekten der einem Gig assozierten Künstler.
+\end{itemize}
 
 \clearpage
 \subsection{Asset Optimierungen}

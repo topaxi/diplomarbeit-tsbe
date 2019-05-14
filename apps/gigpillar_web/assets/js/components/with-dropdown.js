@@ -78,7 +78,7 @@ class WithDropdown extends LitElement {
   }
 
   /**
-   * @param {Event} e
+   * @param {MouseEvent | FocusEvent | KeyboardEvent} e
    */
   handleEvent(e) {
     switch (e.type) {
