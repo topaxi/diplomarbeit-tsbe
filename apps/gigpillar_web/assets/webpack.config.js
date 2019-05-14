@@ -6,6 +6,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
+const ZopfliPlugin = require('zopfli-webpack-plugin')
+const BrotliPlugin = require('brotli-webpack-plugin')
 
 module.exports = (env, options) => ({
   optimization: {
@@ -95,6 +97,19 @@ module.exports = (env, options) => ({
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
     new ImageminPlugin({
       plugins: [imageminMozjpeg({ quality: 75 })]
+    }),
+    new ZopfliPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'zopfli',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8
     })
   ]
 })

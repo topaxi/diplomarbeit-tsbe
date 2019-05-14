@@ -310,10 +310,55 @@ stattfindet.\\
 \clearpage
 \section{Asset Optimierungen}
 
-- html minifier
-- imagemin
-- terser
-- external helpers
+Für die Produktionsumgebung, wurden diverse Optimierungen vorgenommen:
+
+\begin{itemize}
+  \tightlist{}
+  \item{} Terser Plugin um JavaScript Code zu optimieren.
+  \item{} Plugin um Funktionen zu deduplizieren.
+  \item{} HTML Minifier Plugin um HTML innerhalb von JavaScript zu optimieren.
+  \item{} Imagemin Plugin um Bilder auf Dateigrösse zu optimieren.
+  \item{} CSS Optimierungsplugin
+  \item{} Zopfli Kompression
+  \item{} Brotli Kompression
+\end{itemize}
+
+\begin{longtable}[]{@{}llr@{}}
+  \toprule
+  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \midrule
+  Keine & app.js & 1000 KiB\tabularnewline
+  Produktionsmodus & app.js & 397 KiB\tabularnewline
+  ” und Terser Plugin & app.js & 125 KiB\tabularnewline
+  ” und Funktionsdeduplizierung & app.js & 123 KiB\tabularnewline
+  ” und HTML Minifier & app.js & 122 KiB\tabularnewline
+  ” mit Zopfli & app.js.gz & 25.2 KiB\tabularnewline
+  ” mit Brotli & app.js.br & 23.0 KiB\tabularnewline
+  \bottomrule
+  \caption{JavaScript Optimierungen}
+\end{longtable}
+
+\begin{longtable}[]{@{}llr@{}}
+  \toprule
+  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \midrule
+  Keine & app.css & 10.5 KiB\tabularnewline
+  Produktionsmodus & app.css & 10.5 KiB\tabularnewline
+  ” und CSS Optimierungsplugin & app.css & 8.58 KiB\tabularnewline
+  \bottomrule
+  \caption{CSS Optimierungen}
+\end{longtable}
+
+\begin{longtable}[]{@{}llr@{}}
+  \toprule
+  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \midrule
+  Keine & background-1.jpg & 1.79 MiB\tabularnewline
+  Produktionsmodus & background-1.jpg & 1.79 MiB\tabularnewline
+  ” und Imagemin (Qualität 75) & background-1.jpg & 278 KiB\tabularnewline
+  \bottomrule
+  \caption{Bilder Optimierungen}
+\end{longtable}
 
 \clearpage
 \section{File Upload}
