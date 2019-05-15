@@ -466,6 +466,15 @@ Diese Felder sind optional und sind vom umgesetzten Datenmodell noch nicht abged
 \clearpage
 \section{Suche}
 
+Die Suche wurde mit einem "<einfachen"> SQL umgesetzt, der eingegebene
+Suchtext wird nach Wörter aufgeteilt und in den entsprechenden Datenbankfeldern
+gesucht.
+Das Suchresultat kann ausserdem mit den Parametern \textbf{from},
+\textbf{to} und \textbf{genre} weiter eingeschränkt werden.\\
+\\
+\noindent{}Nachfolgend, die implementierte SQL Abfrage in Elixir:
+
+\lstinputlisting[language=elixir,frame=single,firstline=132,lastline=169]{../apps/gigpillar/lib/gigpillar/gigs.ex}
 
 \clearpage
 \section{Probleme}
@@ -509,16 +518,73 @@ defmodule Gigpillar.Umbrella.MixProject do
 end
 \end{lstlisting}
 
+\clearpage
 \subsection{Formularbehandlung in Phoenix}
 
-- csrf, form\_for?
+Da ich das Phoenix Framework bisher nur für \textbf{REST} APIs verwendet habe,
+hatte ich einige Probleme mit den vom Framework zur Verfügung gestelten
+Formularfunktionen.
+Dies hat mir viel mehr Zeit beansprucht als initial angenommen.
+
+In den meisten Tutorials, wurde die API mit einer \textbf{form\_for} Funktion
+vorgestellt, diese Funktioniert jeweils nur im Zusammenhang mit einem
+Ecto-Changeset\footnote{\url{https://hexdocs.pm/ecto/Ecto.Changeset.html}}.
+Jedoch wird beim Login sowie der Suche kein solches Changeset verwendet.
+
+Nach ausgiebigem durchlesen der offiziellen Dokumentation vom Phoenix Framework,
+fand ich schlussendlich eine
+\textbf{form\_tag}\footnote{\url{https://hexdocs.pm/phoenix\_html/Phoenix.HTML.Tag.html\#form\_tag/2}}
+Funktion die auch ohne Changeset funktioniert.
+
+Einige Zeit später fand ich jedoch im Phoenix Source Code\footnote{\url{https://github.com/phoenixframework/phoenix\_html/blob/f9a4f38/lib/phoenix\_html/form_data.ex\#L51}}
+heraus, dass für das von Phoenix bereitgestellte Verbindungsobjekt
+\textbf{Plug.Conn} das \textbf{Phoenix.HTML.FormData} Protokol implementiert
+wird.
+
+Das Verwenden des \textbf{Plug.Conn} Objektes erleichtert die Benützung der
+Formular Funktionen um einiges, da entsprechende Form Aktionen nicht mehr
+explizit definiert werden müssen. Zudem wird das zuordnen der Daten ins
+HTML automatisch vom Framework übernommen, was diverse Fehlerquellen
+eliminiert.
 
 \subsection{Datumsbehandlung}
 
-- Timex
+Die Datum und Zeitanzeigen in der Applikation wurden mit der Zeit immer wie
+komplizierter. Insbesondere wenn Zeitzonen involviert sind, war es kaum mehr
+übersichtlich wann welche Daten vorhanden sind. Um nicht mehr zwischen den
+verschiedenen Datenstrukturen von Elixir zu unterscheiden müssen, wurde die
+Library \textbf{"<Timex">}\footnote{\url{https://github.com/bitwalker/timex}}
+installiert.
+
+Timex bietet diverse Funktionen um jegliche Datum/Zeit bezogenen Datenstrukturen
+zu manipulieren und formatieren.
 
 \clearpage
 \section{Tests}
+
+Die Tests können über das Kommando \textbf{mix test} ausgeführt werden.
+
+\noindent{}Beispiel:
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.75\textwidth]{realisierung/test-run.png}
+  \caption{Tests: Ausführung der automatisierten Tests}
+\end{figure}
+
+\noindent{}Einige Tests werden derzeit noch übersprungen, da nicht genug Zeit vorhanden
+war.
+
+Damit die Browsertests funktionieren, muss auf dem Zielsystem der
+\textbf{Chromedriver} installiert werden. Chromedriver kann entweder von der
+offiziellen Webseite\footnote{\url{http://chromedriver.chromium.org/}}
+heruntergeladen oder über den Node Package Manager (NPM) installiert werden.\\
+\\
+Installation mit NPM:
+
+\begin{lstlisting}[language=bash,frame=single]
+$ npm install -g chromedriver
+\end{lstlisting}
 
 \clearpage
 \section{Offene Punkte}
@@ -528,8 +594,13 @@ end
 \subsection{Benutzer Profil}
 \subsection{Passwort-Reset Funktionalität}
 \subsection{Email-Bestätigung}
+\subsection{Screenshot Tests}
 \subsection{Expliziter Ort Kontext}
 
 Implizit in Konzept Mockups, Kriterium jedoch abgedeckt durch Suchfilter
+
+\subsection{Mögliche Erweiterungen}
+
+- "in deiner nähe"
 
 \section{Auswertung}
