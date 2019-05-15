@@ -1,6 +1,5 @@
 - Searchbox more prominent on homepage? instead of call to action?
 - Logo?
-- Projektkosten Fehler?
 
 https://tex.stackexchange.com/questions/8946/how-to-combine-acronym-and-glossary
 
