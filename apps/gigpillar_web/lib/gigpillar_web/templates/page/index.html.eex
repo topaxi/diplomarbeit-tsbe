@@ -9,7 +9,7 @@
 <section class="gig-list">
   <header class="gig-list-title">
     <h2>Gigs in <%= assigns[:current_user_location] %></h2>
-    <small><a href="#">change location</a></small>
+    <small><a href="#">change&nbsp;location</a></small>
   </header>
 
   <%= for gig <- @gigs do %>

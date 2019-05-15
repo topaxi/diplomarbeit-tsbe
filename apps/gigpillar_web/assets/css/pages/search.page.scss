@@ -49,8 +49,15 @@
   position: relative;
   display: grid;
   grid-template:
-    'picture main'
-    'picture address' min-content;
+    'picture'
+    'main'
+    'address' min-content;
+
+  @media (min-width: 640px) {
+    grid-template:
+      'picture main'
+      'picture address' min-content;
+  }
 }
 
 .page-search-result a > time {
