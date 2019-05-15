@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script async type="module" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body class="<%= if assigns[:page_class] do %> page-<%= assigns[:page_class] %><% end %>">
+  <body class="<%= if assigns[:page_class] do %>page-<%= assigns[:page_class] %><% end %>">
     <a class="sr-only sr-only-focus skip-to-main" href="#main">Skip to content</a>
     <header class="page-header" role="banner">
-      <a href="/" class="brand" aria-label="Gig Pillar homepage">Gig Pillar</a>
+      <a href="/" class="brand<%= if assigns[:page_class] == "index" do %> active<% end %>" aria-label="Gig Pillar homepage">Gig Pillar</a>
       <%= form_for @conn, Routes.search_path(@conn, :search), [method: "get", class: "page-search-box"], fn f -> %>
         <label for="search">
           <span class="sr-only">Search for city, artist and concert</span>

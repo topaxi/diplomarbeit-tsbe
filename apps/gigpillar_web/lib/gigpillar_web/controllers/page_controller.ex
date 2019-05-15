@@ -3,7 +3,7 @@ defmodule GigpillarWeb.PageController do
 
   def index(conn, _params) do
     render(conn, "index.html",
-      page_class: 'index',
+      page_class: "index",
       city: "Bern",
       gigs: Gigpillar.Gigs.list_latest_gigs()
     )
