@@ -120,37 +120,31 @@ defmodule Gigpillar.Gigs do
     Gig.changeset(gig, %{})
   end
 
-  def search_gigs(query, params) do
-    query = search_gigs(query)
-
-    query =
-      if params[:from] do
-        query |> where([g], g.date >= ^params[:from])
-      else
-        query
-      end
-
-    query =
-      if params[:to] do
-        query |> where([g], g.date <= ^params[:to])
-      else
-        query
-      end
-
-    query =
-      if params[:genre] && params[:genre] != "" do
-        query |> where([g, l, a, gg], gg.genre_id == ^params[:genre])
-      else
-        query
-      end
-
-    query
+  def search_gigs(query, opts) when is_list(opts) do
+    search_gigs(
+      query,
+      opts
+      |> Enum.filter(fn {_, v} -> v && v != "" end)
+      |> Enum.into(%{})
+    )
   end
 
-  @doc """
-  Searches Gigs based on a string.
-  """
-  def search_gigs(query) do
+  def search_gigs(query, %{from: from} = options) do
+    search_gigs(query, Map.delete(options, :from))
+    |> where([g], g.date >= ^from)
+  end
+
+  def search_gigs(query, %{to: to} = options) do
+    search_gigs(query, Map.delete(options, :to))
+    |> where([g], g.date >= ^to)
+  end
+
+  def search_gigs(query, %{genre: genre} = options) do
+    search_gigs(query, Map.delete(options, :genre))
+    |> where([g, l, a, gg], gg.genre_id == ^genre)
+  end
+
+  def search_gigs(query, _options \\ []) do
     query
     |> String.split(" ")
     |> Enum.reduce(
