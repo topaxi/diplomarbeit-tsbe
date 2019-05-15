@@ -91,7 +91,7 @@ damit klar ist, dass nicht ein Passwort sondern nur ein Hash abgespeichert wird.
 Der Genre Entität sind im Konzept die Datumsfelder «update\_at» und «inserted\_at»
 vergessen gegangen und wurden in der Realisierung nachgeführt.
 
-\subsubsection{Gig}
+\subsubsection{Gig}\label{RealisierungSchemaGig}
 In der Gig Entität wurden drei weitere Felder hinzugefügt.
 Die Felder «uuid» und «picture» dienen dazu, die beim Erfassen sowie
 Bearbeiten eines Gigs hochgeladenen Bilder zu identifizieren.
@@ -323,38 +323,41 @@ Für die Produktionsumgebung, wurden diverse Optimierungen vorgenommen:
   \item{} Brotli Kompression
 \end{itemize}
 
+Diese Plugins reduzieren die Dateigrössen von JavaScript, CSS sowie Bilddateien.
+Die reduzierte Grösse kommt Benutzern mit schlechteren Internetverbindungen, wie z.B. im mobilen Netz, entgegen.
+
 \begin{longtable}[]{@{}llr@{}}
   \toprule
-  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \textbf{Optimierungen}        & \textbf{Datei} & \textbf{Grösse}\tabularnewline
   \midrule
-  Keine & app.js & 1000 KiB\tabularnewline
-  Produktionsmodus & app.js & 397 KiB\tabularnewline
-  ” und Terser Plugin & app.js & 125 KiB\tabularnewline
-  ” und Funktionsdeduplizierung & app.js & 123 KiB\tabularnewline
-  ” und HTML Minifier & app.js & 122 KiB\tabularnewline
-  ” mit Zopfli & app.js.gz & 25.2 KiB\tabularnewline
-  ” mit Brotli & app.js.br & 23.0 KiB\tabularnewline
+  Keine                         & app.js         & 1000 KiB\tabularnewline
+  Produktionsmodus              & app.js         & 397 KiB\tabularnewline
+  ” und Terser Plugin           & app.js         & 125 KiB\tabularnewline
+  ” und Funktionsdeduplizierung & app.js         & 123 KiB\tabularnewline
+  ” und HTML Minifier           & app.js         & 122 KiB\tabularnewline
+  ” mit Zopfli                  & app.js.gz      & 25.2 KiB\tabularnewline
+  ” mit Brotli                  & app.js.br      & 23.0 KiB\tabularnewline
   \bottomrule
   \caption{JavaScript Optimierungen}
 \end{longtable}
 
 \begin{longtable}[]{@{}llr@{}}
   \toprule
-  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \textbf{Optimierungen}       & \textbf{Datei} & \textbf{Grösse}\tabularnewline
   \midrule
-  Keine & app.css & 10.5 KiB\tabularnewline
-  Produktionsmodus & app.css & 10.5 KiB\tabularnewline
-  ” und CSS Optimierungsplugin & app.css & 8.58 KiB\tabularnewline
+  Keine                        & app.css        & 10.5 KiB\tabularnewline
+  Produktionsmodus             & app.css        & 10.5 KiB\tabularnewline
+  ” und CSS Optimierungsplugin & app.css        & 8.58 KiB\tabularnewline
   \bottomrule
   \caption{CSS Optimierungen}
 \end{longtable}
 
 \begin{longtable}[]{@{}llr@{}}
   \toprule
-  \textbf{Optimierungen} & \textbf{Datei} & \textbf{Grösse}\tabularnewline
+  \textbf{Optimierungen}       & \textbf{Datei}   & \textbf{Grösse}\tabularnewline
   \midrule
-  Keine & background-1.jpg & 1.79 MiB\tabularnewline
-  Produktionsmodus & background-1.jpg & 1.79 MiB\tabularnewline
+  Keine                        & background-1.jpg & 1.79 MiB\tabularnewline
+  Produktionsmodus             & background-1.jpg & 1.79 MiB\tabularnewline
   ” und Imagemin (Qualität 75) & background-1.jpg & 278 KiB\tabularnewline
   \bottomrule
   \caption{Bilder Optimierungen}
@@ -363,11 +366,35 @@ Für die Produktionsumgebung, wurden diverse Optimierungen vorgenommen:
 \clearpage
 \section{File Upload}
 
-- minio
-- exaws (document deps problem/override)
-- resizing
-- uuid
-- asset host config
+Für den Upload der Bilder von Gigs, wird die Software \textbf{"<minio">}\footnote{\url{https://min.io/}} eingesetzt.
+Die Software ist mit der \textbf{Amazon Simple Storage Service} (kurz \textbf{Amazon S3}) kompatibel, und bietet sich daher
+stark an da es bereits viele Libraries gibt, die den Upload erleichtern.
+
+Für die Anbindung an \textbf{minio} werden die Libraries \textbf{ArcEcto}, \textbf{Arc} und \textbf{ExAws} eingesetzt.
+
+Da die Bilder während dem Erstellen eines Gigs bereits hochgeladen werden, existiert für die Gigs
+noch kein \textbf{id} Feld, dass von der Datenbank automatisch generiert wird.
+Um die Bilder dennoch referenzieren zu können, wurde im Datenbankschema ein
+Feld \textbf{"<uuid">} eingefügt (siehe \ref{RealisierungSchemaGig}).
+Das \textbf{uuid} Feld wird mit einem möglichst einzigartigen Wert abgefüllt,
+der Wert entspricht dem \textbf{UUID version 4}\footnote{\url{https://de.wikipedia.org/wiki/Universally_Unique_Identifier}} Standard.
+
+Die \textbf{Arc} Library bietet eine einfache API an, um die hochgeladenen Bilder
+auf die von der Webapplikation verwendeten Grössen zuzuschneiden. Dazu wird auf dem
+Server die Software \textbf{"<ImageMagick">}\footnote{\url{https://imagemagick.org/}}
+benötigt.
+
+Es werden für jedes hochgeladene Bild zwei Grössen generiert,
+\textbf{288$\times$224} Pixel für in Auflistungen und \textbf{160$\times$56}
+Pixel für Suchresultate sowie im Bearbeitungsformular.\\
+
+\noindent{}So werden bei einem Upload folgende Bilder abgelegt:
+\begin{itemize}
+  \tightlist{}
+  \item{} gigs/\{uuid\}/original.ext
+  \item{} gigs/\{uuid\}/list.ext
+  \item{} gigs/\{uuid\}/thumbnail.ext
+\end{itemize}
 
 \section{Openstreetmap}
 
@@ -376,10 +403,58 @@ Für die Produktionsumgebung, wurden diverse Optimierungen vorgenommen:
 \clearpage
 \section{Probleme}
 
-\clearpage
-\section{Offene Punkte}
+\subsection{Dependency Konflikt}
+
+\subsubsection{ExAws}
+
+Die Library \textbf{ExAws} hat nach der Installation folgenden Fehler ausgelöst:
+
+\begin{lstlisting}[frame=single]
+Failed to use "poison" (version 4.0.1) because
+  arc (version 0.11.0) requires ~> 2.2 or ~> 3.1
+  coverex (version 1.5.0)
+    requires ~> 3.0 or ~> 3.1 or ~> 4.0
+  deps/google_api_client/mix.exs
+    requires ~> 1.5 or ~> 2.0 or ~> 3.0 or ~> 4.0
+  wallaby (version 0.22.0) requires >= 1.4.0
+  mix.lock specifies 4.0.1
+
+** (Mix) Hex dependency resolution failed, relax the version
+  requirements of your dependencies or unlock them (by using
+  mix deps.update or mix deps.unlock). If you are unable to
+  resolve the conflicts you can try overriding with
+  {:dependency, "~> 1.0", override: true}
+\end{lstlisting}
+
+Erste Versuche, die Abhängigkeit in der Gigpillar oder GigpillarWeb Applikation
+zu überschreiben ist gescheitert.
+Dieses Problem konnte behoben werden, in dem im \textbf{mix.exs} der Umbrella
+Applikation die \textbf{poison} Abhängigkeit mit der \textbf{override} Option
+eingefügt wurde.
+
+\begin{lstlisting}[language=elixir,frame=single]
+defmodule Gigpillar.Umbrella.MixProject do
+  defp deps do
+    [
+      {:poison, "~> 4.0", runtime: false, override: true}
+    ]
+  end
+end
+\end{lstlisting}
+
+\subsection{Formularbehandlung in Phoenix}
+
+\subsection{Datumsbehandlung}
 
 \clearpage
 \section{Tests}
+
+\clearpage
+\section{Offene Punkte}
+
+\subsection{Styling Suche}
+\subsection{Genre Zuordnung für Gigs}
+\subsection{Genre Filter in Suche}
+\subsection{Passwort-Reset Funktionalität}
 
 \section{Auswertung}

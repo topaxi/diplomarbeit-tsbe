@@ -2,5 +2,33 @@
 
 \section{Installationsanleitung}
 
-- env vars
+\subsection{Benötigte Software}
+
+\subsubsection{Server}
 - geoip db
+- imagemagick
+
+\subsubsection{Testumgebung}
+- webdriver (npm, für tests)
+
+\subsection{Umgebungsvariablen}
+
+\begin{longtable}[]{@{}ll@{}}
+  \toprule
+  \textbf{Name}            & \textbf{Beschreibung}\tabularnewline
+  \midrule
+  AWS\_S3\_BUCKET          & \tabularnewline
+  AWS\_ACCESS\_KEY\_ID     & \tabularnewline
+  AWS\_SECRET\_ACCESS\_KEY & \tabularnewline
+  AWS\_REGION              & \tabularnewline
+  AWS\_S3\_SCHEME          & \tabularnewline
+  AWS\_S3\_HOST            & \tabularnewline
+  AWS\_S3\_PORT            & \tabularnewline
+  GIGPILLAR\_ASSET\_HOST   & \tabularnewline
+  POSTGRES\_USER           & \tabularnewline
+  POSTGRES\_PASSWORD       & \tabularnewline
+  POSTGRES\_DB             & \tabularnewline
+  POSTGRES\_HOSTNAME       & \tabularnewline
+  POSTGRES\_POOL\_SIZE     & \tabularnewline
+  \bottomrule
+\end{longtable}
