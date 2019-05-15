@@ -638,3 +638,142 @@ Radius von 30 Kilometern gesucht werden.
 
 Dazu habe ich bereits eine Lösung im Internet\footnote{\url{https://www.movable-type.co.uk/scripts/latlong-db.html}}
 gefunden, die relativ einfach zu implementieren wäre.
+
+\clearpage
+\section{Testprotokoll}
+
+\setcounter{acceptancetest}{0}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Es ist möglich nach Konzerten in einem bestimmten Ort zu suchen.}
+{Nach auswählen von «Berlin» in der Suche, werden nur noch Konzerte in Berlin aufgelistet.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Es ist möglich eine Suche weiter nach Genre einzuschränken.}
+{Nach auswählen von «Rock» in einem Suchresultat, werden nur noch Rock-Konzerte aufgelistet.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Homepage}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Homepage}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Suche}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Suche}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Gig Ansicht}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Gig Ansicht}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Login}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Login}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Registrierung}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Registrierung}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Responsive - Gig erfassen}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Browserkompatibilität - Gig erfassen}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Gig erfassen}
+{Folgende Daten können erfasst werden:
+  \begin{itemize}
+    \tightlist{}
+    \item{} Name
+    \item{} Bild \textit{(optional)}
+    \item{} Location
+    \item{} Datum
+    \item{} Zeit \textit{(optional)}
+    \item{} Künstler mit optionaler Start-Zeit
+    \item{} Beschreibung
+    \item{} Link zum Ticketvertreiber \textit{(optional)}
+  \end{itemize}}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Neue Gigs tauchen in der Suche auf.}
+{Der neu erstellte Gig taucht in der Suche auf.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
+[Die Benutzerprofil Funktionalität fehlt komplett.]
+{Responsive - Benutzerprofil}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
+[Die Benutzerprofil Funktionalität fehlt komplett.]
+{Browserkompatibilität - Benutzerprofil}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
+[Es gibt keine Möglichkeit ein vergessenes Passwort zurückzusetzem.]
+{Responsive - Passwort-Reset}
+{Sieht auf Desktop, Tablet und Mobile gut aus und stellt jeweils alle relevanten Daten dar.}
+
+\acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
+[Es gibt keine Möglichkeit ein vergessenes Passwort zurückzusetzem.]
+{Browserkompatibilität - Passwort-Reset}
+{Funktioniert in den unterstützten Browsern.}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Security - Suche}
+{Das Suchfeld ist resistent gegen XSS und SQL-Injection}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Security - Login}
+{Das Login ist resistent gegen XSS und SQL-Injection}
+
+\clearpage
+
+\acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
+[Die Benutzerprofil Funktionalität fehlt komplett.]
+{Security - Benutzerprofil}
+{Das Benutzerprofil ist resistent gegen XSS und SQL-Injection}
+
+\acceptancetest[Damian Senn][16.05.2019][OK]
+{Security - Gig erfassen}
+{Das Gig erfassen Formular ist resistent gegen XSS und SQL-Injection}
