@@ -6,7 +6,6 @@ Der HTML-Prototyp ist im Verzeichnis «html-prototype» zu finden, dieser wurde
 mit \textbf{Ember.js} und \textbf{SASS} umgesetzt.
 Um den Prototypen zu starten muss \textbf{Node.js} und \textbf{Yarn} installiert sein.
 
-
 \noindent
 Den Prototypen kann man mit dem folgenden Kommando starten:
 
@@ -398,7 +397,40 @@ Pixel für Suchresultate sowie im Bearbeitungsformular.\\
 
 \section{Openstreetmap}
 
-- calc
+Auf der Gig Detailansicht, wird eine OpenStreetMap eingebunden. Damit
+die OpenStreetMap Karte korrekt dargestellt wird, mussten die Geokoordinaten
+auf einzelne sogennante "<Tiles"> berechnet werden. Ein Tile ist ein einzelnes
+\textbf{256$\times$256} Pixel Teilbild der Weltkarte, die Tiles unterscheiden
+sich je nach Zoomlevel und muss entsprechend ausgerechnet werden.
+
+Die genauere Beschreibung der Funktionsweise ist auf dem
+\href{https://wiki.openstreetmap.org/wiki/Slippy\_map\_tilenames}{OpenStreetMap Wiki}
+Dokumentiert\footnote{\url{https://wiki.openstreetmap.org/wiki/Slippy\_map\_tilenames}}.
+
+Für die Programmiersprache Elixir ist auf dem Wiki kein Beispiel vorhanden und musste
+entsprechend adaptiert werden.
+
+\clearpage
+\section{SEO - Microdata}
+
+Auf der Gig Detailansicht wird für Suchmaschinen ein zusätzliches Element mit
+\href{https://json-ld.org/}{JSON-LD} ausgegeben. Dieses Element ist für die
+normalen Besucher nicht sichtbar.\\
+
+\noindent{}Beispiel:
+
+\lstinputlisting[language=html,frame=single]{realisierung/jsonld-example.html}
+
+\clearpage
+Während der Umsetzung ist durch das Validierungs-Tool\footnote{\url{https://search.google.com/structured-data/testing-tool}}
+von Google aufgefallen, dass diverse empfohlene Felder nicht vorhanden sind.
+Diese Felder sind optional und sind vom umgesetzten Datenmodell noch nicht abgedeckt.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{realisierung/json-ld-validation.png}
+  \caption{JSON-LD: Validierung}
+\end{figure}
 
 \clearpage
 \section{Probleme}
