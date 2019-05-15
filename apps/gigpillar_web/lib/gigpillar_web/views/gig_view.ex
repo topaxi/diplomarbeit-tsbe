@@ -137,7 +137,7 @@ defmodule GigpillarWeb.GigView do
     {lat_deg, lng_deg}
   end
 
-  # https://gis.stackexchange.com/questions/42998/how-to-get-bounding-box-from-coordinates-latitude-longitude-zoom-level-and-s
+  # https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
   def osm_bbox(%{lat: lat, lng: lng}, opts \\ []) do
     zoom = opts[:zoom] || 10
     width = opts[:width] || 425
