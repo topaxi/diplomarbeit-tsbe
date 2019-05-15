@@ -25,6 +25,16 @@ defmodule Gigpillar.Gigs.Gig do
       unique: true
     )
 
+    has_many(:gig_genres, Gigpillar.Gigs.GigGenre,
+      on_delete: :delete_all,
+      on_replace: :delete
+    )
+
+    many_to_many(:genres, Gigpillar.Genres.Genre,
+      join_through: Gigpillar.Gigs.GigGenre,
+      unique: true
+    )
+
     timestamps()
   end
 

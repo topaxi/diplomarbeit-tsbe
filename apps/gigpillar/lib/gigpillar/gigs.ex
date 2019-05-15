@@ -137,7 +137,12 @@ defmodule Gigpillar.Gigs do
         query
       end
 
-    # TODO genre
+    query =
+      if params[:genre] && params[:genre] != "" do
+        query |> where([g, l, a, gg], gg.genre_id == ^params[:genre])
+      else
+        query
+      end
 
     query
   end
@@ -150,6 +155,7 @@ defmodule Gigpillar.Gigs do
       distinct: [asc: g.date, desc: g.id],
       left_join: l in assoc(g, :location),
       left_join: a in assoc(g, :artists),
+      left_join: gg in assoc(g, :gig_genres),
       preload: [:location, :artists],
       where:
         ilike(g.name, ^"%#{query}%") or
