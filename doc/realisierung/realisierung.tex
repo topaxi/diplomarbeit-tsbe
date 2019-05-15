@@ -477,7 +477,7 @@ Das Suchresultat kann ausserdem mit den Parametern \textbf{from},
 \lstinputlisting[language=elixir,frame=single,firstline=132,lastline=169]{../apps/gigpillar/lib/gigpillar/gigs.ex}
 
 \clearpage
-\section{Probleme}
+\section{Probleme}\label{AppendixRealisierungProbleme}
 
 \subsection{Dependency Konflikt}
 
@@ -559,6 +559,10 @@ installiert.
 Timex bietet diverse Funktionen um jegliche Datum/Zeit bezogenen Datenstrukturen
 zu manipulieren und formatieren.
 
+\subsection{Behandlung von Datenrelationen}
+
+TODO...
+
 \clearpage
 \section{Tests}
 
@@ -575,32 +579,66 @@ Die Tests können über das Kommando \textbf{mix test} ausgeführt werden.
 \noindent{}Einige Tests werden derzeit noch übersprungen, da nicht genug Zeit vorhanden
 war.
 
-Damit die Browsertests funktionieren, muss auf dem Zielsystem der
-\textbf{Chromedriver} installiert werden. Chromedriver kann entweder von der
-offiziellen Webseite\footnote{\url{http://chromedriver.chromium.org/}}
-heruntergeladen oder über den Node Package Manager (NPM) installiert werden.\\
-\\
-Installation mit NPM:
-
-\begin{lstlisting}[language=bash,frame=single]
-$ npm install -g chromedriver
-\end{lstlisting}
+\input{realisierung/chromedriver}
 
 \clearpage
 \section{Offene Punkte}
 
+Einige Kriterien konnten bisher noch nicht umgesetzt werden, dies ist vor allem
+auf die bereits erläuterten Probleme~(\ref{AppendixRealisierungProbleme})
+zurückzuführen.
+
 \subsection{Styling Suche}
+
+TODO...
+
 \subsection{Genre Zuordnung für Gigs}
+
+Während die Filterung nach Genre bereits funktioniert, ist es noch nicht
+möglich, einem Gig ein oder mehrere Genres zuzuweisen.
+
+Der Aufwand dies nachzuliefern wird auf circa 8 bis 10 Stunden geschätzt.
+
 \subsection{Benutzer Profil}
+
+Das Benutzerprofil, in welchem angemeldete Besucher ihre Daten wie E-Mail,
+Benutzername, Passwort, etc. bearbeiten können, wurde noch nicht umgesetzt.
+Da das Benutzerprofil nicht ein zentraler Bestandteil der Applikation ist,
+habe ich mich dazu entschieden, die Umsetzung zu verschieben.
+
 \subsection{Passwort-Reset Funktionalität}
-\subsection{Email-Bestätigung}
+
+Benutzer die ihr Passwort vergessen haben, haben derzeit keine Möglichkeit
+dieses zurückzusetzen. Da die Applikation ohne diese Funktion ihre
+Grundfunktionalität erfüllen kann, wurde dieses Feature noch nicht umgesetzt.
+
 \subsection{Screenshot Tests}
+
+Wie bereits in der Studie~(\ref{WallabyPercy}) identifiziert, ist das
+Wallaby Test-Framework leider nicht mit \href{https://percy.io/}{percy.io}
+kompatibel, es ist denkbar eine Integration selber umzusetzen. Da die
+Umsetzung der Screenshot Tests keine direkter Nutzen für die Applikation
+bietet, wurde dies noch nicht umgesetzt.
+
 \subsection{Expliziter Ort Kontext}
 
-Implizit in Konzept Mockups, Kriterium jedoch abgedeckt durch Suchfilter
+Implizit ist in den Konzept Mockups zu erkennen, dass auf der Startseite sowie
+in der Suche automatisch nach der Stadt, in welcher sich der Besucher befindet,
+gefiltert wird. Dies wurde im Software-Konzept weiter ausgearbeitet und es wurde
+definiert, dass die Stadt des Besuchers über eine GeoIP Datenbank zugeordnet wird.
+Diese Zuordnung von Besucher IP nach Stadt wurde umgesetzt, jedoch werden die
+Inhalte der Webseite noch nicht implizit danach gefiltert.
 
+Das Kriterium, dass die Suche nach Ort einschränken soll, ist jedoch durch den
+Suchfilter abgedeckt.
+
+\clearpage
 \subsection{Mögliche Erweiterungen}
 
-- "in deiner nähe"
+Durch die geographischen Koordinaten die wir durch die Google Places API erhalten,
+ist es denkbar, einen weiteren Suchfilter zu implementieren, der über einen Radius
+arbeitet. Als Beispiel könnte so nach Konzerten in der Nähe von Bern mit einem
+Radius von 30 Kilometern gesucht werden.
 
-\section{Auswertung}
+Dazu habe ich bereits eine Lösung im Internet\footnote{\url{https://www.movable-type.co.uk/scripts/latlong-db.html}}
+gefunden, die relativ einfach zu implementieren wäre.
