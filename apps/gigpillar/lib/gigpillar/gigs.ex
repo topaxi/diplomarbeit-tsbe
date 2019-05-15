@@ -151,17 +151,26 @@ defmodule Gigpillar.Gigs do
   Searches Gigs based on a string.
   """
   def search_gigs(query) do
-    from(g in Gig,
-      distinct: [asc: g.date, desc: g.id],
-      left_join: l in assoc(g, :location),
-      left_join: a in assoc(g, :artists),
-      left_join: gg in assoc(g, :gig_genres),
-      preload: [:location, :artists],
-      where:
-        ilike(g.name, ^"%#{query}%") or
-          ilike(l.name, ^"%#{query}%") or
-          ilike(l.address, ^"%#{query}%") or
-          ilike(a.name, ^"%#{query}%")
+    query
+    |> String.split(" ")
+    |> Enum.reduce(
+      from(g in Gig,
+        distinct: [asc: g.date, desc: g.id],
+        left_join: l in assoc(g, :location),
+        left_join: a in assoc(g, :artists),
+        left_join: gg in assoc(g, :gig_genres),
+        preload: [:location, :artists]
+      ),
+      fn term, query ->
+        query
+        |> where(
+          [g, l, a],
+          ilike(g.name, ^"%#{term}%") or
+            ilike(l.name, ^"%#{term}%") or
+            ilike(l.address, ^"%#{term}%") or
+            ilike(a.name, ^"%#{term}%")
+        )
+      end
     )
   end
 
