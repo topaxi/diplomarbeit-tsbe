@@ -45,12 +45,51 @@
   }
 }
 
+.page-search-result a {
+  position: relative;
+  display: grid;
+  grid-template:
+    'picture main'
+    'picture address' min-content;
+}
+
+.page-search-result a > time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem;
+}
+
+.page-search-result h3 {
+  grid-area: name;
+  margin: 0.5rem 0 1rem;
+}
+
+.page-search-result-main {
+  grid-area: main;
+  padding-right: 5rem;
+}
+
+.page-search-result-picture {
+  grid-area: picture;
+  margin-right: 1rem;
+}
+
 .page-search-result-artists {
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
 
   > li:not(:first-child)::before {
     content: ', ';
   }
+}
+
+.page-search-result-address {
+  grid-area: address;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  height: min-content;
+  align-self: end;
 }

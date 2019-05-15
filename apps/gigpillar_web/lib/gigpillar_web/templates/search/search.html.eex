@@ -35,14 +35,16 @@
             <img width="160" src="<%= picture(gig) || Routes.static_path(@conn, "/images/placeholder.svg") %>" alt="" >
           </div>
 
-          <h3><%= gig.name %></h3>
-          <ol class="page-search-result-artists">
-            <%= for artist <- gig.artists do %>
-              <li><%= artist.name %></li>
-            <% end %>
-          </ol>
+          <div class="page-search-result-main">
+            <h3><%= gig.name %></h3>
+            <ol class="page-search-result-artists">
+              <%= for artist <- gig.artists do %>
+                <li><%= artist.name %></li>
+              <% end %>
+            </ol>
+          </div>
 
-          <div>
+          <div class="page-search-result-address">
             <span><%= gig.location.name %></span>
             <address><%= gig.location.address %></address>
           </div>
