@@ -65,6 +65,7 @@ Die Gigpillar Grundapplikation
 /mix.exs
 \end{lstlisting}
 
+\clearpage
 \section{Dependency Management}
 
 Für das Dependency Management, wurde ein Bot eingerichtet, der
@@ -74,6 +75,36 @@ Für das Projekt wurde der Bot «Dependabot»\footnote{\url{https://github.com/m
 
 Durch die Benützung des Dependabot, können während der Entwicklung des Projektes
 die Software Abhängigkeiten jederzeit auf dem neusten Stand gehalten werden.
+
+\noindent{}Installation von Dependabot:
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/install-dependabot-1.png}
+  \caption{Dependabot: Installation}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/install-dependabot-2-cropped.png}
+  \caption{Dependabot: Konfiguration für Elixir}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/install-dependabot-3-cropped.png}
+  \caption{Dependabot: Konfiguration für JavaScript}
+\end{figure}
+
+\clearpage
+Diverse Updates konnten via Pull-Requests von Dependabot während der Entwicklung
+vorgenommen werden:
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/dependabot-updates-cropped.png}
+  \caption{Dependabot: Pull-Requests für Updates}
+\end{figure}
 
 \clearpage
 \section{Datenbankschema}
@@ -395,7 +426,7 @@ Pixel für Suchresultate sowie im Bearbeitungsformular.\\
   \item{} gigs/\{uuid\}/thumbnail.ext
 \end{itemize}
 
-\section{Openstreetmap}
+\section{OpenStreetMap}
 
 Auf der Gig Detailansicht, wird eine OpenStreetMap eingebunden. Damit
 die OpenStreetMap Karte korrekt dargestellt wird, mussten die Geokoordinaten

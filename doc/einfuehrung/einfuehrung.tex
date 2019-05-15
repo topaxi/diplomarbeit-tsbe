@@ -32,3 +32,22 @@
   POSTGRES\_POOL\_SIZE     & \tabularnewline
   \bottomrule
 \end{longtable}
+
+\clearpage
+\subsection{Initialen Benutzer erstellen}
+
+Es wurde ein Skript erstellt um den ersten, initialen Benutzer zu erstellen.
+Dies sollte vorallem für Testzwecke verwendet werden und nicht auf der
+produktiven Umgebung.
+
+\begin{lstlisting}[language=bash,frame=single]
+$ mix gigpillar.create_user
+\end{lstlisting}
+
+\noindent{}Beispiel einer erfolgreichen Durchführung des Skripts:
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{einfuehrung/create-user.png}
+  \caption{Initialen Benutzer erstellen}
+\end{figure}
