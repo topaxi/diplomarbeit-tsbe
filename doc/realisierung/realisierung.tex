@@ -582,64 +582,6 @@ war.
 \input{realisierung/chromedriver}
 
 \clearpage
-\section{Offene Punkte}
-
-Einige Kriterien konnten bisher noch nicht umgesetzt werden, dies ist vor allem
-auf die bereits erläuterten Probleme~(\ref{AppendixRealisierungProbleme})
-zurückzuführen.
-
-\subsection{Genre Zuordnung für Gigs}
-
-Während die Filterung nach Genre bereits funktioniert, ist es noch nicht
-möglich, einem Gig ein oder mehrere Genres zuzuweisen.
-
-Der Aufwand dies nachzuliefern wird auf circa 8 bis 10 Stunden geschätzt.
-
-\subsection{Benutzer Profil}
-
-Das Benutzerprofil, in welchem angemeldete Besucher ihre Daten wie E-Mail,
-Benutzername, Passwort, etc. bearbeiten können, wurde noch nicht umgesetzt.
-Da das Benutzerprofil nicht ein zentraler Bestandteil der Applikation ist,
-habe ich mich dazu entschieden, die Umsetzung zu verschieben.
-
-\subsection{Passwort-Reset Funktionalität}
-
-Benutzer die ihr Passwort vergessen haben, haben derzeit keine Möglichkeit
-dieses zurückzusetzen. Da die Applikation ohne diese Funktion ihre
-Grundfunktionalität erfüllen kann, wurde dieses Feature noch nicht umgesetzt.
-
-\subsection{Screenshot Tests}
-
-Wie bereits in der Studie~(\ref{WallabyPercy}) identifiziert, ist das
-Wallaby Test-Framework leider nicht mit \href{https://percy.io/}{percy.io}
-kompatibel, es ist denkbar eine Integration selber umzusetzen. Da die
-Umsetzung der Screenshot Tests keine direkter Nutzen für die Applikation
-bietet, wurde dies noch nicht umgesetzt.
-
-\subsection{Expliziter Ort Kontext}
-
-Implizit ist in den Konzept Mockups zu erkennen, dass auf der Startseite sowie
-in der Suche automatisch nach der Stadt, in welcher sich der Besucher befindet,
-gefiltert wird. Dies wurde im Software-Konzept weiter ausgearbeitet und es wurde
-definiert, dass die Stadt des Besuchers über eine GeoIP Datenbank zugeordnet wird.
-Diese Zuordnung von Besucher IP nach Stadt wurde umgesetzt, jedoch werden die
-Inhalte der Webseite noch nicht implizit danach gefiltert.
-
-Das Kriterium, dass die Suche nach Ort einschränken soll, ist jedoch durch den
-Suchfilter abgedeckt.
-
-\clearpage
-\subsection{Mögliche Erweiterungen}
-
-Durch die geographischen Koordinaten die wir durch die Google Places API erhalten,
-ist es denkbar, einen weiteren Suchfilter zu implementieren, der über einen Radius
-arbeitet. Als Beispiel könnte so nach Konzerten in der Nähe von Bern mit einem
-Radius von 30 Kilometern gesucht werden.
-
-Dazu habe ich bereits eine Lösung im Internet\footnote{\url{https://www.movable-type.co.uk/scripts/latlong-db.html}}
-gefunden, die relativ einfach zu implementieren wäre.
-
-\clearpage
 \section{Testprotokoll}
 
 \setcounter{acceptancetest}{0}
@@ -777,3 +719,61 @@ gefunden, die relativ einfach zu implementieren wäre.
 \acceptancetest[Damian Senn][16.05.2019][OK]
 {Security - Gig erfassen}
 {Das Gig erfassen Formular ist resistent gegen XSS und SQL-Injection}
+
+\clearpage
+\section{Offene Punkte}
+
+Einige Kriterien konnten bisher noch nicht umgesetzt werden, dies ist vor allem
+auf die bereits erläuterten Probleme~(\ref{AppendixRealisierungProbleme})
+zurückzuführen.
+
+\subsection{Genre Zuordnung für Gigs}
+
+Während die Filterung nach Genre bereits funktioniert, ist es noch nicht
+möglich, einem Gig ein oder mehrere Genres zuzuweisen.
+
+Der Aufwand dies nachzuliefern wird auf circa 8 bis 10 Stunden geschätzt.
+
+\subsection{Benutzer Profil}
+
+Das Benutzerprofil, in welchem angemeldete Besucher ihre Daten wie E-Mail,
+Benutzername, Passwort, etc. bearbeiten können, wurde noch nicht umgesetzt.
+Da das Benutzerprofil nicht ein zentraler Bestandteil der Applikation ist,
+habe ich mich dazu entschieden, die Umsetzung zu verschieben.
+
+\subsection{Passwort-Reset Funktionalität}
+
+Benutzer die ihr Passwort vergessen haben, haben derzeit keine Möglichkeit
+dieses zurückzusetzen. Da die Applikation ohne diese Funktion ihre
+Grundfunktionalität erfüllen kann, wurde dieses Feature noch nicht umgesetzt.
+
+\subsection{Screenshot Tests}
+
+Wie bereits in der Studie~(\ref{WallabyPercy}) identifiziert, ist das
+Wallaby Test-Framework leider nicht mit \href{https://percy.io/}{percy.io}
+kompatibel, es ist denkbar eine Integration selber umzusetzen. Da die
+Umsetzung der Screenshot Tests keine direkter Nutzen für die Applikation
+bietet, wurde dies noch nicht umgesetzt.
+
+\subsection{Expliziter Ort Kontext}
+
+Implizit ist in den Konzept Mockups zu erkennen, dass auf der Startseite sowie
+in der Suche automatisch nach der Stadt, in welcher sich der Besucher befindet,
+gefiltert wird. Dies wurde im Software-Konzept weiter ausgearbeitet und es wurde
+definiert, dass die Stadt des Besuchers über eine GeoIP Datenbank zugeordnet wird.
+Diese Zuordnung von Besucher IP nach Stadt wurde umgesetzt, jedoch werden die
+Inhalte der Webseite noch nicht implizit danach gefiltert.
+
+Das Kriterium, dass die Suche nach Ort einschränken soll, ist jedoch durch den
+Suchfilter abgedeckt.
+
+\clearpage
+\subsection{Mögliche Erweiterungen}
+
+Durch die geographischen Koordinaten die wir durch die Google Places API erhalten,
+ist es denkbar, einen weiteren Suchfilter zu implementieren, der über einen Radius
+arbeitet. Als Beispiel könnte so nach Konzerten in der Nähe von Bern mit einem
+Radius von 30 Kilometern gesucht werden.
+
+Dazu habe ich bereits eine Lösung im Internet\footnote{\url{https://www.movable-type.co.uk/scripts/latlong-db.html}}
+gefunden, die relativ einfach zu implementieren wäre.
