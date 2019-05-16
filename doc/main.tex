@@ -24,7 +24,7 @@
 
 \documentclass[
   11pt, % The default document font size, options: 10pt, 11pt, 12pt
-  oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+  twoside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
   ngerman, % ngerman for German
   singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
   %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
@@ -238,8 +238,7 @@ literate =    {---}{{\ProcessThreeDashes}}3
 %------------------------------------------------------------------------------
 
 \includepdf[trim=10mm 0mm 0mm 0mm, clip]{titelblatt.pdf}
-
-\blankpage
+\setcounter{page}{0}
 
 %\begin{titlepage}
 %  \begin{center}
@@ -285,7 +284,7 @@ literate =    {---}{{\ProcessThreeDashes}}3
 
 \renewcommand{\abstractname}{Management Summary}
 \begin{abstract}
-  %\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+  \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
   Wer kennt es nicht, es ist Wochenende und es sind noch keine konkrete Pläne
   gemacht. Diese Situation fordert Datenquellen mit welchen man sich einen
   Überblick von möglichen Optionen erstellen kann.
@@ -325,13 +324,12 @@ literate =    {---}{{\ProcessThreeDashes}}3
   Zeitpunkt nachgeliefert werden können.
 \end{abstract}
 
-\blankpage
+\newpage
 
 %------------------------------------------------------------------------------
 % DECLARATION PAGE
 %------------------------------------------------------------------------------
 
-\null\thispagestyle{empty}\addtocounter{page}{-2}\newpage
 \begin{declaration}
   \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
   \noindent Mit meiner Unterschrift bestätige ich, die vorliegende Diplomarbeit
@@ -348,7 +346,8 @@ literate =    {---}{{\ProcessThreeDashes}}3
   \rule[0.5em]{25em}{0.5pt}
 \end{declaration}
 
-\cleardoublepage
+\blankpage
+\blankpage
 
 %------------------------------------------------------------------------------
 % ACKNOWLEDGEMENTS
@@ -405,10 +404,13 @@ literate =    {---}{{\ProcessThreeDashes}}3
 \includepdf[pages=1,pagecommand={\thispagestyle{empty}\Hide\chapter{Projektinitialisierungsauftrag}}]{eingabe/Projektinitialisierungsauftrag.pdf}
 \includepdf[pages=2-,pagecommand={\thispagestyle{empty}}]{eingabe/Projektinitialisierungsauftrag.pdf}
 \include{appendix/kickoff-protokoll}
+\cleardoublepage
 \includepdf[pagecommand={\chapter{Terminplan}\label{terminplan}}]{initialisierung/planung-empty.pdf}
 \include{initialisierung/studie}
 \include{initialisierung/projektauftrag}
+\cleardoublepage
 \includepdf[pages=1,pagecommand={\chapter{Wirtschaftlichkeit - Gigboost}\label{appendix-wirtschaftlichkeit-gigboost}}, trim=0mm 20mm 50mm 0mm, clip]{initialisierung/wirtschaftlichkeit.pdf}
+\cleardoublepage
 \includepdf[pages=2,pagecommand={\chapter{Wirtschaftlichkeit - Werbung}\label{appendix-wirtschaftlichkeit-ads}}, trim=0mm 20mm 50mm 0mm, clip]{initialisierung/wirtschaftlichkeit.pdf}
 \include{konzept/konzept}
 \include{appendix/zwischen-protokoll}
