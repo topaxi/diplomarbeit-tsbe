@@ -4,4 +4,108 @@
 
 \section{Projektcontrolling}
 
+\subsection{Erfüllung der Ziele}
+
+Mit der folgenden Tabelle wird aufgezeigt, welche Projektziele erfüllt,
+und welche Projektziele \textbf{nicht} erfüllt wurden. Projektziele die nicht
+erfüllt wurden, müssen genauer erläutert werden wieso diese nicht erfüllt wurden.
+
+\begin{longtable}[]{@{}lp{10.5cm}c@{}}
+  \toprule
+  Nr.  & Zielbeschreibung                                                                                                   & Erfüllt\tabularnewline
+  \toprule
+  \endhead
+       & \textbf{Produktziele}\tabularnewline
+  \midrule
+  1.1  & Besucher können im Produkt nach Konzerten suchen                                                                   & Ja\tabularnewline
+  1.2  & Suchresultate können nach Musik-Genre und Ort gefiltert werden                                                     & Ja\tabularnewline
+  1.3  & Besucher können Details zu einem Konzert ansehen                                                                   & Ja\tabularnewline
+  1.4  & Das Produkt soll ein modernes responsives Design vorweisen                                                         & Ja\tabularnewline
+  1.5  & Konzerte sollen von Suchmaschinen indexiert werden können                                                          & Ja\tabularnewline
+  1.6  & Benutzer können isch im Produkt registrieren                                                                       & Ja\tabularnewline
+  1.7  & Benutzer können ihr Passwort nach Verlust neu setzen                                                               & \textbf{NEIN}\tabularnewline
+  1.8  & Inhalte des Portals sind durch die Benutzer erfassbar und bearbeitbar                                              & Ja\tabularnewline
+  1.9  & Kompatibilität mit aktuellem Google Chrome und Mozilla Firefox Browser                                             & Ja\tabularnewline
+  1.10 & Konzerte können vom Produkt nach Facebook exportiert werden                                                        & Nein\tabularnewline
+  1.11 & Ein angemeldeter Benutzer kann vermerken ob er einem Konzert teilnimmt                                             & Nein\tabularnewline
+  1.12 & Das Produkt soll sich an die Security Best-Practices von OWASP~\ref{OWASP} halten                                  & Ja\tabularnewline
+  \toprule
+       & \textbf{Abwicklungsziele}\tabularnewline
+  \midrule
+  2.1  & Das Projekt soll nach HERMES 5 unter Berücksichtigung der Richtlinien von der TSBE dokumentiert werden             & Ja\tabularnewline
+  2.2  & Das Produkt muss bis Projektende fertiggestellt, getestet und bereit für die Einführung sein                       & Ja\tabularnewline
+  2.3  & Die Technische-Umsetzung wird durch Damian Senn erstellt                                                           & Ja\tabularnewline
+  2.4  & Die Kommunikation zwischen Experten und Diplomanden erfolgt wie im Projektauftrag~\ref{kommunikation} beschrieben. & Ja\tabularnewline
+  2.5  & Das Projekt muss bis Ende Mai 2019 abgeschlossen sein                                                              & Ja\tabularnewline
+  \bottomrule
+  \caption{Controlling: Ziele}
+\end{longtable}
+
+Das Ziel 1.7 konnte nicht erfüllt werden. In Retrospektive, hätte dieses
+Feature kein MUSS Kriterium sein müssen. Die verfügbare Zeit der Realisierung
+wurde in wichtigere Kernkomponenten des Produktes investiert.
+
+\clearpage
+\subsection{Erfüllung der Anforderungen}
+
+\begin{longtable}[]{@{}p{1.9cm}p{2.5cm}cp{5.5cm}cc@{}}
+  \toprule
+  \textbf{Feature}           & \textbf{Titel}             & \textbf{Nr.} & \textbf{Kriterium}                                                                                          & \textbf{Erfüllt}\tabularnewline
+  \midrule
+  \endhead
+  \multirow{10}{*}{Suche}    & Suche nach Konzertname     & 1.1          & Listet alle Konzerte die Wörter der Suche im Konzertnamen beinhalten                                        & Ja                              \\ \cline{2-6}
+                             & Suche nach Konzertlocation & 1.2          & Schränkt die Such-Resultate nach gegebener Konzertlocation ein                                              & Ja                              \\ \cline{2-6}
+                             & Suche nach Ort             & 1.2          & Schränkt die Such-Resultate nach gegebenem Ort ein                                                          & Ja                              \\ \cline{2-6}
+                             & Suche nach Genre           & 1.2          & Schränkt die Such-Resultate nach gegebenem Musik-Genre ein                                                  & Ja                              \\
+  \midrule
+  \multirow{8}{*}{Design}    & Desktop                    & 2.1          & Alle Ansichten haben eine Desktop-Optimierte Variante                                                       & Ja                              \\ \cline{2-6}
+                             & Tablet                     & 2.2          & Alle Ansichten haben eine Tablet-Optimierte Variante                                                        & Ja                              \\ \cline{2-6}
+                             & Mobile                     & 2.3          & Alle Ansichten haben eine Mobile-Optimierte Variante                                                        & Ja                              \\ \cline{2-6}
+                             & Browser Kompatibilität     & 2.4          & Alle Ansichten müssen in aktuellem Google Chrome und Mozilla Firefox dem Grundlayout folgen                 & Ja                              \\
+  \midrule
+  \multirow{4}{*}{SEO}       & Indexierbarkeit            & 3.1          & Das Produkt ist von Suchmaschinen indexierbar                                                               & Ja                              \\ \cline{2-6}
+                             & Linked Data                & 3.2          & Konzert Detailseiten sind mit dem Event-Schema\footnote{\url{https://schema.org/MusicEvent}} ausgestattet   & Ja                              \\
+  \midrule
+  \multirow{8}{*}{Benutzer}  & Registrierung              & 4.1          & Besucher können sich einen Benutzer registrieren, Benutzernamen und E-Mail Adressen müssen einzigartig sein & Ja                              \\ \cline{2-6}
+                             & Passwort-Vergessen         & 4.2          & Benutzer können sich einen Passwort-Reset Link anfordern                                                    & \textbf{NEIN}                   \\ \cline{2-6}
+                             & Social                     & 4.3          & Benutzer können auf Konzerten vermerken ob sie Teilnehmen oder nicht                                        & Nein                            \\
+  \midrule
+  \clearpage
+  \multirow{6}{*}{Erfassung} & Artist                     & 5.1          & Benutzer können Artisten mit einem Genre erfassen                                                           & \textbf{NEIN}                   \\ \cline{2-6}
+                             & Location                   & 5.2          & Benutzer können eine Konzertlocation mit Ort/Strasse erfassen                                               & \textbf{NEIN}                   \\ \cline{2-6}
+                             & Konzert                    & 5.3          & Benutzer können ein Konzert mit Konzertlocation und Artisten erfassen                                       & Ja                              \\ \cline{2-6}
+                             & Facebook                   & 5.4          & Benutzer können ein Konzert in ein Facebook-Event exportieren                                               & Nein                            \\
+  \midrule
+  \multirow{9}{*}{Security}  & SQL-Injection              & 6.1          & Das Produkt soll resistent gegen SQL-Injection sein                                                         & Ja                              \\ \cline{2-6}
+                             & HTML-Injection             & 6.2          & Das Produkt soll resistent gegen HTML-Injection / XSS sein                                                  & Ja                              \\ \cline{2-6}
+                             & Passwort encryption        & 6.3          & Passwörter von Benutzer müssen mit einem sicheren Verfahren gespeichert werden                              & Ja                              \\ \cline{2-6}
+                             & Session                    & 6.4          & Session-Cookies dürfen nicht durch JavaScript ausgelesen werden                                             & Ja                              \\
+  \midrule
+  Performance                & Ladezeit                   & 7.1          & Die Seitenansichten dürfen nicht länger als 6 Sekunden auf einem 3G Netz laden                              & Ja                              \\
+  \midrule
+  Sonstiges                  & User Tracking              & 8.1          & Benutzerverhalten soll analysiert und nachvollziehbar sein.                                                 & Nein                            \\
+  \bottomrule
+  \caption{Anforderungskatalog}
+\end{longtable}
+
+\subsubsection{Nicht erfüllte Anforderungen}
+
+Wie bereits bei den Zielen ist auch bei den Anforderungen die Passwort-Reset (4.2)
+Funktionalität nicht erfüllt.
+Zusätzlich sind die Anforderungen 5.1 und 5.2 nicht erfüllt. Die beiden
+Anforderungen wurden nicht umgesetzt, da in der Konzeptphase entschieden wurde,
+dass die Konzertlocations nur über die Google Places API ausgewählt werden können.
+Somit gibt es für die Anforderung 5.2 keine Umsetzung.
+Auch die Anforderung 5.1 wurde in der Konzeptphase angepasst, so wird nicht einem
+Artisten das Genre sondern einem Gig die Genres angehängt. Allerdings wurde das
+Feature aus Zeitgründen noch nicht umgesetzt.
+
 \section{Wirtschaftlichkeit}
+
+Da keine Hardware oder Ähnliches involviert ist, hat sich an der
+Wirtschaftlichkeit des Projektes kaum entwas verändert.
+Einige Features konnten noch nicht implementiert werden, allerdings
+konnte ich aus gesundheitlichen sowie privaten Gründen weniger als
+erwartet am Projekt arbeiten.
+Die restlichen Features sollten in den noch übrigen 42 geplanten
+Stunden implementierbar sein.

@@ -27,6 +27,8 @@ Standardbenennung des Phoenix Frameworks ist.
 \subsubsection{User}
 Der Benutzer Entität wurde das Feld «password» nach «password\_hash» umbenannt,
 damit klar ist, dass nicht ein Passwort sondern nur ein Hash abgespeichert wird.
+Das Passwort wird mit \textbf{Argon2}\footnote{\url{https://en.wikipedia.org/wiki/Argon2}}
+verschlüsselt und ist somit eine sichere Verschlüsselung.
 
 \subsubsection{Genre}
 Der Genre Entität sind im Konzept die Datumsfelder «update\_at» und «inserted\_at»
@@ -50,5 +52,3 @@ Bis auf fünf Tests im Testprotokoll konnten alle mit einem \textbf{OK}
 durchgeführt werden. Einige Features wurden aufgrund von mangelnder Zeit nicht
 umgesetzt. Genauere Details sind im Test Protokoll im
 Realisierungsanhang~\ref{RealisierungsTestprotokoll}.
-
-\section{Auswertung}
