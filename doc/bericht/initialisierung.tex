@@ -23,20 +23,109 @@ Folgende Ziele sind in der Initialisierungsphase definiert worden:
   \caption{Organigram}
 \end{figure}
 
+\subsection{Tätigkeiten im Projekt}\label{tuxe4tigkeiten-im-projekt}
+
+Für die Freigaben der Phasen ist nach Absprache mit Severin Räz Damian Senn
+selbstständig verantwortlich.
+
+\begin{longtable}[]{@{}ll@{}}
+  \toprule
+  \textbf{Name}    & \textbf{Funktions- und Tätigkeitsbereich}\tabularnewline
+  \midrule
+  \endhead
+  Severin Räz      & Auftraggeber, externer Experte\tabularnewline
+  Sandro Bertolino & Interner Experte\tabularnewline
+  Damian Senn      & Projektleiter, Ausführung\tabularnewline
+  Joshua Schär     & Unterstützung Design\tabularnewline
+  \bottomrule
+  \caption{Tätigkeiten Verteilung}
+\end{longtable}
+
+\subsection{Kommunikation}\label{kommunikation}
+
+Im Kickoff-Meeting wurde besprochen, dass Damian Senn alle zwei Wochen einen
+kurzen Bericht an Sandro Bertolino und Severin Räz per E-Mail schicken wird.
+Im Bericht soll erläutert werden, was in der Zwischenzeit erledigt wurde und
+was die nächsten Schritte im Projekt sind.
+
 \includepdf[pagecommand={\section{Ausgefüllter Projektplan}}]{figures/planung-final.pdf}
 
 \section{Lieferergebnisse}
+
+Folgende Ergebnisse wurden in der Phase Initialisierung erstellt:
 
 \begin{itemize}
   \tightlist{}
   \item{}Studie (Anhang~\ref{AppendixStudie})
   \item{}Projektauftrag (Anhang~\ref{AppendixProjektauftrag})
-  \item{}Konzept (Anhang~\ref{AppendixKonzept})
 \end{itemize}
 
-\section{Ressourcenplan}
+\section{Terminplan}
 
+Nachfolgend ist der grobe Terminplan der während der Initialisierungsphase
+erstellt wurde für die geplanten Phasen.
+
+\begin{longtable}[]{@{}lrr@{}}
+  \toprule
+  Phase           & Datum                   & Stunden\tabularnewline
+  \midrule
+  \endhead
+  Initialisierung & 06.03.2019 - 31.03.2019 & 64\tabularnewline
+  Konzept         & 01.04.2019 - 21.04.2019 & 66\tabularnewline
+  Realisierung    & 22.04.2019 - 19.05.2019 & 136\tabularnewline
+  Abschluss       & 20.05.2019 - 21.05.2019 & 36\tabularnewline
+  \midrule
+                  & Total:                  & 302\tabularnewline
+  \bottomrule
+  \caption{Terminplan}
+\end{longtable}
+
+\clearpage
 \section{Risiken}
+
+Die Risikobewertung erfolgt mit folgender Formel:\\
+
+\textbf{Bewertung = Schaden x Eintrittswahrscheinlichkeit}\\
+
+\noindent{}Weitere Details zur Bewertung der Risiken sind im Projektauftrag Anhang~\ref{risiken} zu finden.
+
+\subsection{Projektrisiken}\label{projektrisiken}
+
+\begin{longtable}[]{@{}lp{3cm}p{4cm}ccc@{}}
+  \toprule
+  \textbf{Nr.} & \textbf{Risiko}                             & \textbf{Auswirkung}                                 & \textbf{Schaden} & \textbf{Wahrsch.} & \textbf{Bewertung}\tabularnewline
+  \midrule
+  \endhead
+  1            & Ausfall des Entwicklers oder Projektleiters & Verzögerungen von Arbeiten                          & 4                & 3                 & Mittel\tabularnewline
+  2            & Unvollständige Projektdokumentation         & Schlechtere Diplomarbeit Bewertung                  & 4                & 2                 & Mittel\tabularnewline
+  3            & Schlechter Projektplan                      & Verzögerungen und eventuelle Qualitätsverluste      & 4                & 3                 & Mittel\tabularnewline
+  4            & Keine Benutzer                              & Das Produkt wird nicht von Benutzern eingesetzt     & 3                & 4                 & Mittel\tabularnewline
+  5            & Technisch nicht umsetzbare Features         & Das Produkt kann nicht wie angedacht benutzt werden & 4                & 3                 & Mittel\tabularnewline
+  \bottomrule
+  \caption{Projektrisiken}
+\end{longtable}
+
+\clearpage
+\subsection{Massnahmen}\label{massnahmen}
+
+\begin{longtable}[]{@{}lp{4.1cm}lccc@{}}
+  \toprule
+               &                                                                       &                   & \multicolumn{3}{l}{\textbf{Bewertung nach Massnahme}}\tabularnewline
+  \textbf{Nr.} & \textbf{Massnahme}                                                    & \textbf{Handlung} & \textbf{Schaden}                                                     & \textbf{Wahrsch.} & \textbf{Bewertung}\tabularnewline
+  \midrule
+  \endhead
+  1            & Arzt aufsuchen, ggf. Projekt-Pause oder Abbruch                       & Akzeptanz         & 4                                                                    & 3                 & Mittel\tabularnewline
+  2            & Statusbericht alle zwei Wochen, bei Fragen sofort Hilfe suchen        & Verminderung      & 2                                                                    & 1                 & Gering\tabularnewline
+  3            & Genügend Buffer-Zeit einplanen, ggf. Ferientage für Projekt einsetzen & Verminderung      & 2                                                                    & 1                 & Gering\tabularnewline
+  4            & Das Produkt löst vor allem ein persönliches Interesse                 & Akzeptanz         & 3                                                                    & 4                 & Mittel\tabularnewline
+  5            & Vereinfachte Alternativen in Konzept-Phase untersuchen                & Verminderung      & 2                                                                    & 2                 & Gering\tabularnewline
+  \bottomrule
+  \caption{Projektrisiken - Massnahmen}
+\end{longtable}
+
+\subsection{Risikodiagramm}
+
+Die Risikodiagramme sind im Projektauftrag im Anhang~\ref{risikodiagram-ohne-massnahmen} und Anhang~\ref{risikodiagram-mit-massnahmen} zu finden.
 
 \clearpage
 
@@ -48,11 +137,23 @@ Folgende Ziele sind in der Initialisierungsphase definiert worden:
   \caption{Abgrenzungen}
 \end{figure}
 
-Die detaillierten Erklärung zu den Abgrenzungen sind im Projektauftrag~\ref{abgrenzungen} zu finden.
+\noindent
+Die detaillierten Erklärung zu den einzelnen Abgrenzungen sind im Projektauftrag~\ref{abgrenzungen} zu finden.
 
 \clearpage
 
 \section{Studie}
+
+In der Studie wurden folgende Arbeiten abgehandelt:
+
+\begin{itemize}
+  \tightlist
+  \item der Anforderungskatalog wurde definiert
+  \item die Evaluation der Browser Software-Technologien
+  \item die Evaluation der Server Software-Technologien
+  \item die Evaluation der Testing Software-Technologien
+  \item eine Kostenschätzung und mögliche Wirtschaftlichkeit ausgerechnet
+\end{itemize}
 
 \subsection{Informationsbeschaffung}
 
@@ -70,13 +171,199 @@ Erweiterung zu verstehen.
 
 \input{initialisierung/anforderungskatalog}
 
-\subsection{Mögliche Varianten}
+\clearpage
+\section{Evaluation Browser-Technologie}
 
-\subsection{Evaluation Varianten}
+\noindent{}Die genaue Erklärung zur Gewichtung der Browser-Technologie
+Evaluation sind in der Studie im Anhang~\ref{evaluation-browser-technologie}
+zu finden.
 
-\subsection{Entscheid Varianten}
+\subsection{Variante: React}
+
+Die JavaScript Library \textbf{React} ist heute die wohl beliebteste
+Technologie um interaktive Applikationen im Web zu bauen.
+
+React ermöglicht es den Entwicklern Screens auf eine deklarative Weise zu
+definieren, so dass sich Elemente jeweils dem Zustand der Applikation anpassen.
+
+Die Features von React sind minimal gehalten und sehen auf den ersten Blick
+einfach aus, jedoch wird für Anwendungen schnell klar, dass zusätzliche
+Software-Libraries benötigt werden um eine grössere Applikation zu entwickeln.
+
+Durch das Hinzufügen von weiteren Libraries steigt die Komplexität dieser
+Variante stark an, da es im React Ökosystem für viele Lösungen diverse
+verschiedene Lösungsansätze gibt.
+
+\subsection{Variante: Next.js}
+
+\textbf{Next.js} ist ein JavaScript Framework, das auf der \textbf{React}
+Library aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
+
+Dadurch dass Next.js ein komplettes Framework ist und nicht nur eine Library,
+leidet diese Variante weniger der Komplexität eines kompletten Eigenbaus mit
+React. Features wie die Navigation von Seite zu Seite bringt Next.js bereits
+mit.
+
+\subsection{Variante: SSR}
+
+\textbf{SSR} steht für \textbf{S}erver\textbf{s}ide \textbf{R}endering und
+beschreibt die klassische Methode vom Erstellen von Webseiten, indem man HTML
+auf dem Server generiert und zum Browser schickt.
+
+Dies hat nach wie vor seine Daseinsberechtigung, da dies wenig Komplexität
+mit sich bringt, einen schnelleren Seitenaufbau garantiert und ohne
+zusätzlichen Aufwand von Suchmaschinen indexiert werden kann.
+
+\section{Entscheid Browser-Technologie}\label{entscheid-browser-technologie}
+
+Die Bewertung der Browser-Technologie sind in der Studie im
+Anhang~\ref{bewertungen-browser-technologie} zu finden.
+
+Durch die Evaluierung wurde klar, dass das Einsetzen eines JavaScript-Frameworks
+zuviel zusätzliche Komplexität und gewisse Einbussungen in Performance und Stabilität
+unvermeidbar ist. Somit ist ein die Wahl für eine klassische Server-Side Rendered
+Webseite favorisierend.
+
+Es ist durchaus vorstellbar, dass in einem zweiten Schritt, nach diesem Projekt,
+die Server-Side Rendered Applikation durch eine Next.js Applikation ersetzt werden
+könnte.
+
+\subsubsection{Kosten / Wirtschaftlichkeit}
+
+Da die Programmiersprache Elixir sowie das Framework Phoenix unter einer
+Open Source Lizenz verfügbar sind, fallen bei dieser Lösung keine zusätzlichen
+Kosten an.
 
 \clearpage
-\section{Wirtschaftlichkeit}
+\section{Evaluation Server-Technologie}\label{evaluation-server-technologie}
 
-\input{initialisierung/wirtschaftlichkeit.tex}
+\noindent{}Die genaue Erklärung zur Gewichtung der Server-Technologie
+Evaluation sind in der Studie im Anhang~\ref{evaluation-server-technologie}
+zu finden.
+
+\subsection{Variante: Node.js / koa.js}
+
+Auch auf dem Server gewinnt JavaScript immer mehr an Beliebtheit.
+Mit Node.js und koa.js können schnell kleinere und simplere Applikationen
+erstellt werden, die dennoch sehr performant sind.
+
+koa.js ist eine Library für Server-Applikationen und bietet nur eine einfache
+Basis und bringt keine Features für Datenpersistenz oder HTML Templates mit sich.
+Diese Features müssen durch zusätzliche Module installiert werden.
+
+\subsection{Variante: Elixir / Phoenix}
+
+Elixir ist eine Programmiersprache die eine sehr stabile und performante Grundlage
+bietet. Durch das Framework Phoenix, wird im Elixir Ökosystem ein starkes feature
+umfangreiches Web-Framework angeboten. Phoenix beinhaltet eine grosse Menge an
+Features mit sich und gibt dem Entwickler direkt Funktionalitäten wie HTML
+Templates, Datenpersistenz und ein einfaches Test-Framework.
+
+\subsection{Variante: Next.js}
+
+Next.js wurde bereits als Variante für die Browser-Technologie in Betracht
+gezogen. Ein zusätzliches Feature von Next.js ist, dass die Applikation auch
+auf dem Server betrieben werden kann.
+Das Einsetzen der selben Technologie kann bedeutende Vorteile mit sich bringen,
+so muss man nur ein Framework lernen und kann Programmcode auf dem Server mit
+der Applikation im Browser geteilt werden.
+
+\section{Entscheid Server-Technologie}\label{entscheid-server-technologie}
+
+Die Bewertung der Server-Technologie sind in der Studie im
+Anhang~\ref{bewertungen-server-technologie} zu finden.
+
+Durch das grosse Featurset von Phoenix sowie tieferer Komplexität gegenüber den
+beiden anderen Varianten hat sich Phoenix für die Server-Technologie klar
+durchgesetzt.
+
+\subsubsection{Kosten / Wirtschaftlichkeit}
+
+Da die Programmiersprache Elixir sowie das Framework Phoenix unter einer
+Open Source Lizenz verfügbar sind, fallen bei dieser Lösung keine zusätzlichen
+Kosten an.
+
+\clearpage
+\section{Evaluation Testing-Technologie}\label{evaluation-testing-technologie}
+
+\noindent{}Die genaue Erklärung zur Gewichtung der Testing-Technologie
+Evaluation sind in der Studie im Anhang~\ref{evaluation-testing-technologie}
+zu finden.
+
+\subsection{Jest + Puppeteer}
+
+Jest ist ein JavaScript-Test Framework von Facebook. Durch die Kombinierung der
+Puppeteer Library von Google ist es möglich, automatisierte Browser-Tests
+durchzuführen.
+
+\subsection{Wallaby}
+
+Wallaby ist ein Elixir Browser-Test Framework, welches sich nahtlos mit Phoenix
+integrieren lässt. Wallaby unterstützt parallelisierung von Tests und ist daher
+ein guter Kanditat eine hohe Anzahl von automatisierten Tests.
+
+\section{Entscheid Testing-Technologie}\label{entscheid-testing-technologie}
+
+Die Bewertung der Testing-Technologie sind in der Studie im
+Anhang~\ref{bewertungen-testing-technologie} zu finden.
+
+Dadurch dass sich Wallaby einfach mit der ausgewählten Server-Technologie
+verwenden lässt, hohe Performance und Stabilität aufweist, ist Wallaby die
+knapp bessere Variante als eine Jest + Puppeteer kombination.
+
+Leider hat Wallaby keine Visualtesting Integration mit dem Dienst percy.io,
+dies könnte aber im verlaufe der Umsetzung eventuell im Rahmen dieser Arbeit
+umgesetzt werden.
+
+\subsubsection{Kosten / Wirtschaftlichkeit}\label{WallabyPercy}
+
+Auch Wallaby ist unter eines Open Source Lizenz veröffentlicht und erzeugt
+somit im Projekt keine direkten zusätzlichen Kosten. Durch fehlende
+Unterstützung von Visualtesting, wird im Verlauf der Realisierung zusätzlicher
+Aufwand erzeugt, entweder durch eigene Implementation solcher Tests oder durch
+unbemerkte Fehler die sich bei Änderungen eingeschlichen haben.
+
+\clearpage
+\section{Wirtschaftlichkeit}\label{wirtschaftlichkeit}
+
+\subsection{Projektkosten}
+
+Für die Berechnung der Projektkosten wird ein Stundensatz von 150.- CHF angenommen.
+
+\input{initialisierung/projektkosten}
+
+\noindent
+Die geplanten Projektkosten betragen somit \textbf{42'900.- CHF}.
+
+\input{initialisierung/betriebskosten}
+
+Für die Betriebskosten eines Hostings wird einen durchschnittlichen monatlichen
+Preis von 150.- CHF angenommen, da das Deployment für dieses nicht vorgesehen
+ist, ist dies eine von Damian Senn geschätzte Zahl.
+
+\clearpage
+\subsection{Break Even Analyse}\label{break-even-analyse}
+
+Beim Modell «Gigboost» wird eine Option angeboten bei der publizierten Gigs auf
+der Startseite sowie in der Suche anderen Einträgen bevorzugt dargestellt
+werden. Für einen Gegenpreis von 10.- CHF kann man einen Gig «boosten».
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{initialisierung/wirtschaftlichkeit-gigboost.png}
+  \caption{Break-Even Analyse - Gigboost}
+\end{figure}
+
+Im Modell «Werbung» wird ausgerechnet wieviele aktive Benutzer das Produkt benötigt
+um in den nächsten Jahren Gewinn zu erzielen.
+
+Durch Annahme von einem Erlös von \textbf{140.- CHF} pro \textbf{40'0000 Besucher}\footnote{\url{https://www.quora.com/How-much-does-Google-AdSense-pay-for-3-banners-on-a-webpage-per-1-000-views/answer/Manas-Sahu-59}} erhalten wir folgendes Bild:
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.95\textwidth]{initialisierung/wirtschaftlichkeit-werbung-updated.png}
+  \caption{Break-Even Analyse - Werbung}
+\end{figure}
+
+Die genauere Ausrechnung der Wirtschaftlichkeit im Modell Werbung sind in der
+Studie im Anhang~\ref{break-even-analyse-werbung} zu finden.
