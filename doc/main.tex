@@ -52,6 +52,7 @@
 \usepackage{makecell}
 \usepackage[toc,acronym]{glossaries}
 \usepackage{listings}
+\usepackage{afterpage}
 
 \makenoidxglossaries
 
@@ -226,70 +227,57 @@ literate =    {---}{{\ProcessThreeDashes}}3
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
+\newcommand\blankpage{%
+  \null
+  \thispagestyle{empty}%
+  \addtocounter{page}{-1}%
+  \newpage}
+
 %------------------------------------------------------------------------------
 % TITLE PAGE
 %------------------------------------------------------------------------------
 
 \includepdf[trim=10mm 0mm 0mm 0mm, clip]{titelblatt.pdf}
-\begin{titlepage}
-  \begin{center}
 
-    \vspace*{.06\textheight}
-    {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
-    \textsc{\Large Diplomarbeit}\\[0.5cm] % Thesis type
+\blankpage
 
-    \HRule \\[0.4cm] % Horizontal line
-    {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-    \HRule \\[1.5cm] % Horizontal line
-
-    \begin{minipage}[t]{0.4\textwidth}
-      \begin{flushleft} \large
-        \emph{Author:}\\
-        \href{mailto:damian.senn@gmail.com}{\authorname} % Author name - remove the \href bracket to remove the link
-      \end{flushleft}
-    \end{minipage}
-    \begin{minipage}[t]{0.4\textwidth}
-      \begin{flushright} \large
-        \emph{Experten:} \\
-        \href{mailto:sandro@bertolino.ch}{\supname}\\
-        \href{mailto:raez@puzzle.ch}{Severin Räz}
-      \end{flushright}
-    \end{minipage}\\[3cm]
-
-    \vfill
-
-    \large \textit{Eine Diplomarbeit für den Abschluss \degreename}\\[0.3cm] % University requirement text
-
-    \vfill
-
-    {\large \today}\\[4cm] % Date
-    %\includegraphics{Logo} % University/department logo - uncomment to place it
-
-    \vfill
-  \end{center}
-\end{titlepage}
-
-%------------------------------------------------------------------------------
-% DECLARATION PAGE
-%------------------------------------------------------------------------------
-
-\begin{declaration}
-  \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
-  \noindent Mit meiner Unterschrift bestätige ich, die vorliegende Diplomarbeit
-  selbstständig, ohne Hilfe Dritter und nur unter Benutzung der angegebenen
-  Quellen ohne Copyright-Verletzung, erstellt zu haben.\\
-
-  \noindent Unterschrift:\\
-  \rule[0.5em]{25em}{0.5pt}
-
-  \noindent Ort:\\
-  \rule[0.5em]{25em}{0.5pt}
-
-  \noindent Datum:\\
-  \rule[0.5em]{25em}{0.5pt}
-\end{declaration}
-
-\cleardoublepage
+%\begin{titlepage}
+%  \begin{center}
+%
+%    \vspace*{.06\textheight}
+%    {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+%    \textsc{\Large Diplomarbeit}\\[0.5cm] % Thesis type
+%
+%    \HRule \\[0.4cm] % Horizontal line
+%    {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+%    \HRule \\[1.5cm] % Horizontal line
+%
+%    \begin{minipage}[t]{0.4\textwidth}
+%      \begin{flushleft} \large
+%        \emph{Author:}\\
+%        \href{mailto:damian.senn@gmail.com}{\authorname} % Author name - remove the \href bracket to remove the link
+%      \end{flushleft}
+%    \end{minipage}
+%    \begin{minipage}[t]{0.4\textwidth}
+%      \begin{flushright} \large
+%        \emph{Experten:} \\
+%        \href{mailto:sandro@bertolino.ch}{\supname}\\
+%        \href{mailto:raez@puzzle.ch}{Severin Räz}
+%      \end{flushright}
+%    \end{minipage}\\[3cm]
+%
+%    \vfill
+%
+%    \large \textit{Eine Diplomarbeit für den Abschluss \degreename}\\[0.3cm] % University requirement text
+%
+%    \vfill
+%
+%    {\large \today}\\[4cm] % Date
+%    %\includegraphics{Logo} % University/department logo - uncomment to place it
+%
+%    \vfill
+%  \end{center}
+%\end{titlepage}
 
 %------------------------------------------------------------------------------
 % ABSTRACT PAGE
@@ -297,7 +285,7 @@ literate =    {---}{{\ProcessThreeDashes}}3
 
 \renewcommand{\abstractname}{Management Summary}
 \begin{abstract}
-  \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+  %\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
   Wer kennt es nicht, es ist Wochenende und es sind noch keine konkrete Pläne
   gemacht. Diese Situation fordert Datenquellen mit welchen man sich einen
   Überblick von möglichen Optionen erstellen kann.
@@ -336,6 +324,31 @@ literate =    {---}{{\ProcessThreeDashes}}3
   von weniger wichtigen Funktionalitäten geführt, welche zu einem späteren
   Zeitpunkt nachgeliefert werden können.
 \end{abstract}
+
+\blankpage
+
+%------------------------------------------------------------------------------
+% DECLARATION PAGE
+%------------------------------------------------------------------------------
+
+\null\thispagestyle{empty}\addtocounter{page}{-2}\newpage
+\begin{declaration}
+  \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+  \noindent Mit meiner Unterschrift bestätige ich, die vorliegende Diplomarbeit
+  selbstständig, ohne Hilfe Dritter und nur unter Benutzung der angegebenen
+  Quellen ohne Copyright-Verletzung, erstellt zu haben.\\
+
+  \noindent Unterschrift:\\
+  \rule[0.5em]{25em}{0.5pt}
+
+  \noindent Ort:\\
+  \rule[0.5em]{25em}{0.5pt}
+
+  \noindent Datum:\\
+  \rule[0.5em]{25em}{0.5pt}
+\end{declaration}
+
+\cleardoublepage
 
 %------------------------------------------------------------------------------
 % ACKNOWLEDGEMENTS
