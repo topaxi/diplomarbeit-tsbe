@@ -46,9 +46,11 @@ selbstständig verantwortlich.
 Im Kickoff-Meeting wurde besprochen, dass Damian Senn alle zwei Wochen einen
 kurzen Bericht an Sandro Bertolino und Severin Räz per E-Mail schicken wird.
 Im Bericht soll erläutert werden, was in der Zwischenzeit erledigt wurde und
-was die nächsten Schritte im Projekt sind.
+was die nächsten Schritte im Projekt sind. Die Reports sind im
+Anhang~\ref{biweeklyreports} zu finden.
 
-\includepdf[pagecommand={\section{Ausgefüllter Projektplan}}]{figures/planung-final.pdf}
+\refstepcounter{section}
+\includepdf[pagecommand={\thispagestyle{empty}\addcontentsline{toc}{section}{\protect\numberline{\thesection}Ausgefüllter Projektplan}},fitpaper,rotateoversize]{figures/planung-final.pdf}
 
 \section{Lieferergebnisse}
 
@@ -78,6 +80,26 @@ erstellt wurde für die geplanten Phasen.
                   & Total:                  & 302\tabularnewline
   \bottomrule
   \caption{Terminplan}
+\end{longtable}
+
+\section{Meilensteine}\label{meilensteine}
+
+Im Projektplan wurden folgende Meilensteine und Termine festgelegt:
+
+\begin{longtable}[]{@{}llcl@{}}
+  \toprule
+  Nr. & Meilenstein                     & KW & Datum\tabularnewline
+  \midrule
+  \endhead
+  1   & Kickoff-Meeting                 & 10 & 06.03.2019\tabularnewline
+  2   & Abschluss Phase Initialisierung & 13 & 31.03.2019\tabularnewline
+  3   & Zwischen-Meeting                & 18 & 24.04.2019\tabularnewline
+  4   & Abschluss Phase Konzept         & 16 & 21.04.2019\tabularnewline
+  5   & Abschluss Phase Realisierung    & 20 & 14.05.2019\tabularnewline
+  6   & Abschluss Phase Abschluss       & 21 & 19.05.2019\tabularnewline
+  7   & Abschluss-Meeting               & 22 & 21.05.2019\tabularnewline
+  \bottomrule
+  \caption{Meilensteine}
 \end{longtable}
 
 \clearpage
@@ -137,8 +159,29 @@ Die Risikodiagramme sind im Projektauftrag im Anhang~\ref{risikodiagram-ohne-mas
   \caption{Abgrenzungen}
 \end{figure}
 
+\subsubsection{Hardware, Server-Installation, Deployment und
+  Monitoring}\label{hardware-server-installation-deployment-und-monitoring}
+
+Da das Projekt ein reines Software-Entwicklungs Projekt ist, werden
+keine Operativen tätigkeiten wie Hardwarebeschaffung,
+Server-Installation, Deployment und das einrichten eines
+Monitoring-Systems vorgenommen.
+
+\subsubsection{Datenimport}\label{datenimport}
+
+Da wir bisher keine existierenden Konzertdaten besitzen, ist es nicht
+nötig, einen Datenimport zu implementieren.
+
+\subsubsection{Datenabfüllung}\label{datenabfuxfcllung}
+
+Die Projektarbeit beinhaltet kein Datenset, Tests werden mit Testdaten
+abgewickelt. Es liegt nicht in der Verantwortung des Projektleiters,
+dass Daten in die Applikation abgefüllt werden.
+
+\subsubsection{Weitere Abgrenzungen}
+
 \noindent
-Die detaillierten Erklärung zu den einzelnen Abgrenzungen sind im Projektauftrag~\ref{abgrenzungen} zu finden.
+Weitere detaillierte Erklärungen zu den einzelnen Abgrenzungen sind im Projektauftrag~\ref{abgrenzungen} zu finden.
 
 \clearpage
 
@@ -273,6 +316,12 @@ der Applikation im Browser geteilt werden.
 Die Bewertung der Server-Technologie sind in der Studie im
 Anhang~\ref{bewertungen-server-technologie} zu finden.
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/phoenix.png}
+  \captionsource{Phoenix Framework Logo}{\url{https://github.com/phoenixframework/phoenix}}
+\end{figure}
+
 Durch das grosse Featurset von Phoenix sowie tieferer Komplexität gegenüber den
 beiden anderen Varianten hat sich Phoenix für die Server-Technologie klar
 durchgesetzt.
@@ -300,12 +349,18 @@ durchzuführen.
 
 Wallaby ist ein Elixir Browser-Test Framework, welches sich nahtlos mit Phoenix
 integrieren lässt. Wallaby unterstützt parallelisierung von Tests und ist daher
-ein guter Kanditat eine hohe Anzahl von automatisierten Tests.
+ein guter Kanditat für eine hohe Anzahl von automatisierten Tests.
 
 \section{Entscheid Testing-Technologie}\label{entscheid-testing-technologie}
 
 Die Bewertung der Testing-Technologie sind in der Studie im
 Anhang~\ref{bewertungen-testing-technologie} zu finden.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/wallaby.png}
+  \captionsource{Wallaby Logo}{\url{https://github.com/keathley/wallaby}}
+\end{figure}
 
 Dadurch dass sich Wallaby einfach mit der ausgewählten Server-Technologie
 verwenden lässt, hohe Performance und Stabilität aufweist, ist Wallaby die

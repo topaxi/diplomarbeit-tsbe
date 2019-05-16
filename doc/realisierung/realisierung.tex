@@ -30,6 +30,53 @@ Folgende URLs sind verfügbar:
 \end{itemize}
 
 \clearpage
+\subsection{Screenshots}
+
+\subsubsection{Homepage}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/html-prototype.png}
+  \caption{HTML Prototyp: Homepage}
+\end{figure}
+
+\clearpage
+\subsubsection{Suche}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/html-proto-search.png}
+  \caption{HTML Prototyp: Suche}
+\end{figure}
+
+\clearpage
+\subsubsection{Gig erfassen}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/html-proto-add-gig.png}
+  \caption{HTML Prototyp: Gig erfassen}
+\end{figure}
+
+\clearpage
+\subsubsection{Login}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/html-proto-login.png}
+  \caption{HTML Prototyp: Login}
+\end{figure}
+
+\clearpage
+\subsubsection{Registrierung}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1\textwidth]{realisierung/html-proto-signup.png}
+  \caption{HTML Prototyp: Registrierung}
+\end{figure}
+
+\clearpage
 \section{Projekt Setup}
 
 Die Initialisierung des Projekts wurde mit der Phoenix Framework «Umbrella»
@@ -40,7 +87,19 @@ $ mix phx.new gigpillar --umbrella
 \end{lstlisting}
 
 Die Umbrella Struktur trennt die Applikation in kleinere Teilapplikationen,
-dies ermöglicht eine klarere Trennung zwischen der Webapplikation und der Businesslogik.
+dies ermöglicht eine klarere Trennung zwischen der Webapplikation und der Businesslogik.\\
+\\
+\noindent{}Projektstruktur:
+\begin{itemize}
+  \tightlist{}
+  \item{} \textbf{/apps/}\\Die Phoenix Teilapplikationen
+  \item{} \textbf{/apps/gigpillar/}\\Die Gigpillar Grundapplikation
+  \item{} \textbf{/apps/gigpillar\_web/}\\Die Gigpillar Webapplikation
+  \item{} \textbf{/apps/gigpillar\_web/assets/}\\Der CSS und JavaScript Code für die Webapplikation
+  \item{} \textbf{/html-prototype/}\\Der HTML Prototyp
+  \item{} \textbf{/doc/}\\Die Projektdokumentation
+  \item{} \textbf{/doc/main.pdf}\\Das PDF der Projektdokumentation
+\end{itemize}
 
 \clearpage
 \section{Dependency Management}
@@ -85,6 +144,9 @@ vorgenommen werden:
 
 \clearpage
 \section{Datenbankschema}\label{RealisierungsSchema}
+
+Die folgenden Änderungen wurden am von der Konzeptphase vorgegebenen Schema
+vorgenommen.
 
 \subsubsection{Alle Entitäten}
 Alle «created\_at» Felder wurden nach «inserted\_at» umbenannt, da dies die

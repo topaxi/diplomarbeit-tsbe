@@ -201,6 +201,20 @@ Das ausführliche Testprotokoll ist im Konzept im Anhang~\ref{akzeptanztests} zu
 
 \clearpage
 \section{Fazit}
+
+\subsection{Abweichungen}
+
+Das erstellte Datenbankschema weicht vom Anfoderdungskatalog leicht ab,
+so wird vorgesehen, dass für die Zuweisung von Musik-Genren nicht der Künstler
+sondern das Konzert/der Gig verwendet wird.
+Dies soll das Erfassen eines Gigs vereinfachen, da so nicht der Prozess des
+Erfassens unterbrochen werden muss, nur um einem Künstler das entsprechende
+Genre hinzuzufügen.\\
+\\
+Ausserdem wurde Entschieden, dass für Künstler und Locations keine eigenen
+Verwaltungen implementiert werden. Die Daten werden von externen Quellen
+wie z.B. der Google Places API bezogen.
+
 \subsection{Probleme}
 
 Für die Location Autocomplete Funktion, ist es nicht klar, ob die
