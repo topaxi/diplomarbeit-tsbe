@@ -55,7 +55,7 @@ Erweiterung zu verstehen.
   \midrule
   Performance        & 4                & In den Projektzielen wurde definiert, dass die Applikation in maximal 6 Sekunden im Browser geladen sein muss. Daher ist es wichtig, dass die Technologie gute Performance Charakteristiken vorweist.\tabularnewline
   \midrule
-  SEO                & 5                & Für eine öffentliche Applikation ist es unentbehrlich, dass sie indexierbar durch Suchmaschinen ist.\tabularnewline
+  \acrshort{seo}     & 5                & Für eine öffentliche Applikation ist es unentbehrlich, dass sie indexierbar durch Suchmaschinen ist.\tabularnewline
   \midrule
   Interaktivität     & 4                & Applikationen im Browser werden immer interaktiver, daher ist es wichtig, das die Technologie anspruchsvolle Abläufe implementieren kann. \tabularnewline
   \midrule
@@ -69,7 +69,7 @@ Erweiterung zu verstehen.
 \clearpage
 \subsection{Variante: React}
 
-Die JavaScript Library \textbf{React} ist heute die wohl beliebteste
+Die JavaScript \Gls{library} \textbf{React} ist heute die wohl beliebteste
 Technologie um interaktive Applikationen im Web zu bauen.
 
 React ermöglicht es den Entwicklern Screens auf eine deklarative Weise zu
@@ -86,9 +86,9 @@ verschiedene Lösungsansätze gibt.
 \subsection{Variante: Next.js}
 
 \textbf{Next.js} ist ein JavaScript Framework, das auf der \textbf{React}
-Library aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
+\Gls{library} aufbaut und zusätzliche Features sowie gängige Konventionen mitbringt.
 
-Dadurch dass Next.js ein komplettes Framework ist und nicht nur eine Library,
+Dadurch dass Next.js ein komplettes Framework ist und nicht nur eine \Gls{library},
 leidet diese Variante weniger der Komplexität eines kompletten Eigenbaus mit
 React. Features wie die Navigation von Seite zu Seite bringt Next.js bereits
 mit.
@@ -96,7 +96,7 @@ mit.
 \subsection{Variante: SSR}
 
 \textbf{SSR} steht für \textbf{S}erver\textbf{s}ide \textbf{R}endering und
-beschreibt die klassische Methode vom Erstellen von Webseiten, indem man HTML
+beschreibt die klassische Methode vom Erstellen von Webseiten, indem man \Gls{html}
 auf dem Server generiert und zum Browser schickt.
 
 Dies hat nach wie vor seine Daseinsberechtigung, da dies wenig Komplexität
@@ -120,7 +120,7 @@ zusätzlichen Aufwand von Suchmaschinen indexiert werden kann.
   \endhead
   Komplexität        & 3                   & 2                                            & 6                                              & 3                                                         & 9      & 4         & 12 \tabularnewline
   Performance        & 4                   & 3                                            & 12                                             & 3                                                         & 12     & 4         & 16 \tabularnewline
-  SEO                & 5                   & 2                                            & 10                                             & 4                                                         & 20     & 4         & 20 \tabularnewline
+  \acrshort{seo}     & 5                   & 2                                            & 10                                             & 4                                                         & 20     & 4         & 20 \tabularnewline
   Interaktivität     & 4                   & 4                                            & 16                                             & 4                                                         & 16     & 3         & 12 \tabularnewline
   Stabilität         & 3                   & 2                                            & 6                                              & 3                                                         & 9      & 4         & 12 \tabularnewline
   Testing            & 4                   & 4                                            & 16                                             & 4                                                         & 16     & 4         & 16 \tabularnewline
@@ -134,11 +134,11 @@ zusätzlichen Aufwand von Suchmaschinen indexiert werden kann.
 
 Durch die Evaluierung wurde klar, dass das Einsetzen eines JavaScript-Frameworks
 zuviel zusätzliche Komplexität und gewisse Einbussungen in Performance und Stabilität
-unvermeidbar ist. Somit ist ein die Wahl für eine klassische Server-Side Rendered
-Webseite favorisierend.
+unvermeidbar ist. Somit ist ein die Wahl für eine klassische \Gls{ssr} Webseite
+favorisierend.
 
 Es ist durchaus vorstellbar, dass in einem zweiten Schritt, nach diesem Projekt,
-die Server-Side Rendered Applikation durch eine Next.js Applikation ersetzt werden
+die \Gls{ssr} Applikation durch eine Next.js Applikation ersetzt werden
 könnte.
 
 \subsubsection{Kosten / Wirtschaftlichkeit}
@@ -174,8 +174,8 @@ Auch auf dem Server gewinnt JavaScript immer mehr an Beliebtheit.
 Mit Node.js und koa.js können schnell kleinere und simplere Applikationen
 erstellt werden, die dennoch sehr performant sind.
 
-koa.js ist eine Library für Server-Applikationen und bietet nur eine einfache
-Basis und bringt keine Features für Datenpersistenz oder HTML Templates mit sich.
+koa.js ist eine \Gls{library} für Server-Applikationen und bietet nur eine einfache
+Basis und bringt keine Features für Datenpersistenz oder \Gls{html} Templates mit sich.
 Diese Features müssen durch zusätzliche Module installiert werden.
 
 \subsection{Variante: Elixir / Phoenix}
@@ -183,7 +183,7 @@ Diese Features müssen durch zusätzliche Module installiert werden.
 Elixir ist eine Programmiersprache die eine sehr stabile und performante Grundlage
 bietet. Durch das Framework Phoenix, wird im Elixir Ökosystem ein starkes feature
 umfangreiches Web-Framework angeboten. Phoenix beinhaltet eine grosse Menge an
-Features mit sich und gibt dem Entwickler direkt Funktionalitäten wie HTML
+Features mit sich und gibt dem Entwickler direkt Funktionalitäten wie \Gls{html}
 Templates, Datenpersistenz und ein einfaches Test-Framework.
 
 \subsection{Variante: Next.js}
@@ -256,7 +256,7 @@ Kosten an.
 \subsection{Jest + Puppeteer}
 
 Jest ist ein JavaScript-Test Framework von Facebook. Durch die Kombinierung der
-Puppeteer Library von Google ist es möglich, automatisierte Browser-Tests
+Puppeteer \Gls{library} von Google ist es möglich, automatisierte Browser-Tests
 durchzuführen.
 
 \subsection{Wallaby}

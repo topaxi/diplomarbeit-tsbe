@@ -3,7 +3,7 @@
 \section{HTML-Prototyp}
 
 Der HTML-Prototyp ist im Verzeichnis «html-prototype» zu finden, dieser wurde
-mit \textbf{Ember.js} und \textbf{SASS} umgesetzt.
+mit \textbf{Ember.js} und \acrshort{sass} umgesetzt.
 Um den Prototypen zu starten muss \textbf{Node.js} und \textbf{Yarn} installiert sein.
 
 \noindent
@@ -14,7 +14,7 @@ $ yarn && yarn start
 \end{lstlisting}
 
 \noindent
-Danach kann der Prototyp über die URL \url{http://localhost:4200/} geöffnet werden.
+Danach kann der Prototyp über die acrshort{url} \url{http://localhost:4200/} geöffnet werden.
 
 \noindent
 Folgende URLs sind verfügbar:
@@ -95,7 +95,7 @@ dies ermöglicht eine klarere Trennung zwischen der Webapplikation und der Busin
   \item{} \textbf{/apps/}\\Die Phoenix Teilapplikationen
   \item{} \textbf{/apps/gigpillar/}\\Die Gigpillar Grundapplikation
   \item{} \textbf{/apps/gigpillar\_web/}\\Die Gigpillar Webapplikation
-  \item{} \textbf{/apps/gigpillar\_web/assets/}\\Der CSS und JavaScript Code für die Webapplikation
+  \item{} \textbf{/apps/gigpillar\_web/assets/}\\Der \acrshort{css} und JavaScript Code für die Webapplikation
   \item{} \textbf{/html-prototype/}\\Der HTML Prototyp
   \item{} \textbf{/doc/}\\Die Projektdokumentation
   \item{} \textbf{/doc/main.pdf}\\Das PDF der Projektdokumentation
@@ -155,8 +155,7 @@ Standardbenennung des Phoenix Frameworks ist.
 \subsubsection{User}
 Der Benutzer Entität wurde das Feld «password» nach «password\_hash» umbenannt,
 damit klar ist, dass nicht ein Passwort sondern nur ein Hash abgespeichert wird.
-Das Passwort wird mit \textbf{Argon2}\footnote{\url{https://en.wikipedia.org/wiki/Argon2}}
-verschlüsselt und ist somit eine sichere Verschlüsselung.
+Das Passwort wird mit \Gls{argon2} verschlüsselt und ist somit eine sichere Verschlüsselung.
 
 \subsubsection{Genre}
 Der Genre Entität sind im Konzept die Datumsfelder «update\_at» und «inserted\_at»
@@ -172,7 +171,7 @@ einen Link zum Ticketvorverkauf zu hinterlegen.
 \subsubsection{Location}
 Die Location Entität erhielt bei der Realisierung zwei neue Felder,
 «address» für die Adresse der Location und
-«google\_place\_id» um die Referenz der Google API zu erhalten.
+«google\_place\_id» um die Referenz der Google \acrshort{api} zu erhalten.
 
 \clearpage
 \subsection{Finales Schema}
@@ -188,25 +187,25 @@ Die Location Entität erhielt bei der Realisierung zwei neue Felder,
 
 Das Bearbeiten von Gigs wurde so eingeschränkt, dass nur angemeldete Benutzer Gigs erstellen dürfen und Benutzer nur eigene Gigs bearbeiten können.
 
-Dazu wurde die Library «Canary»\footnote{\url{https://github.com/cpjk/canary}} verwendet. In der Datei «apps/gigpillar/lib/abilities.ex» wurden die Berechtigungen wie gefolgt umgesetzt:
+Dazu wurde die \Gls{library} «Canary»\footnote{\url{https://github.com/cpjk/canary}} verwendet. In der Datei «apps/gigpillar/lib/abilities.ex» wurden die Berechtigungen wie gefolgt umgesetzt:
 
 \lstinputlisting[language=elixir,frame=single]{../apps/gigpillar/lib/abilities.ex}
 
 \clearpage
 \section{Location Autocomplete}
 
-Das Location Autocomplete Feld wurde mit der «Google Place API»\footnote{\url{https://developers.google.com/places/web-service/autocomplete}} umgesetzt.
+Das Location Autocomplete Feld wurde mit der «Google Place \acrshort{api}»\footnote{\url{https://developers.google.com/places/web-service/autocomplete}} umgesetzt.
 
-Die verwendete Library «google-api-elixir-client» implementiert die
-Autocomplete API, jedoch fehlte noch die entsprechende Zusatzfunktion um
+Die verwendete \Gls{library} «google-api-elixir-client» implementiert die
+Autocomplete \acrshort{api}, jedoch fehlte noch die entsprechende Zusatzfunktion um
 weitere Details, wie die geographischen Koordinaten, Adresse, etc., zu den gefundenen Locations abzufragen.
 
-Die API um Details abzufragen wurden im Rahmen von diesem Projekt umgesetzt
+Die \acrshort{api} um Details abzufragen wurden im Rahmen von diesem Projekt umgesetzt
 und zurück an das originale Projekt beigesteuert.
 
 Ausserdem musste eine Abhängigkeit auf den aktuellsten Stand gebracht werden.
 
-Die beiden Beiträge für die Library sind auf Github zu finden:
+Die beiden Beiträge für die \Gls{library} sind auf Github zu finden:
 
 \begin{itemize}
   \item{} \url{https://github.com/seanabrahams/google-api-elixir-client/pull/10/files}
@@ -243,7 +242,7 @@ ein normales Texteingabefeld, mit einer kleiner Lupe als Symbol.\\
 \begin{itemize}
   \tightlist{}
   \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb der Suchbox, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
-  \item{} \textbf{src:} URL für die Datenabfrage, bei Eingaben in das Textfeld wird jeweils eine \textbf{HTTP} Abfrage ausgelöst und ein \textbf{search-result} Ereignis ausgelöst.
+  \item{} \textbf{src:} acrshort{url} für die Datenabfrage, bei Eingaben in das Textfeld wird jeweils eine \textbf{\acrshort{http}} Abfrage ausgelöst und ein \textbf{search-result} Ereignis ausgelöst.
   \item{} \textbf{name:} Der Name des Form-Elements.
   \item{} \textbf{placeholder:} Platzhaltertext welcher dargestellt wird wenn das Textfeld leer ist.
   \item{} \textbf{value:} Der Wert, welcher mit dem HTML-Formular mitgeschickt wird.
@@ -272,7 +271,7 @@ Wird ein Element innerhalb des \textbf{<with-dropdown>} Element fokussiert, so w
 
 Das \textbf{<location-input>} Element wird verwendet um für einen Gig eine
 Location auszuwählen. Es repräsentiert ein Suchfeld, das eine Abfrage über die
-Google Place API macht. Wird eine Location ausgewählt, wird das Suchfeld durch
+Google Place \acrshort{api} macht. Wird eine Location ausgewählt, wird das Suchfeld durch
 einen Text sowie Button ersetzt. Der Text beinhaltet den Namen der Location und
 der Button ermöglicht es, die ausgewählte Location mit einer Neuen zu ersetzen.\\
 \\
@@ -293,7 +292,7 @@ der Button ermöglicht es, die ausgewählte Location mit einer Neuen zu ersetzen
   \tightlist{}
   \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Location-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
   \item{} \textbf{name:} Der Name des Form-Elements.
-  \item{} \textbf{location:} Ein \textbf{JSON}-Objekt einer Location, bestehend aus \textbf{name} und einer \textbf{id} oder \textbf{google\_place\_id}.
+  \item{} \textbf{location:} Ein \textbf{acrshort{json}}-Objekt einer Location, bestehend aus \textbf{name} und einer \textbf{id} oder \textbf{google\_place\_id}.
 \end{itemize}
 
 \subsubsection{<picture-input>}
@@ -318,7 +317,7 @@ jederzeit eine Vorschau für das ausgewählte Bild dargestellt.\\
   \tightlist{}
   \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Picture-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
   \item{} \textbf{name:} Der Name des Form-Elements.
-  \item{} \textbf{value:} URL oder Datei des ausgewählten Bildes.
+  \item{} \textbf{value:} acrshort{url} oder Datei des ausgewählten Bildes.
 \end{itemize}
 
 \clearpage
@@ -375,7 +374,7 @@ stattfindet.\\
   \item{} \textbf{inputId:} Das \textbf{id} Attribut für das Input Element innerhalb des Artists-Input, z.B. im Zusammenhang mit einem \textbf{<label>} Element.
   \item{} \textbf{name:} Der Name des Form-Elements.
   \item{} \textbf{placeholder:} Platzhalter für das Suchfeld.
-  \item{} \textbf{value:} Eine Liste von \textbf{JSON}-Objekten der einem Gig assozierten Künstler.
+  \item{} \textbf{value:} Eine Liste von \textbf{acrshort{json}}-Objekten der einem Gig assozierten Künstler.
 \end{itemize}
 
 \clearpage
@@ -448,9 +447,9 @@ noch kein \textbf{id} Feld, dass von der Datenbank automatisch generiert wird.
 Um die Bilder dennoch referenzieren zu können, wurde im Datenbankschema ein
 Feld \textbf{"<uuid">} eingefügt (siehe \ref{RealisierungSchemaGig}).
 Das \textbf{uuid} Feld wird mit einem möglichst einzigartigen Wert abgefüllt,
-der Wert entspricht dem \textbf{UUID version 4}\footnote{\url{https://de.wikipedia.org/wiki/Universally_Unique_Identifier}} Standard.
+der Wert entspricht dem \textbf{\Gls{uuid} version 4}\footnote{\url{https://de.wikipedia.org/wiki/Universally_Unique_Identifier}} Standard.
 
-Die \textbf{Arc} Library bietet eine einfache API an, um die hochgeladenen Bilder
+Die \textbf{Arc} \Gls{library} bietet eine einfache \acrshort{api} an, um die hochgeladenen Bilder
 auf die von der Webapplikation verwendeten Grössen zuzuschneiden. Dazu wird auf dem
 Server die Software \textbf{"<ImageMagick">}\footnote{\url{https://imagemagick.org/}}
 benötigt.
@@ -483,10 +482,10 @@ Für die Programmiersprache Elixir ist auf dem Wiki kein Beispiel vorhanden und 
 entsprechend adaptiert werden.
 
 \clearpage
-\section{SEO - Microdata}
+\section{\acrshort{seo} - \Gls{microdata}}
 
 Auf der Gig Detailansicht wird für Suchmaschinen ein zusätzliches Element mit
-\href{https://json-ld.org/}{JSON-LD} ausgegeben. Dieses Element ist für die
+\href{https://json-ld.org/}{acrshort{jsonld}} ausgegeben. Dieses Element ist für die
 normalen Besucher nicht sichtbar.\\
 
 \noindent{}Beispiel:
@@ -501,19 +500,19 @@ Diese Felder sind optional und sind vom umgesetzten Datenmodell noch nicht abged
 \begin{figure}[!htb]
   \centering
   \includegraphics[width=0.95\textwidth]{realisierung/json-ld-validation.png}
-  \caption{JSON-LD: Validierung}
+  \caption{acrshort{jsonld}: Validierung}
 \end{figure}
 
 \clearpage
 \section{Suche}
 
-Die Suche wurde mit einem "<einfachen"> SQL umgesetzt, der eingegebene
+Die Suche wurde mit einem "<einfachen"> \acrshort{sql} umgesetzt, der eingegebene
 Suchtext wird nach Wörter aufgeteilt und in den entsprechenden Datenbankfeldern
 gesucht.
 Das Suchresultat kann ausserdem mit den Parametern \textbf{from},
 \textbf{to} und \textbf{genre} weiter eingeschränkt werden.\\
 \\
-\noindent{}Nachfolgend, die implementierte SQL Abfrage in Elixir:
+\noindent{}Nachfolgend, die implementierte \acrshort{sql} Abfrage in Elixir:
 
 \lstinputlisting[language=elixir,frame=single,firstline=132,lastline=169]{../apps/gigpillar/lib/gigpillar/gigs.ex}
 
@@ -524,7 +523,7 @@ Das Suchresultat kann ausserdem mit den Parametern \textbf{from},
 
 \subsubsection{ExAws}
 
-Die Library \textbf{ExAws} hat nach der Installation folgenden Fehler ausgelöst:
+Die \Gls{library} \textbf{ExAws} hat nach der Installation folgenden Fehler ausgelöst:
 
 \begin{lstlisting}[frame=single]
 Failed to use "poison" (version 4.0.1) because
@@ -562,12 +561,12 @@ end
 \clearpage
 \subsection{Formularbehandlung in Phoenix}
 
-Da ich das Phoenix Framework bisher nur für \textbf{REST} APIs verwendet habe,
+Da ich das Phoenix Framework bisher nur für \textbf{\acrshort{rest}} APIs verwendet habe,
 hatte ich einige Probleme mit den vom Framework zur Verfügung gestelten
 Formularfunktionen.
 Dies hat mir viel mehr Zeit beansprucht als initial angenommen.
 
-In den meisten Tutorials, wurde die API mit einer \textbf{form\_for} Funktion
+In den meisten Tutorials, wurde die \acrshort{api} mit einer \textbf{form\_for} Funktion
 vorgestellt, diese Funktioniert jeweils nur im Zusammenhang mit einem
 Ecto-Changeset\footnote{\url{https://hexdocs.pm/ecto/Ecto.Changeset.html}}.
 Jedoch wird beim Login sowie der Suche kein solches Changeset verwendet.
@@ -594,7 +593,7 @@ Die Datum und Zeitanzeigen in der Applikation wurden mit der Zeit immer wie
 komplizierter. Insbesondere wenn Zeitzonen involviert sind, war es kaum mehr
 übersichtlich wann welche Daten vorhanden sind. Um nicht mehr zwischen den
 verschiedenen Datenstrukturen von Elixir zu unterscheiden müssen, wurde die
-Library \textbf{"<Timex">}\footnote{\url{https://github.com/bitwalker/timex}}
+\Gls{library} \textbf{"<Timex">}\footnote{\url{https://github.com/bitwalker/timex}}
 installiert.
 
 Timex bietet diverse Funktionen um jegliche Datum/Zeit bezogenen Datenstrukturen
@@ -602,7 +601,14 @@ zu manipulieren und formatieren.
 
 \subsection{Behandlung von Datenrelationen}
 
-TODO...
+Die Behandlung von Relationen im Datenmodell war für mich in dieser Form in
+Phoenix noch unbekannt. Es wurde einige Stunden darin investiert, die Daten
+des Gig erstellen Formulars korrekt abzuspeichern.
+Die in der Dokumentation behandelten Funktionen \textbf{put\_assoc} und
+\textbf{cast\_assoc} sind nicht eindeutig und klar Beschrieben.
+Derzeit ist die Implementation mit \textbf{cast\_assoc} umgesetzt, soweit
+das aufgebaute Verständnis ist, sollte dies allerdings mit \textbf{put\_assoc}
+umgesetzt werden.
 
 \clearpage
 \section{Tests}\label{RealisierungsTests}
@@ -744,22 +750,22 @@ war.
 
 \acceptancetest[Damian Senn][16.05.2019][OK]
 {Security - Suche}
-{Das Suchfeld ist resistent gegen XSS und SQL-Injection}
+{Das Suchfeld ist resistent gegen \acrshort{xss} und SQL-Injection}
 
 \acceptancetest[Damian Senn][16.05.2019][OK]
 {Security - Login}
-{Das Login ist resistent gegen XSS und SQL-Injection}
+{Das Login ist resistent gegen \acrshort{xss} und SQL-Injection}
 
 \clearpage
 
 \acceptancetest[Damian Senn][16.05.2019][Fehlerhaft]
 [Die Benutzerprofil Funktionalität fehlt komplett.]
 {Security - Benutzerprofil}
-{Das Benutzerprofil ist resistent gegen XSS und SQL-Injection}
+{Das Benutzerprofil ist resistent gegen \acrshort{xss} und SQL-Injection}
 
 \acceptancetest[Damian Senn][16.05.2019][OK]
 {Security - Gig erfassen}
-{Das Gig erfassen Formular ist resistent gegen XSS und SQL-Injection}
+{Das Gig erfassen Formular ist resistent gegen \acrshort{xss} und SQL-Injection}
 
 \clearpage
 \section{Offene Punkte}
@@ -811,7 +817,7 @@ Suchfilter abgedeckt.
 \clearpage
 \subsection{Mögliche Erweiterungen}
 
-Durch die geographischen Koordinaten die wir durch die Google Places API erhalten,
+Durch die geographischen Koordinaten die wir durch die Google Places \acrshort{api} erhalten,
 ist es denkbar, einen weiteren Suchfilter zu implementieren, der über einen Radius
 arbeitet. Als Beispiel könnte so nach Konzerten in der Nähe von Bern mit einem
 Radius von 30 Kilometern gesucht werden.
@@ -830,7 +836,7 @@ Software Pakete installiert werden:
 
 \begin{itemize}
   \tightlist{}
-  \item{} Erlang OTP Version 22.0
+  \item{} Erlang \acrshort{otp} Version 22.0
   \item{} rebar Version 3.10.0
   \item{} Elixir Version 1.8.0
   \item{} Imagemagick 6.9
@@ -841,7 +847,7 @@ gegriffen werden, dieses stellt bereits alle nötigen Software Pakete zur
 Verfügung.
 
 Bei der Installation des Servers oder Images, muss ausserdem die GeoIP
-Datenbank installiert werden, diese kann unter der folgenden URL
+Datenbank installiert werden, diese kann unter der folgenden acrshort{url}
 heruntergeladen werden:
 
 \url{https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz}
@@ -891,20 +897,20 @@ verwaltet.\\
   AWS\_ACCESS\_KEY\_ID              & Amazon oder minio Access Key\tabularnewline
   AWS\_SECRET\_ACCESS\_KEY          & Amazon oder minio Secret Acces Key\tabularnewline
   AWS\_REGION                       & Amazon Region ("<local"> für minio)\tabularnewline
-  AWS\_S3\_SCHEME                   & Amazon URL Schema ("<https"> oder "<http">)\tabularnewline
+  AWS\_S3\_SCHEME                   & Amazon acrshort{url} Schema ("<https"> oder "<http">)\tabularnewline
   AWS\_S3\_HOST                     & Amazon S3 oder minio Hostname\tabularnewline
   AWS\_S3\_PORT                     & Amazon S3 oder minio Port\tabularnewline
   GIGPILLAR\_WEB\_HOST              & Hostname der Applikation, z.B. "<gigpillar.com">\tabularnewline
   GIGPILLAR\_WEB\_SECRET\_KEY\_BASE & Ein zufällig generierter Wert, wird für die Verschlüsselung der Sessiondaten benötigt.\tabularnewline
   GIGPILLAR\_WEB\_DEFAULT\_CITY     & Stadt die angezeigt werden soll, wenn für den Besucher keine zugeordnet werden kann.\tabularnewline
-  GIGPILLAR\_ASSET\_HOST            & Basis URL für den File-Upload Server, z.B. "<http://localhost:4040">\tabularnewline
+  GIGPILLAR\_ASSET\_HOST            & Basis acrshort{url} für den File-Upload Server, z.B. "<http://localhost:4040">\tabularnewline
   POSTGRES\_USER                    & Der Datenbank Benutzername\tabularnewline
   POSTGRES\_PASSWORD                & Das Datenbank Benutzer Passwort\tabularnewline
   POSTGRES\_DB                      & Der Datenbank Name\tabularnewline
   POSTGRES\_HOSTNAME                & Der Hostname des Datenbank Servers\tabularnewline
   POSTGRES\_POOL\_SIZE              & Die Anzahl Verbindungen die zur Datenbank gemacht werden sollen.\tabularnewline
   GEOIP\_DATABASE\_FILE             & Pfad zum GeoIP Datenbank Archiv.\tabularnewline
-  GOOGLE\_API\_KEY                  & Der Google API Schlüssel.\footnote{\url{https://developers.google.com/places/web-service/get-api-key}}\tabularnewline
+  GOOGLE\_API\_KEY                  & Der Google \acrshort{api} Schlüssel.\footnote{\url{https://developers.google.com/places/web-service/get-api-key}}\tabularnewline
   REDIS\_HOST                       & Der redis Hostname \tabularnewline
   REDIS\_PORT                       & Der redis Port\tabularnewline
   \bottomrule

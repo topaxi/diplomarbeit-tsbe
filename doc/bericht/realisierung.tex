@@ -28,8 +28,7 @@ Standardbenennung des Phoenix Frameworks ist.
 \subsubsection{User}
 Der Benutzer Entität wurde das Feld «password» nach «password\_hash» umbenannt,
 damit klar ist, dass nicht ein Passwort sondern nur ein Hash abgespeichert wird.
-Das Passwort wird mit \textbf{Argon2}\footnote{\url{https://en.wikipedia.org/wiki/Argon2}}
-verschlüsselt und ist somit eine sichere Verschlüsselung.
+Das Passwort wird mit \Gls{argon2} verschlüsselt und ist somit eine sichere Verschlüsselung.
 
 \subsubsection{Genre}
 Der Genre Entität sind im Konzept die Datumsfelder «update\_at» und «inserted\_at»
@@ -45,7 +44,7 @@ einen Link zum Ticketvorverkauf zu hinterlegen.
 \subsubsection{Location}
 Die Location Entität erhielt bei der Realisierung zwei neue Felder,
 «address» für die Adresse der Location und
-«google\_place\_id» um die Referenz der Google API zu erhalten.
+«google\_place\_id» um die Referenz der Google \acrshort{api} zu erhalten.
 
 \section{Tests}
 

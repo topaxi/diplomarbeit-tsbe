@@ -50,7 +50,70 @@
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
 \usepackage{makecell}
+\usepackage[toc,acronym]{glossaries}
 \usepackage{listings}
+
+\makenoidxglossaries
+
+% ABBREVIATIONS
+
+\newglossaryentry{ssr}{type=\acronymtype, name={SSR}, description={Server-Side Rendered}, first={Server-Side Rendered (SSR)\glsadd{SSRG}}, see=[Glossar:]{SSRG}}
+
+\newacronym{owasp}{OWASP}{Open Web Application Security Project}
+\newacronym{tsbe}{TSBE}{Telematikschule Bern}
+\newacronym{html}{HTML}{Hypertext Markup Language}
+\newacronym{css}{CSS}{Cascading Syle Sheets}
+\newacronym{sass}{SASS}{Syntactically Awesome Stylesheets}
+\newacronym{http}{HTTP}{Hypertext Transfer Protocol}
+\newacronym{seo}{SEO}{Search Engine Optimization}
+\newacronym{xss}{XSS}{Cross-site Scripting}
+\newacronym{cpc}{CPC}{Cost Per Click}
+\newacronym{cpm}{CPM}{Cost Per Mile}
+\newacronym{smtp}{SMTP}{Simple Mail Transfer Protocol}
+\newacronym{erd}{ERD}{Entity Relationship Diagram}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{json}{JSON}{JavaScript Object Notation}
+\newacronym{jsonld}{JSON-LD}{JavaScript Object Notation for Linked Data}
+\newacronym{url}{URL}{Unified Resource Locator}
+\newacronym{aws}{AWS}{Amazon Web Services}
+\newacronym{sql}{SQL}{Structured Query Language}
+\newacronym{npm}{NPM}{Node Package Manager}
+\newacronym{otp}{OTP}{Open Telecom Platform}
+\newacronym{uuid}{UUID}{Universally Unique Identifier}
+\newacronym{rest}{REST}{Representational State Transfer}
+\glsaddall
+
+%-- GLOSSARY ENTRIES
+
+\newglossaryentry{SSRG}
+{
+  name=Server-Side Rendered,
+  description={HTML wird auf dem Server vorbereitet und dem Browser zur Verfügung gestellt. Modernere Applikationen senden mehr JavaScript zum Browser und laden Daten vom Server im JSON Format}
+}
+
+\newglossaryentry{responsive}
+{
+  name=Responsive Design,
+  description={Ein Design-Prinzip, bei dem jegliche Bildschirmgrössen beachtet werden. Das Interface passt sich dynamisch der verfügbaren Bildschirmgrösse an}
+}
+
+\newglossaryentry{argon2}
+{
+  name=Argon2,
+  description={Argon2 ist ein sicherer Passwort-Hashing Algorithmus, siehe \url{https://de.wikipedia.org/wiki/Argon2}}
+}
+
+\newglossaryentry{library}
+{
+  name=Library,
+  description={In der Software-Entwicklung wird eine Sammlung an wiederverwendbaren Funktionen «Library» genannt}
+}
+
+\newglossaryentry{microdata}
+{
+  name=Microdata,
+  description={Ergänzungen im HTML um Suchmaschinen zusätzliche Informationen bereit zu stellen}
+}
 
 % YML
 \newcommand\YAMLcolonstyle{\color{red}\mdseries}
@@ -297,35 +360,6 @@ literate =    {---}{{\ProcessThreeDashes}}3
 \listoftables % Prints the list of tables
 
 %------------------------------------------------------------------------------
-% ABBREVIATIONS
-%------------------------------------------------------------------------------
-
-\begin{abbreviations}{ll}
-
-  \textbf{TSBE} & \textbf{T}elematik\textbf{s}chule \textbf{Be}rn\\
-  \textbf{HTML} & \textbf{H}yper\textbf{t}ext \textbf{M}arkup \textbf{L}anguage\label{HTML}\\
-  \textbf{CSS} & \textbf{C}ascading \textbf{S}yle \textbf{S}heets\label{CSS}\\
-  \textbf{SASS} & \textbf{S}yntactically \textbf{A}wesome \textbf{S}tyle\textbf{s}heets\\
-  \textbf{HTTP} & \textbf{H}yper\textbf{t}ext \textbf{T}ransfer \textbf{P}rotocol\\
-  \textbf{SEO} & \textbf{S}earch \textbf{E}ngine \textbf{O}ptimization\label{SEO}\\
-  \textbf{OWASP} & \textbf{O}pen \textbf{W}eb \textbf{A}pplication \textbf{S}ecurity \textbf{P}roject\label{OWASP}\\
-  \textbf{XSS} & \textbf{Cross}-\textbf{s}ite \textbf{s}cripting\label{XSS}\\
-  \textbf{SSR} & \textbf{S}erver \textbf{S}ide \textbf{R}endered\label{SSR}\\
-  \textbf{CPC} & \textbf{C}ost \textbf{P}er \textbf{C}lick\\
-  \textbf{CPM} & \textbf{C}ost \textbf{P}er \textbf{M}ile\\
-  \textbf{SMTP} & \textbf{S}imple \textbf{M}ail \textbf{T}ransfer \textbf{P}rotocol\\
-  \textbf{ERD} & \textbf{E}ntity \textbf{R}elationship \textbf{D}iagram\\
-  \textbf{API} & \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface\\
-  \textbf{JSON} & \textbf{J}ava\textbf{S}cript \textbf{O}bject \textbf{N}otation\\
-  \textbf{URL} & \textbf{U}nified \textbf{R}esource \textbf{L}ocator\\
-  \textbf{AWS} & \textbf{A}mazon \textbf{W}eb \textbf{S}ervices\\
-  \textbf{SQL} & \textbf{S}tructured \textbf{Q}uery \textbf{L}anguage\\
-  \textbf{NPM} & \textbf{N}ode \textbf{P}ackage \textbf{M}anager\\
-  \textbf{OTP} & \textbf{O}pen \textbf{T}elecom \textbf{P}latform\\
-
-\end{abbreviations}
-
-%------------------------------------------------------------------------------
 % DEDICATION
 %------------------------------------------------------------------------------
 
@@ -372,6 +406,11 @@ literate =    {---}{{\ProcessThreeDashes}}3
 \include{appendix/report-kw13-14}
 \include{appendix/report-kw15-16}
 \include{appendix/report-kw17-19}
+
+%--- GLOSSARY --
+
+\printnoidxglossary[type=\acronymtype,title=Abkürzungsverzeichnis]
+\printnoidxglossary
 
 %------------------------------------------------------------------------------
 % BIBLIOGRAPHY

@@ -139,8 +139,8 @@ verrichten:
 \subsection{Datenfluss}
 
 Die Homepage zeigt den Besuchern Gigs in ihrer Nähe an, dazu muss über eine
-GeoIP API die IP-Adresse des Besuchers auf ein Land zurückverfolgt werden.
-Dazu wird beim ersten Besuch die GeoIP API abgefragt und das Land des Benutzers
+GeoIP \acrshort{api} die IP-Adresse des Besuchers auf ein Land zurückverfolgt werden.
+Dazu wird beim ersten Besuch die GeoIP \acrshort{api} abgefragt und das Land des Benutzers
 in eine Session geschrieben. Bei weiteren Aufrufen wird das Land direkt aus der
 Session bezogen.
 
@@ -168,18 +168,18 @@ Für weitere Datenflussdefinitionen, siehe Konzept Anhang~\ref{datenfluss}.
 
 Der Applikationscode soll mit Unit-Tests getestet werden.
 
-Unit-Tests testen einzelne Funktionen, d.h. hier sind Aufrufe über HTTP, wie
+Unit-Tests testen einzelne Funktionen, d.h. hier sind Aufrufe über \Gls{http}, wie
 sie durch den Browser ausgelöst würden, oder Datenbankabfragen ausgeschlossen.
 
 \subsection{Integration-Tests}
 
-HTTP Requests sowie Datenabfragen sollen über Integration-Tests abgedeckt
+\Gls{http} Requests sowie Datenabfragen sollen über Integration-Tests abgedeckt
 werden. In den Integration-Tests wird vor allem Business-Logik wie z.B.
 Validierungen von Daten getestet.
 
 \subsection{Browser-Tests}
 
-Mit der in der Studie evaluierten Testing Library «Wallaby» sollen die
+Mit der in der Studie evaluierten Testing \Gls{library} «Wallaby» sollen die
 gängigsten Benutzer Use-Cases getestet werden.
 
 \subsection{Visual-Tests}
@@ -213,19 +213,19 @@ Genre hinzuzufügen.\\
 \\
 Ausserdem wurde Entschieden, dass für Künstler und Locations keine eigenen
 Verwaltungen implementiert werden. Die Daten werden von externen Quellen
-wie z.B. der Google Places API bezogen.
+wie z.B. der Google Places \acrshort{api} bezogen.
 
 \subsection{Probleme}
 
 Für die Location Autocomplete Funktion, ist es nicht klar, ob die
-Google Places API die nötigen Daten zur Verfügung stellt. So kann es gut sein,
+Google Places \acrshort{api} die nötigen Daten zur Verfügung stellt. So kann es gut sein,
 dass Locations nicht gefunden werden oder zuviele nicht relevante Resultate
 zurück gibt.
 
 \subsection{Machbarkeit}
 
-Für die Machbarkeit während dem im Konzept ein Test mit der Google Places API
-gemacht. Die Google Places API liefert alle nötigen Daten, um die gewünschten
+Für die Machbarkeit während dem im Konzept ein Test mit der Google Places \acrshort{api}
+gemacht. Die Google Places \acrshort{api} liefert alle nötigen Daten, um die gewünschten
 Features umzusetzen.
 
 \subsection{Wirtschaftlichkeit}
