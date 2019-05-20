@@ -105,11 +105,25 @@ defmodule DemoSeeds do
     })
 
     Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
+      name: "Rössli",
+      address: "Neubrückstrasse 8, Bern, Switzerland",
+      lat: 46.9527882,
+      lng: 7.4384452
+    })
+
+    Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
       name: "Jugendkulturhaus Dynamo",
       address: "Wasserwerkstrasse 21, 8006 Zürich, Switzerland",
       google_place_id: "ChIJP_cBiAsKkEcRQBFT6SDSjk4",
       lat: 47.383401,
       lng: 8.5393821
+    })
+
+    Gigpillar.Repo.insert!(%Gigpillar.Locations.Location{
+      name: "Cassiopeia",
+      address: "Revaler Str. 99, 10245 Berlin, Germany",
+      lat: 52.5072755,
+      lng: 13.4526039
     })
   end
 
@@ -142,12 +156,63 @@ defmodule DemoSeeds do
     ])
 
     %Gigpillar.Gigs.Gig{
+      name: "Darkside - Noisia, Spor",
+      location_id: Gigpillar.Locations.get_location_by_name!("Dachstock").id,
+      date: DateTime.from_naive!(~N[2019-05-30 22:00:00], "Etc/UTC"),
+      tickets: "https://www.petzitickets.ch/"
+    }
+    |> insert_gig([
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Noisia").id,
+        plays_at: ~T[03:00:00]
+      },
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Spor").id,
+        plays_at: ~T[01:00:00]
+      }
+    ])
+
+    %Gigpillar.Gigs.Gig{
+      name: "MAX RAPTOR",
+      location_id: Gigpillar.Locations.get_location_by_name!("Rössli").id,
+      date: DateTime.from_naive!(~N[2019-06-06 20:00:00], "Etc/UTC"),
+      tickets: "https://www.petzitickets.ch/"
+    }
+    |> insert_gig([
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
+        plays_at: ~T[22:00:00]
+      },
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Russkaja").id,
+        plays_at: ~T[20:00:00]
+      }
+    ])
+
+    %Gigpillar.Gigs.Gig{
       name: "Mobina Galore",
       location_id: Gigpillar.Locations.get_location_by_name!("Jugendkulturhaus Dynamo").id,
       date: DateTime.from_naive!(~N[2019-05-30 18:30:00], "Etc/UTC"),
       tickets: "https://www.ticketino.com/de/Event/Mobina-Galore/82201"
     }
     |> insert_gig([
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
+        plays_at: ~T[20:00:00]
+      }
+    ])
+
+    %Gigpillar.Gigs.Gig{
+      name: "MAX RAPTOR",
+      location_id: Gigpillar.Locations.get_location_by_name!("Cassiopeia").id,
+      date: DateTime.from_naive!(~N[2019-05-30 20:00:00], "Etc/UTC"),
+      tickets: "https://www.petzitickets.ch/"
+    }
+    |> insert_gig([
+      %{
+        artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
+        plays_at: ~T[22:00:00]
+      },
       %{
         artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
         plays_at: ~T[20:00:00]
