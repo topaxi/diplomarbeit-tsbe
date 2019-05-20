@@ -136,7 +136,7 @@ defmodule Gigpillar.Gigs do
 
   def search_gigs(query, %{to: to} = options) do
     search_gigs(query, Map.delete(options, :to))
-    |> where([g], g.date >= ^to)
+    |> where([g], g.date <= ^to)
   end
 
   def search_gigs(query, %{genre: genre} = options) do

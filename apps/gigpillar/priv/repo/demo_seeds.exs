@@ -11,6 +11,15 @@
 # and so on) as they will fail if something goes wrong.
 
 defmodule DemoSeeds do
+  def insert_user do
+    Gigpillar.Accounts.register_user(%{
+      "username" => "topaxi",
+      "email" => "damian.senn@gmail.com",
+      "password" => "1234qwer",
+      "password_confirmation" => "1234qwer"
+    })
+  end
+
   def insert_genres do
     [
       "Alternative",
@@ -132,7 +141,7 @@ defmodule DemoSeeds do
   end
 
   def insert_gig(gig, gig_artists, genres) do
-    gig = Gigpillar.Repo.insert!(gig)
+    gig = Gigpillar.Repo.insert!(Map.put(gig, :creator_id, 1))
 
     Gigpillar.Repo.insert_all(
       Gigpillar.Gigs.GigArtist,
@@ -152,6 +161,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "Darkside - Pendulum, Camo & Crooked",
       location_id: Gigpillar.Locations.get_location_by_name!("Dachstock").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-12-17 22:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
@@ -172,6 +182,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "Darkside - Noisia, Spor",
       location_id: Gigpillar.Locations.get_location_by_name!("Dachstock").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-05-30 22:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
@@ -192,6 +203,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "MAX RAPTOR",
       location_id: Gigpillar.Locations.get_location_by_name!("Rössli").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-06-06 20:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
@@ -212,6 +224,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "Mobina Galore",
       location_id: Gigpillar.Locations.get_location_by_name!("Jugendkulturhaus Dynamo").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-05-30 18:30:00], "Etc/UTC"),
       tickets: "https://www.ticketino.com/de/Event/Mobina-Galore/82201"
     }
@@ -228,6 +241,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "MAX RAPTOR",
       location_id: Gigpillar.Locations.get_location_by_name!("Cassiopeia").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-05-30 20:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
@@ -248,6 +262,7 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "Parkway Drive",
       location_id: Gigpillar.Locations.get_location_by_name!("Cassiopeia").id,
+      description: lorem(),
       date: DateTime.from_naive!(~N[2019-05-30 20:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
@@ -266,7 +281,12 @@ defmodule DemoSeeds do
     )
   end
 
+  def lorem do
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante lacinia arcu elementum dapibus. Etiam convallis tincidunt rutrum. Praesent id ipsum dolor. Aliquam finibus purus ut erat varius dignissim. Vestibulum molestie neque congue turpis interdum, vitae auctor orci tempus. Aenean ultrices ex sed leo interdum porta. Maecenas in magna eu turpis condimentum ultricies non ut diam. Aliquam id sagittis felis. Curabitur urna nisl, lacinia ut nulla pulvinar, varius blandit ipsum. Phasellus et mollis dui. In pretium porttitor metus, scelerisque aliquam ante dapibus sed. Nunc ullamcorper eget est id tempus. Vivamus convallis et quam ut ornare. Aliquam erat volutpat."
+  end
+
   def run do
+    insert_user()
     insert_genres()
     insert_artists()
     insert_locations()

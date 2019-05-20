@@ -1,3 +1,11 @@
+.page-index {
+  .alert {
+    top: calc(60px + 1rem);
+    left: 500px;
+    position: absolute;
+  }
+}
+
 .cover {
   height: 100vh;
   min-height: 640px;
