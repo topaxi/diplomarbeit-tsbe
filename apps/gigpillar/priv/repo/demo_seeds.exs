@@ -156,10 +156,10 @@ defmodule DemoSeeds do
   end
 
   def run do
-    insert_genres
-    insert_artists
-    insert_locations
-    insert_gigs
+    insert_genres()
+    insert_artists()
+    insert_locations()
+    insert_gigs()
   end
 end
 
