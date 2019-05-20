@@ -30,8 +30,8 @@ defmodule GigpillarWeb.Features.CreateNewGigTest do
     # |> assert_has(css("img[src^=\"blob:\"]"))
     |> fill_in(text_field("Location"), with: "Dynamo Zürich")
     |> click(button("Jugendkulturhaus Dynamo, Wasserwerkstrasse, Zürich, Switzerland"))
-    |> fill_in(text_field("When"), with: "14.05.2019")
-    |> fill_in(text_field("Doors"), with: "0730P")
+    |> fill_in(text_field("When"), with: "05/14/2019")
+    # |> fill_in(text_field("Doors"), with: "0730P")
     |> fill_in(text_field("Gig artists"), with: "Mobina")
     |> click(button("Mobina Galore"))
     |> fill_in(text_field("Description"),

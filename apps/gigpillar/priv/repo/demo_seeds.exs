@@ -224,7 +224,8 @@ defmodule DemoSeeds do
     %Gigpillar.Gigs.Gig{
       name: "Mobina Galore",
       location_id: Gigpillar.Locations.get_location_by_name!("Jugendkulturhaus Dynamo").id,
-      description: lorem(),
+      description:
+        "Mobina Galore leben und arbeiten in einem Umfeld, einer Szene, einem Genre, das immer noch von Männern dominiert wird. Seit ihrer Gründung im Jahr 2010 mussten sie sich immer wieder mit den widerlichsten Äußerungen, doofen Kommentaren wie „ihr seid ja eigentlich ziemlich gut“ und herablassenden Clubbesitzern rumschlagen. Dazu kommt die heimtückische Herausforderung der Überwindung der gläsernen Decke der Musikindustrie. Immer wieder werden sie mit Sexismus konfrontiert, doch genau das motiviert Gitarristin/ Sängerin Jenna Priestner und Schlagzeugerin Marcia Hanson nur dazu, noch härter zu arbeiten und an dem festzuhalten, was sie am besten können: großartige Punk Rock Songs zu schreiben, die für sich selbst sprechen.",
       date: DateTime.from_naive!(~N[2019-05-30 18:30:00], "Etc/UTC"),
       tickets: "https://www.ticketino.com/de/Event/Mobina-Galore/82201"
     }

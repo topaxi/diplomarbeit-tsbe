@@ -33,9 +33,4 @@ defmodule GigpillarWeb.Features.SearchTest do
     |> assert_has(css(".page-search-result > li", count: 1))
     |> assert_has(css(".page-search-result-artists li", count: 2))
   end
-
-  @tag :skip
-  test "search genre", %{session: session} do
-    session
-  end
 end
