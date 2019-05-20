@@ -127,13 +127,24 @@ defmodule DemoSeeds do
     })
   end
 
-  def insert_gig(gig, gig_artists) do
+  defp get_genre_by_name!(name) do
+    Gigpillar.Repo.get_by!(Gigpillar.Genres.Genre, name: name)
+  end
+
+  def insert_gig(gig, gig_artists, genres) do
     gig = Gigpillar.Repo.insert!(gig)
 
     Gigpillar.Repo.insert_all(
       Gigpillar.Gigs.GigArtist,
       gig_artists
       |> Enum.map(fn gig_artist -> Map.put(gig_artist, :gig_id, gig.id) end)
+    )
+
+    Gigpillar.Repo.insert_all(
+      Gigpillar.Gigs.GigGenre,
+      genres
+      |> Enum.map(&get_genre_by_name!/1)
+      |> Enum.map(fn genre -> %{gig_id: gig.id, genre_id: genre.id} end)
     )
   end
 
@@ -144,16 +155,19 @@ defmodule DemoSeeds do
       date: DateTime.from_naive!(~N[2019-12-17 22:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
-    |> insert_gig([
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Pendulum").id,
-        plays_at: ~T[03:00:00]
-      },
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Camo & Krooked").id,
-        plays_at: ~T[01:00:00]
-      }
-    ])
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Pendulum").id,
+          plays_at: ~T[03:00:00]
+        },
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Camo & Krooked").id,
+          plays_at: ~T[01:00:00]
+        }
+      ],
+      ["EDM"]
+    )
 
     %Gigpillar.Gigs.Gig{
       name: "Darkside - Noisia, Spor",
@@ -161,16 +175,19 @@ defmodule DemoSeeds do
       date: DateTime.from_naive!(~N[2019-05-30 22:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
-    |> insert_gig([
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Noisia").id,
-        plays_at: ~T[03:00:00]
-      },
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Spor").id,
-        plays_at: ~T[01:00:00]
-      }
-    ])
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Noisia").id,
+          plays_at: ~T[03:00:00]
+        },
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Spor").id,
+          plays_at: ~T[01:00:00]
+        }
+      ],
+      ["EDM"]
+    )
 
     %Gigpillar.Gigs.Gig{
       name: "MAX RAPTOR",
@@ -178,16 +195,19 @@ defmodule DemoSeeds do
       date: DateTime.from_naive!(~N[2019-06-06 20:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
-    |> insert_gig([
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
-        plays_at: ~T[22:00:00]
-      },
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Russkaja").id,
-        plays_at: ~T[20:00:00]
-      }
-    ])
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
+          plays_at: ~T[22:00:00]
+        },
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Russkaja").id,
+          plays_at: ~T[20:00:00]
+        }
+      ],
+      ["Rock", "Punk"]
+    )
 
     %Gigpillar.Gigs.Gig{
       name: "Mobina Galore",
@@ -195,12 +215,15 @@ defmodule DemoSeeds do
       date: DateTime.from_naive!(~N[2019-05-30 18:30:00], "Etc/UTC"),
       tickets: "https://www.ticketino.com/de/Event/Mobina-Galore/82201"
     }
-    |> insert_gig([
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
-        plays_at: ~T[20:00:00]
-      }
-    ])
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
+          plays_at: ~T[20:00:00]
+        }
+      ],
+      ["Rock", "Punk"]
+    )
 
     %Gigpillar.Gigs.Gig{
       name: "MAX RAPTOR",
@@ -208,16 +231,39 @@ defmodule DemoSeeds do
       date: DateTime.from_naive!(~N[2019-05-30 20:00:00], "Etc/UTC"),
       tickets: "https://www.petzitickets.ch/"
     }
-    |> insert_gig([
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
-        plays_at: ~T[22:00:00]
-      },
-      %{
-        artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
-        plays_at: ~T[20:00:00]
-      }
-    ])
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Max Raptor").id,
+          plays_at: ~T[22:00:00]
+        },
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Mobina Galore").id,
+          plays_at: ~T[20:00:00]
+        }
+      ],
+      ["Rock", "Punk"]
+    )
+
+    %Gigpillar.Gigs.Gig{
+      name: "Parkway Drive",
+      location_id: Gigpillar.Locations.get_location_by_name!("Cassiopeia").id,
+      date: DateTime.from_naive!(~N[2019-05-30 20:00:00], "Etc/UTC"),
+      tickets: "https://www.petzitickets.ch/"
+    }
+    |> insert_gig(
+      [
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Parkway Drive").id,
+          plays_at: ~T[22:00:00]
+        },
+        %{
+          artist_id: Gigpillar.Artists.get_artist_by_name!("Breakdown of Sanity").id,
+          plays_at: ~T[20:00:00]
+        }
+      ],
+      ["Rock", "Metal"]
+    )
   end
 
   def run do
