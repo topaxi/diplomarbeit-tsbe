@@ -1,4 +1,6 @@
 defmodule Gigpillar.Accounts.User do
+  @derive {Inspect, only: [:id, :username]}
+
   use Ecto.Schema
   import Ecto.Changeset
 
