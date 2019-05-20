@@ -176,6 +176,10 @@ h6,
   background-size: cover;
 }
 
+section.intro2 {
+  display: none !important;
+}
+
 .left {
   text-align: left;
 }

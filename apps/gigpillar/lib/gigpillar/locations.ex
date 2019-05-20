@@ -38,6 +38,22 @@ defmodule Gigpillar.Locations do
   def get_location!(id), do: Repo.get!(Location, id)
 
   @doc """
+  Gets a single location by name.
+
+  Raises `Ecto.NoResultsError` if the Location does not exist.
+
+  ## Examples
+
+      iex> get_location_by_name!("Dachstock")
+      %Artist{}
+
+      iex> get_location_by_name!("Unknown Location")
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_location_by_name!(name), do: Repo.get_by!(Location, name: name)
+
+  @doc """
   Gets a single location by google place id.
 
   ## Examples

@@ -34,8 +34,8 @@ config :plug_session_redis, :config,
   name: :gigpillar_sessions,
   pool: [size: 2, max_overflow: 5],
   redis: [
-    host: System.get_env("REDIS_HOST") || "127.0.0.1",
-    port: System.get_env("REDIS_PORT") || 6379
+    host: '127.0.0.1',
+    port: 6379
   ]
 
 config :canary, repo: Gigpillar.Repo

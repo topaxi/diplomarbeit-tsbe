@@ -1,7 +1,16 @@
-<!-- .slide: class="intro" -->
+<!-- .slide: class="intro" style="flex-direction: column; justify-content: center" -->
 # Fragen?
 
-<small class="very-small">
-Sources:
-https://wallpaeprs-all.com/
-</small>
+===
+
+<!-- .slide: class="intro" style="flex-direction: column; justify-content: center" -->
+# Demo
+
+===
+
+<!-- .slide: class="intro" style="flex-direction: column; justify-content: center" -->
+
+# Danke!
+
+Quellen:
+- https://wallpapers-all.com/
