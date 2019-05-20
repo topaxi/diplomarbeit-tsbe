@@ -1,11 +1,11 @@
 ## Agenda
 
 - Ausgangslage
-  - Ist- &amp; Soll-Zustand
 - Projektziele &amp; Meilensteine
-- Abgrenzungen
-- Projektorganisation
-- Projektablauf und Projektplan
+- Projektorganisation &amp; Abgrenzungen
+- Projektablauf &amp; Projektplan
 - Nutzwertanalysen &amp; Wirtschaftlichkeit
-- Stand Konzept
-- Organisatorisches
+- Software- &amp; Testkonzept
+- Realisierung &amp; Probleme
+- Abschluss &amp; Rückblick
+- Demo &amp; Fragen

@@ -28,6 +28,6 @@
 - Abschluss Phase Initialisierung - 31.03.2019
 - Zwischen-Meeting - 24.04.2019
 - Abschluss Phase Konzept - 21.04.2019
-- Abschluss Phase Realisierung - 19.05.2019
-- Abschluss Phase Abschluss
-- Abschluss-Meeting
+- Abschluss Phase Realisierung - 14.05.2019
+- Abschluss Phase Abschluss - 19.05.2019
+- Abschluss-Meeting - 21.05.2019

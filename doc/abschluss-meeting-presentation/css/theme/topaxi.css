@@ -171,6 +171,11 @@ h6,
   height: 100%;
 }
 
+.intro2 {
+  background-image: url(https://wallpapers-all.com/uploads/posts/2017-03/23_berlin.jpg);
+  background-size: cover;
+}
+
 .left {
   text-align: left;
 }
@@ -178,4 +183,11 @@ h6,
 .no-img-border img {
   border: none !important;
   box-shadow: none !important;
+}
+
+.no-img-margin img,
+.no-img-margin p {
+  margin: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }

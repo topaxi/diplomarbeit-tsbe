@@ -1,19 +1,15 @@
 <!-- .slide: class="intro" -->
 <div>
   <h1>Konzertkalender</h1>
-
-  <p>Zwischen-Meeting</p>
 </div>
 
 ===
 
-<!-- .slide: class="left" -->
+<!-- .slide: class="into intro2" -->
 
-## Teilnehmer
 
-<small>Diplomand</small><br>
-<strong>Damian Senn</strong>
+---
 
-<small>Experten</small></br>
-<strong>Sandro Bertolino</strong><br>
-<strong>Severin Räz</strong>
+## Pläne? Nein?
+
+- Webportal zum Suchen von Konzerten

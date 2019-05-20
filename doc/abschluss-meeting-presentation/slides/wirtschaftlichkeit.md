@@ -5,14 +5,12 @@
 
 ---
 
-<!-- .slide: class="no-img-border" -->
-## «GigBoost»
+<!-- .slide: class="no-img-border no-img-margin" -->
 
-![GigBoost](pictures/gigboost.png)
+<img src="pictures/gigboost.png" alt="" width="90%">
 
 ---
 
-<!-- .slide: class="no-img-border" -->
-## Werbung
+<!-- .slide: class="no-img-border no-img-margin" -->
 
-![Werbung](pictures/werbung.png)
+<img src="pictures/werbung.png" alt="" width="80%">

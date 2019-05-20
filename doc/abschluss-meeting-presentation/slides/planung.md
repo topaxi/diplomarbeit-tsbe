@@ -1,5 +1,13 @@
 <!-- .slide: class="no-img-border" -->
 
+![Planung](pictures/planung-final.png)
+
+---
+
 ## Planung
 
-![Planung](pictures/planung.png)
+- Verzögerung in Initialisierung
+- Zeitlich jedoch im Rahmen
+- Konzeptphase überschätzt
+- Realisierung zu knapp
+- Keine Reserven geplant
