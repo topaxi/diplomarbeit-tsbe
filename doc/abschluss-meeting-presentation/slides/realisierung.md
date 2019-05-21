@@ -11,32 +11,38 @@
 
 ---
 
-
----
-
-# Implementation
+## Implementation
 
 - Registrierung / Login
 - Bild Preview bei Upload
 - Autocomplete Felder
 - Google Places API
-- Suche Filter
-- GeoIP
+- Suche mit Filter
+- GeoIP aber noch ohne Filterung
 
 ---
 
-- Datenbank
-  - Einige kleinere Anpassungen
-  - Neue Felder
-  - Vergessene Felder
+## Datenbank
+
+- Einige kleinere Anpassungen
+- Neue Felder
+- Vergessene Felder
 
 ---
 
-# Tests
+## Tests
 
-- Unit Tests
-- Integration Tests
-- Browser Tests
+- Unit Tests, einzelne Funktionen
+- Integration Tests, HTTP ressourcen
+- Browser Tests, "Benutzer Simulation"
+
+---
+
+## Installationsanleitung
+
+- Grobe Installationsanleitung
+  - Definition von Abhängigkeiten
+  - Grobe Schritte zur Installation
 
 ---
 
@@ -44,4 +50,6 @@
 
 - Phoenix Formulare
 - Datenbank Entitätsbeziehungen
+  - cast_assoc
+  - put_assoc
 - Datum, Manipulierung sowie Formatierung

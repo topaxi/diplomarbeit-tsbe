@@ -12,7 +12,7 @@
 
 <!-- .slide: class="left" -->
 
-# Ausgangslage
+## Ausgangslage
 
 <strong>Bedürfnisse</strong>
 - Suchen nach Konzerten nach Ort und Zeit

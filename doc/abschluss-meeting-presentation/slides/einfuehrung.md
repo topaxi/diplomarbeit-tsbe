@@ -8,6 +8,20 @@
 - Anforderungen
 - Wirtschaftlichkeit
 
+---
+
+## Ziele & Anforderungen
+
+- Alle Ziele bis auf Passwort-Reset
+- Alle Anforderungen bis auf Genrezuteilung
+
+---
+
+## Wirtschaftlichkeit
+
+- Zeit und Aufwand im Rahmen
+- Übrige Zeit kann für restliche Features genutzt werden
+
 ===
 
 ## Schlussbetrachtung
@@ -30,7 +44,7 @@
 
 ---
 
-## Ziele/Anfoderungen
+## Ziele/Anforderungen
 
 - Zu genau in Initialisierung
 - Konzeptphase hat Anforderungen anders gelöst
