@@ -171,12 +171,25 @@ h6,
   height: 100%;
 }
 
-.intro2 {
-  background-image: url(https://wallpapers-all.com/uploads/posts/2017-03/23_berlin.jpg);
+.intro2.slide-background {
+  background-image: url(../../pictures/berlin.jpg);
   background-size: cover;
 }
 
 section.intro2 {
+  display: none !important;
+}
+
+.htmlprototype.slide-background {
+  background-image: url(../../pictures/html-prototype.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  top: 1rem;
+  height: calc(100% - 4rem);
+}
+
+section.htmlprototype {
   display: none !important;
 }
 

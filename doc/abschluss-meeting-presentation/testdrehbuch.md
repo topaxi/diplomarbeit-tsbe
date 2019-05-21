@@ -1,7 +1,12 @@
 # Homepage
 
+- Clickdummy?
+
 - SEED
-    mix do ecto.drop, ecto.create, ecto.migrate, run apps/gigpillar/priv/repo/demo_seeds.exs
+
+```bash
+mix do ecto.drop, ecto.create, ecto.migrate, run apps/gigpillar/priv/repo/demo_seeds.exs
+```
 
 - Suche
 - Filter Datum
@@ -15,3 +20,6 @@
 
 # Tests ausführen
 
+```bash
+mix test
+```
