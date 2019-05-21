@@ -11,16 +11,24 @@
 
 ---
 
-# Datenbankschema
-
-- Einige kleinere Anpassungen
-  - Neue Felder
-  - Vergessene Felder
 
 ---
 
 # Implementation
 
+- Registrierung / Login
+- Bild Preview bei Upload
+- Autocomplete Felder
+- Google Places API
+- Suche Filter
+- GeoIP
+
+---
+
+- Datenbank
+  - Einige kleinere Anpassungen
+  - Neue Felder
+  - Vergessene Felder
 
 ---
 
@@ -36,3 +44,4 @@
 
 - Phoenix Formulare
 - Datenbank Entitätsbeziehungen
+- Datum, Manipulierung sowie Formatierung
