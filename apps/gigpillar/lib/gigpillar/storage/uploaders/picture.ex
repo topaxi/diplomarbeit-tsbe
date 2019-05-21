@@ -13,7 +13,7 @@ defmodule Gigpillar.Storage.Uploader.Picture do
   end
 
   def transform(:thumbnail, _) do
-    {:convert, "-strip -thumbnail 160x56^ -gravity center -extent 160x56"}
+    {:convert, "-strip -thumbnail 160x160^ -gravity center -extent 160x160"}
   end
 
   def filename(version, {file, scope}) do

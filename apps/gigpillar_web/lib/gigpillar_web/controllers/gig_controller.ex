@@ -75,10 +75,11 @@ defmodule GigpillarWeb.GigController do
     |> redirect(to: Routes.gig_path(conn, :index))
   end
 
-  defp cast_location(%{"location" => %{"id" => id}} = gig_params) when is_number(id),
-    do: gig_params
+  defp cast_location(%{"location" => %{"id" => id}} = gig_params) when id != "null",
+    do: gig_params |> Map.put("location", Map.take(gig_params["location"], ["id", "name"]))
 
-  defp cast_location(%{"location" => %{"google_place_id" => place_id}} = gig_params) do
+  defp cast_location(%{"location" => %{"google_place_id" => place_id}} = gig_params)
+       when place_id != "null" do
     case Gigpillar.Locations.get_location_by_google_place_id(place_id) do
       %Gigpillar.Locations.Location{} = location ->
         gig_params |> Map.put("location_id", location.id) |> Map.delete("location")
