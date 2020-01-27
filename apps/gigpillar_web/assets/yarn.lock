@@ -1183,11 +1183,12 @@ babel-loader@^8.0.6:
     mkdirp "^0.5.1"
     pify "^4.0.1"
 
-babel-plugin-template-html-minifier@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-template-html-minifier/-/babel-plugin-template-html-minifier-3.0.1.tgz#0c53d1f899370e913fc77b441d72cdd6decd7a5d"
-  integrity sha512-E8uy0PBTPqr5w1r/y3gm7HjgkXQ8Rz0zVmn+Vk9JqS06wXC0bSUVt5aLWleUXI6G29MdZyNycSOwztYYu3EGEw==
+babel-plugin-template-html-minifier@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-template-html-minifier/-/babel-plugin-template-html-minifier-4.0.0.tgz#b4220f23f9fd8db737b0d687aaee69b6582046cf"
+  integrity sha512-/BtfpN1PLwDJ0VcNrsLEkfshVFUzinJJ4r3B46Yt7mSFnZj1kvj2ROMfa3jBXSEI1Jm6vRmGPsGq9Wv19pUDjQ==
   dependencies:
+    clean-css "^4.2.1"
     html-minifier "^4.0.0"
     is-builtin-module "^3.0.0"
 
