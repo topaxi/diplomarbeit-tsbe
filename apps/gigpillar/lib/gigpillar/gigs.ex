@@ -50,9 +50,13 @@ defmodule Gigpillar.Gigs do
 
   """
   def get_gig!(id) do
-    Gig
-    |> preload([:location, :creator, [gig_artists: :artist]])
-    |> Repo.get!(id)
+    Repo.one! from g in Gig,
+      left_join: l in assoc(g, :location),
+      left_join: c in assoc(g, :creator),
+      left_join: ga in assoc(g, :gig_artists),
+      left_join: a in assoc(ga, :artist),
+      where: g.id == ^id,
+      preload: [location: l, creator: c, gig_artists: {ga, artist: a}]
   end
 
   @doc """

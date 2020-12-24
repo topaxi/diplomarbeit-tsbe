@@ -4,6 +4,7 @@ defmodule GigpillarWeb.GigController do
   alias Gigpillar.Gigs
   alias Gigpillar.Gigs.Gig
 
+  plug(:fetch_resource)
   plug(:load_and_authorize_resource,
     model: Gig,
     unauthorized_handler: {GigpillarWeb.Helpers, :handle_unauthorized},
@@ -40,35 +41,30 @@ defmodule GigpillarWeb.GigController do
   end
 
   def show(conn, %{"id" => id}) do
-    gig = Gigs.get_gig!(id)
-    render(conn, "show.html", gig: gig)
+    render(conn, "show.html", gig: conn.assigns.gig)
   end
 
   def edit(conn, %{"id" => id}) do
-    gig = Gigs.get_gig!(id)
-    changeset = Gigs.change_gig(gig)
-    render(conn, "edit.html", gig: gig, changeset: changeset)
+    changeset = Gigs.change_gig(conn.assigns.gig)
+    render(conn, "edit.html", gig: conn.assigns.gig, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "gig" => gig_params}) do
     gig_params = cast_location(gig_params)
 
-    gig = Gigs.get_gig!(id)
-
-    case Gigs.update_gig(gig, gig_params) do
+    case Gigs.update_gig(conn.assigns.gig, gig_params) do
       {:ok, gig} ->
         conn
         |> put_flash(:info, "Gig updated successfully.")
-        |> redirect(to: Routes.gig_path(conn, :show, gig))
+        |> redirect(to: Routes.gig_path(conn, :show, conn.assigns.gig))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", gig: gig, changeset: changeset)
+        render(conn, "edit.html", gig: conn.assigns.gig, changeset: changeset)
     end
   end
 
   def delete(conn, %{"id" => id}) do
-    gig = Gigs.get_gig!(id)
-    {:ok, _gig} = Gigs.delete_gig(gig)
+    {:ok, _gig} = Gigs.delete_gig(conn.assigns.gig)
 
     conn
     |> put_flash(:info, "Gig deleted successfully.")
@@ -106,4 +102,9 @@ defmodule GigpillarWeb.GigController do
       }
     end
   end
+
+  defp fetch_resource(%{params: %{"id" => id}} = conn, _opts) do
+    Plug.Conn.assign(conn, :gig, Gigs.get_gig!(id))
+  end
+  defp fetch_resource(conn, _opts), do: conn
 end
