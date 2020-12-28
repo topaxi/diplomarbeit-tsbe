@@ -41,7 +41,7 @@ defmodule Gigpillar.MixProject do
       {:jason, "~> 1.0"},
       {:argon2_elixir, "~> 2.0"},
       {:canada, "~> 1.0.2"},
-      {:tzdata, "~> 1.0.0"},
+      {:tzdata, "~> 1.1.0"},
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.1"},
       {:ex_aws, "~> 2.1"},
