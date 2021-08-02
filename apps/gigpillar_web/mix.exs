@@ -61,7 +61,7 @@ defmodule GigpillarWeb.MixProject do
        git: "https://github.com/topaxi/google-api-elixir-client", branch: "gigpillar"},
       {:timex, "~> 3.1"},
       {:geolix, "~> 0.18"},
-      {:wallaby, "~> 0.22.0", [runtime: false, only: :test]}
+      {:wallaby, "~> 0.28.1", [runtime: false, only: :test]}
     ]
   end
 
